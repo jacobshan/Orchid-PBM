@@ -1,0 +1,22 @@
+{
+  "name": "orchid-pbm",
+  "version": "1.0.0",
+  "description": "Smartcontract for the Orchid-PBM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xfers/Orchid-PBM.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Xfers/Orchid-PBM/issues"
+  },
+  "homepage": "https://github.com/Xfers/Orchid-PBM#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.7.1"
+  }
+}
