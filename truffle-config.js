@@ -18,10 +18,11 @@
  *
  */
 
-// const HDWalletProvider = require('@truffle/hdwallet-provider');
-//
-// const fs = require('fs');
-// const mnemonic = fs.readFileSync(".secret").toString().trim();
+const HD_WALLET_PROVIDER = require("@truffle/hdwallet-provider"); // These keys will be used only for CALL
+const DEPLOYER_MNEMONIC = process.env.DEPLOYER_MNEMONIC;
+const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
+const POLYGON_SCAN_API_KEY = process.env.POLYGON_SCAN_API_KEY; 
+const ETH_SCAN_API_KEY = process.env.ETH_SCAN_API_KEY; 
 
 module.exports = {
   /**
@@ -71,13 +72,35 @@ module.exports = {
     // network_id: 2111,   // This network is yours, in the cloud.
     // production: true    // Treats this network as if it was a public net. (default: false)
     // }
+    mumbai: {
+      provider: () => new HD_WALLET_PROVIDER(DEPLOYER_MNEMONIC, `https://matic-mumbai.chainstacklabs.com/`),
+      //host: 'https://rpc-mumbai.matic.today',
+      network_id: 80001,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true
+    },
+    matic: {
+      provider: () => new HD_WALLET_PROVIDER(DEPLOYER_MNEMONIC, `wss://polygon-mainnet.g.alchemy.com/v2/${ACCESS_TOKEN}`),
+      network_id: 137,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      gas: 4500000,
+      gasPrice: 35000000000,
+      skipDryRun: true
+    },
   },
 
   // Set default mocha options here, use special reporters etc.
   mocha: {
     // timeout: 100000
   },
-
+  plugins: ['truffle-plugin-verify'],
+  // api keys that can be derived from the etherscan/polygonscan website. you'll need to create an account first. 
+  api_keys: {
+    polygonscan: POLYGON_SCAN_API_KEY,
+    etherscan: ETH_SCAN_API_KEY,
+  },
   // Configure your compilers
   compilers: {
     solc: {
