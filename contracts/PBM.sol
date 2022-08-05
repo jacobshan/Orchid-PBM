@@ -6,6 +6,7 @@ import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Burnable.sol";
+import "@openzeppelin/contracts-ethereum-package/contracts/lifecycle/Pausable.sol";
 
 // connect to xsgd proxy contrat
 abstract contract externalContract {
@@ -14,7 +15,7 @@ abstract contract externalContract {
     function getEquippedSkin(uint256 dunkId) public view virtual returns(uint256);
 }
 
-contract PBM is ERC1155, Ownable, ERC1155Burnable {  
+contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {  
     using Strings for uint256;
 
     // constructor argument takes in the token URI. Id needs to be replaces according the voucher type. 
@@ -68,7 +69,7 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable {
         }
     }
 
-    function mint(address receiver) public returns (uint256) {
+    function mint(address receiver) public onlyOwner returns (uint256) {
         // To do: Implement based on documentation
     }
 
@@ -78,7 +79,7 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable {
         uint256 id,
         uint256 amount,
         bytes memory data
-    ) public virtual override {
+    ) public virtual override whenNotPaused {
         require(
             from == _msgSender() || isApprovedForAll(from, _msgSender()),
             "ERC1155: caller is not token owner nor approved"
@@ -93,7 +94,7 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable {
         uint256[] memory ids,
         uint256[] memory amounts,
         bytes memory data
-    ) public virtual override {
+    ) public virtual override whenNotPaused {
         require(
             from == _msgSender() || isApprovedForAll(from, _msgSender()),
             "ERC1155: caller is not token owner nor approved"
@@ -102,7 +103,7 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable {
         //_safeBatchTransferFrom(from, to, ids, amounts, data);
     }
     
-    function unwrapSpot(address merchantAddress, uint256 spotAmount) public {
+    function unwrapSpot (address merchantAddress, uint256 spotAmount) internal whenNotPaused {
        // To Do: Implement based on doucmentation 
        externalContract spotTokenContract = externalContract(spotContract);
     }
