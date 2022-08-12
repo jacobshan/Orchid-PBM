@@ -10,8 +10,6 @@ import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Burnable.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 import "./TokenHelper.sol"; 
 
-// explore transfer helper for managing xsgd transfers
-
 contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {  
     using Strings for uint256;
     using SafeMath for uint256 ; 
@@ -71,12 +69,13 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
         expiry = _expiry ; 
     }
 
-    // update expiry for the PBM
-    function updateExpiry(uint256 _expiry)
+    // extend expiry for the PBM
+    function extendExpiry(uint256 extendedExpiry)
     external 
     onlyOwner
-    {
-        expiry = _expiry; 
+    {   
+        require(extendedExpiry > expiry, "Expiry can only be extended. Please provide an epoch larger than the current expiry" ) ; 
+        expiry = extendedExpiry; 
     }
 
     // function to set the the whitelisted merchants.
@@ -87,10 +86,6 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
         for (uint256 i = 0; i < addresses.length; i++) {
         merchantList[addresses[i]] = true;
         }
-    }
-
-    function getTokenName(uint256 tokenId) public view returns (string memory) {
-        return tokenTypes[tokenId].name ; 
     }
 
     function createTokenType(string memory companyName, uint256 spotAmount, uint256 tokenExpiry) public onlyOwner {
@@ -111,8 +106,11 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
         tokenTypeCount = uint256(tokenTypeCount.add(1)) ;  
     }
 
+    function getTokenName(uint256 tokenId) public view returns (string memory) {
+        return tokenTypes[tokenId].name ; 
+    }
+
     function getTokenIdFromName(string memory tokenName) public view returns (uint256){
-        require(tokenNameToId[tokenName] != 0 , "Invalid token name. Token does not exist") ; 
         return tokenNameToId[tokenName] ; 
     }
 
