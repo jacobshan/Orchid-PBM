@@ -20,7 +20,7 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
     uint256 public expiry ;  
 
     uint256 private tokenTypeCount = 0 ; 
-    uint256 private tokenSpotValue = 0 ; 
+    uint256 private spotValueOfAllExistingTokens = 0 ; 
 
     string private URIPostExpiry ; 
 
@@ -132,11 +132,11 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
         // check if we have the enough spot
         uint256 contractBalance =  TokenHelper.balanceOf(spotToken, address(this));
         uint256 valueOfNewTokens = amount.mul(tokenTypes[tokenId].amount) ; 
-        require(tokenSpotValue + valueOfNewTokens <= contractBalance, "The contract does not have the necessary spot to suppor the mint of the new tokens") ; 
+        require(spotValueOfAllExistingTokens + valueOfNewTokens <= contractBalance, "The contract does not have the necessary spot to suppor the mint of the new tokens") ; 
         
         // mint the token if the contract holds enough XSGD
         _mint(receiver, tokenId, amount, '');
-        tokenSpotValue = tokenSpotValue.add(valueOfNewTokens) ; 
+        spotValueOfAllExistingTokens = spotValueOfAllExistingTokens.add(valueOfNewTokens) ; 
     }
 
     function mintBatch(uint256[] memory tokenIds, uint256[] memory amounts, address receiver) 
@@ -157,11 +157,11 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
 
         // check if we have the enough spot
         uint256 contractBalance =  TokenHelper.balanceOf(spotToken, address(this));
-        require(tokenSpotValue + valueOfNewTokens <= contractBalance, "The contract does not have the necessary spot to suppor the mint of the new tokens") ; 
+        require(spotValueOfAllExistingTokens + valueOfNewTokens <= contractBalance, "The contract does not have the necessary spot to suppor the mint of the new tokens") ; 
         
         // mint the token if the contract holds enough XSGD
         _mintBatch(receiver, tokenIds, amounts, '');
-        tokenSpotValue = tokenSpotValue.add(valueOfNewTokens) ; 
+        spotValueOfAllExistingTokens = spotValueOfAllExistingTokens.add(valueOfNewTokens) ; 
     }
 
     function safeTransferFrom( address from, address to, uint256 id, uint256 amount, bytes memory data) 
@@ -180,10 +180,11 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
         if (merchantList[to]==true){
             uint256 valueOfTokens = amount.mul(tokenTypes[id].amount) ;
             uint256 contractBalance = TokenHelper.balanceOf(spotToken, address(this));
-            require (tokenSpotValue.sub(valueOfTokens) >= contractBalance, "Error: the contract doesn't have enought spot currency, please contact the issuer") ;  
+            require (spotValueOfAllExistingTokens.sub(valueOfTokens) >= contractBalance, "Error: the contract doesn't have enought spot currency, please contact the issuer") ;  
 
             _burn(from, id, amount);
             TokenHelper.safeTransfer(spotToken, msg.sender, valueOfTokens);
+            spotValueOfAllExistingTokens = spotValueOfAllExistingTokens.sub(valueOfTokens) ; 
             emit payment(from, to, id, amount, valueOfTokens);
 
 
@@ -217,10 +218,11 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
 
             // check if we have the enough spot
             uint256 contractBalance =  TokenHelper.balanceOf(spotToken, address(this));
-            require(tokenSpotValue.sub(valueOfTokens) >= contractBalance, "Error: the contract doesn't have enought spot currency, please contact the issuer") ; 
+            require(spotValueOfAllExistingTokens.sub(valueOfTokens) >= contractBalance, "Error: the contract doesn't have enought spot currency, please contact the issuer") ; 
         
             _burnBatch(from, ids, amounts);
             TokenHelper.safeTransfer(spotToken, msg.sender, valueOfTokens);
+            spotValueOfAllExistingTokens = spotValueOfAllExistingTokens.sub(valueOfTokens); 
             emit batchPayment(from, to, ids, amounts, valueOfTokens);
 
         } else {
