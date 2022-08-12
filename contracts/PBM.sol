@@ -7,13 +7,9 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Burnable.sol";
 import "@openzeppelin/contracts-ethereum-package/contracts/lifecycle/Pausable.sol";
+import "./TransferHelper.sol"; 
 
-// connect to xsgd proxy contrat
-abstract contract externalContract {
-    function equipSkin(uint256 vialId, uint256 dunkId) public virtual;
-    function ownerOf(uint256 tokenId) public view virtual returns (address);
-    function getEquippedSkin(uint256 dunkId) public view virtual returns(uint256);
-}
+// explore transfer helper for managing xsgd transfers
 
 contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {  
     using Strings for uint256;
