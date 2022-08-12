@@ -130,7 +130,7 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
         // check if we have the enough spot
         uint256 contractBalance =  TokenHelper.balanceOf(spotToken, address(this));
         uint256 valueOfNewTokens = amount.mul(tokenTypes[tokenId].amount) ; 
-        require(spotValueOfAllExistingTokens + valueOfNewTokens <= contractBalance, "The contract does not have the necessary spot to suppor the mint of the new tokens") ; 
+        require(spotValueOfAllExistingTokens + valueOfNewTokens <= contractBalance, "The contract does not have the necessary spot to support the mint of the new tokens") ; 
         
         // mint the token if the contract holds enough XSGD
         _mint(receiver, tokenId, amount, '');
