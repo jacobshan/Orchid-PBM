@@ -93,7 +93,7 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
         require(tokenExpiry > block.timestamp , "Token expiry cannot be before the present") ; 
         require(spotAmount != 0 , "Spot amount cannot be 0") ; 
         
-        string memory tokenName = string.concat(companyName,spotAmount.toString()) ; 
+        string memory tokenName = string(abi.encodePacked(companyName,spotAmount.toString())) ; 
         tokenTypes[tokenTypeCount].name = tokenName ; 
         tokenTypes[tokenTypeCount].amount = spotAmount ; 
         tokenTypes[tokenTypeCount].expiry = tokenExpiry ; 

@@ -29,10 +29,14 @@ contract ("PBM and Spot Set up test", () =>{
 contract ("Configuration test for PBM", () =>{
     it ("Correctly adds the token type", async () => {
         const pbm = await PBM.deployed() ; 
-        await pbm.addTokenType("StraitsX", 20, 11234232321) ; 
-        var tokenName = await pbm.tokenNames.call(0) ; 
-        var tokenAmount = await pbm.tokenAmounts.call(0) ; 
-        assert(tokenAmount==20) ; 
-        assert(tokenName == "StraitsX-20$") ; 
+
+        currentDate = new Date()
+        currentEpoch = Math.floor(currentDate/1000) ; 
+        console.log("current epoch is : ", currentEpoch) ; 
+        // await pbm.addTokenType("StraitsX", 20, 11234232321) ; 
+        // var tokenName = await pbm.tokenNames.call(0) ; 
+        // var tokenAmount = await pbm.tokenAmounts.call(0) ; 
+        // assert(tokenAmount==20) ; 
+        // assert(tokenName == "StraitsX-20$") ; 
     }); 
 }) ; 
