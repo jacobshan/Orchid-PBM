@@ -139,7 +139,7 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
         // check if we have the enough spot
         uint256 contractBalance =  TokenHelper.balanceOf(spotToken, address(this));
         uint256 valueOfNewTokens = amount.mul(tokenTypes[tokenId].amount) ; 
-        require(spotValueOfAllExistingTokens + valueOfNewTokens <= contractBalance, "The contract does not have the necessary spot to support the mint of the new tokens") ; 
+        require(spotValueOfAllExistingTokens.add(valueOfNewTokens) <= contractBalance, "The contract does not have the necessary spot to support the mint of the new tokens") ; 
         
         // mint the token if the contract holds enough XSGD
         _mint(receiver, tokenId, amount, '');
@@ -158,13 +158,12 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
         for (uint256 id = 0; id < tokenIds.length; id++) {
             require(tokenTypes[id].amount != 0 , "The token id is invalid, please create a new token type or use an existing one") ;
             require(tokenTypes[id].expiry > block.timestamp, "The token has expired and cannot be used anymore");
-            valueOfNewTokens.add(amounts[id].mul(tokenTypes[id].amount)) ; 
-        }
-
+            valueOfNewTokens = valueOfNewTokens.add(amounts[id].mul(tokenTypes[id].amount)) ; 
+        } 
 
         // check if we have the enough spot
         uint256 contractBalance =  TokenHelper.balanceOf(spotToken, address(this));
-        require(spotValueOfAllExistingTokens + valueOfNewTokens <= contractBalance, "The contract does not have the necessary spot to suppor the mint of the new tokens") ; 
+        require(spotValueOfAllExistingTokens.add(valueOfNewTokens) <= contractBalance, "The contract does not have the necessary spot to suppor the mint of the new tokens") ; 
         
         // mint the token if the contract holds enough XSGD
         _mintBatch(receiver, tokenIds, amounts, '');
