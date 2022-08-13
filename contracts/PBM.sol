@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.1;
+pragma solidity ^0.8.7;
 
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -21,7 +21,6 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
     uint256 private spotValueOfAllExistingTokens = 0 ; 
 
     string private URIPostExpiry ; 
-
 
     // constructor argument takes in the token URI. Id needs to be replaces according the voucher type. 
     constructor(string memory tokenUri, string memory uriPostExpiry) ERC1155(tokenUri) {
@@ -83,12 +82,12 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
     external 
     onlyOwner
     {   
-        require(extendedExpiry > expiry, "Expiry can only be extended. Please provide an epoch larger than the current expiry" ) ; 
+        require(extendedExpiry > expiry, "New expiry must be larger than the current" ) ; 
         expiry = extendedExpiry; 
     }
 
     // function to set the the whitelisted merchants.
-    function seedMerchantlist(address[] memory addresses)
+    function seedMerchantList(address[] memory addresses)
     external
     onlyOwner
     {
@@ -98,8 +97,8 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
     }
 
     function createTokenType(string memory companyName, uint256 spotAmount, uint256 tokenExpiry) public onlyOwner {
-        require(tokenExpiry <= expiry, "Token expiry can not be larger than the contract expriy") ; 
-        require(tokenExpiry > block.timestamp , "Token expiry cannot be before the present") ; 
+        require(tokenExpiry <= expiry, "Token expiry can't exceed contract expriy") ; 
+        require(tokenExpiry > block.timestamp , "Token expiry should be in the future") ; 
         require(spotAmount != 0 , "Spot amount cannot be 0") ; 
         
         string memory tokenName = string(abi.encodePacked(companyName,spotAmount.toString())) ; 
@@ -133,13 +132,13 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
     contractNotExpired
     whenNotPaused
     {
-        require(tokenTypes[tokenId].amount != 0 , "The token id is invalid, please create a new token type or use an existing one") ;
-        require(tokenTypes[tokenId].expiry > block.timestamp, "The token has expired and cannot be used anymore"); 
+        require(tokenTypes[tokenId].amount != 0 , "Invalid token id(s)") ;
+        require(tokenTypes[tokenId].expiry > block.timestamp, "Token(s) expired"); 
 
         // check if we have the enough spot
         uint256 contractBalance =  TokenHelper.balanceOf(spotToken, address(this));
         uint256 valueOfNewTokens = amount.mul(tokenTypes[tokenId].amount) ; 
-        require(spotValueOfAllExistingTokens.add(valueOfNewTokens) <= contractBalance, "The contract does not have the necessary spot to support the mint of the new tokens") ; 
+        require(spotValueOfAllExistingTokens.add(valueOfNewTokens) <= contractBalance, "Insufficient spot tokens") ; 
         
         // mint the token if the contract holds enough XSGD
         _mint(receiver, tokenId, amount, '');
@@ -152,18 +151,18 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
     contractNotExpired
     whenNotPaused
     {   
-        require(tokenIds.length == amounts.length, "Different number of Token ids and amounts supplied"); 
+        require(tokenIds.length == amounts.length, "Unequal ids and amounts supplied"); 
 
         uint256 valueOfNewTokens = 0 ; 
-        for (uint256 id = 0; id < tokenIds.length; id++) {
-            require(tokenTypes[id].amount != 0 , "The token id is invalid, please create a new token type or use an existing one") ;
-            require(tokenTypes[id].expiry > block.timestamp, "The token has expired and cannot be used anymore");
-            valueOfNewTokens = valueOfNewTokens.add(amounts[id].mul(tokenTypes[id].amount)) ; 
+        for (uint256 i = 0; i < tokenIds.length; i++) {
+            require(tokenTypes[tokenIds[i]].amount != 0 , "Invalid token id(s)") ;
+            require(tokenTypes[tokenIds[i]].expiry > block.timestamp, "Token(s) expired");
+            valueOfNewTokens = valueOfNewTokens.add(amounts[i].mul(tokenTypes[tokenIds[i]].amount)) ; 
         } 
 
         // check if we have the enough spot
         uint256 contractBalance =  TokenHelper.balanceOf(spotToken, address(this));
-        require(spotValueOfAllExistingTokens.add(valueOfNewTokens) <= contractBalance, "The contract does not have the necessary spot to suppor the mint of the new tokens") ; 
+        require(spotValueOfAllExistingTokens.add(valueOfNewTokens) <= contractBalance, "Insufficient spot tokens") ; 
         
         // mint the token if the contract holds enough XSGD
         _mintBatch(receiver, tokenIds, amounts, '');
@@ -180,19 +179,18 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
             from == _msgSender() || isApprovedForAll(from, _msgSender()),
             "ERC1155: caller is not token owner nor approved"
         );
-        require(tokenTypes[id].amount != 0 , "The token id is invalid, please create a new token type or use an existing one") ;
-        require(tokenTypes[id].expiry > block.timestamp, "The token has expired and cannot be used anymore"); 
+        require(tokenTypes[id].amount != 0 , "Invalid token id(s)") ;
+        require(tokenTypes[id].expiry > block.timestamp, "Token(s) expired"); 
 
         if (merchantList[to]==true){
             uint256 valueOfTokens = amount.mul(tokenTypes[id].amount) ;
             uint256 contractBalance = TokenHelper.balanceOf(spotToken, address(this));
-            require (spotValueOfAllExistingTokens.sub(valueOfTokens) >= contractBalance, "Error: the contract doesn't have enought spot currency, please contact the issuer") ;  
+            require (spotValueOfAllExistingTokens.sub(valueOfTokens) < contractBalance, "Insufficient spot tokens") ;  
 
             _burn(from, id, amount);
-            TokenHelper.safeTransfer(spotToken, msg.sender, valueOfTokens);
+            TokenHelper.safeTransfer(spotToken, to, valueOfTokens);
             spotValueOfAllExistingTokens = spotValueOfAllExistingTokens.sub(valueOfTokens) ; 
             emit payment(from, to, id, amount, valueOfTokens);
-
 
         } else {
             _safeTransferFrom(from, to, id, amount, data);
@@ -211,27 +209,29 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
             from == _msgSender() || isApprovedForAll(from, _msgSender()),
             "ERC1155: caller is not token owner nor approved"
         );
+        require(ids.length == amounts.length, "Unequal ids and amounts supplied"); 
 
         if (merchantList[to]==true){
-           require(ids.length == amounts.length, "Different number of token-ids and amounts supplied"); 
-
             uint256 valueOfTokens = 0 ; 
-            for (uint256 id = 0; id < ids.length; id++) {
-                require(tokenTypes[id].amount != 0 , "The token id is invalid, please create a new token type or use an existing one") ;
-                require(tokenTypes[id].expiry > block.timestamp, "The token has expired and cannot be used anymore");
-                valueOfTokens.add(amounts[id].mul(tokenTypes[id].amount)) ; 
+            for (uint256 i = 0; i < ids.length; i++) {
+                require(tokenTypes[ids[i]].amount != 0 , "Invalid token id(s)") ;
+                require(tokenTypes[ids[i]].expiry > block.timestamp, "Token(s) expired");
+                valueOfTokens = valueOfTokens.add(amounts[i].mul(tokenTypes[ids[i]].amount)) ; 
             } 
-
             // check if we have the enough spot
             uint256 contractBalance =  TokenHelper.balanceOf(spotToken, address(this));
-            require(spotValueOfAllExistingTokens.sub(valueOfTokens) >= contractBalance, "Error: the contract doesn't have enought spot currency, please contact the issuer") ; 
+            require(spotValueOfAllExistingTokens.sub(valueOfTokens) < contractBalance, "Insufficient spot tokens") ; 
         
             _burnBatch(from, ids, amounts);
-            TokenHelper.safeTransfer(spotToken, msg.sender, valueOfTokens);
+            TokenHelper.safeTransfer(spotToken, to, valueOfTokens);
             spotValueOfAllExistingTokens = spotValueOfAllExistingTokens.sub(valueOfTokens); 
             emit batchPayment(from, to, ids, amounts, valueOfTokens);
 
         } else {
+            for (uint256 i = 0; i < ids.length; i++) {
+                require(tokenTypes[ids[i]].amount != 0 , "Invalid token id(s)") ;
+                require(tokenTypes[ids[i]].expiry > block.timestamp, "Token(s) expired");
+            } 
             _safeBatchTransferFrom(from, to, ids, amounts, data);
         }
     }
