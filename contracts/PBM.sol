@@ -42,7 +42,7 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
     // event definitions
     event payment(address from , address to, uint256 tokenId,  uint256 amount, uint256 value);
     event batchPayment(address from , address to, uint256[] tokenIds, uint256[] amounts, uint256 value); 
-    event newTokenTypeCreated(uint256 tokenId, string tokenName, uint256 amount, uint256 expiry); 
+    event newTokenTypeCreated(uint256 tokenId, string tokenName, uint256 amount, uint256 expiry, address creator); 
 
     struct TokenConfig {
         string name ; 
@@ -67,6 +67,15 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
     {
         spotToken = _spotToken ; 
         expiry = _expiry ; 
+    }
+
+    function getSpotValueOfAllExistingTokens()
+    external 
+    onlyOwner
+    view
+    returns (uint256)
+    {
+        return spotValueOfAllExistingTokens ; 
     }
 
     // extend expiry for the PBM
@@ -102,12 +111,12 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
         tokenNameToId[tokenName] = tokenTypeCount ; 
         tokenCreatorToIds[msg.sender].push(tokenTypeCount) ; 
 
-        emit newTokenTypeCreated(tokenTypeCount, tokenName, spotAmount, expiry);
+        emit newTokenTypeCreated(tokenTypeCount, tokenName, spotAmount, expiry, msg.sender);
         tokenTypeCount = uint256(tokenTypeCount.add(1)) ;  
     }
 
-    function getTokenName(uint256 tokenId) public view returns (string memory) {
-        return tokenTypes[tokenId].name ; 
+    function getTokenDetails(uint256 tokenId) public view returns (string memory, uint256, uint256, address) {
+        return (tokenTypes[tokenId].name, tokenTypes[tokenId].amount, tokenTypes[tokenId].expiry, tokenTypes[tokenId].creator) ; 
     }
 
     function getTokenIdFromName(string memory tokenName) public view returns (uint256){

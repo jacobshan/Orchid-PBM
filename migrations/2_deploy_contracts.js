@@ -3,5 +3,5 @@ const PBM = artifacts.require("PBM") ;
 
 module.exports = async function (deployer) {
     deployer.deploy(Spot) ; 
-    deployer.deploy(PBM)
+    deployer.deploy(PBM, "uri1", "uri2"); 
 }
