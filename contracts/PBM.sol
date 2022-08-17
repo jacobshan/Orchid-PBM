@@ -19,11 +19,12 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
 
     uint256 private tokenTypeCount = 0 ; 
     uint256 private spotValueOfAllExistingTokens = 0 ; 
+    bool public initilased = false ; 
 
     string private URIPostExpiry ; 
 
     // constructor argument takes in the token URI. Id needs to be replaces according the voucher type. 
-    constructor(string memory tokenUri, string memory uriPostExpiry) ERC1155(tokenUri) {
+    constructor(string memory uriPostExpiry) ERC1155("") {
         URIPostExpiry = uriPostExpiry ; 
     }
 
@@ -48,6 +49,7 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
         uint256 amount ; 
         uint256 expiry ; 
         address creator ; 
+        string uri ; 
     }
 
     // whitelisted merchants
@@ -64,8 +66,10 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
     external 
     onlyOwner
     {
+        require(!initilased, "Token has already been initialised"); 
         spotToken = _spotToken ; 
         expiry = _expiry ; 
+        initilased = true ; 
     }
 
     function getSpotValueOfAllExistingTokens()
@@ -96,7 +100,7 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
         }
     }
 
-    function createTokenType(string memory companyName, uint256 spotAmount, uint256 tokenExpiry) public onlyOwner {
+    function createTokenType(string memory companyName, uint256 spotAmount, uint256 tokenExpiry, string memory tokenURI) public onlyOwner {
         require(tokenExpiry <= expiry, "Token expiry can't exceed contract expriy") ; 
         require(tokenExpiry > block.timestamp , "Token expiry should be in the future") ; 
         require(spotAmount != 0 , "Spot amount cannot be 0") ; 
@@ -106,6 +110,7 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
         tokenTypes[tokenTypeCount].amount = spotAmount ; 
         tokenTypes[tokenTypeCount].expiry = tokenExpiry ; 
         tokenTypes[tokenTypeCount].creator = msg.sender ; 
+        tokenTypes[tokenTypeCount].uri = tokenURI ; 
 
         tokenNameToId[tokenName] = tokenTypeCount ; 
         tokenCreatorToIds[msg.sender].push(tokenTypeCount) ; 
@@ -124,6 +129,10 @@ contract PBM is ERC1155, Ownable, ERC1155Burnable, Pausable {
 
     function getTokenIdsFromCreator(address creator) public view returns(uint256[] memory){
         return tokenCreatorToIds[creator] ; 
+    }
+
+    function uri(uint256 id) public view virtual override returns (string memory) {
+        return tokenTypes[id].uri ; 
     }
 
     function mint(uint256 tokenId, uint256 amount, address receiver) 
