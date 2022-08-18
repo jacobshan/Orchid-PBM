@@ -36,7 +36,9 @@ module.exports = {
   },
   defaultNetwork: 'hardhat',
   networks: {
-    hardhat: {},
+    hardhat: {
+      deploy: ['migrations/'],
+    },
     mumbai: {
       accounts: {
         mnemonic: DEPLOYER_MNEMONIC,
@@ -46,6 +48,9 @@ module.exports = {
       confirmations: 2,
       timeoutBlocks: 200,
       skipDryRun: true,
+      saveDeployments: true,
+      deploy: ['migrations/'],
+      tags: ["testnet"],
     },
     polygon: {
       accounts: {
@@ -58,6 +63,9 @@ module.exports = {
       gas: 4500000,
       gasPrice: 35000000000,
       skipDryRun: true,
+      saveDeployments: true,
+      deploy: [ 'migrations/' ],
+      tags: ["mainnet"],
     },
   },
   etherscan: {
@@ -84,4 +92,9 @@ module.exports = {
       },
     ],
   },
+  namedAccounts: {
+    deployer: {
+      default: 0,
+    }
+  }
 };
