@@ -26,6 +26,14 @@ module.exports = {
       },
     },
   },
+  abiExporter: {
+    path: './abi',
+    runOnCompile: true,
+    clear: true,
+    flat: true,
+    only: ['PBM'],
+    spacing: 2,
+  },
   defaultNetwork: 'hardhat',
   networks: {
     hardhat: {},
