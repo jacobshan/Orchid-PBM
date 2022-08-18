@@ -4,20 +4,39 @@
   "description": "Smartcontract for the Orchid-PBM",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "REPORT_GAS=true hardhat test --logs --gascost --gas contracts/PBM.spec.js",
+    "sizereport": "hardhat size-contracts",
+    "lint": "prettier --list-different contracts migrations",
+    "pretty": "prettier --write contracts migrations"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Xfers/Orchid-PBM.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Xfers/Orchid-PBM/issues"
   },
   "homepage": "https://github.com/Xfers/Orchid-PBM#readme",
   "dependencies": {
-    "@openzeppelin/contracts": "^4.7.1",
-    "@truffle/hdwallet-provider": "^2.0.12"
+    "@openzeppelin/contracts": "^4.7.1"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.3",
+    "@nomiclabs/hardhat-ethers": "^2.1.1",
+    "@nomiclabs/hardhat-etherscan": "^3.1.0",
+    "@nomiclabs/hardhat-web3": "^2.0.0",
+    "@openzeppelin/hardhat-upgrades": "^1.20.0",
+    "chai": "^4.3.6",
+    "dotenv": "^16.0.1",
+    "hardhat": "^2.10.2",
+    "hardhat-abi-exporter": "^2.10.0",
+    "hardhat-contract-sizer": "^2.6.1",
+    "hardhat-deploy": "^0.11.12",
+    "hardhat-gas-reporter": "^1.0.8",
+    "hardhat-tracer": "*",
+    "prettier": "2.7.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.24"
   }
 }
