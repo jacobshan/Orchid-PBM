@@ -9,6 +9,7 @@ require('hardhat-deploy');
 require('hardhat-tracer');
 require('hardhat-gas-reporter');
 require('hardhat-contract-sizer');
+const { Wallet } = require('ethers');
 
 const DEPLOYER_MNEMONIC = process.env.DEPLOYER_MNEMONIC;
 const ALCHEMY_ACCESS_TOKEN = process.env.ACCESS_TOKEN;
@@ -40,9 +41,9 @@ module.exports = {
       deploy: ['migrations/'],
     },
     mumbai: {
-      accounts: {
-        mnemonic: DEPLOYER_MNEMONIC,
-      },
+      accounts: [
+        Wallet.fromMnemonic(DEPLOYER_MNEMONIC).privateKey,
+      ],
       url: `https://matic-mumbai.chainstacklabs.com/`,
       network_id: 80001,
       confirmations: 2,
@@ -53,9 +54,9 @@ module.exports = {
       tags: ["testnet"],
     },
     polygon: {
-      accounts: {
-        mnemonic: DEPLOYER_MNEMONIC,
-      },
+      accounts: [
+        Wallet.fromMnemonic(DEPLOYER_MNEMONIC).privateKey,
+      ],
       url: `wss://polygon-mainnet.g.alchemy.com/v2/${ALCHEMY_ACCESS_TOKEN}`,
       network_id: 137,
       confirmations: 2,
