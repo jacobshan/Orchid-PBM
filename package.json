@@ -7,7 +7,9 @@
     "test": "REPORT_GAS=true hardhat test --logs --gascost --gas contracts/PBM.spec.js",
     "sizereport": "hardhat size-contracts",
     "lint": "prettier --list-different contracts migrations",
-    "pretty": "prettier --write contracts migrations"
+    "pretty": "prettier --write contracts migrations",
+    "deploy:mumbai": "hardhat deploy --no-impersonation --network mumbai",
+    "deploy:polygon": "hardhat deploy --no-impersonation --network polygon"
   },
   "repository": {
     "type": "git",
