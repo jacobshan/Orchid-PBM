@@ -9116,10 +9116,16 @@
       "links": {},
       "address": "0x98aF75F27C1A9c6B2540f55C5CA6F4cEcF390d77",
       "transactionHash": "0x884fc9c940ead1b5428ebc633f5309732a6feb86bbd54579914ce07b3fa96af9"
+    },
+    "80001": {
+      "events": {},
+      "links": {},
+      "address": "0x29431A6Ec6d494f60251Ac3d0D383980d252AEed",
+      "transactionHash": "0xc75318b2c718dcdea8e4c0f296c03c78b31c294dcb930ee2b06d1aed39be2817"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-09-14T09:56:54.201Z",
+  "updatedAt": "2022-09-15T09:25:14.302Z",
   "networkType": "ethereum",
   "devdoc": {
     "details": "Implementation of the basic standard ERC-20 token. Used for testing _Available since v3.1._",

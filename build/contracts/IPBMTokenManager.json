@@ -201,13 +201,7 @@
         }
       ],
       "name": "createTokenType",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "tokenId",
-          "type": "uint256"
-        }
-      ],
+      "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     },
@@ -266,7 +260,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.7+commit.e28d00a7\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"tokenName\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"expiry\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"creator\",\"type\":\"address\"}],\"name\":\"NewPBMTypeCreated\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"tokenIds\",\"type\":\"uint256[]\"}],\"name\":\"areTokensValid\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"companyName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"spotAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"tokenExpiry\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"creator\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"tokenURI\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"contractExpiry\",\"type\":\"uint256\"}],\"name\":\"createTokenType\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"tokenIds\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"name\":\"decreaseBalanceSupply\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getTokenCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getTokenCreator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getTokenDetails\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"spotAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiry\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"creator\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getTokenValue\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"tokenIds\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"name\":\"increaseBalanceSupply\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"revokePBM\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"uri\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"events\":{\"NewPBMTypeCreated(uint256,string,uint256,uint256,address)\":{\"params\":{\"amount\":\"The amount of tokens that were transferred\",\"creator\":\"The creator of the this PBM type\",\"expiry\":\"The time (in epoch) when the PBM type will expire\",\"tokenId\":\"The account from which the tokens were sent, i.e. the balance decreased\",\"tokenName\":\"The account to which the tokens were sent, i.e. the balance increased\"}}},\"kind\":\"dev\",\"methods\":{\"areTokensValid(uint256[])\":{\"params\":{\"tokenIds\":\"The ids for the PBM in query\"},\"returns\":{\"_0\":\"Returns true if all the tokenId are valid else false\"}},\"createTokenType(string,uint256,uint256,address,string,uint256)\":{\"params\":{\"companyName\":\"The name of the company/agency issuing this PBM type\",\"contractExpiry\":\"the expiry time (in epoch) for the overall PBM contract\",\"creator\":\"The address of the account that creates the PBM type\",\"spotAmount\":\"The number of ERC-20 tokens that is used as the underlying currency for PBM\",\"tokenExpiry\":\"The expiry date (in epoch) of th PBM type\",\"tokenURI\":\"the URI containting the metadata (opensea standard for ERC1155) for the  PBM type\"},\"returns\":{\"tokenId\":\"the Token id of the the PBM type created\"}},\"decreaseBalanceSupply(uint256[],uint256[])\":{\"params\":{\"amounts\":\"The amounts by whch the supply counnt needs to be decreased\",\"tokenIds\":\"The ids for which the supply count needs to be decreased\"}},\"getTokenCount(uint256)\":{\"params\":{\"tokenId\":\"The id for the PBM in query\"},\"returns\":{\"_0\":\"Returns the count of the PBM\"}},\"getTokenCreator(uint256)\":{\"params\":{\"tokenId\":\"The id for the PBM in query\"},\"returns\":{\"_0\":\"Returns the address of the creator\"}},\"getTokenDetails(uint256)\":{\"params\":{\"tokenId\":\"The id for the PBM in query\"},\"returns\":{\"creator\":\"Creator for the PBM type\",\"expiry\":\" Expiry time (in epoch) for the PBM type\",\"name\":\"The name of the PBM type\",\"spotAmount\":\"Amount of underlying ERC20 held by the each of the PBM token\"}},\"getTokenValue(uint256)\":{\"params\":{\"tokenId\":\"The id for the PBM in query\"},\"returns\":{\"_0\":\"Returns the underlying ERC20 amount\"}},\"increaseBalanceSupply(uint256[],uint256[])\":{\"params\":{\"amounts\":\"The amounts by whch the supply counnt needs to be increased\",\"tokenIds\":\"The ids for which the supply count needs to be increased\"}},\"revokePBM(uint256,address)\":{\"params\":{\"sender\":\"updated token URI to convey revoking, if part of design\",\"tokenId\":\"The PBM tokenId which has been revoked\"}},\"uri(uint256)\":{\"params\":{\"tokenId\":\"The id for the PBM in query\"},\"returns\":{\"_0\":\"Returns the metadata URI for the PBM\"}}},\"title\":\"Minimal ERC20 interface for Uniswap\",\"version\":1},\"userdoc\":{\"events\":{\"NewPBMTypeCreated(uint256,string,uint256,uint256,address)\":{\"notice\":\"Event emitted when a new PBM token type is created\"}},\"kind\":\"user\",\"methods\":{\"areTokensValid(uint256[])\":{\"notice\":\"Checks if tokens Ids have been created and are not expired\"},\"createTokenType(string,uint256,uint256,address,string,uint256)\":{\"notice\":\"Sets the allowance of a spender from the `msg.sender` to the value `amount`\"},\"decreaseBalanceSupply(uint256[],uint256[])\":{\"notice\":\"decreases the supply count for the PBM \"},\"getTokenCount(uint256)\":{\"notice\":\"gets the count of the PBM type in supply \"},\"getTokenCreator(uint256)\":{\"notice\":\"gets the address of the creator of the PBM type \"},\"getTokenDetails(uint256)\":{\"notice\":\"Retreive the details for a PBM\"},\"getTokenValue(uint256)\":{\"notice\":\"gets the amount of underlying ERC20 tokens the PBM type holds \"},\"increaseBalanceSupply(uint256[],uint256[])\":{\"notice\":\"increases the supply count for the PBM \"},\"revokePBM(uint256,address)\":{\"notice\":\"performs all the necessary actions required after the revoking of a PBM type\"},\"uri(uint256)\":{\"notice\":\"Returns the URI (metadata) for the PBM with the corresponding tokenId\"}},\"notice\":\"Contains a subset of the full ERC20 interface that is used in Uniswap V3\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IPBMTokenManager.sol\":\"IPBMTokenManager\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IPBMTokenManager.sol\":{\"keccak256\":\"0xb713fc196a3bffccba14d66a85fc93c816eecfb26d875fc02e3650c90fa8c459\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://146e85a10e609f8a9ba70384a277ecb638a9aa457a0ba87618211bb1a18e3ad2\",\"dweb:/ipfs/QmPUZWcxwmdqr9QS3Bf6f7KUuvRA32j47zYANT3GrBwYUn\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.7+commit.e28d00a7\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"tokenName\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"expiry\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"creator\",\"type\":\"address\"}],\"name\":\"NewPBMTypeCreated\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"tokenIds\",\"type\":\"uint256[]\"}],\"name\":\"areTokensValid\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"companyName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"spotAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"tokenExpiry\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"creator\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"tokenURI\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"contractExpiry\",\"type\":\"uint256\"}],\"name\":\"createTokenType\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"tokenIds\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"name\":\"decreaseBalanceSupply\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getTokenCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getTokenCreator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getTokenDetails\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"spotAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiry\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"creator\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getTokenValue\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"tokenIds\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"name\":\"increaseBalanceSupply\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"revokePBM\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"uri\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"events\":{\"NewPBMTypeCreated(uint256,string,uint256,uint256,address)\":{\"params\":{\"amount\":\"The amount of tokens that were transferred\",\"creator\":\"The creator of the this PBM type\",\"expiry\":\"The time (in epoch) when the PBM type will expire\",\"tokenId\":\"The account from which the tokens were sent, i.e. the balance decreased\",\"tokenName\":\"The account to which the tokens were sent, i.e. the balance increased\"}}},\"kind\":\"dev\",\"methods\":{\"areTokensValid(uint256[])\":{\"params\":{\"tokenIds\":\"The ids for the PBM in query\"},\"returns\":{\"_0\":\"Returns true if all the tokenId are valid else false\"}},\"createTokenType(string,uint256,uint256,address,string,uint256)\":{\"params\":{\"companyName\":\"The name of the company/agency issuing this PBM type\",\"contractExpiry\":\"the expiry time (in epoch) for the overall PBM contract\",\"creator\":\"The address of the account that creates the PBM type\",\"spotAmount\":\"The number of ERC-20 tokens that is used as the underlying currency for PBM\",\"tokenExpiry\":\"The expiry date (in epoch) of th PBM type\",\"tokenURI\":\"the URI containting the metadata (opensea standard for ERC1155) for the  PBM type\"}},\"decreaseBalanceSupply(uint256[],uint256[])\":{\"params\":{\"amounts\":\"The amounts by whch the supply counnt needs to be decreased\",\"tokenIds\":\"The ids for which the supply count needs to be decreased\"}},\"getTokenCount(uint256)\":{\"params\":{\"tokenId\":\"The id for the PBM in query\"},\"returns\":{\"_0\":\"Returns the count of the PBM\"}},\"getTokenCreator(uint256)\":{\"params\":{\"tokenId\":\"The id for the PBM in query\"},\"returns\":{\"_0\":\"Returns the address of the creator\"}},\"getTokenDetails(uint256)\":{\"params\":{\"tokenId\":\"The id for the PBM in query\"},\"returns\":{\"creator\":\"Creator for the PBM type\",\"expiry\":\" Expiry time (in epoch) for the PBM type\",\"name\":\"The name of the PBM type\",\"spotAmount\":\"Amount of underlying ERC20 held by the each of the PBM token\"}},\"getTokenValue(uint256)\":{\"params\":{\"tokenId\":\"The id for the PBM in query\"},\"returns\":{\"_0\":\"Returns the underlying ERC20 amount\"}},\"increaseBalanceSupply(uint256[],uint256[])\":{\"params\":{\"amounts\":\"The amounts by whch the supply counnt needs to be increased\",\"tokenIds\":\"The ids for which the supply count needs to be increased\"}},\"revokePBM(uint256,address)\":{\"params\":{\"sender\":\"updated token URI to convey revoking, if part of design\",\"tokenId\":\"The PBM tokenId which has been revoked\"}},\"uri(uint256)\":{\"params\":{\"tokenId\":\"The id for the PBM in query\"},\"returns\":{\"_0\":\"Returns the metadata URI for the PBM\"}}},\"title\":\"Minimal ERC20 interface for Uniswap\",\"version\":1},\"userdoc\":{\"events\":{\"NewPBMTypeCreated(uint256,string,uint256,uint256,address)\":{\"notice\":\"Event emitted when a new PBM token type is created\"}},\"kind\":\"user\",\"methods\":{\"areTokensValid(uint256[])\":{\"notice\":\"Checks if tokens Ids have been created and are not expired\"},\"createTokenType(string,uint256,uint256,address,string,uint256)\":{\"notice\":\"Sets the allowance of a spender from the `msg.sender` to the value `amount`\"},\"decreaseBalanceSupply(uint256[],uint256[])\":{\"notice\":\"decreases the supply count for the PBM \"},\"getTokenCount(uint256)\":{\"notice\":\"gets the count of the PBM type in supply \"},\"getTokenCreator(uint256)\":{\"notice\":\"gets the address of the creator of the PBM type \"},\"getTokenDetails(uint256)\":{\"notice\":\"Retreive the details for a PBM\"},\"getTokenValue(uint256)\":{\"notice\":\"gets the amount of underlying ERC20 tokens the PBM type holds \"},\"increaseBalanceSupply(uint256[],uint256[])\":{\"notice\":\"increases the supply count for the PBM \"},\"revokePBM(uint256,address)\":{\"notice\":\"performs all the necessary actions required after the revoking of a PBM type\"},\"uri(uint256)\":{\"notice\":\"Returns the URI (metadata) for the PBM with the corresponding tokenId\"}},\"notice\":\"Contains a subset of the full ERC20 interface that is used in Uniswap V3\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IPBMTokenManager.sol\":\"IPBMTokenManager\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IPBMTokenManager.sol\":{\"keccak256\":\"0x9f191b72a81d4773b475e398c50eda3c65a0f6b13f608c570695648263e3ee3e\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://7979f7ac0df6b2f4f2a83f9c7e70a9e832440cbd5699b619791e7935fe2f43e3\",\"dweb:/ipfs/QmVMgbA41RSLU6PYnvNmg8nCe3NegLVD7PxFFP9sRXRaio\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -274,16 +268,16 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: GPL-2.0-or-later\npragma solidity ^0.8.0;\n\n/// @title Minimal ERC20 interface for Uniswap\n/// @notice Contains a subset of the full ERC20 interface that is used in Uniswap V3\ninterface IPBMTokenManager {\n    /// @notice Returns the URI (metadata) for the PBM with the corresponding tokenId\n    /// @param tokenId The id for the PBM in query\n    /// @return Returns the metadata URI for the PBM\n    function uri(uint256 tokenId) external view returns (string memory);\n\n    /// @notice Checks if tokens Ids have been created and are not expired\n    /// @param tokenIds The ids for the PBM in query\n    /// @return Returns true if all the tokenId are valid else false\n    function areTokensValid(uint256[] memory tokenIds) external view returns (bool) ; \n\n    /// @notice gets the amount of underlying ERC20 tokens the PBM type holds \n    /// @param tokenId The id for the PBM in query\n    /// @return Returns the underlying ERC20 amount\n    function getTokenValue(uint256 tokenId) external view returns (uint256); \n\n    /// @notice gets the count of the PBM type in supply \n    /// @param tokenId The id for the PBM in query\n    /// @return Returns the count of the PBM\n    function getTokenCount(uint256 tokenId) external view returns (uint256); \n\n    /// @notice gets the address of the creator of the PBM type \n    /// @param tokenId The id for the PBM in query\n    /// @return Returns the address of the creator\n    function getTokenCreator(uint256 tokenId) external view returns (address); \n    \n    /// @notice Retreive the details for a PBM\n    /// @param tokenId The id for the PBM in query\n    /// @return name The name of the PBM type\n    /// @return spotAmount Amount of underlying ERC20 held by the each of the PBM token\n    /// @return expiry  Expiry time (in epoch) for the PBM type\n    /// @return creator Creator for the PBM type\n    function getTokenDetails(uint256 tokenId) external view returns (string memory name, uint256 spotAmount, uint256 expiry, address creator);\n\n    /// @notice Sets the allowance of a spender from the `msg.sender` to the value `amount`\n    /// @param companyName The name of the company/agency issuing this PBM type\n    /// @param spotAmount The number of ERC-20 tokens that is used as the underlying currency for PBM\n    /// @param tokenExpiry The expiry date (in epoch) of th PBM type\n    /// @param creator The address of the account that creates the PBM type\n    /// @param tokenURI the URI containting the metadata (opensea standard for ERC1155) for the  PBM type\n    /// @param contractExpiry the expiry time (in epoch) for the overall PBM contract\n    /// @return tokenId the Token id of the the PBM type created\n    function createTokenType(\n        string memory companyName, \n        uint256 spotAmount, \n        uint256 tokenExpiry, \n        address creator,\n        string memory tokenURI, \n        uint256 contractExpiry\n    ) external\n    returns(uint256 tokenId);\n\n    /// @notice increases the supply count for the PBM \n    /// @param tokenIds The ids for which the supply count needs to be increased\n    /// @param amounts The amounts by whch the supply counnt needs to be increased\n    function increaseBalanceSupply(\n        uint256[] memory tokenIds, \n        uint256[] memory  amounts\n    ) external;\n\n    /// @notice decreases the supply count for the PBM \n    /// @param tokenIds The ids for which the supply count needs to be decreased\n    /// @param amounts The amounts by whch the supply counnt needs to be decreased\n    function decreaseBalanceSupply(\n        uint256[] memory tokenIds, \n        uint256[] memory  amounts\n    ) external;\n\n    /// @notice  performs all the necessary actions required after the revoking of a PBM type\n    /// @param tokenId The PBM tokenId which has been revoked\n    /// @param sender updated token URI to convey revoking, if part of design\n    function revokePBM(\n        uint256 tokenId, \n        address sender\n    ) external; \n\n    /// @notice Event emitted when a new PBM token type is created\n    /// @param tokenId The account from which the tokens were sent, i.e. the balance decreased\n    /// @param tokenName The account to which the tokens were sent, i.e. the balance increased\n    /// @param amount The amount of tokens that were transferred\n    /// @param expiry The time (in epoch) when the PBM type will expire\n    /// @param creator The creator of the this PBM type\n    event NewPBMTypeCreated(uint256 tokenId, string tokenName, uint256 amount, uint256 expiry, address creator);\n}",
+  "source": "// SPDX-License-Identifier: GPL-2.0-or-later\npragma solidity ^0.8.0;\n\n/// @title Minimal ERC20 interface for Uniswap\n/// @notice Contains a subset of the full ERC20 interface that is used in Uniswap V3\ninterface IPBMTokenManager {\n    /// @notice Returns the URI (metadata) for the PBM with the corresponding tokenId\n    /// @param tokenId The id for the PBM in query\n    /// @return Returns the metadata URI for the PBM\n    function uri(uint256 tokenId) external view returns (string memory);\n\n    /// @notice Checks if tokens Ids have been created and are not expired\n    /// @param tokenIds The ids for the PBM in query\n    /// @return Returns true if all the tokenId are valid else false\n    function areTokensValid(uint256[] memory tokenIds) external view returns (bool) ; \n\n    /// @notice gets the amount of underlying ERC20 tokens the PBM type holds \n    /// @param tokenId The id for the PBM in query\n    /// @return Returns the underlying ERC20 amount\n    function getTokenValue(uint256 tokenId) external view returns (uint256); \n\n    /// @notice gets the count of the PBM type in supply \n    /// @param tokenId The id for the PBM in query\n    /// @return Returns the count of the PBM\n    function getTokenCount(uint256 tokenId) external view returns (uint256); \n\n    /// @notice gets the address of the creator of the PBM type \n    /// @param tokenId The id for the PBM in query\n    /// @return Returns the address of the creator\n    function getTokenCreator(uint256 tokenId) external view returns (address); \n    \n    /// @notice Retreive the details for a PBM\n    /// @param tokenId The id for the PBM in query\n    /// @return name The name of the PBM type\n    /// @return spotAmount Amount of underlying ERC20 held by the each of the PBM token\n    /// @return expiry  Expiry time (in epoch) for the PBM type\n    /// @return creator Creator for the PBM type\n    function getTokenDetails(uint256 tokenId) external view returns (string memory name, uint256 spotAmount, uint256 expiry, address creator);\n\n    /// @notice Sets the allowance of a spender from the `msg.sender` to the value `amount`\n    /// @param companyName The name of the company/agency issuing this PBM type\n    /// @param spotAmount The number of ERC-20 tokens that is used as the underlying currency for PBM\n    /// @param tokenExpiry The expiry date (in epoch) of th PBM type\n    /// @param creator The address of the account that creates the PBM type\n    /// @param tokenURI the URI containting the metadata (opensea standard for ERC1155) for the  PBM type\n    /// @param contractExpiry the expiry time (in epoch) for the overall PBM contract\n    function createTokenType(\n        string memory companyName, \n        uint256 spotAmount, \n        uint256 tokenExpiry, \n        address creator,\n        string memory tokenURI, \n        uint256 contractExpiry\n    ) external ; \n\n    /// @notice increases the supply count for the PBM \n    /// @param tokenIds The ids for which the supply count needs to be increased\n    /// @param amounts The amounts by whch the supply counnt needs to be increased\n    function increaseBalanceSupply(\n        uint256[] memory tokenIds, \n        uint256[] memory  amounts\n    ) external;\n\n    /// @notice decreases the supply count for the PBM \n    /// @param tokenIds The ids for which the supply count needs to be decreased\n    /// @param amounts The amounts by whch the supply counnt needs to be decreased\n    function decreaseBalanceSupply(\n        uint256[] memory tokenIds, \n        uint256[] memory  amounts\n    ) external;\n\n    /// @notice  performs all the necessary actions required after the revoking of a PBM type\n    /// @param tokenId The PBM tokenId which has been revoked\n    /// @param sender updated token URI to convey revoking, if part of design\n    function revokePBM(\n        uint256 tokenId, \n        address sender\n    ) external; \n\n    /// @notice Event emitted when a new PBM token type is created\n    /// @param tokenId The account from which the tokens were sent, i.e. the balance decreased\n    /// @param tokenName The account to which the tokens were sent, i.e. the balance increased\n    /// @param amount The amount of tokens that were transferred\n    /// @param expiry The time (in epoch) when the PBM type will expire\n    /// @param creator The creator of the this PBM type\n    event NewPBMTypeCreated(uint256 tokenId, string tokenName, uint256 amount, uint256 expiry, address creator);\n}",
   "sourcePath": "/Users/mihir/Desktop/code/Orchid-PBM/contracts/IPBMTokenManager.sol",
   "ast": {
     "absolutePath": "project:/contracts/IPBMTokenManager.sol",
     "exportedSymbols": {
       "IPBMTokenManager": [
-        2811
+        2809
       ]
     },
-    "id": 2812,
+    "id": 2810,
     "license": "GPL-2.0-or-later",
     "nodeType": "SourceUnit",
     "nodes": [
@@ -310,9 +304,9 @@
           "text": "@title Minimal ERC20 interface for Uniswap\n @notice Contains a subset of the full ERC20 interface that is used in Uniswap V3"
         },
         "fullyImplemented": false,
-        "id": 2811,
+        "id": 2809,
         "linearizedBaseContracts": [
-          2811
+          2809
         ],
         "name": "IPBMTokenManager",
         "nameLocation": "212:16:15",
@@ -401,7 +395,7 @@
               ],
               "src": "477:15:15"
             },
-            "scope": 2811,
+            "scope": 2809,
             "src": "425:68:15",
             "stateMutability": "view",
             "virtual": false,
@@ -499,7 +493,7 @@
               ],
               "src": "769:6:15"
             },
-            "scope": 2811,
+            "scope": 2809,
             "src": "696:81:15",
             "stateMutability": "view",
             "virtual": false,
@@ -588,7 +582,7 @@
               ],
               "src": "1028:9:15"
             },
-            "scope": 2811,
+            "scope": 2809,
             "src": "966:72:15",
             "stateMutability": "view",
             "virtual": false,
@@ -677,7 +671,7 @@
               ],
               "src": "1261:9:15"
             },
-            "scope": 2811,
+            "scope": 2809,
             "src": "1199:72:15",
             "stateMutability": "view",
             "virtual": false,
@@ -767,7 +761,7 @@
               ],
               "src": "1509:9:15"
             },
-            "scope": 2811,
+            "scope": 2809,
             "src": "1445:74:15",
             "stateMutability": "view",
             "virtual": false,
@@ -938,7 +932,7 @@
               ],
               "src": "1939:73:15"
             },
-            "scope": 2811,
+            "scope": 2809,
             "src": "1875:138:15",
             "stateMutability": "view",
             "virtual": false,
@@ -948,16 +942,16 @@
             "documentation": {
               "id": 2752,
               "nodeType": "StructuredDocumentation",
-              "src": "2019:671:15",
-              "text": "@notice Sets the allowance of a spender from the `msg.sender` to the value `amount`\n @param companyName The name of the company/agency issuing this PBM type\n @param spotAmount The number of ERC-20 tokens that is used as the underlying currency for PBM\n @param tokenExpiry The expiry date (in epoch) of th PBM type\n @param creator The address of the account that creates the PBM type\n @param tokenURI the URI containting the metadata (opensea standard for ERC1155) for the  PBM type\n @param contractExpiry the expiry time (in epoch) for the overall PBM contract\n @return tokenId the Token id of the the PBM type created"
+              "src": "2019:606:15",
+              "text": "@notice Sets the allowance of a spender from the `msg.sender` to the value `amount`\n @param companyName The name of the company/agency issuing this PBM type\n @param spotAmount The number of ERC-20 tokens that is used as the underlying currency for PBM\n @param tokenExpiry The expiry date (in epoch) of th PBM type\n @param creator The address of the account that creates the PBM type\n @param tokenURI the URI containting the metadata (opensea standard for ERC1155) for the  PBM type\n @param contractExpiry the expiry time (in epoch) for the overall PBM contract"
             },
             "functionSelector": "80d69c8a",
-            "id": 2769,
+            "id": 2767,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "createTokenType",
-            "nameLocation": "2704:15:15",
+            "nameLocation": "2639:15:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 2765,
@@ -968,10 +962,10 @@
                   "id": 2754,
                   "mutability": "mutable",
                   "name": "companyName",
-                  "nameLocation": "2743:11:15",
+                  "nameLocation": "2678:11:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2769,
-                  "src": "2729:25:15",
+                  "scope": 2767,
+                  "src": "2664:25:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -982,7 +976,7 @@
                     "id": 2753,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2729:6:15",
+                    "src": "2664:6:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -995,10 +989,10 @@
                   "id": 2756,
                   "mutability": "mutable",
                   "name": "spotAmount",
-                  "nameLocation": "2773:10:15",
+                  "nameLocation": "2708:10:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2769,
-                  "src": "2765:18:15",
+                  "scope": 2767,
+                  "src": "2700:18:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1009,7 +1003,7 @@
                     "id": 2755,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2765:7:15",
+                    "src": "2700:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1022,10 +1016,10 @@
                   "id": 2758,
                   "mutability": "mutable",
                   "name": "tokenExpiry",
-                  "nameLocation": "2802:11:15",
+                  "nameLocation": "2737:11:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2769,
-                  "src": "2794:19:15",
+                  "scope": 2767,
+                  "src": "2729:19:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1036,7 +1030,7 @@
                     "id": 2757,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2794:7:15",
+                    "src": "2729:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1049,10 +1043,10 @@
                   "id": 2760,
                   "mutability": "mutable",
                   "name": "creator",
-                  "nameLocation": "2832:7:15",
+                  "nameLocation": "2767:7:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2769,
-                  "src": "2824:15:15",
+                  "scope": 2767,
+                  "src": "2759:15:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1063,7 +1057,7 @@
                     "id": 2759,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2824:7:15",
+                    "src": "2759:7:15",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1077,10 +1071,10 @@
                   "id": 2762,
                   "mutability": "mutable",
                   "name": "tokenURI",
-                  "nameLocation": "2863:8:15",
+                  "nameLocation": "2798:8:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2769,
-                  "src": "2849:22:15",
+                  "scope": 2767,
+                  "src": "2784:22:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1091,7 +1085,7 @@
                     "id": 2761,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2849:6:15",
+                    "src": "2784:6:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1104,10 +1098,10 @@
                   "id": 2764,
                   "mutability": "mutable",
                   "name": "contractExpiry",
-                  "nameLocation": "2890:14:15",
+                  "nameLocation": "2825:14:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2769,
-                  "src": "2882:22:15",
+                  "scope": 2767,
+                  "src": "2817:22:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1118,7 +1112,7 @@
                     "id": 2763,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2882:7:15",
+                    "src": "2817:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1127,76 +1121,48 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2719:191:15"
+              "src": "2654:191:15"
             },
             "returnParameters": {
-              "id": 2768,
+              "id": 2766,
               "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 2767,
-                  "mutability": "mutable",
-                  "name": "tokenId",
-                  "nameLocation": "2940:7:15",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 2769,
-                  "src": "2932:15:15",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 2766,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "2932:7:15",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "2931:17:15"
+              "parameters": [],
+              "src": "2855:0:15"
             },
-            "scope": 2811,
-            "src": "2695:254:15",
+            "scope": 2809,
+            "src": "2630:226:15",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 2770,
+              "id": 2768,
               "nodeType": "StructuredDocumentation",
-              "src": "2955:215:15",
+              "src": "2863:215:15",
               "text": "@notice increases the supply count for the PBM \n @param tokenIds The ids for which the supply count needs to be increased\n @param amounts The amounts by whch the supply counnt needs to be increased"
             },
             "functionSelector": "f600d9f4",
-            "id": 2779,
+            "id": 2777,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "increaseBalanceSupply",
-            "nameLocation": "3184:21:15",
+            "nameLocation": "3092:21:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2777,
+              "id": 2775,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2773,
+                  "id": 2771,
                   "mutability": "mutable",
                   "name": "tokenIds",
-                  "nameLocation": "3232:8:15",
+                  "nameLocation": "3140:8:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2779,
-                  "src": "3215:25:15",
+                  "scope": 2777,
+                  "src": "3123:25:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1205,18 +1171,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2771,
+                      "id": 2769,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
-                      "src": "3215:7:15",
+                      "src": "3123:7:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2772,
+                    "id": 2770,
                     "nodeType": "ArrayTypeName",
-                    "src": "3215:9:15",
+                    "src": "3123:9:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -1226,13 +1192,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2776,
+                  "id": 2774,
                   "mutability": "mutable",
                   "name": "amounts",
-                  "nameLocation": "3269:7:15",
+                  "nameLocation": "3177:7:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2779,
-                  "src": "3251:25:15",
+                  "scope": 2777,
+                  "src": "3159:25:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1241,18 +1207,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2774,
+                      "id": 2772,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
-                      "src": "3251:7:15",
+                      "src": "3159:7:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2775,
+                    "id": 2773,
                     "nodeType": "ArrayTypeName",
-                    "src": "3251:9:15",
+                    "src": "3159:9:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -1261,48 +1227,48 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3205:77:15"
+              "src": "3113:77:15"
             },
             "returnParameters": {
-              "id": 2778,
+              "id": 2776,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3291:0:15"
+              "src": "3199:0:15"
             },
-            "scope": 2811,
-            "src": "3175:117:15",
+            "scope": 2809,
+            "src": "3083:117:15",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 2780,
+              "id": 2778,
               "nodeType": "StructuredDocumentation",
-              "src": "3298:215:15",
+              "src": "3206:215:15",
               "text": "@notice decreases the supply count for the PBM \n @param tokenIds The ids for which the supply count needs to be decreased\n @param amounts The amounts by whch the supply counnt needs to be decreased"
             },
             "functionSelector": "e21c8b59",
-            "id": 2789,
+            "id": 2787,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "decreaseBalanceSupply",
-            "nameLocation": "3527:21:15",
+            "nameLocation": "3435:21:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2787,
+              "id": 2785,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2783,
+                  "id": 2781,
                   "mutability": "mutable",
                   "name": "tokenIds",
-                  "nameLocation": "3575:8:15",
+                  "nameLocation": "3483:8:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2789,
-                  "src": "3558:25:15",
+                  "scope": 2787,
+                  "src": "3466:25:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1311,18 +1277,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2781,
+                      "id": 2779,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
-                      "src": "3558:7:15",
+                      "src": "3466:7:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2782,
+                    "id": 2780,
                     "nodeType": "ArrayTypeName",
-                    "src": "3558:9:15",
+                    "src": "3466:9:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -1332,13 +1298,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2786,
+                  "id": 2784,
                   "mutability": "mutable",
                   "name": "amounts",
-                  "nameLocation": "3612:7:15",
+                  "nameLocation": "3520:7:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2789,
-                  "src": "3594:25:15",
+                  "scope": 2787,
+                  "src": "3502:25:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1347,18 +1313,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2784,
+                      "id": 2782,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
-                      "src": "3594:7:15",
+                      "src": "3502:7:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2785,
+                    "id": 2783,
                     "nodeType": "ArrayTypeName",
-                    "src": "3594:9:15",
+                    "src": "3502:9:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -1367,48 +1333,48 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3548:77:15"
+              "src": "3456:77:15"
             },
             "returnParameters": {
-              "id": 2788,
+              "id": 2786,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3634:0:15"
+              "src": "3542:0:15"
             },
-            "scope": 2811,
-            "src": "3518:117:15",
+            "scope": 2809,
+            "src": "3426:117:15",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 2790,
+              "id": 2788,
               "nodeType": "StructuredDocumentation",
-              "src": "3641:229:15",
+              "src": "3549:229:15",
               "text": "@notice  performs all the necessary actions required after the revoking of a PBM type\n @param tokenId The PBM tokenId which has been revoked\n @param sender updated token URI to convey revoking, if part of design"
             },
             "functionSelector": "36a3409c",
-            "id": 2797,
+            "id": 2795,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "revokePBM",
-            "nameLocation": "3884:9:15",
+            "nameLocation": "3792:9:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2795,
+              "id": 2793,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2792,
+                  "id": 2790,
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "3911:7:15",
+                  "nameLocation": "3819:7:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2797,
-                  "src": "3903:15:15",
+                  "scope": 2795,
+                  "src": "3811:15:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1416,10 +1382,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2791,
+                    "id": 2789,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3903:7:15",
+                    "src": "3811:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1429,13 +1395,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2794,
+                  "id": 2792,
                   "mutability": "mutable",
                   "name": "sender",
-                  "nameLocation": "3937:6:15",
+                  "nameLocation": "3845:6:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2797,
-                  "src": "3929:14:15",
+                  "scope": 2795,
+                  "src": "3837:14:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1443,10 +1409,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2793,
+                    "id": 2791,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3929:7:15",
+                    "src": "3837:7:15",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1456,16 +1422,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3893:56:15"
+              "src": "3801:56:15"
             },
             "returnParameters": {
-              "id": 2796,
+              "id": 2794,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3958:0:15"
+              "src": "3866:0:15"
             },
-            "scope": 2811,
-            "src": "3875:84:15",
+            "scope": 2809,
+            "src": "3783:84:15",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -1473,29 +1439,29 @@
           {
             "anonymous": false,
             "documentation": {
-              "id": 2798,
+              "id": 2796,
               "nodeType": "StructuredDocumentation",
-              "src": "3966:445:15",
+              "src": "3874:445:15",
               "text": "@notice Event emitted when a new PBM token type is created\n @param tokenId The account from which the tokens were sent, i.e. the balance decreased\n @param tokenName The account to which the tokens were sent, i.e. the balance increased\n @param amount The amount of tokens that were transferred\n @param expiry The time (in epoch) when the PBM type will expire\n @param creator The creator of the this PBM type"
             },
-            "id": 2810,
+            "id": 2808,
             "name": "NewPBMTypeCreated",
-            "nameLocation": "4422:17:15",
+            "nameLocation": "4330:17:15",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 2809,
+              "id": 2807,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2800,
+                  "id": 2798,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "4448:7:15",
+                  "nameLocation": "4356:7:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2810,
-                  "src": "4440:15:15",
+                  "scope": 2808,
+                  "src": "4348:15:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1503,10 +1469,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2799,
+                    "id": 2797,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4440:7:15",
+                    "src": "4348:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1516,14 +1482,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 2802,
+                  "id": 2800,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "tokenName",
-                  "nameLocation": "4464:9:15",
+                  "nameLocation": "4372:9:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2810,
-                  "src": "4457:16:15",
+                  "scope": 2808,
+                  "src": "4365:16:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1531,10 +1497,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 2801,
+                    "id": 2799,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4457:6:15",
+                    "src": "4365:6:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1544,14 +1510,42 @@
                 },
                 {
                   "constant": false,
-                  "id": 2804,
+                  "id": 2802,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "amount",
-                  "nameLocation": "4483:6:15",
+                  "nameLocation": "4391:6:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2810,
-                  "src": "4475:14:15",
+                  "scope": 2808,
+                  "src": "4383:14:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2801,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4383:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2804,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "expiry",
+                  "nameLocation": "4407:6:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2808,
+                  "src": "4399:14:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1562,7 +1556,7 @@
                     "id": 2803,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4475:7:15",
+                    "src": "4399:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1575,39 +1569,11 @@
                   "id": 2806,
                   "indexed": false,
                   "mutability": "mutable",
-                  "name": "expiry",
-                  "nameLocation": "4499:6:15",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 2810,
-                  "src": "4491:14:15",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 2805,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "4491:7:15",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 2808,
-                  "indexed": false,
-                  "mutability": "mutable",
                   "name": "creator",
-                  "nameLocation": "4515:7:15",
+                  "nameLocation": "4423:7:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2810,
-                  "src": "4507:15:15",
+                  "scope": 2808,
+                  "src": "4415:15:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1615,10 +1581,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2807,
+                    "id": 2805,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4507:7:15",
+                    "src": "4415:7:15",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1628,26 +1594,26 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4439:84:15"
+              "src": "4347:84:15"
             },
-            "src": "4416:108:15"
+            "src": "4324:108:15"
           }
         ],
-        "scope": 2812,
-        "src": "202:4324:15",
+        "scope": 2810,
+        "src": "202:4232:15",
         "usedErrors": []
       }
     ],
-    "src": "45:4481:15"
+    "src": "45:4389:15"
   },
   "legacyAST": {
     "absolutePath": "project:/contracts/IPBMTokenManager.sol",
     "exportedSymbols": {
       "IPBMTokenManager": [
-        2811
+        2809
       ]
     },
-    "id": 2812,
+    "id": 2810,
     "license": "GPL-2.0-or-later",
     "nodeType": "SourceUnit",
     "nodes": [
@@ -1674,9 +1640,9 @@
           "text": "@title Minimal ERC20 interface for Uniswap\n @notice Contains a subset of the full ERC20 interface that is used in Uniswap V3"
         },
         "fullyImplemented": false,
-        "id": 2811,
+        "id": 2809,
         "linearizedBaseContracts": [
-          2811
+          2809
         ],
         "name": "IPBMTokenManager",
         "nameLocation": "212:16:15",
@@ -1765,7 +1731,7 @@
               ],
               "src": "477:15:15"
             },
-            "scope": 2811,
+            "scope": 2809,
             "src": "425:68:15",
             "stateMutability": "view",
             "virtual": false,
@@ -1863,7 +1829,7 @@
               ],
               "src": "769:6:15"
             },
-            "scope": 2811,
+            "scope": 2809,
             "src": "696:81:15",
             "stateMutability": "view",
             "virtual": false,
@@ -1952,7 +1918,7 @@
               ],
               "src": "1028:9:15"
             },
-            "scope": 2811,
+            "scope": 2809,
             "src": "966:72:15",
             "stateMutability": "view",
             "virtual": false,
@@ -2041,7 +2007,7 @@
               ],
               "src": "1261:9:15"
             },
-            "scope": 2811,
+            "scope": 2809,
             "src": "1199:72:15",
             "stateMutability": "view",
             "virtual": false,
@@ -2131,7 +2097,7 @@
               ],
               "src": "1509:9:15"
             },
-            "scope": 2811,
+            "scope": 2809,
             "src": "1445:74:15",
             "stateMutability": "view",
             "virtual": false,
@@ -2302,7 +2268,7 @@
               ],
               "src": "1939:73:15"
             },
-            "scope": 2811,
+            "scope": 2809,
             "src": "1875:138:15",
             "stateMutability": "view",
             "virtual": false,
@@ -2312,16 +2278,16 @@
             "documentation": {
               "id": 2752,
               "nodeType": "StructuredDocumentation",
-              "src": "2019:671:15",
-              "text": "@notice Sets the allowance of a spender from the `msg.sender` to the value `amount`\n @param companyName The name of the company/agency issuing this PBM type\n @param spotAmount The number of ERC-20 tokens that is used as the underlying currency for PBM\n @param tokenExpiry The expiry date (in epoch) of th PBM type\n @param creator The address of the account that creates the PBM type\n @param tokenURI the URI containting the metadata (opensea standard for ERC1155) for the  PBM type\n @param contractExpiry the expiry time (in epoch) for the overall PBM contract\n @return tokenId the Token id of the the PBM type created"
+              "src": "2019:606:15",
+              "text": "@notice Sets the allowance of a spender from the `msg.sender` to the value `amount`\n @param companyName The name of the company/agency issuing this PBM type\n @param spotAmount The number of ERC-20 tokens that is used as the underlying currency for PBM\n @param tokenExpiry The expiry date (in epoch) of th PBM type\n @param creator The address of the account that creates the PBM type\n @param tokenURI the URI containting the metadata (opensea standard for ERC1155) for the  PBM type\n @param contractExpiry the expiry time (in epoch) for the overall PBM contract"
             },
             "functionSelector": "80d69c8a",
-            "id": 2769,
+            "id": 2767,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "createTokenType",
-            "nameLocation": "2704:15:15",
+            "nameLocation": "2639:15:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 2765,
@@ -2332,10 +2298,10 @@
                   "id": 2754,
                   "mutability": "mutable",
                   "name": "companyName",
-                  "nameLocation": "2743:11:15",
+                  "nameLocation": "2678:11:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2769,
-                  "src": "2729:25:15",
+                  "scope": 2767,
+                  "src": "2664:25:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2346,7 +2312,7 @@
                     "id": 2753,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2729:6:15",
+                    "src": "2664:6:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -2359,10 +2325,10 @@
                   "id": 2756,
                   "mutability": "mutable",
                   "name": "spotAmount",
-                  "nameLocation": "2773:10:15",
+                  "nameLocation": "2708:10:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2769,
-                  "src": "2765:18:15",
+                  "scope": 2767,
+                  "src": "2700:18:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2373,7 +2339,7 @@
                     "id": 2755,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2765:7:15",
+                    "src": "2700:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2386,10 +2352,10 @@
                   "id": 2758,
                   "mutability": "mutable",
                   "name": "tokenExpiry",
-                  "nameLocation": "2802:11:15",
+                  "nameLocation": "2737:11:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2769,
-                  "src": "2794:19:15",
+                  "scope": 2767,
+                  "src": "2729:19:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2400,7 +2366,7 @@
                     "id": 2757,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2794:7:15",
+                    "src": "2729:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2413,10 +2379,10 @@
                   "id": 2760,
                   "mutability": "mutable",
                   "name": "creator",
-                  "nameLocation": "2832:7:15",
+                  "nameLocation": "2767:7:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2769,
-                  "src": "2824:15:15",
+                  "scope": 2767,
+                  "src": "2759:15:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2427,7 +2393,7 @@
                     "id": 2759,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2824:7:15",
+                    "src": "2759:7:15",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2441,10 +2407,10 @@
                   "id": 2762,
                   "mutability": "mutable",
                   "name": "tokenURI",
-                  "nameLocation": "2863:8:15",
+                  "nameLocation": "2798:8:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2769,
-                  "src": "2849:22:15",
+                  "scope": 2767,
+                  "src": "2784:22:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2455,7 +2421,7 @@
                     "id": 2761,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2849:6:15",
+                    "src": "2784:6:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -2468,10 +2434,10 @@
                   "id": 2764,
                   "mutability": "mutable",
                   "name": "contractExpiry",
-                  "nameLocation": "2890:14:15",
+                  "nameLocation": "2825:14:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2769,
-                  "src": "2882:22:15",
+                  "scope": 2767,
+                  "src": "2817:22:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2482,7 +2448,7 @@
                     "id": 2763,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2882:7:15",
+                    "src": "2817:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2491,76 +2457,48 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2719:191:15"
+              "src": "2654:191:15"
             },
             "returnParameters": {
-              "id": 2768,
+              "id": 2766,
               "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 2767,
-                  "mutability": "mutable",
-                  "name": "tokenId",
-                  "nameLocation": "2940:7:15",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 2769,
-                  "src": "2932:15:15",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 2766,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "2932:7:15",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "2931:17:15"
+              "parameters": [],
+              "src": "2855:0:15"
             },
-            "scope": 2811,
-            "src": "2695:254:15",
+            "scope": 2809,
+            "src": "2630:226:15",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 2770,
+              "id": 2768,
               "nodeType": "StructuredDocumentation",
-              "src": "2955:215:15",
+              "src": "2863:215:15",
               "text": "@notice increases the supply count for the PBM \n @param tokenIds The ids for which the supply count needs to be increased\n @param amounts The amounts by whch the supply counnt needs to be increased"
             },
             "functionSelector": "f600d9f4",
-            "id": 2779,
+            "id": 2777,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "increaseBalanceSupply",
-            "nameLocation": "3184:21:15",
+            "nameLocation": "3092:21:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2777,
+              "id": 2775,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2773,
+                  "id": 2771,
                   "mutability": "mutable",
                   "name": "tokenIds",
-                  "nameLocation": "3232:8:15",
+                  "nameLocation": "3140:8:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2779,
-                  "src": "3215:25:15",
+                  "scope": 2777,
+                  "src": "3123:25:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2569,18 +2507,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2771,
+                      "id": 2769,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
-                      "src": "3215:7:15",
+                      "src": "3123:7:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2772,
+                    "id": 2770,
                     "nodeType": "ArrayTypeName",
-                    "src": "3215:9:15",
+                    "src": "3123:9:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -2590,13 +2528,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2776,
+                  "id": 2774,
                   "mutability": "mutable",
                   "name": "amounts",
-                  "nameLocation": "3269:7:15",
+                  "nameLocation": "3177:7:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2779,
-                  "src": "3251:25:15",
+                  "scope": 2777,
+                  "src": "3159:25:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2605,18 +2543,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2774,
+                      "id": 2772,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
-                      "src": "3251:7:15",
+                      "src": "3159:7:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2775,
+                    "id": 2773,
                     "nodeType": "ArrayTypeName",
-                    "src": "3251:9:15",
+                    "src": "3159:9:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -2625,48 +2563,48 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3205:77:15"
+              "src": "3113:77:15"
             },
             "returnParameters": {
-              "id": 2778,
+              "id": 2776,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3291:0:15"
+              "src": "3199:0:15"
             },
-            "scope": 2811,
-            "src": "3175:117:15",
+            "scope": 2809,
+            "src": "3083:117:15",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 2780,
+              "id": 2778,
               "nodeType": "StructuredDocumentation",
-              "src": "3298:215:15",
+              "src": "3206:215:15",
               "text": "@notice decreases the supply count for the PBM \n @param tokenIds The ids for which the supply count needs to be decreased\n @param amounts The amounts by whch the supply counnt needs to be decreased"
             },
             "functionSelector": "e21c8b59",
-            "id": 2789,
+            "id": 2787,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "decreaseBalanceSupply",
-            "nameLocation": "3527:21:15",
+            "nameLocation": "3435:21:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2787,
+              "id": 2785,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2783,
+                  "id": 2781,
                   "mutability": "mutable",
                   "name": "tokenIds",
-                  "nameLocation": "3575:8:15",
+                  "nameLocation": "3483:8:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2789,
-                  "src": "3558:25:15",
+                  "scope": 2787,
+                  "src": "3466:25:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2675,18 +2613,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2781,
+                      "id": 2779,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
-                      "src": "3558:7:15",
+                      "src": "3466:7:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2782,
+                    "id": 2780,
                     "nodeType": "ArrayTypeName",
-                    "src": "3558:9:15",
+                    "src": "3466:9:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -2696,13 +2634,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2786,
+                  "id": 2784,
                   "mutability": "mutable",
                   "name": "amounts",
-                  "nameLocation": "3612:7:15",
+                  "nameLocation": "3520:7:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2789,
-                  "src": "3594:25:15",
+                  "scope": 2787,
+                  "src": "3502:25:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2711,18 +2649,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2784,
+                      "id": 2782,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
-                      "src": "3594:7:15",
+                      "src": "3502:7:15",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2785,
+                    "id": 2783,
                     "nodeType": "ArrayTypeName",
-                    "src": "3594:9:15",
+                    "src": "3502:9:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -2731,48 +2669,48 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3548:77:15"
+              "src": "3456:77:15"
             },
             "returnParameters": {
-              "id": 2788,
+              "id": 2786,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3634:0:15"
+              "src": "3542:0:15"
             },
-            "scope": 2811,
-            "src": "3518:117:15",
+            "scope": 2809,
+            "src": "3426:117:15",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 2790,
+              "id": 2788,
               "nodeType": "StructuredDocumentation",
-              "src": "3641:229:15",
+              "src": "3549:229:15",
               "text": "@notice  performs all the necessary actions required after the revoking of a PBM type\n @param tokenId The PBM tokenId which has been revoked\n @param sender updated token URI to convey revoking, if part of design"
             },
             "functionSelector": "36a3409c",
-            "id": 2797,
+            "id": 2795,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "revokePBM",
-            "nameLocation": "3884:9:15",
+            "nameLocation": "3792:9:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2795,
+              "id": 2793,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2792,
+                  "id": 2790,
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "3911:7:15",
+                  "nameLocation": "3819:7:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2797,
-                  "src": "3903:15:15",
+                  "scope": 2795,
+                  "src": "3811:15:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2780,10 +2718,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2791,
+                    "id": 2789,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3903:7:15",
+                    "src": "3811:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2793,13 +2731,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2794,
+                  "id": 2792,
                   "mutability": "mutable",
                   "name": "sender",
-                  "nameLocation": "3937:6:15",
+                  "nameLocation": "3845:6:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2797,
-                  "src": "3929:14:15",
+                  "scope": 2795,
+                  "src": "3837:14:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2807,10 +2745,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2793,
+                    "id": 2791,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3929:7:15",
+                    "src": "3837:7:15",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2820,16 +2758,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3893:56:15"
+              "src": "3801:56:15"
             },
             "returnParameters": {
-              "id": 2796,
+              "id": 2794,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3958:0:15"
+              "src": "3866:0:15"
             },
-            "scope": 2811,
-            "src": "3875:84:15",
+            "scope": 2809,
+            "src": "3783:84:15",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -2837,29 +2775,29 @@
           {
             "anonymous": false,
             "documentation": {
-              "id": 2798,
+              "id": 2796,
               "nodeType": "StructuredDocumentation",
-              "src": "3966:445:15",
+              "src": "3874:445:15",
               "text": "@notice Event emitted when a new PBM token type is created\n @param tokenId The account from which the tokens were sent, i.e. the balance decreased\n @param tokenName The account to which the tokens were sent, i.e. the balance increased\n @param amount The amount of tokens that were transferred\n @param expiry The time (in epoch) when the PBM type will expire\n @param creator The creator of the this PBM type"
             },
-            "id": 2810,
+            "id": 2808,
             "name": "NewPBMTypeCreated",
-            "nameLocation": "4422:17:15",
+            "nameLocation": "4330:17:15",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 2809,
+              "id": 2807,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2800,
+                  "id": 2798,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "4448:7:15",
+                  "nameLocation": "4356:7:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2810,
-                  "src": "4440:15:15",
+                  "scope": 2808,
+                  "src": "4348:15:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2867,10 +2805,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2799,
+                    "id": 2797,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4440:7:15",
+                    "src": "4348:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2880,14 +2818,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 2802,
+                  "id": 2800,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "tokenName",
-                  "nameLocation": "4464:9:15",
+                  "nameLocation": "4372:9:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2810,
-                  "src": "4457:16:15",
+                  "scope": 2808,
+                  "src": "4365:16:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2895,10 +2833,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 2801,
+                    "id": 2799,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4457:6:15",
+                    "src": "4365:6:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -2908,14 +2846,42 @@
                 },
                 {
                   "constant": false,
-                  "id": 2804,
+                  "id": 2802,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "amount",
-                  "nameLocation": "4483:6:15",
+                  "nameLocation": "4391:6:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2810,
-                  "src": "4475:14:15",
+                  "scope": 2808,
+                  "src": "4383:14:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2801,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4383:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2804,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "expiry",
+                  "nameLocation": "4407:6:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2808,
+                  "src": "4399:14:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2926,7 +2892,7 @@
                     "id": 2803,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4475:7:15",
+                    "src": "4399:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2939,39 +2905,11 @@
                   "id": 2806,
                   "indexed": false,
                   "mutability": "mutable",
-                  "name": "expiry",
-                  "nameLocation": "4499:6:15",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 2810,
-                  "src": "4491:14:15",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 2805,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "4491:7:15",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 2808,
-                  "indexed": false,
-                  "mutability": "mutable",
                   "name": "creator",
-                  "nameLocation": "4515:7:15",
+                  "nameLocation": "4423:7:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2810,
-                  "src": "4507:15:15",
+                  "scope": 2808,
+                  "src": "4415:15:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2979,10 +2917,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2807,
+                    "id": 2805,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4507:7:15",
+                    "src": "4415:7:15",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2992,17 +2930,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4439:84:15"
+              "src": "4347:84:15"
             },
-            "src": "4416:108:15"
+            "src": "4324:108:15"
           }
         ],
-        "scope": 2812,
-        "src": "202:4324:15",
+        "scope": 2810,
+        "src": "202:4232:15",
         "usedErrors": []
       }
     ],
-    "src": "45:4481:15"
+    "src": "45:4389:15"
   },
   "compiler": {
     "name": "solc",
@@ -3010,7 +2948,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-09-15T03:25:53.765Z",
+  "updatedAt": "2022-09-15T09:21:07.379Z",
   "devdoc": {
     "events": {
       "NewPBMTypeCreated(uint256,string,uint256,uint256,address)": {
@@ -3041,9 +2979,6 @@
           "spotAmount": "The number of ERC-20 tokens that is used as the underlying currency for PBM",
           "tokenExpiry": "The expiry date (in epoch) of th PBM type",
           "tokenURI": "the URI containting the metadata (opensea standard for ERC1155) for the  PBM type"
-        },
-        "returns": {
-          "tokenId": "the Token id of the the PBM type created"
         }
       },
       "decreaseBalanceSupply(uint256[],uint256[])": {
