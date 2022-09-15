@@ -18,6 +18,8 @@
   "homepage": "https://github.com/Xfers/Orchid-PBM#readme",
   "dependencies": {
     "@openzeppelin/contracts": "^4.7.1",
-    "@truffle/hdwallet-provider": "^2.0.12"
+    "@truffle/hdwallet-provider": "^2.0.12",
+    "truffle-contract-size": "^2.0.1",
+    "truffle-plugin-verify": "^0.5.28"
   }
 }
