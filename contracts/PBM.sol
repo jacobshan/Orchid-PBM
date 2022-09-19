@@ -124,7 +124,6 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     override
     whenNotPaused
     {
-        require(PBMTokenManager(pbmTokenManager).areTokensValid(serialise(tokenId)), "PBM: Invalid token id provided");
         uint256 valueOfNewTokens = amount*(PBMTokenManager(pbmTokenManager).getTokenValue(tokenId)); 
 
         //Transfer the spot token from the user to the contract to wrap it
@@ -160,7 +159,6 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
 
         // calculate the value of the new tokens
         uint256 valueOfNewTokens = 0 ; 
-        require(PBMTokenManager(pbmTokenManager).areTokensValid(tokenIds), "PBM: Invalid token id(s) provided");
 
         for (uint256 i = 0; i < tokenIds.length; i++) {
             valueOfNewTokens += (amounts[i]*(PBMTokenManager(pbmTokenManager).getTokenValue(tokenIds[i])));  
@@ -194,8 +192,6 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
             from == _msgSender() || isApprovedForAll(from, _msgSender()),
             "ERC1155: caller is not token owner nor approved"
         );
-
-        require(PBMTokenManager(pbmTokenManager).areTokensValid(serialise(id)), "PBM: Invalid token id provided");
 
         if (merchantList[to]){
             uint256 valueOfTokens = amount*(PBMTokenManager(pbmTokenManager).getTokenValue(id)); 
@@ -235,7 +231,6 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
             "ERC1155: caller is not token owner nor approved"
         );
         require(ids.length == amounts.length, "Unequal ids and amounts supplied"); 
-        require(PBMTokenManager(pbmTokenManager).areTokensValid(ids), "PBM: Invalid token id(s) provided");
 
         if (merchantList[to]){
             uint256 valueOfTokens = 0 ; 
