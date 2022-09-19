@@ -43,7 +43,7 @@ contract PBM is ERC1155, Ownable, Pausable {
     whenContractNotExpired
     whenNotPaused
     {   
-        require(extendedExpiry > contractExpiry, "PBM : new expiry earlier than current" ) ; 
+        require(extendedExpiry > contractExpiry, "PBM : invalid expiry" ) ; 
         contractExpiry = extendedExpiry; 
     }
 
