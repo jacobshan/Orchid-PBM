@@ -3,16 +3,12 @@ pragma solidity ^0.8.7;
 
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/Strings.sol";
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 
 import "./ERC20Helper.sol";  
 import "./PBMTokenManager.sol"; 
 
 contract PBM is ERC1155, Ownable, Pausable {  
-    using Strings for uint256;
-    using SafeMath for uint256 ; 
 
     address public spotToken ; 
     uint256 public contractExpiry ; 
@@ -31,26 +27,22 @@ contract PBM is ERC1155, Ownable, Pausable {
 
         pbmTokenManager = address(new PBMTokenManager(_uriPostExpiry)) ; 
     }
-
-    modifier whenContractNotExpired() {
-        require(block.timestamp < contractExpiry, "PBM: contract is expired");
-        _;
-    }
     
     function extendPBMExpiry(uint256 extendedExpiry)
     external 
     onlyOwner
-    whenContractNotExpired
     whenNotPaused
     {   
+        require(block.timestamp < contractExpiry, "PBM: contract is expired");
         require(extendedExpiry > contractExpiry, "PBM : invalid expiry" ) ; 
         contractExpiry = extendedExpiry; 
     }
 
     function addMerchantAddresses(address[] memory addresses) 
     external
-    whenContractNotExpired
-    onlyOwner {
+    onlyOwner
+    {
+        require(block.timestamp < contractExpiry, "PBM: contract is expired");
         for (uint256 i = 0; i < addresses.length; i++) {
             merchantList[addresses[i]] = true;
         }
@@ -58,9 +50,9 @@ contract PBM is ERC1155, Ownable, Pausable {
 
     function removeMerchantAddresses(address[] memory addresses) 
     external 
-    whenContractNotExpired
     onlyOwner
     {
+        require(block.timestamp < contractExpiry, "PBM: contract is expired");
         for (uint256 i = 0; i < addresses.length; i++) {
             merchantList[addresses[i]] = false;
         } 
@@ -69,19 +61,16 @@ contract PBM is ERC1155, Ownable, Pausable {
     function createPBMTokenType(string memory companyName, uint256 spotAmount, uint256 tokenExpiry,address creator, string memory tokenURI) 
     external 
     onlyOwner 
-    whenContractNotExpired
-    whenNotPaused
     {        
         PBMTokenManager(pbmTokenManager).createTokenType(companyName, spotAmount, tokenExpiry, creator,  tokenURI, contractExpiry);
     }
 
     function mint(uint256 tokenId, uint256 amount, address receiver) 
     external  
-    whenContractNotExpired
     whenNotPaused
     {
         require(PBMTokenManager(pbmTokenManager).areTokensValid(serialise(tokenId)), "PBM: Invalid token id provided");
-        uint256 valueOfNewTokens = amount.mul(PBMTokenManager(pbmTokenManager).getTokenValue(tokenId)); 
+        uint256 valueOfNewTokens = amount*(PBMTokenManager(pbmTokenManager).getTokenValue(tokenId)); 
 
         //Transfer the spot token from the user to the contract to wrap it
         ERC20Helper.safeTransferFrom(spotToken, msg.sender, address(this), valueOfNewTokens);
@@ -93,7 +82,6 @@ contract PBM is ERC1155, Ownable, Pausable {
 
     function batchMint(uint256[] memory tokenIds, uint256[] memory amounts, address receiver) 
     external 
-    whenContractNotExpired
     whenNotPaused
     {   
         require(tokenIds.length == amounts.length, "Unequal ids and amounts supplied"); 
@@ -103,7 +91,7 @@ contract PBM is ERC1155, Ownable, Pausable {
         require(PBMTokenManager(pbmTokenManager).areTokensValid(tokenIds), "PBM: Invalid token id(s) provided");
 
         for (uint256 i = 0; i < tokenIds.length; i++) {
-            valueOfNewTokens = valueOfNewTokens.add(amounts[i].mul(PBMTokenManager(pbmTokenManager).getTokenValue(tokenIds[i])));  
+            valueOfNewTokens += (amounts[i]*(PBMTokenManager(pbmTokenManager).getTokenValue(tokenIds[i])));  
         } 
 
         // Transfer spot tokenf from user to contract to wrap it
@@ -115,7 +103,6 @@ contract PBM is ERC1155, Ownable, Pausable {
     function safeTransferFrom( address from, address to, uint256 id, uint256 amount, bytes memory data) 
     public   
     override
-    whenContractNotExpired
     whenNotPaused  
     {
         require(
@@ -126,7 +113,7 @@ contract PBM is ERC1155, Ownable, Pausable {
         require(PBMTokenManager(pbmTokenManager).areTokensValid(serialise(id)), "PBM: Invalid token id provided");
 
         if (merchantList[to]){
-            uint256 valueOfTokens = amount.mul(PBMTokenManager(pbmTokenManager).getTokenValue(id)); 
+            uint256 valueOfTokens = amount*(PBMTokenManager(pbmTokenManager).getTokenValue(id)); 
 
             // burn and transfer underlying ERC-20
             _burn(from, id, amount);
@@ -143,7 +130,6 @@ contract PBM is ERC1155, Ownable, Pausable {
     function safeBatchTransferFrom(address from,address to,uint256[] memory ids,uint256[] memory amounts, bytes memory data) 
     public  
     override
-    whenContractNotExpired
     whenNotPaused 
     {
         require(
@@ -156,7 +142,7 @@ contract PBM is ERC1155, Ownable, Pausable {
         if (merchantList[to]){
             uint256 valueOfTokens = 0 ; 
             for (uint256 i = 0; i < ids.length; i++) {
-                valueOfTokens = valueOfTokens.add(amounts[i].mul(PBMTokenManager(pbmTokenManager).getTokenValue(ids[i]))) ; 
+                valueOfTokens += (amounts[i]*(PBMTokenManager(pbmTokenManager).getTokenValue(ids[i]))) ; 
             } 
 
             _burnBatch(from, ids, amounts);
@@ -175,7 +161,7 @@ contract PBM is ERC1155, Ownable, Pausable {
     whenNotPaused 
     {
         uint256 PBMTokenBalanceSupply = PBMTokenManager(pbmTokenManager).getTokenCount(tokenId); 
-        uint256 valueOfTokens = PBMTokenBalanceSupply.mul(PBMTokenManager(pbmTokenManager).getTokenValue(tokenId)); 
+        uint256 valueOfTokens = PBMTokenBalanceSupply*(PBMTokenManager(pbmTokenManager).getTokenValue(tokenId)); 
 
         PBMTokenManager(pbmTokenManager).revokePBM(tokenId, msg.sender); 
 
