@@ -1,5 +1,5 @@
 # Orchid-PBM
-Smartcontract for the Orchid-PBM. PBM or Purpose Bound Money is designed to be wrapper around erc-20 tokens, allow us to program business logic governing the usage of the the underlying ERC-20 tokens. 
+Smartcontract for the Orchid-PBM. PBM or Purpose Bound Money is designed to be wrapper around ERC-20 tokens, allow us to program business logic governing the usage of the the underlying ERC-20 tokens. 
 
 The PBM contract is an ERC-1155 semi-fungible contract. 
 
@@ -9,8 +9,8 @@ Ensure that you are using node 14.x, and using nvm is highly recommended.
 install nvm:
 `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash`
 
-install node 10.x (in this example, node 10.24.1):
-`nvm install 10.24.1`
+install node 14.x (in this example, node 14.18.1):
+`nvm install 14.18.1`
 ## Installation
 install truffle:
 `npm install -g truffle`
