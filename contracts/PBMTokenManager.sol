@@ -10,8 +10,10 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
     using Strings for uint256;
 
+    // counter used to create new token types
     uint256 private tokenTypeCount = 0 ; 
 
+    // structure representinga all the details of a PBM type
     struct TokenConfig {
         string name ; 
         uint256 amount ; 
@@ -30,7 +32,17 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
     constructor(string memory _uriPostExpiry){
         URIPostExpiry = _uriPostExpiry ; 
     }
-        
+
+    /**
+     * @dev See {IPBMTokenManager-createPBMTokenType}.
+     *
+     * Requirements:
+     *
+     * - caller must be owner ( PBM contract )
+     * - contract must not be expired
+     * - token expiry must be less than contract expiry
+     * - `amount` should not be 0
+     */ 
     function createTokenType(string memory companyName, uint256 spotAmount, uint256 tokenExpiry, address creator, string memory tokenURI, uint256 contractExpiry) 
     external 
     override 
@@ -53,6 +65,16 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
         tokenTypeCount += 1 ;
     }
 
+    /**
+     * @dev See {IPBMTokenManager-revokePBM}.
+     *
+     * Requirements:
+     *
+     * - caller must be owner ( PBM contract )
+     * - token must be expired
+     * - `tokenId` should be a valid id that has already been created
+     * - `sender` must be the token type creator
+     */ 
     function revokePBM(uint256 tokenId, address sender)
     external
     override
@@ -63,28 +85,50 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
         tokenTypes[tokenId].balanceSupply = 0 ; 
     }
 
+    /**
+     * @dev See {IPBMTokenManager-increaseBalanceSupply}.
+     *
+     * Requirements:
+     *
+     * - caller must be owner ( PBM contract )
+     * - `tokenId` should be a valid id that has already been created
+     * - `sender` must be the token type creator
+     */ 
     function increaseBalanceSupply(uint256[] memory tokenIds, uint256[] memory amounts)
     external
     override
     onlyOwner
     {  
         for (uint256 i = 0; i < tokenIds.length; i++) {
-            require(tokenTypes[tokenIds[i]].amount!=0, "PBM: Invalid Token Id(s)"); 
+            require(tokenTypes[tokenIds[i]].amount!=0 && block.timestamp < tokenTypes[tokenIds[i]].expiry, "PBM: Invalid Token Id(s)"); 
             tokenTypes[tokenIds[i]].balanceSupply += amounts[i] ;
         }
     }
 
+    /**
+     * @dev See {IPBMTokenManager-decreaseBalanceSupply}.
+     *
+     * Requirements:
+     *
+     * - caller must be owner ( PBM contract )
+     * - `tokenId` should be a valid id that has already been created
+     * - `sender` must be the token type creator
+     */ 
     function decreaseBalanceSupply(uint256[] memory tokenIds, uint256[] memory amounts)
     external 
     override
     onlyOwner
     {   
         for (uint256 i = 0; i < tokenIds.length; i++) {
-            require(tokenTypes[tokenIds[i]].amount!=0, "PBM: Invalid Token Id(s)"); 
+            require(tokenTypes[tokenIds[i]].amount!=0 && block.timestamp < tokenTypes[tokenIds[i]].expiry, "PBM: Invalid Token Id(s)"); 
             tokenTypes[tokenIds[i]].balanceSupply -= amounts[i] ;
         }
     }
 
+    /**
+     * @dev See {IPBMTokenManager-uri}.
+     *
+     */ 
     function uri(uint256 tokenId)
     external
     override
@@ -97,6 +141,10 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
         return tokenTypes[tokenId].uri ; 
     }
 
+    /**
+     * @dev See {IPBMTokenManager-areTokensValid}.
+     *
+     */ 
     function areTokensValid(uint256[] memory tokenIds) 
     external 
     override
@@ -110,6 +158,13 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
         return true ; 
     }   
 
+    /**
+     * @dev See {IPBMTokenManager-getTokenDetails}.
+     *
+     * Requirements:
+     *
+     * - `tokenId` should be a valid id that has already been created
+     */ 
     function getTokenDetails(uint256 tokenId) 
     external 
     override
@@ -120,30 +175,68 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
         return (tokenTypes[tokenId].name, tokenTypes[tokenId].amount, tokenTypes[tokenId].expiry, tokenTypes[tokenId].creator) ; 
     }
 
+    /**
+     * @dev See {IPBMTokenManager-getPBMRevokeValue}.
+     *
+     * Requirements:
+     *
+     * - `tokenId` should be a valid id that has already been created
+     */ 
+    function getPBMRevokeValue(uint256 tokenId)
+    external 
+    override 
+    view 
+    returns (uint256)
+    {
+        require(tokenTypes[tokenId].amount!=0, "PBM: Invalid Token Id(s)"); 
+        return tokenTypes[tokenId].amount*tokenTypes[tokenId].balanceSupply; 
+    }
+
+    /**
+     * @dev See {IPBMTokenManager-getTokenValue}.
+     *
+     * Requirements:
+     *
+     * - `tokenId` should be a valid id that has already been created
+     */ 
     function getTokenValue(uint256 tokenId)
     external 
     override
     view 
     returns (uint256) {
-        require(tokenTypes[tokenId].amount!=0, "PBM: Invalid Token Id(s)"); 
+        require(tokenTypes[tokenId].amount!=0 && block.timestamp < tokenTypes[tokenId].expiry, "PBM: Invalid Token Id(s)"); 
         return tokenTypes[tokenId].amount ; 
     }
 
+    /**
+     * @dev See {IPBMTokenManager-getTokenCount}.
+     *
+     * Requirements:
+     *
+     * - `tokenId` should be a valid id that has already been created
+     */ 
     function getTokenCount(uint256 tokenId)
     external 
     override
     view 
     returns (uint256) {
-        require(tokenTypes[tokenId].amount!=0, "PBM: Invalid Token Id(s)"); 
+        require(tokenTypes[tokenId].amount!=0 && block.timestamp < tokenTypes[tokenId].expiry, "PBM: Invalid Token Id(s)"); 
         return tokenTypes[tokenId].balanceSupply ; 
     }
 
+    /**
+     * @dev See {IPBMTokenManager-getTokenCreator}.
+     *
+     * Requirements:
+     *
+     * - `tokenId` should be a valid id that has already been created
+     */ 
     function getTokenCreator(uint256 tokenId)
     external 
     override
     view 
     returns (address) {
-        require(tokenTypes[tokenId].amount!=0, "PBM: Invalid Token Id(s)"); 
+        require(tokenTypes[tokenId].amount!=0 && block.timestamp < tokenTypes[tokenId].expiry, "PBM: Invalid Token Id(s)"); 
         return tokenTypes[tokenId].creator ; 
     }
 }

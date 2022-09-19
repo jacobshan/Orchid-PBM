@@ -94,6 +94,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
      *
      * - caller must be owner 
      * - contract must not be expired
+     * - `tokenExpiry` must be less than contract expiry
      * - `amount` should not be 0
      */
     function createPBMTokenType(string memory companyName, uint256 spotAmount, uint256 tokenExpiry,address creator, string memory tokenURI) 
@@ -263,8 +264,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     override
     whenNotPaused 
     {
-        uint256 PBMTokenBalanceSupply = PBMTokenManager(pbmTokenManager).getTokenCount(tokenId); 
-        uint256 valueOfTokens = PBMTokenBalanceSupply*(PBMTokenManager(pbmTokenManager).getTokenValue(tokenId)); 
+        uint256 valueOfTokens = PBMTokenManager(pbmTokenManager).getPBMRevokeValue(tokenId);
 
         PBMTokenManager(pbmTokenManager).revokePBM(tokenId, msg.sender); 
 
