@@ -116,7 +116,7 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
     view 
     returns (string memory, uint256, uint256, address) 
     {
-        require(tokenTypes[tokenId].amount!=0, "PBM: Invalid Token Id"); 
+        require(tokenTypes[tokenId].amount!=0, "PBM: Invalid Token Id(s)"); 
         return (tokenTypes[tokenId].name, tokenTypes[tokenId].amount, tokenTypes[tokenId].expiry, tokenTypes[tokenId].creator) ; 
     }
 
@@ -125,7 +125,7 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
     override
     view 
     returns (uint256) {
-        require(tokenTypes[tokenId].amount!=0, "PBM: Invalid Token Id"); 
+        require(tokenTypes[tokenId].amount!=0, "PBM: Invalid Token Id(s)"); 
         return tokenTypes[tokenId].amount ; 
     }
 
@@ -134,7 +134,7 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
     override
     view 
     returns (uint256) {
-        require(tokenTypes[tokenId].amount!=0, "PBM: Invalid Token Id"); 
+        require(tokenTypes[tokenId].amount!=0, "PBM: Invalid Token Id(s)"); 
         return tokenTypes[tokenId].balanceSupply ; 
     }
 
@@ -143,7 +143,7 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
     override
     view 
     returns (address) {
-        require(tokenTypes[tokenId].amount!=0, "PBM: Invalid Token Id"); 
+        require(tokenTypes[tokenId].amount!=0, "PBM: Invalid Token Id(s)"); 
         return tokenTypes[tokenId].creator ; 
     }
 }

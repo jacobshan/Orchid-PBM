@@ -36,7 +36,7 @@ contract ("Minting test for PBM", (accounts) =>{
         try {
             response = await pbm.mint(0, 1, accounts[0] ) ; 
         }catch (e){
-            assert(e.reason=="PBM: Invalid token id provided") ; 
+            assert(e.reason=="PBM: Invalid Token Id(s)") ; 
             return ; 
         }
         assert(false) ; 
@@ -117,7 +117,7 @@ contract("Batch Mint of NFTs", (accounts)=>{
         try {
             response = await pbm.batchMint([0,1], [1,1], accounts[0]) ; 
         }catch (e){
-            assert(e["reason"]=="PBM: Invalid token id(s) provided") ; 
+            assert(e["reason"]=="PBM: Invalid Token Id(s)") ; 
             return ; 
         }
         assert(false) ; 
@@ -134,7 +134,7 @@ contract("Batch Mint of NFTs", (accounts)=>{
         try {
             response = await pbm.batchMint([0,1], [1,1], accounts[2], {from: accounts[1]} ) ; 
         }catch (e){
-            assert(e["reason"]=="PBM: Invalid token id(s) provided") ; 
+            assert(e["reason"]=="PBM: Invalid Token Id(s)") ; 
             return ; 
         }
         assert(false) ;  
