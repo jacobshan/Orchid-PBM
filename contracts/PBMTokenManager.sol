@@ -58,6 +58,7 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
     override
     onlyOwner
     {
+        
         require (sender == tokenTypes[tokenId].creator && block.timestamp >= tokenTypes[tokenId].expiry, "PBM not revokable") ;
         tokenTypes[tokenId].balanceSupply = 0 ; 
     }

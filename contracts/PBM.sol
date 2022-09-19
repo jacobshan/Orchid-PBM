@@ -28,17 +28,35 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
         pbmTokenManager = address(new PBMTokenManager(_uriPostExpiry)) ; 
     }
     
-    function updatePBMExpiry(uint256 extendedExpiry)
+    /**
+     * @dev See {IPBM-udpatePBMExpiry}.
+     *
+     * Requirements:
+     *
+     * - caller must be owner 
+     * - contract must not be paused
+     * - contract must not be expired
+     * - `newExpiry` must be larger the existing expiry
+     */
+    function updatePBMExpiry(uint256 newExpiry)
     external
     override 
     onlyOwner
     whenNotPaused
     {   
         require(block.timestamp < contractExpiry, "PBM: contract is expired");
-        require(extendedExpiry > contractExpiry, "PBM : invalid expiry" ) ; 
-        contractExpiry = extendedExpiry; 
+        require(newExpiry > contractExpiry, "PBM : invalid expiry" ) ; 
+        contractExpiry = newExpiry; 
     }
 
+    /**
+     * @dev See {IPBM-addMerchantAddresses}.
+     *
+     * Requirements:
+     *
+     * - caller must be owner 
+     * - contract must not be expired
+     */
     function addMerchantAddresses(address[] memory addresses) 
     external
     override
@@ -50,6 +68,14 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
         }
     }  
 
+    /**
+     * @dev See {IPBM-removeMerchantAddresses}.
+     *
+     * Requirements:
+     *
+     * - caller must be owner 
+     * - contract must not be expired
+     */
     function removeMerchantAddresses(address[] memory addresses) 
     external 
     override
@@ -61,6 +87,14 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
         } 
     }
 
+    /**
+     * @dev See {IPBM-createPBMTokenType}.
+     *
+     * Requirements:
+     *
+     * - caller must be owner 
+     * - contract must not be expired
+     */
     function createPBMTokenType(string memory companyName, uint256 spotAmount, uint256 tokenExpiry,address creator, string memory tokenURI) 
     external 
     override
@@ -69,6 +103,21 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
         PBMTokenManager(pbmTokenManager).createTokenType(companyName, spotAmount, tokenExpiry, creator,  tokenURI, contractExpiry);
     }
 
+    /**
+     * @dev See {IPBM-mint}.
+     *     
+     * IMPT: Before minting, the caller should approve the contract address to spend ERC-20 tokens on behalf of the caller.
+     *       This can be done by calling the `approve` or `increaseMinterAllowance` functions of the ERC-20 contract and specifying `_spender` to be the PBM contract address. 
+             Ref : https://eips.ethereum.org/EIPS/eip-20
+     *
+     * Requirements:
+     *
+     * - contract must not be paused
+     * - tokens must not be expired
+     * - `tokenId` should be a valid id that has already been created
+     * - caller should have the necessary amount of the ERC-20 tokens required to mint
+     * - caller should have approved the PBM contract to spend the ERC-20 tokens
+     */
     function mint(uint256 tokenId, uint256 amount, address receiver) 
     external  
     override
@@ -85,6 +134,22 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
         _mint(receiver, tokenId, amount, ''); 
     }
 
+    /**
+     * @dev See {IPBM-batchMint}.
+     *     
+     * IMPT: Before minting, the caller should approve the contract address to spend ERC-20 tokens on behalf of the caller.
+     *       This can be done by calling the `approve` or `increaseMinterAllowance` functions of the ERC-20 contract and specifying `_spender` to be the PBM contract address. 
+             Ref : https://eips.ethereum.org/EIPS/eip-20
+     *
+     * Requirements:
+     *
+     * - contract must not be paused
+     * - tokens must not be expired
+     * - `tokenIds` should all be valid ids that have already been created
+     * - `tokenIds` and `amounts` list need to have the same number of values
+     * - caller should have the necessary amount of the ERC-20 tokens required to mint
+     * - caller should have approved the PBM contract to spend the ERC-20 tokens
+     */
     function batchMint(uint256[] memory tokenIds, uint256[] memory amounts, address receiver) 
     external 
     override
@@ -106,6 +171,19 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
         _mintBatch(receiver, tokenIds, amounts, '');
     }
 
+
+    /**
+     * @dev See {IPBM-safeTransferFrom}.
+     *     
+     *
+     * Requirements:
+     *
+     * - contract must not be paused
+     * - tokens must not be expired
+     * - `tokenId` should be a valid ids that has already been created
+     * - caller should have the PBMs that are being transferred (or)
+     *          caller should have the approval to spend the PBMs on behalf of the owner (`from` addresss)
+     */
     function safeTransferFrom( address from, address to, uint256 id, uint256 amount, bytes memory data) 
     public   
     override(ERC1155, IPBM)
@@ -132,7 +210,20 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
         }
  
     }
-    
+
+    /**
+     * @dev See {IPBM-safeBatchTransferFrom}.
+     *     
+     *
+     * Requirements:
+     *
+     * - contract must not be paused
+     * - tokens must not be expired
+     * - `tokenIds` should all be  valid ids that has already been created
+     * - `tokenIds` and `amounts` list need to have the same number of values
+     * - caller should have the PBMs that are being transferred (or)
+     *          caller should have the approval to spend the PBMs on behalf of the owner (`from` addresss)
+     */ 
     function safeBatchTransferFrom(address from,address to,uint256[] memory ids,uint256[] memory amounts, bytes memory data) 
     public  
     override(ERC1155, IPBM)
@@ -162,6 +253,15 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
         }
     }
     
+    /**
+     * @dev See {IPBM-revokePBM}.
+     *
+     * Requirements:
+     *
+     * - `tokenId` should be a valid ids that has already been created
+     * - caller must be the creator of the tokenType 
+     * - token must be expired
+     */ 
     function revokePBM(uint256 tokenId) 
     external 
     override
@@ -178,7 +278,10 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
         emit PBMrevokeWithdraw(msg.sender, tokenId, spotToken, valueOfTokens);
 
     }
-
+    /**
+     * @dev See {IPBM-getTokenDetails}.
+     *
+     */ 
     function getTokenDetails(uint256 tokenId) 
     external 
     view 
@@ -188,6 +291,10 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
         return PBMTokenManager(pbmTokenManager).getTokenDetails(tokenId); 
     }
 
+    /**
+     * @dev See {IPBM-uri}.
+     *
+     */ 
     function uri(uint256 tokenId)
     public  
     view

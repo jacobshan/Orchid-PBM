@@ -6,8 +6,8 @@ pragma solidity ^0.8.0;
 interface IPBM {
 
     /// @notice Extends the contarct level expiry for the PBM
-    /// @param extendedExpiry The new expiry date ( in epoch ) for the PBM
-    function updatePBMExpiry(uint256 extendedExpiry) external; 
+    /// @param newExpiry The new expiry date ( in epoch ) for the PBM
+    function updatePBMExpiry(uint256 newExpiry) external; 
 
     /// @notice Adds wallet addresses of merchants who are the only wallets able to receive the underlying ERC-20 tokens (whitelisting).
     /// @param addresses The list of merchant wallet address
