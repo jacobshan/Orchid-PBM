@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 pragma solidity ^0.8.0;
 
-/// @title Minimal ERC20 interface for Uniswap
-/// @notice Contains a subset of the full ERC20 interface that is used in Uniswap V3
+/// @title PBMTokenManager Interface. 
+/// @notice The PBMTokenManager is the stores details of the different data types. 
 interface IPBMTokenManager {
     /// @notice Returns the URI (metadata) for the PBM with the corresponding tokenId
     /// @param tokenId The id for the PBM in query

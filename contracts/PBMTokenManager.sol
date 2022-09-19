@@ -24,7 +24,7 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
     // URI for tokens after expiry
     string  internal  URIPostExpiry ; 
 
-    // tokenId mappings
+    // mapping of token ids to token details
     mapping (uint256 => TokenConfig) internal tokenTypes ; 
 
     constructor(string memory _uriPostExpiry){

@@ -1,0 +1,3890 @@
+{
+  "contractName": "IPBM",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "tokenIds",
+          "type": "uint256[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "amounts",
+          "type": "uint256[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "ERC20Token",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "ERC20TokenValue",
+          "type": "uint256"
+        }
+      ],
+      "name": "MerchantPayment",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "beneficiary",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "PBMTokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "ERC20Token",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "ERC20TokenValue",
+          "type": "uint256"
+        }
+      ],
+      "name": "PBMrevokeWithdraw",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "extendedExpiry",
+          "type": "uint256"
+        }
+      ],
+      "name": "updatePBMExpiry",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "addresses",
+          "type": "address[]"
+        }
+      ],
+      "name": "addMerchantAddresses",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "addresses",
+          "type": "address[]"
+        }
+      ],
+      "name": "removeMerchantAddresses",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "companyName",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "spotAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenExpiry",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "creator",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "tokenURI",
+          "type": "string"
+        }
+      ],
+      "name": "createPBMTokenType",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "receiver",
+          "type": "address"
+        }
+      ],
+      "name": "mint",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "tokenIds",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "amounts",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "address",
+          "name": "receiver",
+          "type": "address"
+        }
+      ],
+      "name": "batchMint",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "safeTransferFrom",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "ids",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "amounts",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "safeBatchTransferFrom",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "revokePBM",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getTokenDetails",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "uri",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.7+commit.e28d00a7\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256[]\",\"name\":\"tokenIds\",\"type\":\"uint256[]\"},{\"indexed\":false,\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"ERC20Token\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"ERC20TokenValue\",\"type\":\"uint256\"}],\"name\":\"MerchantPayment\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"PBMTokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"ERC20Token\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"ERC20TokenValue\",\"type\":\"uint256\"}],\"name\":\"PBMrevokeWithdraw\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"addresses\",\"type\":\"address[]\"}],\"name\":\"addMerchantAddresses\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"tokenIds\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"}],\"name\":\"batchMint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"companyName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"spotAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"tokenExpiry\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"creator\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"tokenURI\",\"type\":\"string\"}],\"name\":\"createPBMTokenType\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getTokenDetails\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"}],\"name\":\"mint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"addresses\",\"type\":\"address[]\"}],\"name\":\"removeMerchantAddresses\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"revokePBM\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256[]\",\"name\":\"ids\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"safeBatchTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"extendedExpiry\",\"type\":\"uint256\"}],\"name\":\"updatePBMExpiry\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"uri\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"events\":{\"MerchantPayment(address,address,uint256[],uint256[],address,uint256)\":{\"params\":{\"ERC20Token\":\"The address of the underlying ERC-20 token \",\"ERC20TokenValue\":\"The number of underlying ERC-20 tokens transferred\",\"amounts\":\"The number of ( quantity ) the different PBM types that are to be created\",\"from\":\"The account from which the PBM ( NFT )(s) is moving from \",\"to\":\"The account which is receiving the PBM ( NFT )(s)\",\"tokenIds\":\"The identifiers of the different PBM token type\"}},\"PBMrevokeWithdraw(address,uint256,address,uint256)\":{\"params\":{\"ERC20Token\":\"The address of the underlying ERC-20 token \",\"ERC20TokenValue\":\"The number of underlying ERC-20 tokens transferred \",\"PBMTokenId\":\"The identifiers of the different PBM token type\",\"beneficiary\":\"the address ( PBM type creator ) which receives the ERC20 Token\"}}},\"kind\":\"dev\",\"methods\":{\"addMerchantAddresses(address[])\":{\"params\":{\"addresses\":\"The list of merchant wallet address\"}},\"batchMint(uint256[],uint256[],address)\":{\"params\":{\"amounts\":\"The number of the PBMs that are to be created for each tokenId\",\"receiver\":\"The wallet address to which the created PBMs need to be transferred to\",\"tokenIds\":\"The identifiers of the PBM token type\"}},\"getTokenDetails(uint256)\":{\"params\":{\"tokenId\":\"The identifier of the PBM token type\"},\"returns\":{\"_0\":\"name The name assigned to the token type \",\"_1\":\"amount Amount of the underlying ERC-20 tokens the PBM type wraps around\",\"_2\":\"expiry The expiry date (in epoch) for this particular PBM token type. \",\"_3\":\"creator The creator of the PBM token type\"}},\"mint(uint256,uint256,address)\":{\"params\":{\"amount\":\"The number of the PBMs that are to be created\",\"receiver\":\"The wallet address to which the created PBMs need to be transferred to\",\"tokenId\":\"The identifier of the PBM token type\"}},\"removeMerchantAddresses(address[])\":{\"params\":{\"addresses\":\"The list of merchant wallet address\"}},\"revokePBM(uint256)\":{\"params\":{\"tokenId\":\"The identifier of the PBM token type\"}},\"safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)\":{\"params\":{\"amounts\":\"The number of ( quantity ) the different PBM types that are to be created\",\"data\":\"To record any data associated with the transaction, can be left blank if none. \",\"from\":\"The account from which the PBM ( NFT )(s) is moving from \",\"ids\":\"The identifiers of the different PBM token type\",\"to\":\"The account which is receiving the PBM ( NFT )(s)\"}},\"safeTransferFrom(address,address,uint256,uint256,bytes)\":{\"params\":{\"amount\":\"The number of (quantity) the PBM type that are to be transferred of the PBM type\",\"data\":\"To record any data associated with the transaction, can be left blank if none\",\"from\":\"The account from which the PBM ( NFT ) is moving from \",\"id\":\"The identifier of the PBM token type\",\"to\":\"The account which is receiving the PBM ( NFT )\"}},\"updatePBMExpiry(uint256)\":{\"params\":{\"extendedExpiry\":\"The new expiry date ( in epoch ) for the PBM\"}},\"uri(uint256)\":{\"params\":{\"tokenId\":\"The identifier of the PBM token type\"},\"returns\":{\"_0\":\"uri The URI link , which will povide a response that follows the Opensea metadata standard\"}}},\"title\":\"PBM interface \",\"version\":1},\"userdoc\":{\"events\":{\"MerchantPayment(address,address,uint256[],uint256[],address,uint256)\":{\"notice\":\"Emitted when underlying ERC-20 tokens are transferred to a whitelisted merchant ( payment )\"},\"PBMrevokeWithdraw(address,uint256,address,uint256)\":{\"notice\":\"Emitted when a PBM type creator withdraws the underlying ERC-20 tokens from all the remaining expired PBMs\"}},\"kind\":\"user\",\"methods\":{\"addMerchantAddresses(address[])\":{\"notice\":\"Adds wallet addresses of merchants who are the only wallets able to receive the underlying ERC-20 tokens (whitelisting).\"},\"batchMint(uint256[],uint256[],address)\":{\"notice\":\"Creates new PBM copies ( ERC2255 NFT ) of multiple existing PBM token types after ensuring they are backed by the necessary value of the underlying ERC-20 tokens \"},\"createPBMTokenType(string,uint256,uint256,address,string)\":{\"notice\":\"example response of token URI, ref : https://docs.opensea.io/docs/metadata-standards {     \\\"name\\\": \\\"StraitsX-12\\\",     \\\"description\\\": \\\"12$ SGD test voucher\\\",     \\\"image\\\": \\\"https://gateway.pinata.cloud/ipfs/QmQ1x7NHakFYin9bHwN7zy4NdSYS84w6C33hzxpZwCAFPu\\\",     \\\"attributes\\\": [         {         \\\"trait_type\\\": \\\"Value\\\",          \\\"value\\\": \\\"12\\\"         }     ] }\"},\"getTokenDetails(uint256)\":{\"notice\":\"Get the details of the PBM Token type\"},\"mint(uint256,uint256,address)\":{\"notice\":\"Creates new PBM copies ( ERC2255 NFT ) of an existing PBM token type after ensuring it is backed by the necessary value of the underlying ERC-20 tokens \"},\"removeMerchantAddresses(address[])\":{\"notice\":\"Removes wallet addresses from the merchant addresses who are  able to receive the underlying ERC-20 tokens (un-whitelisting).\"},\"revokePBM(uint256)\":{\"notice\":\"Allows the creator of the PBM type to retrive all the locked up ERC-20 once they have expired for that particular token type\"},\"safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)\":{\"notice\":\"Transfers the PBM(NFT)(s) from one wallet to another.  If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT)(s) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead.\"},\"safeTransferFrom(address,address,uint256,uint256,bytes)\":{\"notice\":\"Transfers the PBM(NFT) from one wallet to another.  If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead.\"},\"updatePBMExpiry(uint256)\":{\"notice\":\"Extends the contarct level expiry for the PBM\"},\"uri(uint256)\":{\"notice\":\"Get the URI of the tokenid \"}},\"notice\":\"The PBM (purpose bound money) allows us to add logical requirements on the use of ERC-20 tokens. The PBM acts as wrapper around the ERC-20 tokens and implements the necessary logic. \",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IPBM.sol\":\"IPBM\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IPBM.sol\":{\"keccak256\":\"0xbc4a22f3e4a442c78258062898fb73f87b7ce18f2d9527190f5d3d0b1a9fb99b\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://28129dc10dce1aa835be1033929f96ff7f23664428cfe97129bcb8540b36f3a1\",\"dweb:/ipfs/QmWPo9PG3NeMEv6j7a4WLsmEKNfsgtZqVbHsfyjAVGZS2K\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: GPL-2.0-or-later\npragma solidity ^0.8.0;\n\n/// @title PBM interface \n/// @notice The PBM (purpose bound money) allows us to add logical requirements on the use of ERC-20 tokens. The PBM acts as wrapper around the ERC-20 tokens and implements the necessary logic. \ninterface IPBM {\n\n    /// @notice Extends the contarct level expiry for the PBM\n    /// @param extendedExpiry The new expiry date ( in epoch ) for the PBM\n    function updatePBMExpiry(uint256 extendedExpiry) external; \n\n    /// @notice Adds wallet addresses of merchants who are the only wallets able to receive the underlying ERC-20 tokens (whitelisting).\n    /// @param addresses The list of merchant wallet address\n    function addMerchantAddresses(address[] memory addresses) external; \n\n    /// @notice Removes wallet addresses from the merchant addresses who are  able to receive the underlying ERC-20 tokens (un-whitelisting).\n    /// @param addresses The list of merchant wallet address\n    function removeMerchantAddresses(address[] memory addresses) external; \n\n    /// @notice Creates a new PBM token type with the data provided\n    /// @param companyName Name of the company issuing the PBM\n    /// @param spotAmount Amount of the underlying ERC-20 tokens the PBM type wraps around\n    /// @param tokenExpiry The expiry date (in epoch) for this particular PBM token type \n    /// @param tokenURI the URI (returns json) of PBM type that will follows the Opensea NFT metadata standard\n    /**\n    * example response of token URI, ref : https://docs.opensea.io/docs/metadata-standards\n    * {\n    *     \"name\": \"StraitsX-12\",\n    *     \"description\": \"12$ SGD test voucher\",\n    *     \"image\": \"https://gateway.pinata.cloud/ipfs/QmQ1x7NHakFYin9bHwN7zy4NdSYS84w6C33hzxpZwCAFPu\",\n    *     \"attributes\": [\n    *         {\n    *         \"trait_type\": \"Value\", \n    *         \"value\": \"12\"\n    *         }\n    *     ]\n    * }\n     */\n    function createPBMTokenType(string memory companyName, uint256 spotAmount, uint256 tokenExpiry,address creator, string memory tokenURI) external;  \n\n    /// @notice Creates new PBM copies ( ERC2255 NFT ) of an existing PBM token type after ensuring it is backed by the necessary value of the underlying ERC-20 tokens \n    /// @param tokenId The identifier of the PBM token type\n    /// @param amount The number of the PBMs that are to be created\n    /// @param receiver The wallet address to which the created PBMs need to be transferred to\n    function mint(uint256 tokenId, uint256 amount, address receiver) external; \n\n    /// @notice Creates new PBM copies ( ERC2255 NFT ) of multiple existing PBM token types after ensuring they are backed by the necessary value of the underlying ERC-20 tokens \n    /// @param tokenIds The identifiers of the PBM token type\n    /// @param amounts The number of the PBMs that are to be created for each tokenId\n    /// @param receiver The wallet address to which the created PBMs need to be transferred to\n    function batchMint(uint256[] memory tokenIds, uint256[] memory amounts, address receiver) external; \n\n    /// @notice Transfers the PBM(NFT) from one wallet to another. \n    /// If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead.\n    /// @param from The account from which the PBM ( NFT ) is moving from \n    /// @param to The account which is receiving the PBM ( NFT )\n    /// @param id The identifier of the PBM token type\n    /// @param amount The number of (quantity) the PBM type that are to be transferred of the PBM type\n    /// @param data To record any data associated with the transaction, can be left blank if none\n    function safeTransferFrom( address from, address to, uint256 id, uint256 amount, bytes memory data) external; \n\n    /// @notice Transfers the PBM(NFT)(s) from one wallet to another. \n    /// If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT)(s) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead.\n    /// @param from The account from which the PBM ( NFT )(s) is moving from \n    /// @param to The account which is receiving the PBM ( NFT )(s)\n    /// @param ids The identifiers of the different PBM token type\n    /// @param amounts The number of ( quantity ) the different PBM types that are to be created\n    /// @param data To record any data associated with the transaction, can be left blank if none. \n    function safeBatchTransferFrom(address from,address to,uint256[] memory ids,uint256[] memory amounts, bytes memory data) external; \n\n    /// @notice Allows the creator of the PBM type to retrive all the locked up ERC-20 once they have expired for that particular token type\n    /// @param tokenId The identifier of the PBM token type\n    function revokePBM(uint256 tokenId) external;\n\n    /// @notice Get the details of the PBM Token type\n    /// @param tokenId The identifier of the PBM token type\n    /// @return name The name assigned to the token type \n    /// @return amount Amount of the underlying ERC-20 tokens the PBM type wraps around\n    /// @return expiry The expiry date (in epoch) for this particular PBM token type. \n    /// @return creator The creator of the PBM token type\n    function getTokenDetails(uint256 tokenId) external view returns(string memory, uint256, uint256, address); \n\n    /// @notice Get the URI of the tokenid \n    /// @param tokenId The identifier of the PBM token type\n    /// @return uri The URI link , which will povide a response that follows the Opensea metadata standard\n    function uri(uint256 tokenId) external view returns(string memory);  \n\n    /// @notice Emitted when underlying ERC-20 tokens are transferred to a whitelisted merchant ( payment )\n    /// @param from The account from which the PBM ( NFT )(s) is moving from \n    /// @param to The account which is receiving the PBM ( NFT )(s)\n    /// @param tokenIds The identifiers of the different PBM token type\n    /// @param amounts The number of ( quantity ) the different PBM types that are to be created\n    /// @param ERC20Token The address of the underlying ERC-20 token \n    /// @param ERC20TokenValue The number of underlying ERC-20 tokens transferred\n    event MerchantPayment(address from , address to, uint256[] tokenIds, uint256[] amounts,address ERC20Token, uint256 ERC20TokenValue); \n\n    /// @notice Emitted when a PBM type creator withdraws the underlying ERC-20 tokens from all the remaining expired PBMs\n    /// @param beneficiary the address ( PBM type creator ) which receives the ERC20 Token\n    /// @param PBMTokenId The identifiers of the different PBM token type\n    /// @param ERC20Token The address of the underlying ERC-20 token \n    /// @param ERC20TokenValue The number of underlying ERC-20 tokens transferred \n    event PBMrevokeWithdraw(address beneficiary, uint256 PBMTokenId, address ERC20Token, uint256 ERC20TokenValue);\n}",
+  "sourcePath": "/Users/mihir/Desktop/code/Orchid-PBM/contracts/IPBM.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/IPBM.sol",
+    "exportedSymbols": {
+      "IPBM": [
+        2527
+      ]
+    },
+    "id": 2528,
+    "license": "GPL-2.0-or-later",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2383,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "45:23:14"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 2384,
+          "nodeType": "StructuredDocumentation",
+          "src": "70:221:14",
+          "text": "@title PBM interface \n @notice The PBM (purpose bound money) allows us to add logical requirements on the use of ERC-20 tokens. The PBM acts as wrapper around the ERC-20 tokens and implements the necessary logic. "
+        },
+        "fullyImplemented": false,
+        "id": 2527,
+        "linearizedBaseContracts": [
+          2527
+        ],
+        "name": "IPBM",
+        "nameLocation": "301:4:14",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 2385,
+              "nodeType": "StructuredDocumentation",
+              "src": "313:132:14",
+              "text": "@notice Extends the contarct level expiry for the PBM\n @param extendedExpiry The new expiry date ( in epoch ) for the PBM"
+            },
+            "functionSelector": "517c01aa",
+            "id": 2390,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "updatePBMExpiry",
+            "nameLocation": "459:15:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2388,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2387,
+                  "mutability": "mutable",
+                  "name": "extendedExpiry",
+                  "nameLocation": "483:14:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2390,
+                  "src": "475:22:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2386,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "475:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "474:24:14"
+            },
+            "returnParameters": {
+              "id": 2389,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "507:0:14"
+            },
+            "scope": 2527,
+            "src": "450:58:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2391,
+              "nodeType": "StructuredDocumentation",
+              "src": "515:193:14",
+              "text": "@notice Adds wallet addresses of merchants who are the only wallets able to receive the underlying ERC-20 tokens (whitelisting).\n @param addresses The list of merchant wallet address"
+            },
+            "functionSelector": "e10adc16",
+            "id": 2397,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addMerchantAddresses",
+            "nameLocation": "722:20:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2395,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2394,
+                  "mutability": "mutable",
+                  "name": "addresses",
+                  "nameLocation": "760:9:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2397,
+                  "src": "743:26:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2392,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "743:7:14",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 2393,
+                    "nodeType": "ArrayTypeName",
+                    "src": "743:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "742:28:14"
+            },
+            "returnParameters": {
+              "id": 2396,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "779:0:14"
+            },
+            "scope": 2527,
+            "src": "713:67:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2398,
+              "nodeType": "StructuredDocumentation",
+              "src": "787:198:14",
+              "text": "@notice Removes wallet addresses from the merchant addresses who are  able to receive the underlying ERC-20 tokens (un-whitelisting).\n @param addresses The list of merchant wallet address"
+            },
+            "functionSelector": "30a5d1c0",
+            "id": 2404,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "removeMerchantAddresses",
+            "nameLocation": "999:23:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2402,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2401,
+                  "mutability": "mutable",
+                  "name": "addresses",
+                  "nameLocation": "1040:9:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2404,
+                  "src": "1023:26:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2399,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1023:7:14",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 2400,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1023:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1022:28:14"
+            },
+            "returnParameters": {
+              "id": 2403,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1059:0:14"
+            },
+            "scope": 2527,
+            "src": "990:70:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2405,
+              "nodeType": "StructuredDocumentation",
+              "src": "1490:439:14",
+              "text": " example response of token URI, ref : https://docs.opensea.io/docs/metadata-standards\n {\n     \"name\": \"StraitsX-12\",\n     \"description\": \"12$ SGD test voucher\",\n     \"image\": \"https://gateway.pinata.cloud/ipfs/QmQ1x7NHakFYin9bHwN7zy4NdSYS84w6C33hzxpZwCAFPu\",\n     \"attributes\": [\n         {\n         \"trait_type\": \"Value\", \n         \"value\": \"12\"\n         }\n     ]\n }"
+            },
+            "functionSelector": "5ed7be9d",
+            "id": 2418,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "createPBMTokenType",
+            "nameLocation": "1943:18:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2416,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2407,
+                  "mutability": "mutable",
+                  "name": "companyName",
+                  "nameLocation": "1976:11:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2418,
+                  "src": "1962:25:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2406,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1962:6:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2409,
+                  "mutability": "mutable",
+                  "name": "spotAmount",
+                  "nameLocation": "1997:10:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2418,
+                  "src": "1989:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2408,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1989:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2411,
+                  "mutability": "mutable",
+                  "name": "tokenExpiry",
+                  "nameLocation": "2017:11:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2418,
+                  "src": "2009:19:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2410,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2009:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2413,
+                  "mutability": "mutable",
+                  "name": "creator",
+                  "nameLocation": "2037:7:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2418,
+                  "src": "2029:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2412,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2029:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2415,
+                  "mutability": "mutable",
+                  "name": "tokenURI",
+                  "nameLocation": "2060:8:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2418,
+                  "src": "2046:22:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2414,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2046:6:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1961:108:14"
+            },
+            "returnParameters": {
+              "id": 2417,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2078:0:14"
+            },
+            "scope": 2527,
+            "src": "1934:145:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2419,
+              "nodeType": "StructuredDocumentation",
+              "src": "2087:387:14",
+              "text": "@notice Creates new PBM copies ( ERC2255 NFT ) of an existing PBM token type after ensuring it is backed by the necessary value of the underlying ERC-20 tokens \n @param tokenId The identifier of the PBM token type\n @param amount The number of the PBMs that are to be created\n @param receiver The wallet address to which the created PBMs need to be transferred to"
+            },
+            "functionSelector": "e7d3fe6b",
+            "id": 2428,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "mint",
+            "nameLocation": "2488:4:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2426,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2421,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "2501:7:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2428,
+                  "src": "2493:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2420,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2493:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2423,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "2518:6:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2428,
+                  "src": "2510:14:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2422,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2510:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2425,
+                  "mutability": "mutable",
+                  "name": "receiver",
+                  "nameLocation": "2534:8:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2428,
+                  "src": "2526:16:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2424,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2526:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2492:51:14"
+            },
+            "returnParameters": {
+              "id": 2427,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2552:0:14"
+            },
+            "scope": 2527,
+            "src": "2479:74:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2429,
+              "nodeType": "StructuredDocumentation",
+              "src": "2560:417:14",
+              "text": "@notice Creates new PBM copies ( ERC2255 NFT ) of multiple existing PBM token types after ensuring they are backed by the necessary value of the underlying ERC-20 tokens \n @param tokenIds The identifiers of the PBM token type\n @param amounts The number of the PBMs that are to be created for each tokenId\n @param receiver The wallet address to which the created PBMs need to be transferred to"
+            },
+            "functionSelector": "fb34b201",
+            "id": 2440,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "batchMint",
+            "nameLocation": "2991:9:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2438,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2432,
+                  "mutability": "mutable",
+                  "name": "tokenIds",
+                  "nameLocation": "3018:8:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2440,
+                  "src": "3001:25:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2430,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "3001:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2431,
+                    "nodeType": "ArrayTypeName",
+                    "src": "3001:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2435,
+                  "mutability": "mutable",
+                  "name": "amounts",
+                  "nameLocation": "3045:7:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2440,
+                  "src": "3028:24:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2433,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "3028:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2434,
+                    "nodeType": "ArrayTypeName",
+                    "src": "3028:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2437,
+                  "mutability": "mutable",
+                  "name": "receiver",
+                  "nameLocation": "3062:8:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2440,
+                  "src": "3054:16:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2436,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3054:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3000:71:14"
+            },
+            "returnParameters": {
+              "id": 2439,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3080:0:14"
+            },
+            "scope": 2527,
+            "src": "2982:99:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2441,
+              "nodeType": "StructuredDocumentation",
+              "src": "3088:644:14",
+              "text": "@notice Transfers the PBM(NFT) from one wallet to another. \n If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead.\n @param from The account from which the PBM ( NFT ) is moving from \n @param to The account which is receiving the PBM ( NFT )\n @param id The identifier of the PBM token type\n @param amount The number of (quantity) the PBM type that are to be transferred of the PBM type\n @param data To record any data associated with the transaction, can be left blank if none"
+            },
+            "functionSelector": "f242432a",
+            "id": 2454,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "safeTransferFrom",
+            "nameLocation": "3746:16:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2452,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2443,
+                  "mutability": "mutable",
+                  "name": "from",
+                  "nameLocation": "3772:4:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2454,
+                  "src": "3764:12:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2442,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3764:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2445,
+                  "mutability": "mutable",
+                  "name": "to",
+                  "nameLocation": "3786:2:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2454,
+                  "src": "3778:10:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2444,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3778:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2447,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nameLocation": "3798:2:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2454,
+                  "src": "3790:10:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2446,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3790:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2449,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "3810:6:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2454,
+                  "src": "3802:14:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2448,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3802:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2451,
+                  "mutability": "mutable",
+                  "name": "data",
+                  "nameLocation": "3831:4:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2454,
+                  "src": "3818:17:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 2450,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3818:5:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3762:74:14"
+            },
+            "returnParameters": {
+              "id": 2453,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3845:0:14"
+            },
+            "scope": 2527,
+            "src": "3737:109:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2455,
+              "nodeType": "StructuredDocumentation",
+              "src": "3853:664:14",
+              "text": "@notice Transfers the PBM(NFT)(s) from one wallet to another. \n If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT)(s) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead.\n @param from The account from which the PBM ( NFT )(s) is moving from \n @param to The account which is receiving the PBM ( NFT )(s)\n @param ids The identifiers of the different PBM token type\n @param amounts The number of ( quantity ) the different PBM types that are to be created\n @param data To record any data associated with the transaction, can be left blank if none. "
+            },
+            "functionSelector": "2eb2c2d6",
+            "id": 2470,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "safeBatchTransferFrom",
+            "nameLocation": "4531:21:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2468,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2457,
+                  "mutability": "mutable",
+                  "name": "from",
+                  "nameLocation": "4561:4:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2470,
+                  "src": "4553:12:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2456,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4553:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2459,
+                  "mutability": "mutable",
+                  "name": "to",
+                  "nameLocation": "4574:2:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2470,
+                  "src": "4566:10:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2458,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4566:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2462,
+                  "mutability": "mutable",
+                  "name": "ids",
+                  "nameLocation": "4594:3:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2470,
+                  "src": "4577:20:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2460,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "4577:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2461,
+                    "nodeType": "ArrayTypeName",
+                    "src": "4577:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2465,
+                  "mutability": "mutable",
+                  "name": "amounts",
+                  "nameLocation": "4615:7:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2470,
+                  "src": "4598:24:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2463,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "4598:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2464,
+                    "nodeType": "ArrayTypeName",
+                    "src": "4598:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2467,
+                  "mutability": "mutable",
+                  "name": "data",
+                  "nameLocation": "4637:4:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2470,
+                  "src": "4624:17:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 2466,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4624:5:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4552:90:14"
+            },
+            "returnParameters": {
+              "id": 2469,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4651:0:14"
+            },
+            "scope": 2527,
+            "src": "4522:130:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2471,
+              "nodeType": "StructuredDocumentation",
+              "src": "4659:196:14",
+              "text": "@notice Allows the creator of the PBM type to retrive all the locked up ERC-20 once they have expired for that particular token type\n @param tokenId The identifier of the PBM token type"
+            },
+            "functionSelector": "73e17e76",
+            "id": 2476,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "revokePBM",
+            "nameLocation": "4869:9:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2474,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2473,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "4887:7:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2476,
+                  "src": "4879:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2472,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4879:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4878:17:14"
+            },
+            "returnParameters": {
+              "id": 2475,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4904:0:14"
+            },
+            "scope": 2527,
+            "src": "4860:45:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2477,
+              "nodeType": "StructuredDocumentation",
+              "src": "4911:400:14",
+              "text": "@notice Get the details of the PBM Token type\n @param tokenId The identifier of the PBM token type\n @return name The name assigned to the token type \n @return amount Amount of the underlying ERC-20 tokens the PBM type wraps around\n @return expiry The expiry date (in epoch) for this particular PBM token type. \n @return creator The creator of the PBM token type"
+            },
+            "functionSelector": "c1e03728",
+            "id": 2490,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTokenDetails",
+            "nameLocation": "5325:15:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2480,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2479,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "5349:7:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2490,
+                  "src": "5341:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2478,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5341:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5340:17:14"
+            },
+            "returnParameters": {
+              "id": 2489,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2482,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2490,
+                  "src": "5380:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2481,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5380:6:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2484,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2490,
+                  "src": "5395:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2483,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5395:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2486,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2490,
+                  "src": "5404:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2485,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5404:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2488,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2490,
+                  "src": "5413:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2487,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5413:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5379:42:14"
+            },
+            "scope": 2527,
+            "src": "5316:106:14",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2491,
+              "nodeType": "StructuredDocumentation",
+              "src": "5429:206:14",
+              "text": "@notice Get the URI of the tokenid \n @param tokenId The identifier of the PBM token type\n @return uri The URI link , which will povide a response that follows the Opensea metadata standard"
+            },
+            "functionSelector": "0e89341c",
+            "id": 2498,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "uri",
+            "nameLocation": "5649:3:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2494,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2493,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "5661:7:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2498,
+                  "src": "5653:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2492,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5653:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5652:17:14"
+            },
+            "returnParameters": {
+              "id": 2497,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2496,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2498,
+                  "src": "5692:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2495,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5692:6:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5691:15:14"
+            },
+            "scope": 2527,
+            "src": "5640:67:14",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 2499,
+              "nodeType": "StructuredDocumentation",
+              "src": "5715:570:14",
+              "text": "@notice Emitted when underlying ERC-20 tokens are transferred to a whitelisted merchant ( payment )\n @param from The account from which the PBM ( NFT )(s) is moving from \n @param to The account which is receiving the PBM ( NFT )(s)\n @param tokenIds The identifiers of the different PBM token type\n @param amounts The number of ( quantity ) the different PBM types that are to be created\n @param ERC20Token The address of the underlying ERC-20 token \n @param ERC20TokenValue The number of underlying ERC-20 tokens transferred"
+            },
+            "id": 2515,
+            "name": "MerchantPayment",
+            "nameLocation": "6296:15:14",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 2514,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2501,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "from",
+                  "nameLocation": "6320:4:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2515,
+                  "src": "6312:12:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2500,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6312:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2503,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "to",
+                  "nameLocation": "6335:2:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2515,
+                  "src": "6327:10:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2502,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6327:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2506,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "tokenIds",
+                  "nameLocation": "6349:8:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2515,
+                  "src": "6339:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2504,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "6339:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2505,
+                    "nodeType": "ArrayTypeName",
+                    "src": "6339:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2509,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amounts",
+                  "nameLocation": "6369:7:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2515,
+                  "src": "6359:17:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2507,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "6359:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2508,
+                    "nodeType": "ArrayTypeName",
+                    "src": "6359:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2511,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "ERC20Token",
+                  "nameLocation": "6385:10:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2515,
+                  "src": "6377:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2510,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6377:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2513,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "ERC20TokenValue",
+                  "nameLocation": "6405:15:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2515,
+                  "src": "6397:23:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2512,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6397:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6311:110:14"
+            },
+            "src": "6290:132:14"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 2516,
+              "nodeType": "StructuredDocumentation",
+              "src": "6429:436:14",
+              "text": "@notice Emitted when a PBM type creator withdraws the underlying ERC-20 tokens from all the remaining expired PBMs\n @param beneficiary the address ( PBM type creator ) which receives the ERC20 Token\n @param PBMTokenId The identifiers of the different PBM token type\n @param ERC20Token The address of the underlying ERC-20 token \n @param ERC20TokenValue The number of underlying ERC-20 tokens transferred "
+            },
+            "id": 2526,
+            "name": "PBMrevokeWithdraw",
+            "nameLocation": "6876:17:14",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 2525,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2518,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "beneficiary",
+                  "nameLocation": "6902:11:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2526,
+                  "src": "6894:19:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2517,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6894:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2520,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "PBMTokenId",
+                  "nameLocation": "6923:10:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2526,
+                  "src": "6915:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2519,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6915:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2522,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "ERC20Token",
+                  "nameLocation": "6943:10:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2526,
+                  "src": "6935:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2521,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6935:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2524,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "ERC20TokenValue",
+                  "nameLocation": "6963:15:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2526,
+                  "src": "6955:23:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2523,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6955:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6893:86:14"
+            },
+            "src": "6870:110:14"
+          }
+        ],
+        "scope": 2528,
+        "src": "291:6691:14",
+        "usedErrors": []
+      }
+    ],
+    "src": "45:6937:14"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/IPBM.sol",
+    "exportedSymbols": {
+      "IPBM": [
+        2527
+      ]
+    },
+    "id": 2528,
+    "license": "GPL-2.0-or-later",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2383,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "45:23:14"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 2384,
+          "nodeType": "StructuredDocumentation",
+          "src": "70:221:14",
+          "text": "@title PBM interface \n @notice The PBM (purpose bound money) allows us to add logical requirements on the use of ERC-20 tokens. The PBM acts as wrapper around the ERC-20 tokens and implements the necessary logic. "
+        },
+        "fullyImplemented": false,
+        "id": 2527,
+        "linearizedBaseContracts": [
+          2527
+        ],
+        "name": "IPBM",
+        "nameLocation": "301:4:14",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 2385,
+              "nodeType": "StructuredDocumentation",
+              "src": "313:132:14",
+              "text": "@notice Extends the contarct level expiry for the PBM\n @param extendedExpiry The new expiry date ( in epoch ) for the PBM"
+            },
+            "functionSelector": "517c01aa",
+            "id": 2390,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "updatePBMExpiry",
+            "nameLocation": "459:15:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2388,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2387,
+                  "mutability": "mutable",
+                  "name": "extendedExpiry",
+                  "nameLocation": "483:14:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2390,
+                  "src": "475:22:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2386,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "475:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "474:24:14"
+            },
+            "returnParameters": {
+              "id": 2389,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "507:0:14"
+            },
+            "scope": 2527,
+            "src": "450:58:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2391,
+              "nodeType": "StructuredDocumentation",
+              "src": "515:193:14",
+              "text": "@notice Adds wallet addresses of merchants who are the only wallets able to receive the underlying ERC-20 tokens (whitelisting).\n @param addresses The list of merchant wallet address"
+            },
+            "functionSelector": "e10adc16",
+            "id": 2397,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addMerchantAddresses",
+            "nameLocation": "722:20:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2395,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2394,
+                  "mutability": "mutable",
+                  "name": "addresses",
+                  "nameLocation": "760:9:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2397,
+                  "src": "743:26:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2392,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "743:7:14",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 2393,
+                    "nodeType": "ArrayTypeName",
+                    "src": "743:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "742:28:14"
+            },
+            "returnParameters": {
+              "id": 2396,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "779:0:14"
+            },
+            "scope": 2527,
+            "src": "713:67:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2398,
+              "nodeType": "StructuredDocumentation",
+              "src": "787:198:14",
+              "text": "@notice Removes wallet addresses from the merchant addresses who are  able to receive the underlying ERC-20 tokens (un-whitelisting).\n @param addresses The list of merchant wallet address"
+            },
+            "functionSelector": "30a5d1c0",
+            "id": 2404,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "removeMerchantAddresses",
+            "nameLocation": "999:23:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2402,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2401,
+                  "mutability": "mutable",
+                  "name": "addresses",
+                  "nameLocation": "1040:9:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2404,
+                  "src": "1023:26:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2399,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1023:7:14",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 2400,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1023:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1022:28:14"
+            },
+            "returnParameters": {
+              "id": 2403,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1059:0:14"
+            },
+            "scope": 2527,
+            "src": "990:70:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2405,
+              "nodeType": "StructuredDocumentation",
+              "src": "1490:439:14",
+              "text": " example response of token URI, ref : https://docs.opensea.io/docs/metadata-standards\n {\n     \"name\": \"StraitsX-12\",\n     \"description\": \"12$ SGD test voucher\",\n     \"image\": \"https://gateway.pinata.cloud/ipfs/QmQ1x7NHakFYin9bHwN7zy4NdSYS84w6C33hzxpZwCAFPu\",\n     \"attributes\": [\n         {\n         \"trait_type\": \"Value\", \n         \"value\": \"12\"\n         }\n     ]\n }"
+            },
+            "functionSelector": "5ed7be9d",
+            "id": 2418,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "createPBMTokenType",
+            "nameLocation": "1943:18:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2416,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2407,
+                  "mutability": "mutable",
+                  "name": "companyName",
+                  "nameLocation": "1976:11:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2418,
+                  "src": "1962:25:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2406,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1962:6:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2409,
+                  "mutability": "mutable",
+                  "name": "spotAmount",
+                  "nameLocation": "1997:10:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2418,
+                  "src": "1989:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2408,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1989:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2411,
+                  "mutability": "mutable",
+                  "name": "tokenExpiry",
+                  "nameLocation": "2017:11:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2418,
+                  "src": "2009:19:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2410,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2009:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2413,
+                  "mutability": "mutable",
+                  "name": "creator",
+                  "nameLocation": "2037:7:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2418,
+                  "src": "2029:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2412,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2029:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2415,
+                  "mutability": "mutable",
+                  "name": "tokenURI",
+                  "nameLocation": "2060:8:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2418,
+                  "src": "2046:22:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2414,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2046:6:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1961:108:14"
+            },
+            "returnParameters": {
+              "id": 2417,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2078:0:14"
+            },
+            "scope": 2527,
+            "src": "1934:145:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2419,
+              "nodeType": "StructuredDocumentation",
+              "src": "2087:387:14",
+              "text": "@notice Creates new PBM copies ( ERC2255 NFT ) of an existing PBM token type after ensuring it is backed by the necessary value of the underlying ERC-20 tokens \n @param tokenId The identifier of the PBM token type\n @param amount The number of the PBMs that are to be created\n @param receiver The wallet address to which the created PBMs need to be transferred to"
+            },
+            "functionSelector": "e7d3fe6b",
+            "id": 2428,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "mint",
+            "nameLocation": "2488:4:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2426,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2421,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "2501:7:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2428,
+                  "src": "2493:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2420,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2493:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2423,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "2518:6:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2428,
+                  "src": "2510:14:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2422,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2510:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2425,
+                  "mutability": "mutable",
+                  "name": "receiver",
+                  "nameLocation": "2534:8:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2428,
+                  "src": "2526:16:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2424,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2526:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2492:51:14"
+            },
+            "returnParameters": {
+              "id": 2427,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2552:0:14"
+            },
+            "scope": 2527,
+            "src": "2479:74:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2429,
+              "nodeType": "StructuredDocumentation",
+              "src": "2560:417:14",
+              "text": "@notice Creates new PBM copies ( ERC2255 NFT ) of multiple existing PBM token types after ensuring they are backed by the necessary value of the underlying ERC-20 tokens \n @param tokenIds The identifiers of the PBM token type\n @param amounts The number of the PBMs that are to be created for each tokenId\n @param receiver The wallet address to which the created PBMs need to be transferred to"
+            },
+            "functionSelector": "fb34b201",
+            "id": 2440,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "batchMint",
+            "nameLocation": "2991:9:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2438,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2432,
+                  "mutability": "mutable",
+                  "name": "tokenIds",
+                  "nameLocation": "3018:8:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2440,
+                  "src": "3001:25:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2430,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "3001:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2431,
+                    "nodeType": "ArrayTypeName",
+                    "src": "3001:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2435,
+                  "mutability": "mutable",
+                  "name": "amounts",
+                  "nameLocation": "3045:7:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2440,
+                  "src": "3028:24:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2433,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "3028:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2434,
+                    "nodeType": "ArrayTypeName",
+                    "src": "3028:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2437,
+                  "mutability": "mutable",
+                  "name": "receiver",
+                  "nameLocation": "3062:8:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2440,
+                  "src": "3054:16:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2436,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3054:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3000:71:14"
+            },
+            "returnParameters": {
+              "id": 2439,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3080:0:14"
+            },
+            "scope": 2527,
+            "src": "2982:99:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2441,
+              "nodeType": "StructuredDocumentation",
+              "src": "3088:644:14",
+              "text": "@notice Transfers the PBM(NFT) from one wallet to another. \n If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead.\n @param from The account from which the PBM ( NFT ) is moving from \n @param to The account which is receiving the PBM ( NFT )\n @param id The identifier of the PBM token type\n @param amount The number of (quantity) the PBM type that are to be transferred of the PBM type\n @param data To record any data associated with the transaction, can be left blank if none"
+            },
+            "functionSelector": "f242432a",
+            "id": 2454,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "safeTransferFrom",
+            "nameLocation": "3746:16:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2452,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2443,
+                  "mutability": "mutable",
+                  "name": "from",
+                  "nameLocation": "3772:4:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2454,
+                  "src": "3764:12:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2442,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3764:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2445,
+                  "mutability": "mutable",
+                  "name": "to",
+                  "nameLocation": "3786:2:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2454,
+                  "src": "3778:10:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2444,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3778:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2447,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nameLocation": "3798:2:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2454,
+                  "src": "3790:10:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2446,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3790:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2449,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "3810:6:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2454,
+                  "src": "3802:14:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2448,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3802:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2451,
+                  "mutability": "mutable",
+                  "name": "data",
+                  "nameLocation": "3831:4:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2454,
+                  "src": "3818:17:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 2450,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3818:5:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3762:74:14"
+            },
+            "returnParameters": {
+              "id": 2453,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3845:0:14"
+            },
+            "scope": 2527,
+            "src": "3737:109:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2455,
+              "nodeType": "StructuredDocumentation",
+              "src": "3853:664:14",
+              "text": "@notice Transfers the PBM(NFT)(s) from one wallet to another. \n If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT)(s) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead.\n @param from The account from which the PBM ( NFT )(s) is moving from \n @param to The account which is receiving the PBM ( NFT )(s)\n @param ids The identifiers of the different PBM token type\n @param amounts The number of ( quantity ) the different PBM types that are to be created\n @param data To record any data associated with the transaction, can be left blank if none. "
+            },
+            "functionSelector": "2eb2c2d6",
+            "id": 2470,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "safeBatchTransferFrom",
+            "nameLocation": "4531:21:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2468,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2457,
+                  "mutability": "mutable",
+                  "name": "from",
+                  "nameLocation": "4561:4:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2470,
+                  "src": "4553:12:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2456,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4553:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2459,
+                  "mutability": "mutable",
+                  "name": "to",
+                  "nameLocation": "4574:2:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2470,
+                  "src": "4566:10:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2458,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4566:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2462,
+                  "mutability": "mutable",
+                  "name": "ids",
+                  "nameLocation": "4594:3:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2470,
+                  "src": "4577:20:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2460,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "4577:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2461,
+                    "nodeType": "ArrayTypeName",
+                    "src": "4577:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2465,
+                  "mutability": "mutable",
+                  "name": "amounts",
+                  "nameLocation": "4615:7:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2470,
+                  "src": "4598:24:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2463,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "4598:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2464,
+                    "nodeType": "ArrayTypeName",
+                    "src": "4598:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2467,
+                  "mutability": "mutable",
+                  "name": "data",
+                  "nameLocation": "4637:4:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2470,
+                  "src": "4624:17:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 2466,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4624:5:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4552:90:14"
+            },
+            "returnParameters": {
+              "id": 2469,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4651:0:14"
+            },
+            "scope": 2527,
+            "src": "4522:130:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2471,
+              "nodeType": "StructuredDocumentation",
+              "src": "4659:196:14",
+              "text": "@notice Allows the creator of the PBM type to retrive all the locked up ERC-20 once they have expired for that particular token type\n @param tokenId The identifier of the PBM token type"
+            },
+            "functionSelector": "73e17e76",
+            "id": 2476,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "revokePBM",
+            "nameLocation": "4869:9:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2474,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2473,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "4887:7:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2476,
+                  "src": "4879:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2472,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4879:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4878:17:14"
+            },
+            "returnParameters": {
+              "id": 2475,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4904:0:14"
+            },
+            "scope": 2527,
+            "src": "4860:45:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2477,
+              "nodeType": "StructuredDocumentation",
+              "src": "4911:400:14",
+              "text": "@notice Get the details of the PBM Token type\n @param tokenId The identifier of the PBM token type\n @return name The name assigned to the token type \n @return amount Amount of the underlying ERC-20 tokens the PBM type wraps around\n @return expiry The expiry date (in epoch) for this particular PBM token type. \n @return creator The creator of the PBM token type"
+            },
+            "functionSelector": "c1e03728",
+            "id": 2490,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTokenDetails",
+            "nameLocation": "5325:15:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2480,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2479,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "5349:7:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2490,
+                  "src": "5341:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2478,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5341:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5340:17:14"
+            },
+            "returnParameters": {
+              "id": 2489,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2482,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2490,
+                  "src": "5380:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2481,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5380:6:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2484,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2490,
+                  "src": "5395:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2483,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5395:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2486,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2490,
+                  "src": "5404:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2485,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5404:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2488,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2490,
+                  "src": "5413:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2487,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5413:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5379:42:14"
+            },
+            "scope": 2527,
+            "src": "5316:106:14",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2491,
+              "nodeType": "StructuredDocumentation",
+              "src": "5429:206:14",
+              "text": "@notice Get the URI of the tokenid \n @param tokenId The identifier of the PBM token type\n @return uri The URI link , which will povide a response that follows the Opensea metadata standard"
+            },
+            "functionSelector": "0e89341c",
+            "id": 2498,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "uri",
+            "nameLocation": "5649:3:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2494,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2493,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "5661:7:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2498,
+                  "src": "5653:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2492,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5653:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5652:17:14"
+            },
+            "returnParameters": {
+              "id": 2497,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2496,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2498,
+                  "src": "5692:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2495,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5692:6:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5691:15:14"
+            },
+            "scope": 2527,
+            "src": "5640:67:14",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 2499,
+              "nodeType": "StructuredDocumentation",
+              "src": "5715:570:14",
+              "text": "@notice Emitted when underlying ERC-20 tokens are transferred to a whitelisted merchant ( payment )\n @param from The account from which the PBM ( NFT )(s) is moving from \n @param to The account which is receiving the PBM ( NFT )(s)\n @param tokenIds The identifiers of the different PBM token type\n @param amounts The number of ( quantity ) the different PBM types that are to be created\n @param ERC20Token The address of the underlying ERC-20 token \n @param ERC20TokenValue The number of underlying ERC-20 tokens transferred"
+            },
+            "id": 2515,
+            "name": "MerchantPayment",
+            "nameLocation": "6296:15:14",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 2514,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2501,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "from",
+                  "nameLocation": "6320:4:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2515,
+                  "src": "6312:12:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2500,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6312:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2503,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "to",
+                  "nameLocation": "6335:2:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2515,
+                  "src": "6327:10:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2502,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6327:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2506,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "tokenIds",
+                  "nameLocation": "6349:8:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2515,
+                  "src": "6339:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2504,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "6339:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2505,
+                    "nodeType": "ArrayTypeName",
+                    "src": "6339:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2509,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amounts",
+                  "nameLocation": "6369:7:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2515,
+                  "src": "6359:17:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_memory_ptr",
+                    "typeString": "uint256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2507,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "6359:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2508,
+                    "nodeType": "ArrayTypeName",
+                    "src": "6359:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                      "typeString": "uint256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2511,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "ERC20Token",
+                  "nameLocation": "6385:10:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2515,
+                  "src": "6377:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2510,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6377:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2513,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "ERC20TokenValue",
+                  "nameLocation": "6405:15:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2515,
+                  "src": "6397:23:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2512,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6397:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6311:110:14"
+            },
+            "src": "6290:132:14"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 2516,
+              "nodeType": "StructuredDocumentation",
+              "src": "6429:436:14",
+              "text": "@notice Emitted when a PBM type creator withdraws the underlying ERC-20 tokens from all the remaining expired PBMs\n @param beneficiary the address ( PBM type creator ) which receives the ERC20 Token\n @param PBMTokenId The identifiers of the different PBM token type\n @param ERC20Token The address of the underlying ERC-20 token \n @param ERC20TokenValue The number of underlying ERC-20 tokens transferred "
+            },
+            "id": 2526,
+            "name": "PBMrevokeWithdraw",
+            "nameLocation": "6876:17:14",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 2525,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2518,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "beneficiary",
+                  "nameLocation": "6902:11:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2526,
+                  "src": "6894:19:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2517,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6894:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2520,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "PBMTokenId",
+                  "nameLocation": "6923:10:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2526,
+                  "src": "6915:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2519,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6915:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2522,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "ERC20Token",
+                  "nameLocation": "6943:10:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2526,
+                  "src": "6935:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2521,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6935:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2524,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "ERC20TokenValue",
+                  "nameLocation": "6963:15:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2526,
+                  "src": "6955:23:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2523,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6955:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6893:86:14"
+            },
+            "src": "6870:110:14"
+          }
+        ],
+        "scope": 2528,
+        "src": "291:6691:14",
+        "usedErrors": []
+      }
+    ],
+    "src": "45:6937:14"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.7+commit.e28d00a7.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2022-09-19T09:42:23.924Z",
+  "devdoc": {
+    "events": {
+      "MerchantPayment(address,address,uint256[],uint256[],address,uint256)": {
+        "params": {
+          "ERC20Token": "The address of the underlying ERC-20 token ",
+          "ERC20TokenValue": "The number of underlying ERC-20 tokens transferred",
+          "amounts": "The number of ( quantity ) the different PBM types that are to be created",
+          "from": "The account from which the PBM ( NFT )(s) is moving from ",
+          "to": "The account which is receiving the PBM ( NFT )(s)",
+          "tokenIds": "The identifiers of the different PBM token type"
+        }
+      },
+      "PBMrevokeWithdraw(address,uint256,address,uint256)": {
+        "params": {
+          "ERC20Token": "The address of the underlying ERC-20 token ",
+          "ERC20TokenValue": "The number of underlying ERC-20 tokens transferred ",
+          "PBMTokenId": "The identifiers of the different PBM token type",
+          "beneficiary": "the address ( PBM type creator ) which receives the ERC20 Token"
+        }
+      }
+    },
+    "kind": "dev",
+    "methods": {
+      "addMerchantAddresses(address[])": {
+        "params": {
+          "addresses": "The list of merchant wallet address"
+        }
+      },
+      "batchMint(uint256[],uint256[],address)": {
+        "params": {
+          "amounts": "The number of the PBMs that are to be created for each tokenId",
+          "receiver": "The wallet address to which the created PBMs need to be transferred to",
+          "tokenIds": "The identifiers of the PBM token type"
+        }
+      },
+      "getTokenDetails(uint256)": {
+        "params": {
+          "tokenId": "The identifier of the PBM token type"
+        },
+        "returns": {
+          "_0": "name The name assigned to the token type ",
+          "_1": "amount Amount of the underlying ERC-20 tokens the PBM type wraps around",
+          "_2": "expiry The expiry date (in epoch) for this particular PBM token type. ",
+          "_3": "creator The creator of the PBM token type"
+        }
+      },
+      "mint(uint256,uint256,address)": {
+        "params": {
+          "amount": "The number of the PBMs that are to be created",
+          "receiver": "The wallet address to which the created PBMs need to be transferred to",
+          "tokenId": "The identifier of the PBM token type"
+        }
+      },
+      "removeMerchantAddresses(address[])": {
+        "params": {
+          "addresses": "The list of merchant wallet address"
+        }
+      },
+      "revokePBM(uint256)": {
+        "params": {
+          "tokenId": "The identifier of the PBM token type"
+        }
+      },
+      "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)": {
+        "params": {
+          "amounts": "The number of ( quantity ) the different PBM types that are to be created",
+          "data": "To record any data associated with the transaction, can be left blank if none. ",
+          "from": "The account from which the PBM ( NFT )(s) is moving from ",
+          "ids": "The identifiers of the different PBM token type",
+          "to": "The account which is receiving the PBM ( NFT )(s)"
+        }
+      },
+      "safeTransferFrom(address,address,uint256,uint256,bytes)": {
+        "params": {
+          "amount": "The number of (quantity) the PBM type that are to be transferred of the PBM type",
+          "data": "To record any data associated with the transaction, can be left blank if none",
+          "from": "The account from which the PBM ( NFT ) is moving from ",
+          "id": "The identifier of the PBM token type",
+          "to": "The account which is receiving the PBM ( NFT )"
+        }
+      },
+      "updatePBMExpiry(uint256)": {
+        "params": {
+          "extendedExpiry": "The new expiry date ( in epoch ) for the PBM"
+        }
+      },
+      "uri(uint256)": {
+        "params": {
+          "tokenId": "The identifier of the PBM token type"
+        },
+        "returns": {
+          "_0": "uri The URI link , which will povide a response that follows the Opensea metadata standard"
+        }
+      }
+    },
+    "title": "PBM interface ",
+    "version": 1
+  },
+  "userdoc": {
+    "events": {
+      "MerchantPayment(address,address,uint256[],uint256[],address,uint256)": {
+        "notice": "Emitted when underlying ERC-20 tokens are transferred to a whitelisted merchant ( payment )"
+      },
+      "PBMrevokeWithdraw(address,uint256,address,uint256)": {
+        "notice": "Emitted when a PBM type creator withdraws the underlying ERC-20 tokens from all the remaining expired PBMs"
+      }
+    },
+    "kind": "user",
+    "methods": {
+      "addMerchantAddresses(address[])": {
+        "notice": "Adds wallet addresses of merchants who are the only wallets able to receive the underlying ERC-20 tokens (whitelisting)."
+      },
+      "batchMint(uint256[],uint256[],address)": {
+        "notice": "Creates new PBM copies ( ERC2255 NFT ) of multiple existing PBM token types after ensuring they are backed by the necessary value of the underlying ERC-20 tokens "
+      },
+      "createPBMTokenType(string,uint256,uint256,address,string)": {
+        "notice": "example response of token URI, ref : https://docs.opensea.io/docs/metadata-standards {     \"name\": \"StraitsX-12\",     \"description\": \"12$ SGD test voucher\",     \"image\": \"https://gateway.pinata.cloud/ipfs/QmQ1x7NHakFYin9bHwN7zy4NdSYS84w6C33hzxpZwCAFPu\",     \"attributes\": [         {         \"trait_type\": \"Value\",          \"value\": \"12\"         }     ] }"
+      },
+      "getTokenDetails(uint256)": {
+        "notice": "Get the details of the PBM Token type"
+      },
+      "mint(uint256,uint256,address)": {
+        "notice": "Creates new PBM copies ( ERC2255 NFT ) of an existing PBM token type after ensuring it is backed by the necessary value of the underlying ERC-20 tokens "
+      },
+      "removeMerchantAddresses(address[])": {
+        "notice": "Removes wallet addresses from the merchant addresses who are  able to receive the underlying ERC-20 tokens (un-whitelisting)."
+      },
+      "revokePBM(uint256)": {
+        "notice": "Allows the creator of the PBM type to retrive all the locked up ERC-20 once they have expired for that particular token type"
+      },
+      "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)": {
+        "notice": "Transfers the PBM(NFT)(s) from one wallet to another.  If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT)(s) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead."
+      },
+      "safeTransferFrom(address,address,uint256,uint256,bytes)": {
+        "notice": "Transfers the PBM(NFT) from one wallet to another.  If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead."
+      },
+      "updatePBMExpiry(uint256)": {
+        "notice": "Extends the contarct level expiry for the PBM"
+      },
+      "uri(uint256)": {
+        "notice": "Get the URI of the tokenid "
+      }
+    },
+    "notice": "The PBM (purpose bound money) allows us to add logical requirements on the use of ERC-20 tokens. The PBM acts as wrapper around the ERC-20 tokens and implements the necessary logic. ",
+    "version": 1
+  }
+}

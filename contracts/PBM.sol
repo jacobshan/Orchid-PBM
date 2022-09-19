@@ -6,20 +6,20 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 
 import "./ERC20Helper.sol";  
-import "./PBMTokenManager.sol"; 
+import "./PBMTokenManager.sol";
+import "./IPBM.sol";  
 
-contract PBM is ERC1155, Ownable, Pausable {  
-
-    address public spotToken ; 
-    uint256 public contractExpiry ; 
-    mapping (address => bool) public merchantList ; 
-
-    string private uriPostExpiry ; 
-    address public pbmTokenManager; 
+contract PBM is ERC1155, Ownable, Pausable, IPBM {  
     
-    event merchantPayment(address from , address to, uint256[] tokenIds, uint256[] amounts, uint256 value); 
-    event PBMrevokeWithdraw(address beneficiary, uint256 PBMTokenId, address ERC20Token, uint256 ERC20TokenValue);
+    // undelrying ERC-20 tokens
+    address public spotToken ; 
+    // address of the token manager
+    address public pbmTokenManager; 
 
+    // time of expiry ( epoch )
+    uint256 public contractExpiry ; 
+    // list of merchants who are able to receive the underlying ERC-20 tokens
+    mapping (address => bool) public merchantList ; 
 
     constructor(address _spotToken, uint256 _expiry, string memory _uriPostExpiry) ERC1155("") {
         spotToken = _spotToken ;
@@ -28,8 +28,9 @@ contract PBM is ERC1155, Ownable, Pausable {
         pbmTokenManager = address(new PBMTokenManager(_uriPostExpiry)) ; 
     }
     
-    function extendPBMExpiry(uint256 extendedExpiry)
-    external 
+    function updatePBMExpiry(uint256 extendedExpiry)
+    external
+    override 
     onlyOwner
     whenNotPaused
     {   
@@ -40,6 +41,7 @@ contract PBM is ERC1155, Ownable, Pausable {
 
     function addMerchantAddresses(address[] memory addresses) 
     external
+    override
     onlyOwner
     {
         require(block.timestamp < contractExpiry, "PBM: contract is expired");
@@ -50,6 +52,7 @@ contract PBM is ERC1155, Ownable, Pausable {
 
     function removeMerchantAddresses(address[] memory addresses) 
     external 
+    override
     onlyOwner
     {
         require(block.timestamp < contractExpiry, "PBM: contract is expired");
@@ -60,6 +63,7 @@ contract PBM is ERC1155, Ownable, Pausable {
 
     function createPBMTokenType(string memory companyName, uint256 spotAmount, uint256 tokenExpiry,address creator, string memory tokenURI) 
     external 
+    override
     onlyOwner 
     {        
         PBMTokenManager(pbmTokenManager).createTokenType(companyName, spotAmount, tokenExpiry, creator,  tokenURI, contractExpiry);
@@ -67,6 +71,7 @@ contract PBM is ERC1155, Ownable, Pausable {
 
     function mint(uint256 tokenId, uint256 amount, address receiver) 
     external  
+    override
     whenNotPaused
     {
         require(PBMTokenManager(pbmTokenManager).areTokensValid(serialise(tokenId)), "PBM: Invalid token id provided");
@@ -82,6 +87,7 @@ contract PBM is ERC1155, Ownable, Pausable {
 
     function batchMint(uint256[] memory tokenIds, uint256[] memory amounts, address receiver) 
     external 
+    override
     whenNotPaused
     {   
         require(tokenIds.length == amounts.length, "Unequal ids and amounts supplied"); 
@@ -102,7 +108,7 @@ contract PBM is ERC1155, Ownable, Pausable {
 
     function safeTransferFrom( address from, address to, uint256 id, uint256 amount, bytes memory data) 
     public   
-    override
+    override(ERC1155, IPBM)
     whenNotPaused  
     {
         require(
@@ -119,7 +125,7 @@ contract PBM is ERC1155, Ownable, Pausable {
             _burn(from, id, amount);
             PBMTokenManager(pbmTokenManager).decreaseBalanceSupply(serialise(id), serialise(amount)) ; 
             ERC20Helper.safeTransfer(spotToken, to, valueOfTokens);
-            emit merchantPayment(from, to, serialise(id), serialise(amount), valueOfTokens);
+            emit MerchantPayment(from, to, serialise(id), serialise(amount), spotToken, valueOfTokens);
 
         } else {
             _safeTransferFrom(from, to, id, amount, data);
@@ -129,7 +135,7 @@ contract PBM is ERC1155, Ownable, Pausable {
     
     function safeBatchTransferFrom(address from,address to,uint256[] memory ids,uint256[] memory amounts, bytes memory data) 
     public  
-    override
+    override(ERC1155, IPBM)
     whenNotPaused 
     {
         require(
@@ -149,7 +155,7 @@ contract PBM is ERC1155, Ownable, Pausable {
             PBMTokenManager(pbmTokenManager).decreaseBalanceSupply(ids, amounts);
             ERC20Helper.safeTransfer(spotToken, to, valueOfTokens);
 
-            emit merchantPayment(from, to, ids, amounts, valueOfTokens);
+            emit MerchantPayment(from, to, ids, amounts, spotToken, valueOfTokens);
 
         } else {
             _safeBatchTransferFrom(from, to, ids, amounts, data);
@@ -158,6 +164,7 @@ contract PBM is ERC1155, Ownable, Pausable {
     
     function revokePBM(uint256 tokenId) 
     external 
+    override
     whenNotPaused 
     {
         uint256 PBMTokenBalanceSupply = PBMTokenManager(pbmTokenManager).getTokenCount(tokenId); 
@@ -175,6 +182,7 @@ contract PBM is ERC1155, Ownable, Pausable {
     function getTokenDetails(uint256 tokenId) 
     external 
     view 
+    override
     returns (string memory, uint256, uint256, address) 
     {
         return PBMTokenManager(pbmTokenManager).getTokenDetails(tokenId); 
@@ -183,7 +191,7 @@ contract PBM is ERC1155, Ownable, Pausable {
     function uri(uint256 tokenId)
     public  
     view
-    override(ERC1155)
+    override(ERC1155, IPBM)
     returns (string memory)
     {
         return PBMTokenManager(pbmTokenManager).uri(tokenId);
