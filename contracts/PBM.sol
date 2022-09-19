@@ -94,6 +94,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
      *
      * - caller must be owner 
      * - contract must not be expired
+     * - `amount` should not be 0
      */
     function createPBMTokenType(string memory companyName, uint256 spotAmount, uint256 tokenExpiry,address creator, string memory tokenURI) 
     external 
