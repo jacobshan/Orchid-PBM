@@ -4,15 +4,11 @@ pragma solidity ^0.8.0;
 import "./IPBMTokenManager.sol";
 import "./NoDelegateCall.sol";
 
-import "@openzeppelin/contracts/utils/Context.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-import "@openzeppelin/contracts/security/Pausable.sol";
 
 contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
     using Strings for uint256;
-    using SafeMath for uint256 ; 
 
     uint256 private tokenTypeCount = 0 ; 
 
@@ -54,7 +50,7 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
         tokenTypes[tokenTypeCount].uri = tokenURI ; 
 
         emit NewPBMTypeCreated(tokenTypeCount, tokenName, spotAmount, tokenExpiry, creator);
-        tokenTypeCount = uint256(tokenTypeCount.add(1)) ;
+        tokenTypeCount += 1 ;
     }
 
     function revokePBM(uint256 tokenId, address sender)
@@ -72,7 +68,7 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
     onlyOwner
     {   
         for (uint256 i = 0; i < tokenIds.length; i++) {
-            tokenTypes[tokenIds[i]].balanceSupply = uint256(tokenTypes[tokenIds[i]].balanceSupply.add(amounts[i])) ;
+            tokenTypes[tokenIds[i]].balanceSupply += amounts[i] ;
         }
     }
 
@@ -82,7 +78,7 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
     onlyOwner
     {   
         for (uint256 i = 0; i < tokenIds.length; i++) {
-            tokenTypes[tokenIds[i]].balanceSupply = uint256(tokenTypes[tokenIds[i]].balanceSupply.sub(amounts[i])) ;
+            tokenTypes[tokenIds[i]].balanceSupply -= amounts[i] ;
         }
     }
 
