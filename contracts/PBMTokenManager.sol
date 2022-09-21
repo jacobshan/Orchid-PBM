@@ -11,9 +11,9 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
     using Strings for uint256;
 
     // counter used to create new token types
-    uint256 private tokenTypeCount = 0 ; 
+    uint256 internal tokenTypeCount = 0 ; 
 
-    // structure representinga all the details of a PBM type
+    // structure representing all the details of a PBM type
     struct TokenConfig {
         string name ; 
         uint256 amount ; 
