@@ -1,7 +1,13 @@
-# Orchid-PBM
-Smartcontract for the Orchid-PBM. PBM or Purpose Bound Money is designed to be wrapper around ERC-20 tokens, allow us to program business logic governing the usage of the the underlying ERC-20 tokens. 
+# Orchid-PBM ( Commercial )
 
-The PBM contract is an ERC-1155 semi-fungible contract. 
+## Token Description
+PBM or Purpose Bound Money is a protocol that implements a purpose layer in the form of smart contract code which specifies the conditions upon which an underlying digital currency can be used. The purpose layer could be programmed whereby the PBM can only be utilized (only) for its intended purposes, such as validity within a certain period, at specific retailers, and in predetermined denominations. Once the conditions specified in the Purpose Layer is met, the underlying backing currency will be released, and transferred to the recipient. 
+
+When the conditions of a PBM is fulfilled, the underlying digital currency backing the PBM is released, and ownership is transferred to the target recipient. To fulfil the requirements to be a backing currency, a digital asset needs to be a good store of value, unit of account and a medium of exchange. Backing currency could come in the form of CBDCs, tokenised deposits or securely backed stablecoins. A backing currency could be in the form of a programmable money, whereby the digital currency itself could come with a set of usage criteria. For example, the backing currency could be implemented as an ERC-20 fungible token smart contract.
+
+This implmentation of the PBM is developed to support mulitple issuers, issuing different PBM types each with their own configuration. It was designed to be piloted at large scale public event, where different sponors could issue their own PBMs through one singular contract which could be spent at on-site F&B stores for food. 
+
+The PBM contract is built on the  ERC-1155 semi-fungible contract. 
 
 ## Pre-requisites
 Ensure that you are using node 14.x, and using nvm is highly recommended. 
