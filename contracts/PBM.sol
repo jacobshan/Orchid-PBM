@@ -8,6 +8,7 @@ import "@openzeppelin/contracts/security/Pausable.sol";
 import "./ERC20Helper.sol";  
 import "./PBMTokenManager.sol";
 import "./IPBM.sol";  
+import "./IPBMAddressList.sol";
 
 contract PBM is ERC1155, Ownable, Pausable, IPBM {  
     
@@ -15,76 +16,27 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     address public spotToken ; 
     // address of the token manager
     address public pbmTokenManager; 
+    // address of the PBM-Addresslist
+    address public pbmAddressList; 
 
+    // tracks contract initialisation
+    bool internal initialised = false;
     // time of expiry ( epoch )
     uint256 public contractExpiry ; 
-    // list of merchants who are able to receive the underlying ERC-20 tokens
-    mapping (address => bool) public merchantList ; 
 
-    constructor(address _spotToken, uint256 _expiry, string memory _uriPostExpiry) ERC1155("") {
-        spotToken = _spotToken ;
-        contractExpiry = _expiry ; 
-
+    constructor(string memory _uriPostExpiry) ERC1155("") {
         pbmTokenManager = address(new PBMTokenManager(_uriPostExpiry)) ; 
     }
-    
-    /**
-     * @dev See {IPBM-udpatePBMExpiry}.
-     *
-     * Requirements:
-     *
-     * - caller must be owner 
-     * - contract must not be paused
-     * - contract must not be expired
-     * - `newExpiry` must be larger the existing expiry
-     */
-    function updatePBMExpiry(uint256 newExpiry)
-    external
-    override 
-    onlyOwner
-    whenNotPaused
-    {   
-        require(block.timestamp < contractExpiry, "PBM: contract is expired");
-        require(newExpiry > contractExpiry, "PBM : invalid expiry" ) ; 
-        contractExpiry = newExpiry; 
-    }
 
-    /**
-     * @dev See {IPBM-addMerchantAddresses}.
-     *
-     * Requirements:
-     *
-     * - caller must be owner 
-     * - contract must not be expired
-     */
-    function addMerchantAddresses(address[] memory addresses) 
-    external
-    override
-    onlyOwner
-    {
-        require(block.timestamp < contractExpiry, "PBM: contract is expired");
-        for (uint256 i = 0; i < addresses.length; i++) {
-            merchantList[addresses[i]] = true;
-        }
-    }  
-
-    /**
-     * @dev See {IPBM-removeMerchantAddresses}.
-     *
-     * Requirements:
-     *
-     * - caller must be owner 
-     * - contract must not be expired
-     */
-    function removeMerchantAddresses(address[] memory addresses) 
+    function initialise(address _spotToken, uint256 _expiry, address _pbmAddressList)
     external 
     override
     onlyOwner
     {
-        require(block.timestamp < contractExpiry, "PBM: contract is expired");
-        for (uint256 i = 0; i < addresses.length; i++) {
-            merchantList[addresses[i]] = false;
-        } 
+        require(!initialised, "PBM: Already initialised"); 
+        spotToken = _spotToken;
+        contractExpiry = _expiry; 
+        pbmAddressList = _pbmAddressList; 
     }
 
     /**
@@ -171,7 +123,6 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
         _mintBatch(receiver, tokenIds, amounts, '');
     }
 
-
     /**
      * @dev See {IPBM-safeTransferFrom}.
      *     
@@ -194,7 +145,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
             "ERC1155: caller is not token owner nor approved"
         );
 
-        if (merchantList[to]){
+        if (IPBMAddressList(pbmAddressList).isMerchant(to)){
             uint256 valueOfTokens = amount*(PBMTokenManager(pbmTokenManager).getTokenValue(id)); 
 
             // burn and transfer underlying ERC-20
@@ -204,6 +155,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
             emit MerchantPayment(from, to, serialise(id), serialise(amount), spotToken, valueOfTokens);
 
         } else {
+            require(IPBMAddressList(pbmAddressList).isBlacklisted(to), "PBM: 'to' address blacklisted");
             _safeTransferFrom(from, to, id, amount, data);
         }
  
@@ -233,7 +185,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
         );
         require(ids.length == amounts.length, "Unequal ids and amounts supplied"); 
 
-        if (merchantList[to]){
+        if (IPBMAddressList(pbmAddressList).isMerchant(to)) {
             uint256 valueOfTokens = 0 ; 
             for (uint256 i = 0; i < ids.length; i++) {
                 valueOfTokens += (amounts[i]*(PBMTokenManager(pbmTokenManager).getTokenValue(ids[i]))) ; 
@@ -246,6 +198,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
             emit MerchantPayment(from, to, ids, amounts, spotToken, valueOfTokens);
 
         } else {
+            require(IPBMAddressList(pbmAddressList).isBlacklisted(to), "PBM: 'to' address blacklisted");
             _safeBatchTransferFrom(from, to, ids, amounts, data);
         }
     }

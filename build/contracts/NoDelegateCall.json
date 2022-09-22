@@ -15,15 +15,15 @@
     "absolutePath": "project:/contracts/NoDelegateCall.sol",
     "exportedSymbols": {
       "NoDelegateCall": [
-        3493
+        2729
       ]
     },
-    "id": 3494,
+    "id": 2730,
     "license": "BUSL-1.1",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3455,
+        "id": 2691,
         "literals": [
           "solidity",
           "^",
@@ -31,7 +31,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:23:19"
+        "src": "37:23:17"
       },
       {
         "abstract": true,
@@ -39,35 +39,35 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "documentation": {
-          "id": 3456,
+          "id": 2692,
           "nodeType": "StructuredDocumentation",
-          "src": "62:157:19",
+          "src": "62:157:17",
           "text": "@title Prevents delegatecall to a contract\n @notice Base contract that provides a modifier for preventing delegatecall to methods in a child contract"
         },
         "fullyImplemented": true,
-        "id": 3493,
+        "id": 2729,
         "linearizedBaseContracts": [
-          3493
+          2729
         ],
         "name": "NoDelegateCall",
-        "nameLocation": "237:14:19",
+        "nameLocation": "237:14:17",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
             "documentation": {
-              "id": 3457,
+              "id": 2693,
               "nodeType": "StructuredDocumentation",
-              "src": "258:46:19",
+              "src": "258:46:17",
               "text": "@dev The original address of this contract"
             },
-            "id": 3459,
+            "id": 2695,
             "mutability": "immutable",
             "name": "original",
-            "nameLocation": "335:8:19",
+            "nameLocation": "335:8:17",
             "nodeType": "VariableDeclaration",
-            "scope": 3493,
-            "src": "309:34:19",
+            "scope": 2729,
+            "src": "309:34:17",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -75,10 +75,10 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 3458,
+              "id": 2694,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "309:7:19",
+              "src": "309:7:17",
               "stateMutability": "nonpayable",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
@@ -89,24 +89,24 @@
           },
           {
             "body": {
-              "id": 3469,
+              "id": 2705,
               "nodeType": "Block",
-              "src": "364:239:19",
+              "src": "364:239:17",
               "statements": [
                 {
                   "expression": {
-                    "id": 3467,
+                    "id": 2703,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 3462,
+                      "id": 2698,
                       "name": "original",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3459,
-                      "src": "572:8:19",
+                      "referencedDeclaration": 2695,
+                      "src": "572:8:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -117,14 +117,14 @@
                     "rightHandSide": {
                       "arguments": [
                         {
-                          "id": 3465,
+                          "id": 2701,
                           "name": "this",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 4294967268,
-                          "src": "591:4:19",
+                          "src": "591:4:17",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoDelegateCall_$3493",
+                            "typeIdentifier": "t_contract$_NoDelegateCall_$2729",
                             "typeString": "contract NoDelegateCall"
                           }
                         }
@@ -132,30 +132,30 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_contract$_NoDelegateCall_$3493",
+                            "typeIdentifier": "t_contract$_NoDelegateCall_$2729",
                             "typeString": "contract NoDelegateCall"
                           }
                         ],
-                        "id": 3464,
+                        "id": 2700,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "lValueRequested": false,
                         "nodeType": "ElementaryTypeNameExpression",
-                        "src": "583:7:19",
+                        "src": "583:7:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_type$_t_address_$",
                           "typeString": "type(address)"
                         },
                         "typeName": {
-                          "id": 3463,
+                          "id": 2699,
                           "name": "address",
                           "nodeType": "ElementaryTypeName",
-                          "src": "583:7:19",
+                          "src": "583:7:17",
                           "typeDescriptions": {}
                         }
                       },
-                      "id": 3466,
+                      "id": 2702,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -163,26 +163,26 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "583:13:19",
+                      "src": "583:13:17",
                       "tryCall": false,
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "572:24:19",
+                    "src": "572:24:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 3468,
+                  "id": 2704,
                   "nodeType": "ExpressionStatement",
-                  "src": "572:24:19"
+                  "src": "572:24:17"
                 }
               ]
             },
-            "id": 3470,
+            "id": 2706,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
@@ -190,28 +190,28 @@
             "nameLocation": "-1:-1:-1",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3460,
+              "id": 2696,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "361:2:19"
+              "src": "361:2:17"
             },
             "returnParameters": {
-              "id": 3461,
+              "id": 2697,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "364:0:19"
+              "src": "364:0:17"
             },
-            "scope": 3493,
-            "src": "350:253:19",
+            "scope": 2729,
+            "src": "350:253:17",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           },
           {
             "body": {
-              "id": 3483,
+              "id": 2719,
               "nodeType": "Block",
-              "src": "880:51:19",
+              "src": "880:51:17",
               "statements": [
                 {
                   "expression": {
@@ -221,7 +221,7 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 3480,
+                        "id": 2716,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -229,14 +229,14 @@
                         "leftExpression": {
                           "arguments": [
                             {
-                              "id": 3477,
+                              "id": 2713,
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 4294967268,
-                              "src": "906:4:19",
+                              "src": "906:4:17",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_NoDelegateCall_$3493",
+                                "typeIdentifier": "t_contract$_NoDelegateCall_$2729",
                                 "typeString": "contract NoDelegateCall"
                               }
                             }
@@ -244,30 +244,30 @@
                           "expression": {
                             "argumentTypes": [
                               {
-                                "typeIdentifier": "t_contract$_NoDelegateCall_$3493",
+                                "typeIdentifier": "t_contract$_NoDelegateCall_$2729",
                                 "typeString": "contract NoDelegateCall"
                               }
                             ],
-                            "id": 3476,
+                            "id": 2712,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
                             "lValueRequested": false,
                             "nodeType": "ElementaryTypeNameExpression",
-                            "src": "898:7:19",
+                            "src": "898:7:17",
                             "typeDescriptions": {
                               "typeIdentifier": "t_type$_t_address_$",
                               "typeString": "type(address)"
                             },
                             "typeName": {
-                              "id": 3475,
+                              "id": 2711,
                               "name": "address",
                               "nodeType": "ElementaryTypeName",
-                              "src": "898:7:19",
+                              "src": "898:7:17",
                               "typeDescriptions": {}
                             }
                           },
-                          "id": 3478,
+                          "id": 2714,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -275,7 +275,7 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "898:13:19",
+                          "src": "898:13:17",
                           "tryCall": false,
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -285,18 +285,18 @@
                         "nodeType": "BinaryOperation",
                         "operator": "==",
                         "rightExpression": {
-                          "id": 3479,
+                          "id": 2715,
                           "name": "original",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3459,
-                          "src": "915:8:19",
+                          "referencedDeclaration": 2695,
+                          "src": "915:8:17",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
                           }
                         },
-                        "src": "898:25:19",
+                        "src": "898:25:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -310,7 +310,7 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 3474,
+                      "id": 2710,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -318,13 +318,13 @@
                         4294967278
                       ],
                       "referencedDeclaration": 4294967278,
-                      "src": "890:7:19",
+                      "src": "890:7:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 3481,
+                    "id": 2717,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -332,73 +332,73 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "890:34:19",
+                    "src": "890:34:17",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 3482,
+                  "id": 2718,
                   "nodeType": "ExpressionStatement",
-                  "src": "890:34:19"
+                  "src": "890:34:17"
                 }
               ]
             },
             "documentation": {
-              "id": 3471,
+              "id": 2707,
               "nodeType": "StructuredDocumentation",
-              "src": "609:221:19",
+              "src": "609:221:17",
               "text": "@dev Private method is used instead of inlining into modifier because modifiers are copied into each method,\n     and the use of immutable means the address bytes are copied in every place the modifier is used."
             },
-            "id": 3484,
+            "id": 2720,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "checkNotDelegateCall",
-            "nameLocation": "844:20:19",
+            "nameLocation": "844:20:17",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3472,
+              "id": 2708,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "864:2:19"
+              "src": "864:2:17"
             },
             "returnParameters": {
-              "id": 3473,
+              "id": 2709,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "880:0:19"
+              "src": "880:0:17"
             },
-            "scope": 3493,
-            "src": "835:96:19",
+            "scope": 2729,
+            "src": "835:96:17",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "private"
           },
           {
             "body": {
-              "id": 3491,
+              "id": 2727,
               "nodeType": "Block",
-              "src": "1026:50:19",
+              "src": "1026:50:17",
               "statements": [
                 {
                   "expression": {
                     "arguments": [],
                     "expression": {
                       "argumentTypes": [],
-                      "id": 3487,
+                      "id": 2723,
                       "name": "checkNotDelegateCall",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3484,
-                      "src": "1036:20:19",
+                      "referencedDeclaration": 2720,
+                      "src": "1036:20:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$__$returns$__$",
                         "typeString": "function () view"
                       }
                     },
-                    "id": 3488,
+                    "id": 2724,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -406,65 +406,65 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1036:22:19",
+                    "src": "1036:22:17",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 3489,
+                  "id": 2725,
                   "nodeType": "ExpressionStatement",
-                  "src": "1036:22:19"
+                  "src": "1036:22:17"
                 },
                 {
-                  "id": 3490,
+                  "id": 2726,
                   "nodeType": "PlaceholderStatement",
-                  "src": "1068:1:19"
+                  "src": "1068:1:17"
                 }
               ]
             },
             "documentation": {
-              "id": 3485,
+              "id": 2721,
               "nodeType": "StructuredDocumentation",
-              "src": "937:58:19",
+              "src": "937:58:17",
               "text": "@notice Prevents delegatecall into the modified method"
             },
-            "id": 3492,
+            "id": 2728,
             "name": "noDelegateCall",
-            "nameLocation": "1009:14:19",
+            "nameLocation": "1009:14:17",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 3486,
+              "id": 2722,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1023:2:19"
+              "src": "1023:2:17"
             },
-            "src": "1000:76:19",
+            "src": "1000:76:17",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 3494,
-        "src": "219:859:19",
+        "scope": 2730,
+        "src": "219:859:17",
         "usedErrors": []
       }
     ],
-    "src": "37:1041:19"
+    "src": "37:1041:17"
   },
   "legacyAST": {
     "absolutePath": "project:/contracts/NoDelegateCall.sol",
     "exportedSymbols": {
       "NoDelegateCall": [
-        3493
+        2729
       ]
     },
-    "id": 3494,
+    "id": 2730,
     "license": "BUSL-1.1",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3455,
+        "id": 2691,
         "literals": [
           "solidity",
           "^",
@@ -472,7 +472,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:23:19"
+        "src": "37:23:17"
       },
       {
         "abstract": true,
@@ -480,35 +480,35 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "documentation": {
-          "id": 3456,
+          "id": 2692,
           "nodeType": "StructuredDocumentation",
-          "src": "62:157:19",
+          "src": "62:157:17",
           "text": "@title Prevents delegatecall to a contract\n @notice Base contract that provides a modifier for preventing delegatecall to methods in a child contract"
         },
         "fullyImplemented": true,
-        "id": 3493,
+        "id": 2729,
         "linearizedBaseContracts": [
-          3493
+          2729
         ],
         "name": "NoDelegateCall",
-        "nameLocation": "237:14:19",
+        "nameLocation": "237:14:17",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
             "documentation": {
-              "id": 3457,
+              "id": 2693,
               "nodeType": "StructuredDocumentation",
-              "src": "258:46:19",
+              "src": "258:46:17",
               "text": "@dev The original address of this contract"
             },
-            "id": 3459,
+            "id": 2695,
             "mutability": "immutable",
             "name": "original",
-            "nameLocation": "335:8:19",
+            "nameLocation": "335:8:17",
             "nodeType": "VariableDeclaration",
-            "scope": 3493,
-            "src": "309:34:19",
+            "scope": 2729,
+            "src": "309:34:17",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -516,10 +516,10 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 3458,
+              "id": 2694,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "309:7:19",
+              "src": "309:7:17",
               "stateMutability": "nonpayable",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
@@ -530,24 +530,24 @@
           },
           {
             "body": {
-              "id": 3469,
+              "id": 2705,
               "nodeType": "Block",
-              "src": "364:239:19",
+              "src": "364:239:17",
               "statements": [
                 {
                   "expression": {
-                    "id": 3467,
+                    "id": 2703,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 3462,
+                      "id": 2698,
                       "name": "original",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3459,
-                      "src": "572:8:19",
+                      "referencedDeclaration": 2695,
+                      "src": "572:8:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -558,14 +558,14 @@
                     "rightHandSide": {
                       "arguments": [
                         {
-                          "id": 3465,
+                          "id": 2701,
                           "name": "this",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 4294967268,
-                          "src": "591:4:19",
+                          "src": "591:4:17",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_NoDelegateCall_$3493",
+                            "typeIdentifier": "t_contract$_NoDelegateCall_$2729",
                             "typeString": "contract NoDelegateCall"
                           }
                         }
@@ -573,30 +573,30 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_contract$_NoDelegateCall_$3493",
+                            "typeIdentifier": "t_contract$_NoDelegateCall_$2729",
                             "typeString": "contract NoDelegateCall"
                           }
                         ],
-                        "id": 3464,
+                        "id": 2700,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "lValueRequested": false,
                         "nodeType": "ElementaryTypeNameExpression",
-                        "src": "583:7:19",
+                        "src": "583:7:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_type$_t_address_$",
                           "typeString": "type(address)"
                         },
                         "typeName": {
-                          "id": 3463,
+                          "id": 2699,
                           "name": "address",
                           "nodeType": "ElementaryTypeName",
-                          "src": "583:7:19",
+                          "src": "583:7:17",
                           "typeDescriptions": {}
                         }
                       },
-                      "id": 3466,
+                      "id": 2702,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -604,26 +604,26 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "583:13:19",
+                      "src": "583:13:17",
                       "tryCall": false,
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "572:24:19",
+                    "src": "572:24:17",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 3468,
+                  "id": 2704,
                   "nodeType": "ExpressionStatement",
-                  "src": "572:24:19"
+                  "src": "572:24:17"
                 }
               ]
             },
-            "id": 3470,
+            "id": 2706,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
@@ -631,28 +631,28 @@
             "nameLocation": "-1:-1:-1",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3460,
+              "id": 2696,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "361:2:19"
+              "src": "361:2:17"
             },
             "returnParameters": {
-              "id": 3461,
+              "id": 2697,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "364:0:19"
+              "src": "364:0:17"
             },
-            "scope": 3493,
-            "src": "350:253:19",
+            "scope": 2729,
+            "src": "350:253:17",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           },
           {
             "body": {
-              "id": 3483,
+              "id": 2719,
               "nodeType": "Block",
-              "src": "880:51:19",
+              "src": "880:51:17",
               "statements": [
                 {
                   "expression": {
@@ -662,7 +662,7 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 3480,
+                        "id": 2716,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -670,14 +670,14 @@
                         "leftExpression": {
                           "arguments": [
                             {
-                              "id": 3477,
+                              "id": 2713,
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 4294967268,
-                              "src": "906:4:19",
+                              "src": "906:4:17",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_NoDelegateCall_$3493",
+                                "typeIdentifier": "t_contract$_NoDelegateCall_$2729",
                                 "typeString": "contract NoDelegateCall"
                               }
                             }
@@ -685,30 +685,30 @@
                           "expression": {
                             "argumentTypes": [
                               {
-                                "typeIdentifier": "t_contract$_NoDelegateCall_$3493",
+                                "typeIdentifier": "t_contract$_NoDelegateCall_$2729",
                                 "typeString": "contract NoDelegateCall"
                               }
                             ],
-                            "id": 3476,
+                            "id": 2712,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
                             "lValueRequested": false,
                             "nodeType": "ElementaryTypeNameExpression",
-                            "src": "898:7:19",
+                            "src": "898:7:17",
                             "typeDescriptions": {
                               "typeIdentifier": "t_type$_t_address_$",
                               "typeString": "type(address)"
                             },
                             "typeName": {
-                              "id": 3475,
+                              "id": 2711,
                               "name": "address",
                               "nodeType": "ElementaryTypeName",
-                              "src": "898:7:19",
+                              "src": "898:7:17",
                               "typeDescriptions": {}
                             }
                           },
-                          "id": 3478,
+                          "id": 2714,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -716,7 +716,7 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "898:13:19",
+                          "src": "898:13:17",
                           "tryCall": false,
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -726,18 +726,18 @@
                         "nodeType": "BinaryOperation",
                         "operator": "==",
                         "rightExpression": {
-                          "id": 3479,
+                          "id": 2715,
                           "name": "original",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3459,
-                          "src": "915:8:19",
+                          "referencedDeclaration": 2695,
+                          "src": "915:8:17",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
                           }
                         },
-                        "src": "898:25:19",
+                        "src": "898:25:17",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -751,7 +751,7 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 3474,
+                      "id": 2710,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -759,13 +759,13 @@
                         4294967278
                       ],
                       "referencedDeclaration": 4294967278,
-                      "src": "890:7:19",
+                      "src": "890:7:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 3481,
+                    "id": 2717,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -773,73 +773,73 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "890:34:19",
+                    "src": "890:34:17",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 3482,
+                  "id": 2718,
                   "nodeType": "ExpressionStatement",
-                  "src": "890:34:19"
+                  "src": "890:34:17"
                 }
               ]
             },
             "documentation": {
-              "id": 3471,
+              "id": 2707,
               "nodeType": "StructuredDocumentation",
-              "src": "609:221:19",
+              "src": "609:221:17",
               "text": "@dev Private method is used instead of inlining into modifier because modifiers are copied into each method,\n     and the use of immutable means the address bytes are copied in every place the modifier is used."
             },
-            "id": 3484,
+            "id": 2720,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "checkNotDelegateCall",
-            "nameLocation": "844:20:19",
+            "nameLocation": "844:20:17",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3472,
+              "id": 2708,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "864:2:19"
+              "src": "864:2:17"
             },
             "returnParameters": {
-              "id": 3473,
+              "id": 2709,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "880:0:19"
+              "src": "880:0:17"
             },
-            "scope": 3493,
-            "src": "835:96:19",
+            "scope": 2729,
+            "src": "835:96:17",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "private"
           },
           {
             "body": {
-              "id": 3491,
+              "id": 2727,
               "nodeType": "Block",
-              "src": "1026:50:19",
+              "src": "1026:50:17",
               "statements": [
                 {
                   "expression": {
                     "arguments": [],
                     "expression": {
                       "argumentTypes": [],
-                      "id": 3487,
+                      "id": 2723,
                       "name": "checkNotDelegateCall",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3484,
-                      "src": "1036:20:19",
+                      "referencedDeclaration": 2720,
+                      "src": "1036:20:17",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$__$returns$__$",
                         "typeString": "function () view"
                       }
                     },
-                    "id": 3488,
+                    "id": 2724,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -847,51 +847,51 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1036:22:19",
+                    "src": "1036:22:17",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 3489,
+                  "id": 2725,
                   "nodeType": "ExpressionStatement",
-                  "src": "1036:22:19"
+                  "src": "1036:22:17"
                 },
                 {
-                  "id": 3490,
+                  "id": 2726,
                   "nodeType": "PlaceholderStatement",
-                  "src": "1068:1:19"
+                  "src": "1068:1:17"
                 }
               ]
             },
             "documentation": {
-              "id": 3485,
+              "id": 2721,
               "nodeType": "StructuredDocumentation",
-              "src": "937:58:19",
+              "src": "937:58:17",
               "text": "@notice Prevents delegatecall into the modified method"
             },
-            "id": 3492,
+            "id": 2728,
             "name": "noDelegateCall",
-            "nameLocation": "1009:14:19",
+            "nameLocation": "1009:14:17",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 3486,
+              "id": 2722,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1023:2:19"
+              "src": "1023:2:17"
             },
-            "src": "1000:76:19",
+            "src": "1000:76:17",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 3494,
-        "src": "219:859:19",
+        "scope": 2730,
+        "src": "219:859:17",
         "usedErrors": []
       }
     ],
-    "src": "37:1041:19"
+    "src": "37:1041:17"
   },
   "compiler": {
     "name": "solc",
@@ -899,7 +899,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-09-14T09:40:51.571Z",
+  "updatedAt": "2022-09-22T06:23:14.886Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
