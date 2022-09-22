@@ -155,7 +155,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
             emit MerchantPayment(from, to, serialise(id), serialise(amount), spotToken, valueOfTokens);
 
         } else {
-            require(IPBMAddressList(pbmAddressList).isBlacklisted(to), "PBM: 'to' address blacklisted");
+            require(!IPBMAddressList(pbmAddressList).isBlacklisted(to), "PBM: 'to' address blacklisted");
             _safeTransferFrom(from, to, id, amount, data);
         }
  
@@ -198,7 +198,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
             emit MerchantPayment(from, to, ids, amounts, spotToken, valueOfTokens);
 
         } else {
-            require(IPBMAddressList(pbmAddressList).isBlacklisted(to), "PBM: 'to' address blacklisted");
+            require(!IPBMAddressList(pbmAddressList).isBlacklisted(to), "PBM: 'to' address blacklisted");
             _safeBatchTransferFrom(from, to, ids, amounts, data);
         }
     }
