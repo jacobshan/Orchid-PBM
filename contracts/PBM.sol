@@ -13,11 +13,11 @@ import "./IPBMAddressList.sol";
 contract PBM is ERC1155, Ownable, Pausable, IPBM {  
     
     // undelrying ERC-20 tokens
-    address public spotToken ; 
+    address public spotToken = address(0); 
     // address of the token manager
-    address public pbmTokenManager; 
+    address public pbmTokenManager = address(0); 
     // address of the PBM-Addresslist
-    address public pbmAddressList; 
+    address public pbmAddressList = address(0); 
 
     // tracks contract initialisation
     bool internal initialised = false;
