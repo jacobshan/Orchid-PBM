@@ -1,5 +1,6 @@
 const PBM = artifacts.require("PBM") ; 
-const Spot = artifacts. require("Spot") ; 
+const Spot = artifacts.require("Spot") ; 
+const PBMAddr = artifacts.require("PBMAddressList")
 
 
 contract ("PBM and Spot Set up test", () =>{
