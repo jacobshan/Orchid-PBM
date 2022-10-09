@@ -9,7 +9,7 @@ module.exports = async function (deployer) {
     const pbmAddr = await PBMAddr.deployed(); 
 
 
-    const expiryDate = 1694683804;  
+    const expiryDate = 1694683804; // Thursday, 14 September 2023 09:30:04 GMT
     // if you'd prefer to set an expiry a few days from now, UNCOMMENT the code below, and comment the above line.
     /*
     ** currentDate = new Date()

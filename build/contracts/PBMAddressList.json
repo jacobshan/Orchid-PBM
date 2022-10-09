@@ -31,7 +31,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -96,7 +97,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -141,7 +143,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.7+commit.e28d00a7\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"addresses\",\"type\":\"address[]\"}],\"name\":\"addMerchantAddresses\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"addresses\",\"type\":\"address[]\"}],\"name\":\"blacklistAddresses\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_address\",\"type\":\"address\"}],\"name\":\"isBlacklisted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_address\",\"type\":\"address\"}],\"name\":\"isMerchant\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"addresses\",\"type\":\"address[]\"}],\"name\":\"removeMerchantAddresses\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"addresses\",\"type\":\"address[]\"}],\"name\":\"unBlacklistAddresses\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"addMerchantAddresses(address[])\":{\"details\":\"See {IPBMAddressList-addMerchantAddresses}. Requirements: - caller must be owner \"},\"blacklistAddresses(address[])\":{\"details\":\"See {IPBMAddressList-blacklistAddresses}. Requirements: - caller must be owner \"},\"isBlacklisted(address)\":{\"details\":\"See {IPBMAddressList-isBlacklisted}.\"},\"isMerchant(address)\":{\"details\":\"See {IPBMAddressList-isMerchant}.\"},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"removeMerchantAddresses(address[])\":{\"details\":\"See {IPBMAddressList-removeMerchantAddresses}. Requirements: - caller must be owner \"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"},\"unBlacklistAddresses(address[])\":{\"details\":\"See {IPBMAddressList-unBlacklistAddresses}. Requirements: - caller must be owner \"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/PBMAddressList.sol\":\"PBMAddressList\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/access/Ownable.sol\":{\"keccak256\":\"0xa94b34880e3c1b0b931662cb1c09e5dfa6662f31cba80e07c5ee71cd135c9673\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://40fb1b5102468f783961d0af743f91b9980cf66b50d1d12009f6bb1869cea4d2\",\"dweb:/ipfs/QmYqEbJML4jB1GHbzD4cUZDtJg5wVwNm3vDJq1GbyDus8y\"]},\"@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92\",\"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3\"]},\"project:/contracts/IPBMAddressList.sol\":{\"keccak256\":\"0xba39b5e450b8a9648c2a46e8e102b2264a40f3cd6799439b767ba269a00ea264\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9e60942660718c7c77ccdb70ccedc99cf48b901003a837ae2f0c484a5120c336\",\"dweb:/ipfs/QmPYvcGoijdxx5ei5cfZU9mLjADRyiVn5kxwEAfCZEcP2g\"]},\"project:/contracts/PBMAddressList.sol\":{\"keccak256\":\"0xee79aaece5f26388e16cca580aa2138843b4e9c83ebf67b33c2402f7af00f4b7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://97e57eb0937c8137ad3cc80a2cac18f4a1bb7d617decff8be7b5540149912076\",\"dweb:/ipfs/QmX5628eDs5yf8TGBPdLCFW8ZzKFCbn4oukWzGmiUbmX4a\"]}},\"version\":1}",
@@ -7697,9 +7700,23 @@
     "name": "solc",
     "version": "0.8.7+commit.e28d00a7.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "137": {
+      "events": {},
+      "links": {},
+      "address": "0xAF5Bf6a090110eb743095b349E56888068fB5D5E",
+      "transactionHash": "0x594ff872fa974a858c2582cd7ddec489e5914cbc7da2248dbf47c8b2d4ac131b"
+    },
+    "80001": {
+      "events": {},
+      "links": {},
+      "address": "0x8ef10AC7b72f64EA90eC71A6AA0d04c2bc0DFB1A",
+      "transactionHash": "0x92dd7522f548b87b9718db4d0b9a2a31e694886330f9db918ee95af7aef98bc8"
+    }
+  },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-09-22T06:23:14.941Z",
+  "updatedAt": "2022-10-06T04:02:07.948Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {
