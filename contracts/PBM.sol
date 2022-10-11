@@ -11,10 +11,6 @@ import "./IPBM.sol";
 import "./IPBMAddressList.sol";
 
 contract PBM is ERC1155, Ownable, Pausable, IPBM {  
-
-    // name, token code as identifiers
-    string public name ; 
-    string public code ; 
     
     // undelrying ERC-20 tokens
     address public spotToken = address(0); 
@@ -28,10 +24,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     // time of expiry ( epoch )
     uint256 public contractExpiry ; 
 
-    constructor(string memory _name, string memory _code) ERC1155("") {
-        name = _name ; 
-        code = _code ;
-    }
+    constructor() ERC1155("") {}
 
     /**
      * @dev See {IPBM-initalise}.

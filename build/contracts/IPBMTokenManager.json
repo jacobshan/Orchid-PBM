@@ -3282,7 +3282,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-10-11T06:31:04.258Z",
+  "updatedAt": "2022-10-11T06:54:12.059Z",
   "devdoc": {
     "events": {
       "NewPBMTypeCreated(uint256,string,uint256,uint256,address)": {

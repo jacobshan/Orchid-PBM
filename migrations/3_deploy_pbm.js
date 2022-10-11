@@ -18,7 +18,7 @@ module.exports = async function (deployer) {
     currentEpoch = Math.floor(currentDate/1000) ; 
     const expiryDate = currentEpoch + 200000; 
 
-    await deployer.deploy(PBM, "SFF-test-Voucher", "SFFT"); 
+    await deployer.deploy(PBM); 
     pbm = await PBM.deployed(); 
     //await new Promise(r => setTimeout(r, 5000));
     console.log("pbm addresss  : ", pbm.address)
