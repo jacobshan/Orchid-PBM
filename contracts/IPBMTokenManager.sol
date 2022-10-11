@@ -82,6 +82,11 @@ interface IPBMTokenManager {
         address sender
     ) external; 
 
+    /// @notice  gets the owner of the PBM Token Manager
+    // @return owner address of the current owner
+    function owner() external returns (address owner); 
+
+
     /// @notice Event emitted when a new PBM token type is created
     /// @param tokenId The account from which the tokens were sent, i.e. the balance decreased
     /// @param tokenName The account to which the tokens were sent, i.e. the balance increased

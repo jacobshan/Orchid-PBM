@@ -239,4 +239,16 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
         require(tokenTypes[tokenId].amount!=0 && block.timestamp < tokenTypes[tokenId].expiry, "PBM: Invalid Token Id(s)"); 
         return tokenTypes[tokenId].creator ; 
     }
+
+    /**
+     * @dev See {Ownable-owner}.
+     *
+     */ 
+    function owner()
+    public 
+    override(IPBMTokenManager, Ownable)
+    view 
+    returns (address) {
+        return Ownable.owner();
+    }
 }

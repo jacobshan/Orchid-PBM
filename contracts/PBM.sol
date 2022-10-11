@@ -11,6 +11,10 @@ import "./IPBM.sol";
 import "./IPBMAddressList.sol";
 
 contract PBM is ERC1155, Ownable, Pausable, IPBM {  
+
+    // name, token code as identifiers
+    string public name ; 
+    string public code ; 
     
     // undelrying ERC-20 tokens
     address public spotToken = address(0); 
@@ -24,19 +28,32 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     // time of expiry ( epoch )
     uint256 public contractExpiry ; 
 
-    constructor(string memory _uriPostExpiry) ERC1155("") {
-        pbmTokenManager = address(new PBMTokenManager(_uriPostExpiry)) ; 
+    constructor(string memory _name, string memory _code) ERC1155("") {
+        name = _name ; 
+        code = _code ;
     }
 
-    function initialise(address _spotToken, uint256 _expiry, address _pbmAddressList)
+    /**
+     * @dev See {IPBM-initalise}.
+     *
+     * Requirements:
+     *
+     * - caller must be owner 
+     * - contract must not be intialised
+     * - owner of PBMTokenManager should be the PBM (this)
+     */
+    function initialise(address _spotToken, uint256 _expiry, address _pbmAddressList, address _pbmTokenManager)
     external 
     override
     onlyOwner
     {
         require(!initialised, "PBM: Already initialised"); 
+        require(IPBMTokenManager(_pbmTokenManager).owner() == address(this), "TokenManager owner not PBM"); 
+
         spotToken = _spotToken;
         contractExpiry = _expiry; 
         pbmAddressList = _pbmAddressList; 
+        pbmTokenManager = _pbmTokenManager; 
     }
 
     /**
@@ -45,15 +62,17 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
      * Requirements:
      *
      * - caller must be owner 
-     * - contract must not be expired
+     * - contract must be expired
      * - `tokenExpiry` must be less than contract expiry
      * - `amount` should not be 0
+     * - contract must not be initialised
      */
     function createPBMTokenType(string memory companyName, uint256 spotAmount, uint256 tokenExpiry,address creator, string memory tokenURI) 
     external 
     override
     onlyOwner 
     {        
+        require(initialised, "PBM: not initialised"); 
         PBMTokenManager(pbmTokenManager).createTokenType(companyName, spotAmount, tokenExpiry, creator,  tokenURI, contractExpiry);
     }
 
@@ -67,6 +86,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
      * Requirements:
      *
      * - contract must not be paused
+     * - contract must be initialised
      * - tokens must not be expired
      * - `tokenId` should be a valid id that has already been created
      * - caller should have the necessary amount of the ERC-20 tokens required to mint
@@ -77,6 +97,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     override
     whenNotPaused
     {
+        require(initialised, "PBM: not initialised"); 
         uint256 valueOfNewTokens = amount*(PBMTokenManager(pbmTokenManager).getTokenValue(tokenId)); 
 
         //Transfer the spot token from the user to the contract to wrap it
@@ -97,6 +118,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
      * Requirements:
      *
      * - contract must not be paused
+     * - contract must be initialised
      * - tokens must not be expired
      * - `tokenIds` should all be valid ids that have already been created
      * - `tokenIds` and `amounts` list need to have the same number of values
@@ -108,6 +130,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     override
     whenNotPaused
     {   
+        require(initialised, "PBM: not initialised"); 
         require(tokenIds.length == amounts.length, "Unequal ids and amounts supplied"); 
 
         // calculate the value of the new tokens
@@ -130,6 +153,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
      * Requirements:
      *
      * - contract must not be paused
+     * - contract must be initialised
      * - tokens must not be expired
      * - `tokenId` should be a valid ids that has already been created
      * - caller should have the PBMs that are being transferred (or)
@@ -140,6 +164,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     override(ERC1155, IPBM)
     whenNotPaused  
     {
+        require(initialised, "PBM: not initialised"); 
         require(
             from == _msgSender() || isApprovedForAll(from, _msgSender()),
             "ERC1155: caller is not token owner nor approved"
@@ -168,6 +193,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
      * Requirements:
      *
      * - contract must not be paused
+     * - contract must be initialised
      * - tokens must not be expired
      * - `tokenIds` should all be  valid ids that has already been created
      * - `tokenIds` and `amounts` list need to have the same number of values
@@ -179,6 +205,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     override(ERC1155, IPBM)
     whenNotPaused 
     {
+        require(initialised, "PBM: not initialised"); 
         require(
             from == _msgSender() || isApprovedForAll(from, _msgSender()),
             "ERC1155: caller is not token owner nor approved"
@@ -208,6 +235,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
      *
      * Requirements:
      *
+     * - contract must be initialised
      * - `tokenId` should be a valid ids that has already been created
      * - caller must be the creator of the tokenType 
      * - token must be expired
@@ -217,6 +245,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     override
     whenNotPaused 
     {
+        require(initialised, "PBM: not initialised"); 
         uint256 valueOfTokens = PBMTokenManager(pbmTokenManager).getPBMRevokeValue(tokenId);
 
         PBMTokenManager(pbmTokenManager).revokePBM(tokenId, msg.sender); 
