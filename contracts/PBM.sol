@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 
 import "./ERC20Helper.sol";  
-import "./PBMTokenManager.sol";
+import "./IPBMTokenManager.sol";
 import "./IPBM.sol";  
 import "./IPBMAddressList.sol";
 
@@ -68,7 +68,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     onlyOwner 
     {        
         require(initialised, "PBM: not initialised"); 
-        PBMTokenManager(pbmTokenManager).createTokenType(companyName, spotAmount, tokenExpiry, creator,  tokenURI, contractExpiry);
+        IPBMTokenManager(pbmTokenManager).createTokenType(companyName, spotAmount, tokenExpiry, creator,  tokenURI, contractExpiry);
     }
 
     /**
@@ -93,13 +93,13 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     whenNotPaused
     {
         require(initialised, "PBM: not initialised"); 
-        uint256 valueOfNewTokens = amount*(PBMTokenManager(pbmTokenManager).getTokenValue(tokenId)); 
+        uint256 valueOfNewTokens = amount*(IPBMTokenManager(pbmTokenManager).getTokenValue(tokenId)); 
 
         //Transfer the spot token from the user to the contract to wrap it
         ERC20Helper.safeTransferFrom(spotToken, msg.sender, address(this), valueOfNewTokens);
 
         // mint the token if the contract - wrapping the xsgd
-        PBMTokenManager(pbmTokenManager).increaseBalanceSupply(serialise(tokenId), serialise(amount)) ; 
+        IPBMTokenManager(pbmTokenManager).increaseBalanceSupply(serialise(tokenId), serialise(amount)) ; 
         _mint(receiver, tokenId, amount, ''); 
     }
 
@@ -132,12 +132,12 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
         uint256 valueOfNewTokens = 0 ; 
 
         for (uint256 i = 0; i < tokenIds.length; i++) {
-            valueOfNewTokens += (amounts[i]*(PBMTokenManager(pbmTokenManager).getTokenValue(tokenIds[i])));  
+            valueOfNewTokens += (amounts[i]*(IPBMTokenManager(pbmTokenManager).getTokenValue(tokenIds[i])));  
         } 
 
         // Transfer spot tokenf from user to contract to wrap it
         ERC20Helper.safeTransferFrom(spotToken, msg.sender, address(this), valueOfNewTokens);
-        PBMTokenManager(pbmTokenManager).increaseBalanceSupply(tokenIds, amounts);
+        IPBMTokenManager(pbmTokenManager).increaseBalanceSupply(tokenIds, amounts);
         _mintBatch(receiver, tokenIds, amounts, '');
     }
 
@@ -166,11 +166,11 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
         );
 
         if (IPBMAddressList(pbmAddressList).isMerchant(to)){
-            uint256 valueOfTokens = amount*(PBMTokenManager(pbmTokenManager).getTokenValue(id)); 
+            uint256 valueOfTokens = amount*(IPBMTokenManager(pbmTokenManager).getTokenValue(id)); 
 
             // burn and transfer underlying ERC-20
             _burn(from, id, amount);
-            PBMTokenManager(pbmTokenManager).decreaseBalanceSupply(serialise(id), serialise(amount)) ; 
+            IPBMTokenManager(pbmTokenManager).decreaseBalanceSupply(serialise(id), serialise(amount)) ; 
             ERC20Helper.safeTransfer(spotToken, to, valueOfTokens);
             emit MerchantPayment(from, to, serialise(id), serialise(amount), spotToken, valueOfTokens);
 
@@ -210,11 +210,11 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
         if (IPBMAddressList(pbmAddressList).isMerchant(to)) {
             uint256 valueOfTokens = 0 ; 
             for (uint256 i = 0; i < ids.length; i++) {
-                valueOfTokens += (amounts[i]*(PBMTokenManager(pbmTokenManager).getTokenValue(ids[i]))) ; 
+                valueOfTokens += (amounts[i]*(IPBMTokenManager(pbmTokenManager).getTokenValue(ids[i]))) ; 
             } 
 
             _burnBatch(from, ids, amounts);
-            PBMTokenManager(pbmTokenManager).decreaseBalanceSupply(ids, amounts);
+            IPBMTokenManager(pbmTokenManager).decreaseBalanceSupply(ids, amounts);
             ERC20Helper.safeTransfer(spotToken, to, valueOfTokens);
 
             emit MerchantPayment(from, to, ids, amounts, spotToken, valueOfTokens);
@@ -241,9 +241,9 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     whenNotPaused 
     {
         require(initialised, "PBM: not initialised"); 
-        uint256 valueOfTokens = PBMTokenManager(pbmTokenManager).getPBMRevokeValue(tokenId);
+        uint256 valueOfTokens = IPBMTokenManager(pbmTokenManager).getPBMRevokeValue(tokenId);
 
-        PBMTokenManager(pbmTokenManager).revokePBM(tokenId, msg.sender); 
+        IPBMTokenManager(pbmTokenManager).revokePBM(tokenId, msg.sender); 
 
         // transfering underlying ERC20 tokens
         ERC20Helper.safeTransfer(spotToken, msg.sender, valueOfTokens);
@@ -261,7 +261,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     override
     returns (string memory, uint256, uint256, address) 
     {
-        return PBMTokenManager(pbmTokenManager).getTokenDetails(tokenId); 
+        return IPBMTokenManager(pbmTokenManager).getTokenDetails(tokenId); 
     }
 
     /**
@@ -274,7 +274,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     override(ERC1155, IPBM)
     returns (string memory)
     {
-        return PBMTokenManager(pbmTokenManager).uri(tokenId);
+        return IPBMTokenManager(pbmTokenManager).uri(tokenId);
     }
 
     /**
