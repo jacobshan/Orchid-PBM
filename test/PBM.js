@@ -196,10 +196,12 @@ contract("Batch Mint of NFTs", (accounts)=>{
 contract("Transfer of PBM NFTs", (accounts)=>{
     var spot = null ; 
     var pbm = null ; 
+    var pbmAddr = null ; 
 
     before(async()=>{
         spot = await Spot.deployed() ; 
         pbm = await PBM.deployed() ; 
+        pbmAddr = await PBMAddr.deployed() ; 
     }) ;
 
     after(async()=>{

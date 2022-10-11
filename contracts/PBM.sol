@@ -54,6 +54,8 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
         contractExpiry = _expiry; 
         pbmAddressList = _pbmAddressList; 
         pbmTokenManager = _pbmTokenManager; 
+
+        initialised = true; 
     }
 
     /**
