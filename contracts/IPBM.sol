@@ -4,18 +4,12 @@ pragma solidity ^0.8.0;
 /// @title PBM interface 
 /// @notice The PBM (purpose bound money) allows us to add logical requirements on the use of ERC-20 tokens. The PBM acts as wrapper around the ERC-20 tokens and implements the necessary logic. 
 interface IPBM {
-
-    /// @notice Extends the contarct level expiry for the PBM
-    /// @param newExpiry The new expiry date ( in epoch ) for the PBM
-    function updatePBMExpiry(uint256 newExpiry) external; 
-
-    /// @notice Adds wallet addresses of merchants who are the only wallets able to receive the underlying ERC-20 tokens (whitelisting).
-    /// @param addresses The list of merchant wallet address
-    function addMerchantAddresses(address[] memory addresses) external; 
-
-    /// @notice Removes wallet addresses from the merchant addresses who are  able to receive the underlying ERC-20 tokens (un-whitelisting).
-    /// @param addresses The list of merchant wallet address
-    function removeMerchantAddresses(address[] memory addresses) external; 
+    
+    /// @notice sets the address of the underlying ERC20 token, Contract Expiry, and the address of pbm address list
+    /// @param _spotToken address of the underlying ERC20 token
+    /// @param _expiry contract wide expiry ( in epoch )
+    /// @param _pbmAddressList address of the PBMAddressList smartcontract
+    function initialise(address _spotToken, uint256 _expiry, address _pbmAddressList) external; 
 
     /// @notice Creates a new PBM token type with the data provided
     /// @param companyName Name of the company issuing the PBM

@@ -4,7 +4,7 @@
 ## Smart Contract Specifications
 The PBM smart contract has built upon the ERC-1155 token standard leveraging its semi-fungible nature. Since each issued PBM type can have multiple copies, the ERC-1155 allows for the most efficient data managment. 
 
-The PBM is built with two contracts. The PBM.sol contains all the ERC-1155 NFT logic, preserving information on ownership, transfers, etc. The PBMTokenManager.sol is designed as database storing details about each of PBM token type. 
+The PBM is built with three contracts. The PBM.sol contains all the ERC-1155 NFT logic, preserving information on ownership, transfers, etc. The PBMTokenManager.sol is designed as database storing details about each of PBM token type. The PBMAddressManager.sol is a database for managing merchant addresses ( whitelisted to receive the underlying ERC-20 tokens) and blacklisted address ( those who can't receive/transfer the PBM)
 
 As a developer/user, you just have to interact the PBM.sol contract, the deployment and managment of the PBMTokenManager.sol is taken care of by the PBM.sol contract. 
 
@@ -24,14 +24,16 @@ The table below presents the immutable fields of the token contract and a descri
 | Name | Type | Description |
 |--|--|--|
 | `spotToken` | `address` | Address of the underlying digtial currency ( ERC-20 tokens only ) |
-| `pbmTokenManager` | `address` | Address of the PBMTokenManager contract, that fixed upon deployment of `PBM.sol`.|
+| `pbmTokenManager` | `address` | Address of the PBMTokenManager contract, that is fixed upon deployment of `PBM.sol`.|
+| `pbmAddressList` | `address` | Address of the PBM Address list contract, that is fixed on `intialisation`.|
+| `contractExpiry` | `uint256` | Time (in epoch) when the PBM contract expires. |
 
 ### Mutable Fields
 The table below presents the mutable fields of the token contract and a description of what it is for.
 
 | Name | Type | Description |
 |--|--|--|
-| `contractExpiry` | `uint256` | Time (in epoch) when the PBM contract expires. |
+
 | `merchantList` | `mapping (address => bool)` | The list of whitelisted Merchants who (only) are able to recieve the wrapped up digital Tokens. |
 
 
@@ -57,7 +59,7 @@ The table below presents the mutable fields of the token contract and a descript
 
 | Name | Type | Description |
 |--|--|--|
-| `tokenTypes` | `admapping (uint256 => TokenConfig)` | Mapping of tokenIds to the different PBM token details.|
+| `tokenTypes` | `mapping (uint256 => TokenConfig)` | Mapping of tokenIds to the different PBM token details.|
 
 ####  TokenConfig Data structure 
 The TokenConfig stores the different details about the PBM tokens.
@@ -72,3 +74,18 @@ The TokenConfig stores the different details about the PBM tokens.
     }
 
 ```
+
+## PBM Address List 
+
+| Name | Description & Privileges |
+|--|--|
+|`owner`| The owner is the deployer of the PBMAddressList.sol contract. The `owner` is the only addres who has access to the `write` actions to the address list details.|
+
+
+### Mutable Fields
+The table below presents the mutable fields of the token contract and a description of what it is for.
+
+| Name | Type | Description |
+|--|--|--|
+| `merchantList` | `mapping (address => bool)` | Stores addresses of merchants who are able to receive the underlying ERC-20 tokens.|
+| `blacklistedAddresses` | `mapping (address => bool)` | Stores addresses who are blocked from receiving the PBM or ERC-20 tokens.|

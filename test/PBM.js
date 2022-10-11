@@ -1,5 +1,6 @@
 const PBM = artifacts.require("PBM") ; 
-const Spot = artifacts. require("Spot") ; 
+const Spot = artifacts.require("Spot") ; 
+const PBMAddr = artifacts.require("PBMAddressList")
 
 
 contract ("PBM and Spot Set up test", () =>{
@@ -219,6 +220,14 @@ contract("Transfer of PBM NFTs", (accounts)=>{
         await pbm.createPBMTokenType("Fazz",10, targetEpoch, accounts[1], "uri1") ; 
         await pbm.batchMint([0,1,2],[2,2,2], accounts[2], {from: accounts[1]}) ;
     })
+    
+    it("Blacklisting addresses", async()=>{
+        await pbmAddr.addMerchantAddresses([accounts[6], accounts[5]]) ; 
+        var merchant0 = await pbmAddr.isMerchant(accounts[6]) ; 
+        var merchant1 = await pbmAddr.isMerchant(accounts[5]) ; 
+        assert(merchant0==true) ; 
+        assert(merchant1==true) ; 
+    }) ; 
      
     it("Transfering tokens you don't own gives an error", async()=>{
         try {
@@ -299,6 +308,7 @@ contract("Payment to whitelisted address through PBM NFTs", (accounts)=>{
     before(async()=>{
         spot = await Spot.deployed() ; 
         pbm = await PBM.deployed() ; 
+        pbmAddr = await PBMAddr.deployed() ; 
     }) ;
 
     it("Setting up the contract for transfer testing", async()=>{
@@ -316,9 +326,9 @@ contract("Payment to whitelisted address through PBM NFTs", (accounts)=>{
     }); 
 
     it("Whitelisting merchant addresses", async()=>{
-        await pbm.addMerchantAddresses([accounts[4], accounts[5]]) ; 
-        var merchant0 = await pbm.merchantList.call(accounts[4]) ; 
-        var merchant1 = await pbm.merchantList.call(accounts[5]) ; 
+        await pbmAddr.addMerchantAddresses([accounts[4], accounts[5]]) ; 
+        var merchant0 = await pbmAddr.isMerchant(accounts[4]) ; 
+        var merchant1 = await pbmAddr.isMerchant(accounts[5]) ; 
         assert(merchant0==true) ; 
         assert(merchant1==true) ; 
     }) ; 
@@ -366,8 +376,8 @@ contract("Payment to whitelisted address through PBM NFTs", (accounts)=>{
     })
 
     it("Merchant address is successfully removed from the merchant list", async()=>{
-        await pbm.removeMerchantAddresses([accounts[4]]) ; 
-        var merchant0 = await pbm.merchantList.call(accounts[4]) ; 
+        await pbmAddr.removeMerchantAddresses([accounts[4]]) ; 
+        var merchant0 = await pbmAddr.isMerchant(accounts[4]) ; 
         assert(merchant0==false) ; 
     })
 }) ; 
@@ -381,7 +391,7 @@ contract("Withdraw funds NFT", (accounts)=>{
         pbm = await PBM.deployed() ; 
     }) ;
 
-    it("set up of contract", async()=>{
+    it("Set up of contract", async()=>{
         await spot.mint(accounts[1], 80) ; 
         await spot.increaseAllowance(pbm.address, 80, {from: accounts[1]}) ;  
         // creating new token types
@@ -393,7 +403,7 @@ contract("Withdraw funds NFT", (accounts)=>{
         await pbm.mint(0,3, accounts[2],{from: accounts[1]}) ; 
     }); 
 
-    it("revoke before expiry failes", async()=>{
+    it("Revoke before expiry failes", async()=>{
         try {
             await pbm.revokePBM(0, {from: accounts[1] }) ; 
         } catch (e) {
@@ -403,7 +413,7 @@ contract("Withdraw funds NFT", (accounts)=>{
         assert(false); 
     }); 
 
-    it("revoke by non-creator of PBM failes", async()=>{
+    it("Revoke by non-creator of PBM failes", async()=>{
         // waiting for 3 secs
         const sleep = ms => new Promise(r => setTimeout(r, ms));
         await sleep(3000) ; 
@@ -417,7 +427,7 @@ contract("Withdraw funds NFT", (accounts)=>{
         assert(false); 
     }); 
 
-    it("revoke after expiry succeeds", async()=>{       
+    it("Revoke after expiry succeeds", async()=>{       
         check = await pbm.getTokenDetails(0) ; 
         currentDate = new Date()
         currentEpoch = Math.floor(currentDate/1000) ; 

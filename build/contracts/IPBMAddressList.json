@@ -1,0 +1,1208 @@
+{
+  "contractName": "IPBMAddressList",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "addresses",
+          "type": "address[]"
+        }
+      ],
+      "name": "blacklistAddresses",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "addresses",
+          "type": "address[]"
+        }
+      ],
+      "name": "unBlacklistAddresses",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_address",
+          "type": "address"
+        }
+      ],
+      "name": "isBlacklisted",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "addresses",
+          "type": "address[]"
+        }
+      ],
+      "name": "addMerchantAddresses",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "addresses",
+          "type": "address[]"
+        }
+      ],
+      "name": "removeMerchantAddresses",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_address",
+          "type": "address"
+        }
+      ],
+      "name": "isMerchant",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.7+commit.e28d00a7\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"addresses\",\"type\":\"address[]\"}],\"name\":\"addMerchantAddresses\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"addresses\",\"type\":\"address[]\"}],\"name\":\"blacklistAddresses\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_address\",\"type\":\"address\"}],\"name\":\"isBlacklisted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_address\",\"type\":\"address\"}],\"name\":\"isMerchant\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"addresses\",\"type\":\"address[]\"}],\"name\":\"removeMerchantAddresses\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"addresses\",\"type\":\"address[]\"}],\"name\":\"unBlacklistAddresses\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"addMerchantAddresses(address[])\":{\"params\":{\"addresses\":\"The list of merchant wallet address\"}},\"blacklistAddresses(address[])\":{\"params\":{\"addresses\":\"The list of merchant wallet address\"}},\"isBlacklisted(address)\":{\"params\":{\"_address\":\"The address in query\"},\"returns\":{\"_0\":\"True if address is a blacklisted, else false\"}},\"isMerchant(address)\":{\"params\":{\"_address\":\"The address in query\"},\"returns\":{\"_0\":\"True if address is a merchant, else false\"}},\"removeMerchantAddresses(address[])\":{\"params\":{\"addresses\":\"The list of merchant wallet address\"}},\"unBlacklistAddresses(address[])\":{\"params\":{\"addresses\":\"The list of merchant wallet address\"}}},\"title\":\"PBM Address list Interface. \",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"addMerchantAddresses(address[])\":{\"notice\":\"Adds wallet addresses of merchants who are the only wallets able to receive the underlying ERC-20 tokens (whitelisting).\"},\"blacklistAddresses(address[])\":{\"notice\":\"Adds wallet addresses to the blacklist who are unable to receive the pbm tokens.\"},\"isBlacklisted(address)\":{\"notice\":\"Checks if the address is one of the blacklisted addresses\"},\"isMerchant(address)\":{\"notice\":\"Checks if the address is one of the whitelisted merchant\"},\"removeMerchantAddresses(address[])\":{\"notice\":\"Removes wallet addresses from the merchant addresses who are  able to receive the underlying ERC-20 tokens (un-whitelisting).\"},\"unBlacklistAddresses(address[])\":{\"notice\":\"Removes wallet addresses from the blacklist who are  unable to receive the PBM tokens.\"}},\"notice\":\"The PBM address list stores and manages whitelisted merchants and blacklisted address for the PBMs \",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IPBMAddressList.sol\":\"IPBMAddressList\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IPBMAddressList.sol\":{\"keccak256\":\"0xba39b5e450b8a9648c2a46e8e102b2264a40f3cd6799439b767ba269a00ea264\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9e60942660718c7c77ccdb70ccedc99cf48b901003a837ae2f0c484a5120c336\",\"dweb:/ipfs/QmPYvcGoijdxx5ei5cfZU9mLjADRyiVn5kxwEAfCZEcP2g\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\n/// @title PBM Address list Interface. \n/// @notice The PBM address list stores and manages whitelisted merchants and blacklisted address for the PBMs \ninterface IPBMAddressList {\n\n    /// @notice Adds wallet addresses to the blacklist who are unable to receive the pbm tokens.\n    /// @param addresses The list of merchant wallet address\n    function blacklistAddresses(address[] memory addresses) external; \n\n    /// @notice Removes wallet addresses from the blacklist who are  unable to receive the PBM tokens.\n    /// @param addresses The list of merchant wallet address\n    function unBlacklistAddresses(address[] memory addresses) external; \n\n    /// @notice Checks if the address is one of the blacklisted addresses\n    /// @param _address The address in query\n    /// @return True if address is a blacklisted, else false\n    function isBlacklisted(address _address) external returns (bool) ; \n\n    /// @notice Adds wallet addresses of merchants who are the only wallets able to receive the underlying ERC-20 tokens (whitelisting).\n    /// @param addresses The list of merchant wallet address\n    function addMerchantAddresses(address[] memory addresses) external; \n\n    /// @notice Removes wallet addresses from the merchant addresses who are  able to receive the underlying ERC-20 tokens (un-whitelisting).\n    /// @param addresses The list of merchant wallet address\n    function removeMerchantAddresses(address[] memory addresses) external; \n\n    /// @notice Checks if the address is one of the whitelisted merchant\n    /// @param _address The address in query\n    /// @return True if address is a merchant, else false\n    function isMerchant(address _address) external returns (bool) ; \n}",
+  "sourcePath": "/Users/mihir/Desktop/code/Orchid-PBM/contracts/IPBMAddressList.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/IPBMAddressList.sol",
+    "exportedSymbols": {
+      "IPBMAddressList": [
+        2585
+      ]
+    },
+    "id": 2586,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2539,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:15"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 2540,
+          "nodeType": "StructuredDocumentation",
+          "src": "57:152:15",
+          "text": "@title PBM Address list Interface. \n @notice The PBM address list stores and manages whitelisted merchants and blacklisted address for the PBMs "
+        },
+        "fullyImplemented": false,
+        "id": 2585,
+        "linearizedBaseContracts": [
+          2585
+        ],
+        "name": "IPBMAddressList",
+        "nameLocation": "219:15:15",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 2541,
+              "nodeType": "StructuredDocumentation",
+              "src": "242:153:15",
+              "text": "@notice Adds wallet addresses to the blacklist who are unable to receive the pbm tokens.\n @param addresses The list of merchant wallet address"
+            },
+            "functionSelector": "77a54eb8",
+            "id": 2547,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "blacklistAddresses",
+            "nameLocation": "409:18:15",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2545,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2544,
+                  "mutability": "mutable",
+                  "name": "addresses",
+                  "nameLocation": "445:9:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2547,
+                  "src": "428:26:15",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2542,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "428:7:15",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 2543,
+                    "nodeType": "ArrayTypeName",
+                    "src": "428:9:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "427:28:15"
+            },
+            "returnParameters": {
+              "id": 2546,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "464:0:15"
+            },
+            "scope": 2585,
+            "src": "400:65:15",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2548,
+              "nodeType": "StructuredDocumentation",
+              "src": "472:159:15",
+              "text": "@notice Removes wallet addresses from the blacklist who are  unable to receive the PBM tokens.\n @param addresses The list of merchant wallet address"
+            },
+            "functionSelector": "2a58e9ff",
+            "id": 2554,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "unBlacklistAddresses",
+            "nameLocation": "645:20:15",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2552,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2551,
+                  "mutability": "mutable",
+                  "name": "addresses",
+                  "nameLocation": "683:9:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2554,
+                  "src": "666:26:15",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2549,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "666:7:15",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 2550,
+                    "nodeType": "ArrayTypeName",
+                    "src": "666:9:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "665:28:15"
+            },
+            "returnParameters": {
+              "id": 2553,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "702:0:15"
+            },
+            "scope": 2585,
+            "src": "636:67:15",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2555,
+              "nodeType": "StructuredDocumentation",
+              "src": "710:175:15",
+              "text": "@notice Checks if the address is one of the blacklisted addresses\n @param _address The address in query\n @return True if address is a blacklisted, else false"
+            },
+            "functionSelector": "fe575a87",
+            "id": 2562,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isBlacklisted",
+            "nameLocation": "899:13:15",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2558,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2557,
+                  "mutability": "mutable",
+                  "name": "_address",
+                  "nameLocation": "921:8:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2562,
+                  "src": "913:16:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2556,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "913:7:15",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "912:18:15"
+            },
+            "returnParameters": {
+              "id": 2561,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2560,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2562,
+                  "src": "949:4:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 2559,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "949:4:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "948:6:15"
+            },
+            "scope": 2585,
+            "src": "890:66:15",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2563,
+              "nodeType": "StructuredDocumentation",
+              "src": "963:193:15",
+              "text": "@notice Adds wallet addresses of merchants who are the only wallets able to receive the underlying ERC-20 tokens (whitelisting).\n @param addresses The list of merchant wallet address"
+            },
+            "functionSelector": "e10adc16",
+            "id": 2569,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addMerchantAddresses",
+            "nameLocation": "1170:20:15",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2567,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2566,
+                  "mutability": "mutable",
+                  "name": "addresses",
+                  "nameLocation": "1208:9:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2569,
+                  "src": "1191:26:15",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2564,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1191:7:15",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 2565,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1191:9:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1190:28:15"
+            },
+            "returnParameters": {
+              "id": 2568,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1227:0:15"
+            },
+            "scope": 2585,
+            "src": "1161:67:15",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2570,
+              "nodeType": "StructuredDocumentation",
+              "src": "1235:198:15",
+              "text": "@notice Removes wallet addresses from the merchant addresses who are  able to receive the underlying ERC-20 tokens (un-whitelisting).\n @param addresses The list of merchant wallet address"
+            },
+            "functionSelector": "30a5d1c0",
+            "id": 2576,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "removeMerchantAddresses",
+            "nameLocation": "1447:23:15",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2574,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2573,
+                  "mutability": "mutable",
+                  "name": "addresses",
+                  "nameLocation": "1488:9:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2576,
+                  "src": "1471:26:15",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2571,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1471:7:15",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 2572,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1471:9:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1470:28:15"
+            },
+            "returnParameters": {
+              "id": 2575,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1507:0:15"
+            },
+            "scope": 2585,
+            "src": "1438:70:15",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2577,
+              "nodeType": "StructuredDocumentation",
+              "src": "1515:171:15",
+              "text": "@notice Checks if the address is one of the whitelisted merchant\n @param _address The address in query\n @return True if address is a merchant, else false"
+            },
+            "functionSelector": "1a2f7167",
+            "id": 2584,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isMerchant",
+            "nameLocation": "1700:10:15",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2580,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2579,
+                  "mutability": "mutable",
+                  "name": "_address",
+                  "nameLocation": "1719:8:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2584,
+                  "src": "1711:16:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2578,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1711:7:15",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1710:18:15"
+            },
+            "returnParameters": {
+              "id": 2583,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2582,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2584,
+                  "src": "1747:4:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 2581,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1747:4:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1746:6:15"
+            },
+            "scope": 2585,
+            "src": "1691:63:15",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 2586,
+        "src": "209:1548:15",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:1725:15"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/IPBMAddressList.sol",
+    "exportedSymbols": {
+      "IPBMAddressList": [
+        2585
+      ]
+    },
+    "id": 2586,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2539,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:15"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 2540,
+          "nodeType": "StructuredDocumentation",
+          "src": "57:152:15",
+          "text": "@title PBM Address list Interface. \n @notice The PBM address list stores and manages whitelisted merchants and blacklisted address for the PBMs "
+        },
+        "fullyImplemented": false,
+        "id": 2585,
+        "linearizedBaseContracts": [
+          2585
+        ],
+        "name": "IPBMAddressList",
+        "nameLocation": "219:15:15",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 2541,
+              "nodeType": "StructuredDocumentation",
+              "src": "242:153:15",
+              "text": "@notice Adds wallet addresses to the blacklist who are unable to receive the pbm tokens.\n @param addresses The list of merchant wallet address"
+            },
+            "functionSelector": "77a54eb8",
+            "id": 2547,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "blacklistAddresses",
+            "nameLocation": "409:18:15",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2545,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2544,
+                  "mutability": "mutable",
+                  "name": "addresses",
+                  "nameLocation": "445:9:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2547,
+                  "src": "428:26:15",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2542,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "428:7:15",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 2543,
+                    "nodeType": "ArrayTypeName",
+                    "src": "428:9:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "427:28:15"
+            },
+            "returnParameters": {
+              "id": 2546,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "464:0:15"
+            },
+            "scope": 2585,
+            "src": "400:65:15",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2548,
+              "nodeType": "StructuredDocumentation",
+              "src": "472:159:15",
+              "text": "@notice Removes wallet addresses from the blacklist who are  unable to receive the PBM tokens.\n @param addresses The list of merchant wallet address"
+            },
+            "functionSelector": "2a58e9ff",
+            "id": 2554,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "unBlacklistAddresses",
+            "nameLocation": "645:20:15",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2552,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2551,
+                  "mutability": "mutable",
+                  "name": "addresses",
+                  "nameLocation": "683:9:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2554,
+                  "src": "666:26:15",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2549,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "666:7:15",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 2550,
+                    "nodeType": "ArrayTypeName",
+                    "src": "666:9:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "665:28:15"
+            },
+            "returnParameters": {
+              "id": 2553,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "702:0:15"
+            },
+            "scope": 2585,
+            "src": "636:67:15",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2555,
+              "nodeType": "StructuredDocumentation",
+              "src": "710:175:15",
+              "text": "@notice Checks if the address is one of the blacklisted addresses\n @param _address The address in query\n @return True if address is a blacklisted, else false"
+            },
+            "functionSelector": "fe575a87",
+            "id": 2562,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isBlacklisted",
+            "nameLocation": "899:13:15",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2558,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2557,
+                  "mutability": "mutable",
+                  "name": "_address",
+                  "nameLocation": "921:8:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2562,
+                  "src": "913:16:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2556,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "913:7:15",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "912:18:15"
+            },
+            "returnParameters": {
+              "id": 2561,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2560,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2562,
+                  "src": "949:4:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 2559,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "949:4:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "948:6:15"
+            },
+            "scope": 2585,
+            "src": "890:66:15",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2563,
+              "nodeType": "StructuredDocumentation",
+              "src": "963:193:15",
+              "text": "@notice Adds wallet addresses of merchants who are the only wallets able to receive the underlying ERC-20 tokens (whitelisting).\n @param addresses The list of merchant wallet address"
+            },
+            "functionSelector": "e10adc16",
+            "id": 2569,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addMerchantAddresses",
+            "nameLocation": "1170:20:15",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2567,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2566,
+                  "mutability": "mutable",
+                  "name": "addresses",
+                  "nameLocation": "1208:9:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2569,
+                  "src": "1191:26:15",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2564,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1191:7:15",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 2565,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1191:9:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1190:28:15"
+            },
+            "returnParameters": {
+              "id": 2568,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1227:0:15"
+            },
+            "scope": 2585,
+            "src": "1161:67:15",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2570,
+              "nodeType": "StructuredDocumentation",
+              "src": "1235:198:15",
+              "text": "@notice Removes wallet addresses from the merchant addresses who are  able to receive the underlying ERC-20 tokens (un-whitelisting).\n @param addresses The list of merchant wallet address"
+            },
+            "functionSelector": "30a5d1c0",
+            "id": 2576,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "removeMerchantAddresses",
+            "nameLocation": "1447:23:15",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2574,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2573,
+                  "mutability": "mutable",
+                  "name": "addresses",
+                  "nameLocation": "1488:9:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2576,
+                  "src": "1471:26:15",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2571,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "1471:7:15",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 2572,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1471:9:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1470:28:15"
+            },
+            "returnParameters": {
+              "id": 2575,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1507:0:15"
+            },
+            "scope": 2585,
+            "src": "1438:70:15",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 2577,
+              "nodeType": "StructuredDocumentation",
+              "src": "1515:171:15",
+              "text": "@notice Checks if the address is one of the whitelisted merchant\n @param _address The address in query\n @return True if address is a merchant, else false"
+            },
+            "functionSelector": "1a2f7167",
+            "id": 2584,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isMerchant",
+            "nameLocation": "1700:10:15",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2580,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2579,
+                  "mutability": "mutable",
+                  "name": "_address",
+                  "nameLocation": "1719:8:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2584,
+                  "src": "1711:16:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2578,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1711:7:15",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1710:18:15"
+            },
+            "returnParameters": {
+              "id": 2583,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2582,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2584,
+                  "src": "1747:4:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 2581,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1747:4:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1746:6:15"
+            },
+            "scope": 2585,
+            "src": "1691:63:15",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 2586,
+        "src": "209:1548:15",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:1725:15"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.7+commit.e28d00a7.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2022-10-10T13:46:30.835Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "addMerchantAddresses(address[])": {
+        "params": {
+          "addresses": "The list of merchant wallet address"
+        }
+      },
+      "blacklistAddresses(address[])": {
+        "params": {
+          "addresses": "The list of merchant wallet address"
+        }
+      },
+      "isBlacklisted(address)": {
+        "params": {
+          "_address": "The address in query"
+        },
+        "returns": {
+          "_0": "True if address is a blacklisted, else false"
+        }
+      },
+      "isMerchant(address)": {
+        "params": {
+          "_address": "The address in query"
+        },
+        "returns": {
+          "_0": "True if address is a merchant, else false"
+        }
+      },
+      "removeMerchantAddresses(address[])": {
+        "params": {
+          "addresses": "The list of merchant wallet address"
+        }
+      },
+      "unBlacklistAddresses(address[])": {
+        "params": {
+          "addresses": "The list of merchant wallet address"
+        }
+      }
+    },
+    "title": "PBM Address list Interface. ",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "addMerchantAddresses(address[])": {
+        "notice": "Adds wallet addresses of merchants who are the only wallets able to receive the underlying ERC-20 tokens (whitelisting)."
+      },
+      "blacklistAddresses(address[])": {
+        "notice": "Adds wallet addresses to the blacklist who are unable to receive the pbm tokens."
+      },
+      "isBlacklisted(address)": {
+        "notice": "Checks if the address is one of the blacklisted addresses"
+      },
+      "isMerchant(address)": {
+        "notice": "Checks if the address is one of the whitelisted merchant"
+      },
+      "removeMerchantAddresses(address[])": {
+        "notice": "Removes wallet addresses from the merchant addresses who are  able to receive the underlying ERC-20 tokens (un-whitelisting)."
+      },
+      "unBlacklistAddresses(address[])": {
+        "notice": "Removes wallet addresses from the blacklist who are  unable to receive the PBM tokens."
+      }
+    },
+    "notice": "The PBM address list stores and manages whitelisted merchants and blacklisted address for the PBMs ",
+    "version": 1
+  }
+}
