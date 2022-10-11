@@ -9323,7 +9323,7 @@
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-10-06T04:02:07.944Z",
+  "updatedAt": "2022-10-10T14:31:09.289Z",
   "networkType": "ethereum",
   "devdoc": {
     "details": "Implementation of the basic standard ERC-20 token. Used for testing _Available since v3.1._",

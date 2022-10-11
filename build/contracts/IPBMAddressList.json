@@ -106,15 +106,15 @@
     "absolutePath": "project:/contracts/IPBMAddressList.sol",
     "exportedSymbols": {
       "IPBMAddressList": [
-        2565
+        2585
       ]
     },
-    "id": 2566,
+    "id": 2586,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2519,
+        "id": 2539,
         "literals": [
           "solidity",
           "^",
@@ -130,15 +130,15 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 2520,
+          "id": 2540,
           "nodeType": "StructuredDocumentation",
           "src": "57:152:15",
           "text": "@title PBM Address list Interface. \n @notice The PBM address list stores and manages whitelisted merchants and blacklisted address for the PBMs "
         },
         "fullyImplemented": false,
-        "id": 2565,
+        "id": 2585,
         "linearizedBaseContracts": [
-          2565
+          2585
         ],
         "name": "IPBMAddressList",
         "nameLocation": "219:15:15",
@@ -146,13 +146,13 @@
         "nodes": [
           {
             "documentation": {
-              "id": 2521,
+              "id": 2541,
               "nodeType": "StructuredDocumentation",
               "src": "242:153:15",
               "text": "@notice Adds wallet addresses to the blacklist who are unable to receive the pbm tokens.\n @param addresses The list of merchant wallet address"
             },
             "functionSelector": "77a54eb8",
-            "id": 2527,
+            "id": 2547,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -160,17 +160,17 @@
             "nameLocation": "409:18:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2525,
+              "id": 2545,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2524,
+                  "id": 2544,
                   "mutability": "mutable",
                   "name": "addresses",
                   "nameLocation": "445:9:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2527,
+                  "scope": 2547,
                   "src": "428:26:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -180,7 +180,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2522,
+                      "id": 2542,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "428:7:15",
@@ -190,7 +190,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 2523,
+                    "id": 2543,
                     "nodeType": "ArrayTypeName",
                     "src": "428:9:15",
                     "typeDescriptions": {
@@ -204,12 +204,12 @@
               "src": "427:28:15"
             },
             "returnParameters": {
-              "id": 2526,
+              "id": 2546,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "464:0:15"
             },
-            "scope": 2565,
+            "scope": 2585,
             "src": "400:65:15",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -217,13 +217,13 @@
           },
           {
             "documentation": {
-              "id": 2528,
+              "id": 2548,
               "nodeType": "StructuredDocumentation",
               "src": "472:159:15",
               "text": "@notice Removes wallet addresses from the blacklist who are  unable to receive the PBM tokens.\n @param addresses The list of merchant wallet address"
             },
             "functionSelector": "2a58e9ff",
-            "id": 2534,
+            "id": 2554,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -231,17 +231,17 @@
             "nameLocation": "645:20:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2532,
+              "id": 2552,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2531,
+                  "id": 2551,
                   "mutability": "mutable",
                   "name": "addresses",
                   "nameLocation": "683:9:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2534,
+                  "scope": 2554,
                   "src": "666:26:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -251,7 +251,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2529,
+                      "id": 2549,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "666:7:15",
@@ -261,7 +261,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 2530,
+                    "id": 2550,
                     "nodeType": "ArrayTypeName",
                     "src": "666:9:15",
                     "typeDescriptions": {
@@ -275,12 +275,12 @@
               "src": "665:28:15"
             },
             "returnParameters": {
-              "id": 2533,
+              "id": 2553,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "702:0:15"
             },
-            "scope": 2565,
+            "scope": 2585,
             "src": "636:67:15",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -288,13 +288,13 @@
           },
           {
             "documentation": {
-              "id": 2535,
+              "id": 2555,
               "nodeType": "StructuredDocumentation",
               "src": "710:175:15",
               "text": "@notice Checks if the address is one of the blacklisted addresses\n @param _address The address in query\n @return True if address is a blacklisted, else false"
             },
             "functionSelector": "fe575a87",
-            "id": 2542,
+            "id": 2562,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -302,17 +302,17 @@
             "nameLocation": "899:13:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2538,
+              "id": 2558,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2537,
+                  "id": 2557,
                   "mutability": "mutable",
                   "name": "_address",
                   "nameLocation": "921:8:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2542,
+                  "scope": 2562,
                   "src": "913:16:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -321,7 +321,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2536,
+                    "id": 2556,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "913:7:15",
@@ -337,17 +337,17 @@
               "src": "912:18:15"
             },
             "returnParameters": {
-              "id": 2541,
+              "id": 2561,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2540,
+                  "id": 2560,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2542,
+                  "scope": 2562,
                   "src": "949:4:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -356,7 +356,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2539,
+                    "id": 2559,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "949:4:15",
@@ -370,7 +370,7 @@
               ],
               "src": "948:6:15"
             },
-            "scope": 2565,
+            "scope": 2585,
             "src": "890:66:15",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -378,13 +378,13 @@
           },
           {
             "documentation": {
-              "id": 2543,
+              "id": 2563,
               "nodeType": "StructuredDocumentation",
               "src": "963:193:15",
               "text": "@notice Adds wallet addresses of merchants who are the only wallets able to receive the underlying ERC-20 tokens (whitelisting).\n @param addresses The list of merchant wallet address"
             },
             "functionSelector": "e10adc16",
-            "id": 2549,
+            "id": 2569,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -392,17 +392,17 @@
             "nameLocation": "1170:20:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2547,
+              "id": 2567,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2546,
+                  "id": 2566,
                   "mutability": "mutable",
                   "name": "addresses",
                   "nameLocation": "1208:9:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2549,
+                  "scope": 2569,
                   "src": "1191:26:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -412,7 +412,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2544,
+                      "id": 2564,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "1191:7:15",
@@ -422,7 +422,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 2545,
+                    "id": 2565,
                     "nodeType": "ArrayTypeName",
                     "src": "1191:9:15",
                     "typeDescriptions": {
@@ -436,12 +436,12 @@
               "src": "1190:28:15"
             },
             "returnParameters": {
-              "id": 2548,
+              "id": 2568,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1227:0:15"
             },
-            "scope": 2565,
+            "scope": 2585,
             "src": "1161:67:15",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -449,13 +449,13 @@
           },
           {
             "documentation": {
-              "id": 2550,
+              "id": 2570,
               "nodeType": "StructuredDocumentation",
               "src": "1235:198:15",
               "text": "@notice Removes wallet addresses from the merchant addresses who are  able to receive the underlying ERC-20 tokens (un-whitelisting).\n @param addresses The list of merchant wallet address"
             },
             "functionSelector": "30a5d1c0",
-            "id": 2556,
+            "id": 2576,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -463,17 +463,17 @@
             "nameLocation": "1447:23:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2554,
+              "id": 2574,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2553,
+                  "id": 2573,
                   "mutability": "mutable",
                   "name": "addresses",
                   "nameLocation": "1488:9:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2556,
+                  "scope": 2576,
                   "src": "1471:26:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -483,7 +483,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2551,
+                      "id": 2571,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "1471:7:15",
@@ -493,7 +493,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 2552,
+                    "id": 2572,
                     "nodeType": "ArrayTypeName",
                     "src": "1471:9:15",
                     "typeDescriptions": {
@@ -507,12 +507,12 @@
               "src": "1470:28:15"
             },
             "returnParameters": {
-              "id": 2555,
+              "id": 2575,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1507:0:15"
             },
-            "scope": 2565,
+            "scope": 2585,
             "src": "1438:70:15",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -520,13 +520,13 @@
           },
           {
             "documentation": {
-              "id": 2557,
+              "id": 2577,
               "nodeType": "StructuredDocumentation",
               "src": "1515:171:15",
               "text": "@notice Checks if the address is one of the whitelisted merchant\n @param _address The address in query\n @return True if address is a merchant, else false"
             },
             "functionSelector": "1a2f7167",
-            "id": 2564,
+            "id": 2584,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -534,17 +534,17 @@
             "nameLocation": "1700:10:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2560,
+              "id": 2580,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2559,
+                  "id": 2579,
                   "mutability": "mutable",
                   "name": "_address",
                   "nameLocation": "1719:8:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2564,
+                  "scope": 2584,
                   "src": "1711:16:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -553,7 +553,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2558,
+                    "id": 2578,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1711:7:15",
@@ -569,17 +569,17 @@
               "src": "1710:18:15"
             },
             "returnParameters": {
-              "id": 2563,
+              "id": 2583,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2562,
+                  "id": 2582,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2564,
+                  "scope": 2584,
                   "src": "1747:4:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -588,7 +588,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2561,
+                    "id": 2581,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1747:4:15",
@@ -602,14 +602,14 @@
               ],
               "src": "1746:6:15"
             },
-            "scope": 2565,
+            "scope": 2585,
             "src": "1691:63:15",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 2566,
+        "scope": 2586,
         "src": "209:1548:15",
         "usedErrors": []
       }
@@ -620,15 +620,15 @@
     "absolutePath": "project:/contracts/IPBMAddressList.sol",
     "exportedSymbols": {
       "IPBMAddressList": [
-        2565
+        2585
       ]
     },
-    "id": 2566,
+    "id": 2586,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2519,
+        "id": 2539,
         "literals": [
           "solidity",
           "^",
@@ -644,15 +644,15 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 2520,
+          "id": 2540,
           "nodeType": "StructuredDocumentation",
           "src": "57:152:15",
           "text": "@title PBM Address list Interface. \n @notice The PBM address list stores and manages whitelisted merchants and blacklisted address for the PBMs "
         },
         "fullyImplemented": false,
-        "id": 2565,
+        "id": 2585,
         "linearizedBaseContracts": [
-          2565
+          2585
         ],
         "name": "IPBMAddressList",
         "nameLocation": "219:15:15",
@@ -660,13 +660,13 @@
         "nodes": [
           {
             "documentation": {
-              "id": 2521,
+              "id": 2541,
               "nodeType": "StructuredDocumentation",
               "src": "242:153:15",
               "text": "@notice Adds wallet addresses to the blacklist who are unable to receive the pbm tokens.\n @param addresses The list of merchant wallet address"
             },
             "functionSelector": "77a54eb8",
-            "id": 2527,
+            "id": 2547,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -674,17 +674,17 @@
             "nameLocation": "409:18:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2525,
+              "id": 2545,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2524,
+                  "id": 2544,
                   "mutability": "mutable",
                   "name": "addresses",
                   "nameLocation": "445:9:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2527,
+                  "scope": 2547,
                   "src": "428:26:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -694,7 +694,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2522,
+                      "id": 2542,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "428:7:15",
@@ -704,7 +704,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 2523,
+                    "id": 2543,
                     "nodeType": "ArrayTypeName",
                     "src": "428:9:15",
                     "typeDescriptions": {
@@ -718,12 +718,12 @@
               "src": "427:28:15"
             },
             "returnParameters": {
-              "id": 2526,
+              "id": 2546,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "464:0:15"
             },
-            "scope": 2565,
+            "scope": 2585,
             "src": "400:65:15",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -731,13 +731,13 @@
           },
           {
             "documentation": {
-              "id": 2528,
+              "id": 2548,
               "nodeType": "StructuredDocumentation",
               "src": "472:159:15",
               "text": "@notice Removes wallet addresses from the blacklist who are  unable to receive the PBM tokens.\n @param addresses The list of merchant wallet address"
             },
             "functionSelector": "2a58e9ff",
-            "id": 2534,
+            "id": 2554,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -745,17 +745,17 @@
             "nameLocation": "645:20:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2532,
+              "id": 2552,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2531,
+                  "id": 2551,
                   "mutability": "mutable",
                   "name": "addresses",
                   "nameLocation": "683:9:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2534,
+                  "scope": 2554,
                   "src": "666:26:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -765,7 +765,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2529,
+                      "id": 2549,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "666:7:15",
@@ -775,7 +775,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 2530,
+                    "id": 2550,
                     "nodeType": "ArrayTypeName",
                     "src": "666:9:15",
                     "typeDescriptions": {
@@ -789,12 +789,12 @@
               "src": "665:28:15"
             },
             "returnParameters": {
-              "id": 2533,
+              "id": 2553,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "702:0:15"
             },
-            "scope": 2565,
+            "scope": 2585,
             "src": "636:67:15",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -802,13 +802,13 @@
           },
           {
             "documentation": {
-              "id": 2535,
+              "id": 2555,
               "nodeType": "StructuredDocumentation",
               "src": "710:175:15",
               "text": "@notice Checks if the address is one of the blacklisted addresses\n @param _address The address in query\n @return True if address is a blacklisted, else false"
             },
             "functionSelector": "fe575a87",
-            "id": 2542,
+            "id": 2562,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -816,17 +816,17 @@
             "nameLocation": "899:13:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2538,
+              "id": 2558,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2537,
+                  "id": 2557,
                   "mutability": "mutable",
                   "name": "_address",
                   "nameLocation": "921:8:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2542,
+                  "scope": 2562,
                   "src": "913:16:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -835,7 +835,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2536,
+                    "id": 2556,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "913:7:15",
@@ -851,17 +851,17 @@
               "src": "912:18:15"
             },
             "returnParameters": {
-              "id": 2541,
+              "id": 2561,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2540,
+                  "id": 2560,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2542,
+                  "scope": 2562,
                   "src": "949:4:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -870,7 +870,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2539,
+                    "id": 2559,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "949:4:15",
@@ -884,7 +884,7 @@
               ],
               "src": "948:6:15"
             },
-            "scope": 2565,
+            "scope": 2585,
             "src": "890:66:15",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -892,13 +892,13 @@
           },
           {
             "documentation": {
-              "id": 2543,
+              "id": 2563,
               "nodeType": "StructuredDocumentation",
               "src": "963:193:15",
               "text": "@notice Adds wallet addresses of merchants who are the only wallets able to receive the underlying ERC-20 tokens (whitelisting).\n @param addresses The list of merchant wallet address"
             },
             "functionSelector": "e10adc16",
-            "id": 2549,
+            "id": 2569,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -906,17 +906,17 @@
             "nameLocation": "1170:20:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2547,
+              "id": 2567,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2546,
+                  "id": 2566,
                   "mutability": "mutable",
                   "name": "addresses",
                   "nameLocation": "1208:9:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2549,
+                  "scope": 2569,
                   "src": "1191:26:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -926,7 +926,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2544,
+                      "id": 2564,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "1191:7:15",
@@ -936,7 +936,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 2545,
+                    "id": 2565,
                     "nodeType": "ArrayTypeName",
                     "src": "1191:9:15",
                     "typeDescriptions": {
@@ -950,12 +950,12 @@
               "src": "1190:28:15"
             },
             "returnParameters": {
-              "id": 2548,
+              "id": 2568,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1227:0:15"
             },
-            "scope": 2565,
+            "scope": 2585,
             "src": "1161:67:15",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -963,13 +963,13 @@
           },
           {
             "documentation": {
-              "id": 2550,
+              "id": 2570,
               "nodeType": "StructuredDocumentation",
               "src": "1235:198:15",
               "text": "@notice Removes wallet addresses from the merchant addresses who are  able to receive the underlying ERC-20 tokens (un-whitelisting).\n @param addresses The list of merchant wallet address"
             },
             "functionSelector": "30a5d1c0",
-            "id": 2556,
+            "id": 2576,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -977,17 +977,17 @@
             "nameLocation": "1447:23:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2554,
+              "id": 2574,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2553,
+                  "id": 2573,
                   "mutability": "mutable",
                   "name": "addresses",
                   "nameLocation": "1488:9:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2556,
+                  "scope": 2576,
                   "src": "1471:26:15",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -997,7 +997,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2551,
+                      "id": 2571,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "1471:7:15",
@@ -1007,7 +1007,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 2552,
+                    "id": 2572,
                     "nodeType": "ArrayTypeName",
                     "src": "1471:9:15",
                     "typeDescriptions": {
@@ -1021,12 +1021,12 @@
               "src": "1470:28:15"
             },
             "returnParameters": {
-              "id": 2555,
+              "id": 2575,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1507:0:15"
             },
-            "scope": 2565,
+            "scope": 2585,
             "src": "1438:70:15",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -1034,13 +1034,13 @@
           },
           {
             "documentation": {
-              "id": 2557,
+              "id": 2577,
               "nodeType": "StructuredDocumentation",
               "src": "1515:171:15",
               "text": "@notice Checks if the address is one of the whitelisted merchant\n @param _address The address in query\n @return True if address is a merchant, else false"
             },
             "functionSelector": "1a2f7167",
-            "id": 2564,
+            "id": 2584,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -1048,17 +1048,17 @@
             "nameLocation": "1700:10:15",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2560,
+              "id": 2580,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2559,
+                  "id": 2579,
                   "mutability": "mutable",
                   "name": "_address",
                   "nameLocation": "1719:8:15",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2564,
+                  "scope": 2584,
                   "src": "1711:16:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1067,7 +1067,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2558,
+                    "id": 2578,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1711:7:15",
@@ -1083,17 +1083,17 @@
               "src": "1710:18:15"
             },
             "returnParameters": {
-              "id": 2563,
+              "id": 2583,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2562,
+                  "id": 2582,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2564,
+                  "scope": 2584,
                   "src": "1747:4:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1102,7 +1102,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2561,
+                    "id": 2581,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1747:4:15",
@@ -1116,14 +1116,14 @@
               ],
               "src": "1746:6:15"
             },
-            "scope": 2565,
+            "scope": 2585,
             "src": "1691:63:15",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 2566,
+        "scope": 2586,
         "src": "209:1548:15",
         "usedErrors": []
       }
@@ -1136,7 +1136,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-09-22T06:23:14.880Z",
+  "updatedAt": "2022-10-10T13:46:30.835Z",
   "devdoc": {
     "kind": "dev",
     "methods": {
