@@ -253,6 +253,32 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
         return PBMTokenManager(pbmTokenManager).uri(tokenId);
     }
 
+    /**
+     * @dev see {Pausable _pause}
+     *
+     * Requirements : 
+     * - caller should be owner
+     */
+    function pause() 
+    external 
+    onlyOwner
+    {
+        _pause();
+    }
+
+    /**
+     * @dev see {Pausable _unpause}
+     *
+     * Requirements : 
+     * - caller should be owner
+     */
+    function unpause()
+    external 
+    onlyOwner
+    {
+        _unpause();
+    }
+
     function serialise(uint256 num)
     internal 
     pure
