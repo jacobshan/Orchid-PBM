@@ -28,6 +28,7 @@ module.exports = async function (deployer) {
     const spot = await Spot.deployed() ; 
     const address = spot.address; 
     // If you are deploying to a public testnet/mainnet , and want to use an existing ERC-20 contract, COMMENT OUT the lines above, and UNCOMMENT the code below
+    // Don't forget to comment out 2_deploy_spot.js migration if you are using a pre-existing ERC-20
     //const address = "0xDC3326e71D45186F113a2F448984CA0e8D201995" ;     // Polygon XSGD address 
 
     await deployer.deploy(PBMTokenManager, "https://gateway.pinata.cloud/ipfs/QmNj4mt9uxv6bUbWWwpep4B1ir1TY7yvAAxp3U28jU4dHr") ; 
