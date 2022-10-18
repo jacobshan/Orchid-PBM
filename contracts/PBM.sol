@@ -76,12 +76,14 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
      * - `tokenId` should be a valid id that has already been created
      * - caller should have the necessary amount of the ERC-20 tokens required to mint
      * - caller should have approved the PBM contract to spend the ERC-20 tokens
+     * - receiver should not be blacklisted
      */
     function mint(uint256 tokenId, uint256 amount, address receiver) 
     external  
     override
     whenNotPaused
     {
+        require(!IPBMAddressList(pbmAddressList).isBlacklisted(receiver), "PBM: 'to' address blacklisted");
         uint256 valueOfNewTokens = amount*(PBMTokenManager(pbmTokenManager).getTokenValue(tokenId)); 
 
         //Transfer the spot token from the user to the contract to wrap it
@@ -107,12 +109,14 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
      * - `tokenIds` and `amounts` list need to have the same number of values
      * - caller should have the necessary amount of the ERC-20 tokens required to mint
      * - caller should have approved the PBM contract to spend the ERC-20 tokens
+     * - receiver should not be blacklisted
      */
     function batchMint(uint256[] memory tokenIds, uint256[] memory amounts, address receiver) 
     external 
     override
     whenNotPaused
     {   
+        require(!IPBMAddressList(pbmAddressList).isBlacklisted(receiver), "PBM: 'to' address blacklisted");
         require(tokenIds.length == amounts.length, "Unequal ids and amounts supplied"); 
 
         // calculate the value of the new tokens
