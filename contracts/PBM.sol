@@ -149,6 +149,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
             from == _msgSender() || isApprovedForAll(from, _msgSender()),
             "ERC1155: caller is not token owner nor approved"
         );
+        require(!IPBMAddressList(pbmAddressList).isBlacklisted(to), "PBM: 'to' address blacklisted");
 
         if (IPBMAddressList(pbmAddressList).isMerchant(to)){
             uint256 valueOfTokens = amount*(PBMTokenManager(pbmTokenManager).getTokenValue(id)); 
@@ -160,7 +161,6 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
             emit MerchantPayment(from, to, serialise(id), serialise(amount), spotToken, valueOfTokens);
 
         } else {
-            require(!IPBMAddressList(pbmAddressList).isBlacklisted(to), "PBM: 'to' address blacklisted");
             _safeTransferFrom(from, to, id, amount, data);
         }
  
@@ -188,6 +188,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
             from == _msgSender() || isApprovedForAll(from, _msgSender()),
             "ERC1155: caller is not token owner nor approved"
         );
+        require(!IPBMAddressList(pbmAddressList).isBlacklisted(to), "PBM: 'to' address blacklisted");
         require(ids.length == amounts.length, "Unequal ids and amounts supplied"); 
 
         if (IPBMAddressList(pbmAddressList).isMerchant(to)) {
@@ -203,7 +204,6 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
             emit MerchantPayment(from, to, ids, amounts, spotToken, valueOfTokens);
 
         } else {
-            require(!IPBMAddressList(pbmAddressList).isBlacklisted(to), "PBM: 'to' address blacklisted");
             _safeBatchTransferFrom(from, to, ids, amounts, data);
         }
     }
