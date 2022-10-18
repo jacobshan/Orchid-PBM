@@ -4,6 +4,7 @@ pragma solidity ^0.8.7;
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
+import "@openzeppelin/contracts/utils/Address.sol" ; 
 
 import "./ERC20Helper.sol";  
 import "./PBMTokenManager.sol";
@@ -34,6 +35,8 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     onlyOwner
     {
         require(!initialised, "PBM: Already initialised"); 
+        require(Address.isContract(_spotToken), "Invalid spot token"); 
+        require(Address.isContract(_pbmAddressList), "Invalid spot token"); 
         spotToken = _spotToken;
         contractExpiry = _expiry; 
         pbmAddressList = _pbmAddressList; 
