@@ -19,7 +19,7 @@ contract PBMAddressList is Ownable, IPBMAddressList {
      *
      * - caller must be owner 
      */
-    function blacklistAddresses(address[] memory addresses) 
+    function blacklistAddresses(address[] memory addresses, string memory metadata) 
     external
     override
     onlyOwner
@@ -27,6 +27,7 @@ contract PBMAddressList is Ownable, IPBMAddressList {
         for (uint256 i = 0; i < addresses.length; i++) {
             blacklistedAddresses[addresses[i]] = true;
         }
+        emit Blackist("add", addresses, metadata); 
     }  
 
     /**
@@ -36,7 +37,7 @@ contract PBMAddressList is Ownable, IPBMAddressList {
      *
      * - caller must be owner 
      */
-    function unBlacklistAddresses(address[] memory addresses) 
+    function unBlacklistAddresses(address[] memory addresses, string memory metadata) 
     external 
     override
     onlyOwner
@@ -44,6 +45,7 @@ contract PBMAddressList is Ownable, IPBMAddressList {
         for (uint256 i = 0; i < addresses.length; i++) {
             blacklistedAddresses[addresses[i]] = false;
         } 
+        emit Blackist("remove", addresses, metadata); 
     }
 
     /**
@@ -66,7 +68,7 @@ contract PBMAddressList is Ownable, IPBMAddressList {
      *
      * - caller must be owner 
      */
-    function addMerchantAddresses(address[] memory addresses) 
+    function addMerchantAddresses(address[] memory addresses, string memory metadata) 
     external
     override
     onlyOwner
@@ -74,6 +76,7 @@ contract PBMAddressList is Ownable, IPBMAddressList {
         for (uint256 i = 0; i < addresses.length; i++) {
             merchantList[addresses[i]] = true;
         }
+        emit MerchantList("add", addresses, metadata); 
     }  
 
     /**
@@ -83,7 +86,7 @@ contract PBMAddressList is Ownable, IPBMAddressList {
      *
      * - caller must be owner 
      */
-    function removeMerchantAddresses(address[] memory addresses) 
+    function removeMerchantAddresses(address[] memory addresses, string memory metadata) 
     external 
     override
     onlyOwner
@@ -91,6 +94,7 @@ contract PBMAddressList is Ownable, IPBMAddressList {
         for (uint256 i = 0; i < addresses.length; i++) {
             merchantList[addresses[i]] = false;
         } 
+        emit MerchantList("remove", addresses, metadata); 
     }
 
     /** 
