@@ -27,7 +27,7 @@ contract PBMAddressList is Ownable, IPBMAddressList {
         for (uint256 i = 0; i < addresses.length; i++) {
             blacklistedAddresses[addresses[i]] = true;
         }
-        emit Blackist("add", addresses, metadata); 
+        emit Blacklist("add", addresses, metadata); 
     }  
 
     /**
@@ -45,7 +45,7 @@ contract PBMAddressList is Ownable, IPBMAddressList {
         for (uint256 i = 0; i < addresses.length; i++) {
             blacklistedAddresses[addresses[i]] = false;
         } 
-        emit Blackist("remove", addresses, metadata); 
+        emit Blacklist("remove", addresses, metadata); 
     }
 
     /**

@@ -45,5 +45,5 @@ interface IPBMAddressList {
     /// @param action Tags "add" or "remove" for action type
     /// @param addresses The list of merchant wallet address
     /// @param metadata any comments on the addresses being added 
-    event Blackist(string action, address[] addresses, string metadata);
+    event Blacklist(string action, address[] addresses, string metadata);
 }
