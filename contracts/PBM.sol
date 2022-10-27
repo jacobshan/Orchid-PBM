@@ -68,6 +68,8 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
      * IMPT: Before minting, the caller should approve the contract address to spend ERC-20 tokens on behalf of the caller.
      *       This can be done by calling the `approve` or `increaseMinterAllowance` functions of the ERC-20 contract and specifying `_spender` to be the PBM contract address. 
              Ref : https://eips.ethereum.org/EIPS/eip-20
+
+       WARNING: Any contracts that externally call these mint() and batchMint() functions should implement some sort of reentrancy guard procedure (such as OpenZeppelin's ReentrancyGuard).
      *
      * Requirements:
      *
@@ -100,6 +102,8 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
      * IMPT: Before minting, the caller should approve the contract address to spend ERC-20 tokens on behalf of the caller.
      *       This can be done by calling the `approve` or `increaseMinterAllowance` functions of the ERC-20 contract and specifying `_spender` to be the PBM contract address. 
              Ref : https://eips.ethereum.org/EIPS/eip-20
+
+       WARNING: Any contracts that externally call these mint() and batchMint() functions should implement some sort of reentrancy guard procedure (such as OpenZeppelin's ReentrancyGuard).
      *
      * Requirements:
      *
