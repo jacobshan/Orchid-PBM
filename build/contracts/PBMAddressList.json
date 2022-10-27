@@ -81,7 +81,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -156,7 +157,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -211,7 +213,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.7+commit.e28d00a7\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"action\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"address[]\",\"name\":\"addresses\",\"type\":\"address[]\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"metadata\",\"type\":\"string\"}],\"name\":\"Blackist\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"action\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"address[]\",\"name\":\"addresses\",\"type\":\"address[]\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"metadata\",\"type\":\"string\"}],\"name\":\"MerchantList\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"addresses\",\"type\":\"address[]\"},{\"internalType\":\"string\",\"name\":\"metadata\",\"type\":\"string\"}],\"name\":\"addMerchantAddresses\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"addresses\",\"type\":\"address[]\"},{\"internalType\":\"string\",\"name\":\"metadata\",\"type\":\"string\"}],\"name\":\"blacklistAddresses\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_address\",\"type\":\"address\"}],\"name\":\"isBlacklisted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_address\",\"type\":\"address\"}],\"name\":\"isMerchant\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"addresses\",\"type\":\"address[]\"},{\"internalType\":\"string\",\"name\":\"metadata\",\"type\":\"string\"}],\"name\":\"removeMerchantAddresses\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"addresses\",\"type\":\"address[]\"},{\"internalType\":\"string\",\"name\":\"metadata\",\"type\":\"string\"}],\"name\":\"unBlacklistAddresses\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"addMerchantAddresses(address[],string)\":{\"details\":\"See {IPBMAddressList-addMerchantAddresses}. Requirements: - caller must be owner \"},\"blacklistAddresses(address[],string)\":{\"details\":\"See {IPBMAddressList-blacklistAddresses}. Requirements: - caller must be owner \"},\"isBlacklisted(address)\":{\"details\":\"See {IPBMAddressList-isBlacklisted}.\"},\"isMerchant(address)\":{\"details\":\"See {IPBMAddressList-isMerchant}.\"},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"removeMerchantAddresses(address[],string)\":{\"details\":\"See {IPBMAddressList-removeMerchantAddresses}. Requirements: - caller must be owner \"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"},\"unBlacklistAddresses(address[],string)\":{\"details\":\"See {IPBMAddressList-unBlacklistAddresses}. Requirements: - caller must be owner \"}},\"version\":1},\"userdoc\":{\"events\":{\"Blackist(string,address[],string)\":{\"notice\":\"Event emitted when the Blacklist is edited\"},\"MerchantList(string,address[],string)\":{\"notice\":\"Event emitted when the Merchant List is edited\"}},\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/PBMAddressList.sol\":\"PBMAddressList\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/access/Ownable.sol\":{\"keccak256\":\"0xa94b34880e3c1b0b931662cb1c09e5dfa6662f31cba80e07c5ee71cd135c9673\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://40fb1b5102468f783961d0af743f91b9980cf66b50d1d12009f6bb1869cea4d2\",\"dweb:/ipfs/QmYqEbJML4jB1GHbzD4cUZDtJg5wVwNm3vDJq1GbyDus8y\"]},\"@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92\",\"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3\"]},\"project:/contracts/IPBMAddressList.sol\":{\"keccak256\":\"0x89c0f0267fb9fba9aaa399b9f1dde0ca1452db984ad5c125b2c7af2fce7b1c31\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5ac828ca73419b6e87422f00fe4e684ba136993ec4c10c39a966ab5db87cd866\",\"dweb:/ipfs/QmdYU9yuhc4NPTYfpFtZCmintwhp12anLvFWhUPnrkoeXb\"]},\"project:/contracts/PBMAddressList.sol\":{\"keccak256\":\"0xd2c0a6e6b6bf03ec0a7ef01aef67b0ec0628dc3f1505f9f69daea5f6acb76a9b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://041d73ec99c5f071125ccf361f775027a2b95f5f3bf049ca776684c61f69b6dc\",\"dweb:/ipfs/QmXayrZtYqzqnwgY5XECKEQTVPbjHYtroxDfP9wBey9zbV\"]}},\"version\":1}",
@@ -11888,11 +11891,61 @@
           ],
           "name": "OwnershipTransferred",
           "type": "event"
+        },
+        "0xff664f40077a8366ec7f3b10f2e89380936c7ecfd299c6bb0b3a83dc409b5255": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "action",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "address[]",
+              "name": "addresses",
+              "type": "address[]"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "metadata",
+              "type": "string"
+            }
+          ],
+          "name": "Blackist",
+          "type": "event"
+        },
+        "0x255c7bb3f43b415fcde5cc3fd6b38794d983721f30b0a924ab3db736c38c4573": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "action",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "address[]",
+              "name": "addresses",
+              "type": "address[]"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "metadata",
+              "type": "string"
+            }
+          ],
+          "name": "MerchantList",
+          "type": "event"
         }
       },
       "links": {},
-      "address": "0x425e36514945be8d7C600bFBccE373AF98eC173B",
-      "transactionHash": "0xcc74bb18b64cb7f03a1a6dfe210c5fcfabfb0e691ea3de507a74fc5abe951ab3"
+      "address": "0x2CfBa057A04829092D16D5d63C03E817e12b8b8C",
+      "transactionHash": "0x24b4044d4f60cfd106ca9a0a7ee87648690c0c672b5fb4d2c5ec1eb34550a315"
     },
     "80001": {
       "events": {},
@@ -11902,7 +11955,8 @@
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-10-25T08:22:40.067Z",
+  "updatedAt": "2022-10-25T15:57:36.756Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {
