@@ -196,10 +196,12 @@ contract("Batch Mint of NFTs", (accounts)=>{
 contract("Transfer of PBM NFTs", (accounts)=>{
     var spot = null ; 
     var pbm = null ; 
+    var pbmAddr = null ; 
 
     before(async()=>{
         spot = await Spot.deployed() ; 
         pbm = await PBM.deployed() ; 
+        pbmAddr = await PBMAddr.deployed() ; 
     }) ;
 
     after(async()=>{
@@ -222,9 +224,9 @@ contract("Transfer of PBM NFTs", (accounts)=>{
     })
     
     it("Blacklisting addresses", async()=>{
-        await pbmAddr.addMerchantAddresses([accounts[6], accounts[5]]) ; 
-        var merchant0 = await pbmAddr.isMerchant(accounts[6]) ; 
-        var merchant1 = await pbmAddr.isMerchant(accounts[5]) ; 
+        await pbmAddr.blacklistAddresses([accounts[6], accounts[5]], "") ; 
+        var merchant0 = await pbmAddr.isBlacklisted(accounts[6]) ; 
+        var merchant1 = await pbmAddr.isBlacklisted(accounts[5]) ; 
         assert(merchant0==true) ; 
         assert(merchant1==true) ; 
     }) ; 
@@ -326,7 +328,7 @@ contract("Payment to whitelisted address through PBM NFTs", (accounts)=>{
     }); 
 
     it("Whitelisting merchant addresses", async()=>{
-        await pbmAddr.addMerchantAddresses([accounts[4], accounts[5]]) ; 
+        await pbmAddr.addMerchantAddresses([accounts[4], accounts[5]], "") ; 
         var merchant0 = await pbmAddr.isMerchant(accounts[4]) ; 
         var merchant1 = await pbmAddr.isMerchant(accounts[5]) ; 
         assert(merchant0==true) ; 
@@ -376,7 +378,7 @@ contract("Payment to whitelisted address through PBM NFTs", (accounts)=>{
     })
 
     it("Merchant address is successfully removed from the merchant list", async()=>{
-        await pbmAddr.removeMerchantAddresses([accounts[4]]) ; 
+        await pbmAddr.removeMerchantAddresses([accounts[4]],"") ; 
         var merchant0 = await pbmAddr.isMerchant(accounts[4]) ; 
         assert(merchant0==false) ; 
     })

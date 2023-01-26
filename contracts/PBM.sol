@@ -4,6 +4,7 @@ pragma solidity ^0.8.7;
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
+import "@openzeppelin/contracts/utils/Address.sol" ; 
 
 import "./ERC20Helper.sol";  
 import "./PBMTokenManager.sol";
@@ -34,6 +35,8 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     onlyOwner
     {
         require(!initialised, "PBM: Already initialised"); 
+        require(Address.isContract(_spotToken), "Invalid spot token"); 
+        require(Address.isContract(_pbmAddressList), "Invalid spot token"); 
         spotToken = _spotToken;
         contractExpiry = _expiry; 
         pbmAddressList = _pbmAddressList; 
@@ -65,6 +68,8 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
      * IMPT: Before minting, the caller should approve the contract address to spend ERC-20 tokens on behalf of the caller.
      *       This can be done by calling the `approve` or `increaseMinterAllowance` functions of the ERC-20 contract and specifying `_spender` to be the PBM contract address. 
              Ref : https://eips.ethereum.org/EIPS/eip-20
+
+       WARNING: Any contracts that externally call these mint() and batchMint() functions should implement some sort of reentrancy guard procedure (such as OpenZeppelin's ReentrancyGuard).
      *
      * Requirements:
      *
@@ -73,12 +78,14 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
      * - `tokenId` should be a valid id that has already been created
      * - caller should have the necessary amount of the ERC-20 tokens required to mint
      * - caller should have approved the PBM contract to spend the ERC-20 tokens
+     * - receiver should not be blacklisted
      */
     function mint(uint256 tokenId, uint256 amount, address receiver) 
     external  
     override
     whenNotPaused
     {
+        require(!IPBMAddressList(pbmAddressList).isBlacklisted(receiver), "PBM: 'to' address blacklisted");
         uint256 valueOfNewTokens = amount*(PBMTokenManager(pbmTokenManager).getTokenValue(tokenId)); 
 
         //Transfer the spot token from the user to the contract to wrap it
@@ -95,6 +102,8 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
      * IMPT: Before minting, the caller should approve the contract address to spend ERC-20 tokens on behalf of the caller.
      *       This can be done by calling the `approve` or `increaseMinterAllowance` functions of the ERC-20 contract and specifying `_spender` to be the PBM contract address. 
              Ref : https://eips.ethereum.org/EIPS/eip-20
+
+       WARNING: Any contracts that externally call these mint() and batchMint() functions should implement some sort of reentrancy guard procedure (such as OpenZeppelin's ReentrancyGuard).
      *
      * Requirements:
      *
@@ -104,12 +113,14 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
      * - `tokenIds` and `amounts` list need to have the same number of values
      * - caller should have the necessary amount of the ERC-20 tokens required to mint
      * - caller should have approved the PBM contract to spend the ERC-20 tokens
+     * - receiver should not be blacklisted
      */
     function batchMint(uint256[] memory tokenIds, uint256[] memory amounts, address receiver) 
     external 
     override
     whenNotPaused
     {   
+        require(!IPBMAddressList(pbmAddressList).isBlacklisted(receiver), "PBM: 'to' address blacklisted");
         require(tokenIds.length == amounts.length, "Unequal ids and amounts supplied"); 
 
         // calculate the value of the new tokens
@@ -146,6 +157,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
             from == _msgSender() || isApprovedForAll(from, _msgSender()),
             "ERC1155: caller is not token owner nor approved"
         );
+        require(!IPBMAddressList(pbmAddressList).isBlacklisted(to), "PBM: 'to' address blacklisted");
 
         if (IPBMAddressList(pbmAddressList).isMerchant(to)){
             uint256 valueOfTokens = amount*(PBMTokenManager(pbmTokenManager).getTokenValue(id)); 
@@ -157,7 +169,6 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
             emit MerchantPayment(from, to, serialise(id), serialise(amount), spotToken, valueOfTokens);
 
         } else {
-            require(!IPBMAddressList(pbmAddressList).isBlacklisted(to), "PBM: 'to' address blacklisted");
             _safeTransferFrom(from, to, id, amount, data);
         }
  
@@ -185,6 +196,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
             from == _msgSender() || isApprovedForAll(from, _msgSender()),
             "ERC1155: caller is not token owner nor approved"
         );
+        require(!IPBMAddressList(pbmAddressList).isBlacklisted(to), "PBM: 'to' address blacklisted");
         require(ids.length == amounts.length, "Unequal ids and amounts supplied"); 
 
         if (IPBMAddressList(pbmAddressList).isMerchant(to)) {
@@ -200,7 +212,6 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
             emit MerchantPayment(from, to, ids, amounts, spotToken, valueOfTokens);
 
         } else {
-            require(!IPBMAddressList(pbmAddressList).isBlacklisted(to), "PBM: 'to' address blacklisted");
             _safeBatchTransferFrom(from, to, ids, amounts, data);
         }
     }

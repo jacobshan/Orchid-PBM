@@ -310,7 +310,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.7+commit.e28d00a7\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256[]\",\"name\":\"tokenIds\",\"type\":\"uint256[]\"},{\"indexed\":false,\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"ERC20Token\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"ERC20TokenValue\",\"type\":\"uint256\"}],\"name\":\"MerchantPayment\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"PBMTokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"ERC20Token\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"ERC20TokenValue\",\"type\":\"uint256\"}],\"name\":\"PBMrevokeWithdraw\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"tokenIds\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"}],\"name\":\"batchMint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"companyName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"spotAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"tokenExpiry\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"creator\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"tokenURI\",\"type\":\"string\"}],\"name\":\"createPBMTokenType\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getTokenDetails\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_spotToken\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_expiry\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_pbmAddressList\",\"type\":\"address\"}],\"name\":\"initialise\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"}],\"name\":\"mint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"revokePBM\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256[]\",\"name\":\"ids\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"safeBatchTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"uri\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"events\":{\"MerchantPayment(address,address,uint256[],uint256[],address,uint256)\":{\"params\":{\"ERC20Token\":\"The address of the underlying ERC-20 token \",\"ERC20TokenValue\":\"The number of underlying ERC-20 tokens transferred\",\"amounts\":\"The number of ( quantity ) the different PBM types that are to be created\",\"from\":\"The account from which the PBM ( NFT )(s) is moving from \",\"to\":\"The account which is receiving the PBM ( NFT )(s)\",\"tokenIds\":\"The identifiers of the different PBM token type\"}},\"PBMrevokeWithdraw(address,uint256,address,uint256)\":{\"params\":{\"ERC20Token\":\"The address of the underlying ERC-20 token \",\"ERC20TokenValue\":\"The number of underlying ERC-20 tokens transferred \",\"PBMTokenId\":\"The identifiers of the different PBM token type\",\"beneficiary\":\"the address ( PBM type creator ) which receives the ERC20 Token\"}}},\"kind\":\"dev\",\"methods\":{\"batchMint(uint256[],uint256[],address)\":{\"params\":{\"amounts\":\"The number of the PBMs that are to be created for each tokenId\",\"receiver\":\"The wallet address to which the created PBMs need to be transferred to\",\"tokenIds\":\"The identifiers of the PBM token type\"}},\"getTokenDetails(uint256)\":{\"params\":{\"tokenId\":\"The identifier of the PBM token type\"},\"returns\":{\"_0\":\"name The name assigned to the token type \",\"_1\":\"amount Amount of the underlying ERC-20 tokens the PBM type wraps around\",\"_2\":\"expiry The expiry date (in epoch) for this particular PBM token type. \",\"_3\":\"creator The creator of the PBM token type\"}},\"initialise(address,uint256,address)\":{\"params\":{\"_expiry\":\"contract wide expiry ( in epoch )\",\"_pbmAddressList\":\"address of the PBMAddressList smartcontract\",\"_spotToken\":\"address of the underlying ERC20 token\"}},\"mint(uint256,uint256,address)\":{\"params\":{\"amount\":\"The number of the PBMs that are to be created\",\"receiver\":\"The wallet address to which the created PBMs need to be transferred to\",\"tokenId\":\"The identifier of the PBM token type\"}},\"revokePBM(uint256)\":{\"params\":{\"tokenId\":\"The identifier of the PBM token type\"}},\"safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)\":{\"params\":{\"amounts\":\"The number of ( quantity ) the different PBM types that are to be created\",\"data\":\"To record any data associated with the transaction, can be left blank if none. \",\"from\":\"The account from which the PBM ( NFT )(s) is moving from \",\"ids\":\"The identifiers of the different PBM token type\",\"to\":\"The account which is receiving the PBM ( NFT )(s)\"}},\"safeTransferFrom(address,address,uint256,uint256,bytes)\":{\"params\":{\"amount\":\"The number of (quantity) the PBM type that are to be transferred of the PBM type\",\"data\":\"To record any data associated with the transaction, can be left blank if none\",\"from\":\"The account from which the PBM ( NFT ) is moving from \",\"id\":\"The identifier of the PBM token type\",\"to\":\"The account which is receiving the PBM ( NFT )\"}},\"uri(uint256)\":{\"params\":{\"tokenId\":\"The identifier of the PBM token type\"},\"returns\":{\"_0\":\"uri The URI link , which will povide a response that follows the Opensea metadata standard\"}}},\"title\":\"PBM interface \",\"version\":1},\"userdoc\":{\"events\":{\"MerchantPayment(address,address,uint256[],uint256[],address,uint256)\":{\"notice\":\"Emitted when underlying ERC-20 tokens are transferred to a whitelisted merchant ( payment )\"},\"PBMrevokeWithdraw(address,uint256,address,uint256)\":{\"notice\":\"Emitted when a PBM type creator withdraws the underlying ERC-20 tokens from all the remaining expired PBMs\"}},\"kind\":\"user\",\"methods\":{\"batchMint(uint256[],uint256[],address)\":{\"notice\":\"Creates new PBM copies ( ERC2255 NFT ) of multiple existing PBM token types after ensuring they are backed by the necessary value of the underlying ERC-20 tokens \"},\"createPBMTokenType(string,uint256,uint256,address,string)\":{\"notice\":\"example response of token URI, ref : https://docs.opensea.io/docs/metadata-standards {     \\\"name\\\": \\\"StraitsX-12\\\",     \\\"description\\\": \\\"12$ SGD test voucher\\\",     \\\"image\\\": \\\"https://gateway.pinata.cloud/ipfs/QmQ1x7NHakFYin9bHwN7zy4NdSYS84w6C33hzxpZwCAFPu\\\",     \\\"attributes\\\": [         {         \\\"trait_type\\\": \\\"Value\\\",          \\\"value\\\": \\\"12\\\"         }     ] }\"},\"getTokenDetails(uint256)\":{\"notice\":\"Get the details of the PBM Token type\"},\"initialise(address,uint256,address)\":{\"notice\":\"sets the address of the underlying ERC20 token, Contract Expiry, and the address of pbm address list\"},\"mint(uint256,uint256,address)\":{\"notice\":\"Creates new PBM copies ( ERC2255 NFT ) of an existing PBM token type after ensuring it is backed by the necessary value of the underlying ERC-20 tokens \"},\"revokePBM(uint256)\":{\"notice\":\"Allows the creator of the PBM type to retrive all the locked up ERC-20 once they have expired for that particular token type\"},\"safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)\":{\"notice\":\"Transfers the PBM(NFT)(s) from one wallet to another.  If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT)(s) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead.\"},\"safeTransferFrom(address,address,uint256,uint256,bytes)\":{\"notice\":\"Transfers the PBM(NFT) from one wallet to another.  If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead.\"},\"uri(uint256)\":{\"notice\":\"Get the URI of the tokenid \"}},\"notice\":\"The PBM (purpose bound money) allows us to add logical requirements on the use of ERC-20 tokens. The PBM acts as wrapper around the ERC-20 tokens and implements the necessary logic. \",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IPBM.sol\":\"IPBM\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IPBM.sol\":{\"keccak256\":\"0xfeed0fb6471bd00d1aa73e1dcbcddd4c6eb3eefd42a46fd3849e4ccda8673c03\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://28eea501c878844f645ce6ec61c7ff360d1618f478e5759ec61205ffdcd61a3f\",\"dweb:/ipfs/QmVKzJq4ThE6j9XHRTxu9R3MiDYxznN1RD5EsB89uw5pFR\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.7+commit.e28d00a7\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256[]\",\"name\":\"tokenIds\",\"type\":\"uint256[]\"},{\"indexed\":false,\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"ERC20Token\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"ERC20TokenValue\",\"type\":\"uint256\"}],\"name\":\"MerchantPayment\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"PBMTokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"ERC20Token\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"ERC20TokenValue\",\"type\":\"uint256\"}],\"name\":\"PBMrevokeWithdraw\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"tokenIds\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"}],\"name\":\"batchMint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"companyName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"spotAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"tokenExpiry\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"creator\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"tokenURI\",\"type\":\"string\"}],\"name\":\"createPBMTokenType\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getTokenDetails\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_spotToken\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_expiry\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_pbmAddressList\",\"type\":\"address\"}],\"name\":\"initialise\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"}],\"name\":\"mint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"revokePBM\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256[]\",\"name\":\"ids\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"safeBatchTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"uri\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"events\":{\"MerchantPayment(address,address,uint256[],uint256[],address,uint256)\":{\"params\":{\"ERC20Token\":\"The address of the underlying ERC-20 token \",\"ERC20TokenValue\":\"The number of underlying ERC-20 tokens transferred\",\"amounts\":\"The number of ( quantity ) the different PBM types that are to be created\",\"from\":\"The account from which the PBM ( NFT )(s) is moving from \",\"to\":\"The account which is receiving the PBM ( NFT )(s)\",\"tokenIds\":\"The identifiers of the different PBM token type\"}},\"PBMrevokeWithdraw(address,uint256,address,uint256)\":{\"params\":{\"ERC20Token\":\"The address of the underlying ERC-20 token \",\"ERC20TokenValue\":\"The number of underlying ERC-20 tokens transferred \",\"PBMTokenId\":\"The identifiers of the different PBM token type\",\"beneficiary\":\"the address ( PBM type creator ) which receives the ERC20 Token\"}}},\"kind\":\"dev\",\"methods\":{\"batchMint(uint256[],uint256[],address)\":{\"params\":{\"amounts\":\"The number of the PBMs that are to be created for each tokenId\",\"receiver\":\"The wallet address to which the created PBMs need to be transferred to\",\"tokenIds\":\"The identifiers of the PBM token type\"}},\"getTokenDetails(uint256)\":{\"params\":{\"tokenId\":\"The identifier of the PBM token type\"},\"returns\":{\"_0\":\"name The name assigned to the token type \",\"_1\":\"amount Amount of the underlying ERC-20 tokens the PBM type wraps around\",\"_2\":\"expiry The expiry date (in epoch) for this particular PBM token type. \",\"_3\":\"creator The creator of the PBM token type\"}},\"initialise(address,uint256,address)\":{\"params\":{\"_expiry\":\"contract wide expiry ( in epoch )\",\"_pbmAddressList\":\"address of the PBMAddressList smartcontract\",\"_spotToken\":\"address of the underlying ERC20 token\"}},\"mint(uint256,uint256,address)\":{\"params\":{\"amount\":\"The number of the PBMs that are to be created\",\"receiver\":\"The wallet address to which the created PBMs need to be transferred to\",\"tokenId\":\"The identifier of the PBM token type\"}},\"revokePBM(uint256)\":{\"params\":{\"tokenId\":\"The identifier of the PBM token type\"}},\"safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)\":{\"params\":{\"amounts\":\"The number of ( quantity ) the different PBM types that are to be created\",\"data\":\"To record any data associated with the transaction, can be left blank if none. \",\"from\":\"The account from which the PBM ( NFT )(s) is moving from \",\"ids\":\"The identifiers of the different PBM token type\",\"to\":\"The account which is receiving the PBM ( NFT )(s)\"}},\"safeTransferFrom(address,address,uint256,uint256,bytes)\":{\"params\":{\"amount\":\"The number of (quantity) the PBM type that are to be transferred of the PBM type\",\"data\":\"To record any data associated with the transaction, can be left blank if none\",\"from\":\"The account from which the PBM ( NFT ) is moving from \",\"id\":\"The identifier of the PBM token type\",\"to\":\"The account which is receiving the PBM ( NFT )\"}},\"uri(uint256)\":{\"params\":{\"tokenId\":\"The identifier of the PBM token type\"},\"returns\":{\"_0\":\"uri The URI link , which will povide a response that follows the Opensea metadata standard\"}}},\"title\":\"PBM interface \",\"version\":1},\"userdoc\":{\"events\":{\"MerchantPayment(address,address,uint256[],uint256[],address,uint256)\":{\"notice\":\"Emitted when underlying ERC-20 tokens are transferred to a whitelisted merchant ( payment )\"},\"PBMrevokeWithdraw(address,uint256,address,uint256)\":{\"notice\":\"Emitted when a PBM type creator withdraws the underlying ERC-20 tokens from all the remaining expired PBMs\"}},\"kind\":\"user\",\"methods\":{\"batchMint(uint256[],uint256[],address)\":{\"notice\":\"Creates new PBM copies ( ERC1155 NFT ) of multiple existing PBM token types after ensuring they are backed by the necessary value of the underlying ERC-20 tokens \"},\"createPBMTokenType(string,uint256,uint256,address,string)\":{\"notice\":\"example response of token URI, ref : https://docs.opensea.io/docs/metadata-standards {     \\\"name\\\": \\\"StraitsX-12\\\",     \\\"description\\\": \\\"12$ SGD test voucher\\\",     \\\"image\\\": \\\"https://gateway.pinata.cloud/ipfs/QmQ1x7NHakFYin9bHwN7zy4NdSYS84w6C33hzxpZwCAFPu\\\",     \\\"attributes\\\": [         {         \\\"trait_type\\\": \\\"Value\\\",          \\\"value\\\": \\\"12\\\"         }     ] }\"},\"getTokenDetails(uint256)\":{\"notice\":\"Get the details of the PBM Token type\"},\"initialise(address,uint256,address)\":{\"notice\":\"sets the address of the underlying ERC20 token, Contract Expiry, and the address of pbm address list\"},\"mint(uint256,uint256,address)\":{\"notice\":\"Creates new PBM copies ( ERC1155 NFT ) of an existing PBM token type after ensuring it is backed by the necessary value of the underlying ERC-20 tokens \"},\"revokePBM(uint256)\":{\"notice\":\"Allows the creator of the PBM type to retrive all the locked up ERC-20 once they have expired for that particular token type\"},\"safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)\":{\"notice\":\"Transfers the PBM(NFT)(s) from one wallet to another.  If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT)(s) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead.\"},\"safeTransferFrom(address,address,uint256,uint256,bytes)\":{\"notice\":\"Transfers the PBM(NFT) from one wallet to another.  If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead.\"},\"uri(uint256)\":{\"notice\":\"Get the URI of the tokenid \"}},\"notice\":\"The PBM (purpose bound money) allows us to add logical requirements on the use of ERC-20 tokens. The PBM acts as wrapper around the ERC-20 tokens and implements the necessary logic. \",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IPBM.sol\":\"IPBM\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IPBM.sol\":{\"keccak256\":\"0xda06b6527ab3d9d440616bc3a081f856b38a5cd2bbb91e8363f13db41f1c087b\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://3ff8fdac7a966eb78365a87fd06b63a0491ba28adb9a0efe06d3cb7847a7599e\",\"dweb:/ipfs/QmX3cESWegmvJa18o45BbEpq8cDz6jYVRz44ohwEfaTagm\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -318,21 +318,21 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: GPL-2.0-or-later\npragma solidity ^0.8.0;\n\n/// @title PBM interface \n/// @notice The PBM (purpose bound money) allows us to add logical requirements on the use of ERC-20 tokens. The PBM acts as wrapper around the ERC-20 tokens and implements the necessary logic. \ninterface IPBM {\n    \n    /// @notice sets the address of the underlying ERC20 token, Contract Expiry, and the address of pbm address list\n    /// @param _spotToken address of the underlying ERC20 token\n    /// @param _expiry contract wide expiry ( in epoch )\n    /// @param _pbmAddressList address of the PBMAddressList smartcontract\n    function initialise(address _spotToken, uint256 _expiry, address _pbmAddressList) external; \n\n    /// @notice Creates a new PBM token type with the data provided\n    /// @param companyName Name of the company issuing the PBM\n    /// @param spotAmount Amount of the underlying ERC-20 tokens the PBM type wraps around\n    /// @param tokenExpiry The expiry date (in epoch) for this particular PBM token type \n    /// @param tokenURI the URI (returns json) of PBM type that will follows the Opensea NFT metadata standard\n    /**\n    * example response of token URI, ref : https://docs.opensea.io/docs/metadata-standards\n    * {\n    *     \"name\": \"StraitsX-12\",\n    *     \"description\": \"12$ SGD test voucher\",\n    *     \"image\": \"https://gateway.pinata.cloud/ipfs/QmQ1x7NHakFYin9bHwN7zy4NdSYS84w6C33hzxpZwCAFPu\",\n    *     \"attributes\": [\n    *         {\n    *         \"trait_type\": \"Value\", \n    *         \"value\": \"12\"\n    *         }\n    *     ]\n    * }\n     */\n    function createPBMTokenType(string memory companyName, uint256 spotAmount, uint256 tokenExpiry,address creator, string memory tokenURI) external;  \n\n    /// @notice Creates new PBM copies ( ERC2255 NFT ) of an existing PBM token type after ensuring it is backed by the necessary value of the underlying ERC-20 tokens \n    /// @param tokenId The identifier of the PBM token type\n    /// @param amount The number of the PBMs that are to be created\n    /// @param receiver The wallet address to which the created PBMs need to be transferred to\n    function mint(uint256 tokenId, uint256 amount, address receiver) external; \n\n    /// @notice Creates new PBM copies ( ERC2255 NFT ) of multiple existing PBM token types after ensuring they are backed by the necessary value of the underlying ERC-20 tokens \n    /// @param tokenIds The identifiers of the PBM token type\n    /// @param amounts The number of the PBMs that are to be created for each tokenId\n    /// @param receiver The wallet address to which the created PBMs need to be transferred to\n    function batchMint(uint256[] memory tokenIds, uint256[] memory amounts, address receiver) external; \n\n    /// @notice Transfers the PBM(NFT) from one wallet to another. \n    /// If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead.\n    /// @param from The account from which the PBM ( NFT ) is moving from \n    /// @param to The account which is receiving the PBM ( NFT )\n    /// @param id The identifier of the PBM token type\n    /// @param amount The number of (quantity) the PBM type that are to be transferred of the PBM type\n    /// @param data To record any data associated with the transaction, can be left blank if none\n    function safeTransferFrom( address from, address to, uint256 id, uint256 amount, bytes memory data) external; \n\n    /// @notice Transfers the PBM(NFT)(s) from one wallet to another. \n    /// If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT)(s) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead.\n    /// @param from The account from which the PBM ( NFT )(s) is moving from \n    /// @param to The account which is receiving the PBM ( NFT )(s)\n    /// @param ids The identifiers of the different PBM token type\n    /// @param amounts The number of ( quantity ) the different PBM types that are to be created\n    /// @param data To record any data associated with the transaction, can be left blank if none. \n    function safeBatchTransferFrom(address from,address to,uint256[] memory ids,uint256[] memory amounts, bytes memory data) external; \n\n    /// @notice Allows the creator of the PBM type to retrive all the locked up ERC-20 once they have expired for that particular token type\n    /// @param tokenId The identifier of the PBM token type\n    function revokePBM(uint256 tokenId) external;\n\n    /// @notice Get the details of the PBM Token type\n    /// @param tokenId The identifier of the PBM token type\n    /// @return name The name assigned to the token type \n    /// @return amount Amount of the underlying ERC-20 tokens the PBM type wraps around\n    /// @return expiry The expiry date (in epoch) for this particular PBM token type. \n    /// @return creator The creator of the PBM token type\n    function getTokenDetails(uint256 tokenId) external view returns(string memory, uint256, uint256, address); \n\n    /// @notice Get the URI of the tokenid \n    /// @param tokenId The identifier of the PBM token type\n    /// @return uri The URI link , which will povide a response that follows the Opensea metadata standard\n    function uri(uint256 tokenId) external view returns(string memory);  \n\n    /// @notice Emitted when underlying ERC-20 tokens are transferred to a whitelisted merchant ( payment )\n    /// @param from The account from which the PBM ( NFT )(s) is moving from \n    /// @param to The account which is receiving the PBM ( NFT )(s)\n    /// @param tokenIds The identifiers of the different PBM token type\n    /// @param amounts The number of ( quantity ) the different PBM types that are to be created\n    /// @param ERC20Token The address of the underlying ERC-20 token \n    /// @param ERC20TokenValue The number of underlying ERC-20 tokens transferred\n    event MerchantPayment(address from , address to, uint256[] tokenIds, uint256[] amounts,address ERC20Token, uint256 ERC20TokenValue); \n\n    /// @notice Emitted when a PBM type creator withdraws the underlying ERC-20 tokens from all the remaining expired PBMs\n    /// @param beneficiary the address ( PBM type creator ) which receives the ERC20 Token\n    /// @param PBMTokenId The identifiers of the different PBM token type\n    /// @param ERC20Token The address of the underlying ERC-20 token \n    /// @param ERC20TokenValue The number of underlying ERC-20 tokens transferred \n    event PBMrevokeWithdraw(address beneficiary, uint256 PBMTokenId, address ERC20Token, uint256 ERC20TokenValue);\n}",
+  "source": "// SPDX-License-Identifier: GPL-2.0-or-later\npragma solidity ^0.8.0;\n\n/// @title PBM interface \n/// @notice The PBM (purpose bound money) allows us to add logical requirements on the use of ERC-20 tokens. The PBM acts as wrapper around the ERC-20 tokens and implements the necessary logic. \ninterface IPBM {\n    \n    /// @notice sets the address of the underlying ERC20 token, Contract Expiry, and the address of pbm address list\n    /// @param _spotToken address of the underlying ERC20 token\n    /// @param _expiry contract wide expiry ( in epoch )\n    /// @param _pbmAddressList address of the PBMAddressList smartcontract\n    function initialise(address _spotToken, uint256 _expiry, address _pbmAddressList) external; \n\n    /// @notice Creates a new PBM token type with the data provided\n    /// @param companyName Name of the company issuing the PBM\n    /// @param spotAmount Amount of the underlying ERC-20 tokens the PBM type wraps around\n    /// @param tokenExpiry The expiry date (in epoch) for this particular PBM token type \n    /// @param tokenURI the URI (returns json) of PBM type that will follows the Opensea NFT metadata standard\n    /**\n    * example response of token URI, ref : https://docs.opensea.io/docs/metadata-standards\n    * {\n    *     \"name\": \"StraitsX-12\",\n    *     \"description\": \"12$ SGD test voucher\",\n    *     \"image\": \"https://gateway.pinata.cloud/ipfs/QmQ1x7NHakFYin9bHwN7zy4NdSYS84w6C33hzxpZwCAFPu\",\n    *     \"attributes\": [\n    *         {\n    *         \"trait_type\": \"Value\", \n    *         \"value\": \"12\"\n    *         }\n    *     ]\n    * }\n     */\n    function createPBMTokenType(string memory companyName, uint256 spotAmount, uint256 tokenExpiry,address creator, string memory tokenURI) external;  \n\n    /// @notice Creates new PBM copies ( ERC1155 NFT ) of an existing PBM token type after ensuring it is backed by the necessary value of the underlying ERC-20 tokens \n    /// @param tokenId The identifier of the PBM token type\n    /// @param amount The number of the PBMs that are to be created\n    /// @param receiver The wallet address to which the created PBMs need to be transferred to\n    function mint(uint256 tokenId, uint256 amount, address receiver) external; \n\n    /// @notice Creates new PBM copies ( ERC1155 NFT ) of multiple existing PBM token types after ensuring they are backed by the necessary value of the underlying ERC-20 tokens \n    /// @param tokenIds The identifiers of the PBM token type\n    /// @param amounts The number of the PBMs that are to be created for each tokenId\n    /// @param receiver The wallet address to which the created PBMs need to be transferred to\n    function batchMint(uint256[] memory tokenIds, uint256[] memory amounts, address receiver) external; \n\n    /// @notice Transfers the PBM(NFT) from one wallet to another. \n    /// If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead.\n    /// @param from The account from which the PBM ( NFT ) is moving from \n    /// @param to The account which is receiving the PBM ( NFT )\n    /// @param id The identifier of the PBM token type\n    /// @param amount The number of (quantity) the PBM type that are to be transferred of the PBM type\n    /// @param data To record any data associated with the transaction, can be left blank if none\n    function safeTransferFrom( address from, address to, uint256 id, uint256 amount, bytes memory data) external; \n\n    /// @notice Transfers the PBM(NFT)(s) from one wallet to another. \n    /// If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT)(s) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead.\n    /// @param from The account from which the PBM ( NFT )(s) is moving from \n    /// @param to The account which is receiving the PBM ( NFT )(s)\n    /// @param ids The identifiers of the different PBM token type\n    /// @param amounts The number of ( quantity ) the different PBM types that are to be created\n    /// @param data To record any data associated with the transaction, can be left blank if none. \n    function safeBatchTransferFrom(address from,address to,uint256[] memory ids,uint256[] memory amounts, bytes memory data) external; \n\n    /// @notice Allows the creator of the PBM type to retrive all the locked up ERC-20 once they have expired for that particular token type\n    /// @param tokenId The identifier of the PBM token type\n    function revokePBM(uint256 tokenId) external;\n\n    /// @notice Get the details of the PBM Token type\n    /// @param tokenId The identifier of the PBM token type\n    /// @return name The name assigned to the token type \n    /// @return amount Amount of the underlying ERC-20 tokens the PBM type wraps around\n    /// @return expiry The expiry date (in epoch) for this particular PBM token type. \n    /// @return creator The creator of the PBM token type\n    function getTokenDetails(uint256 tokenId) external view returns(string memory, uint256, uint256, address); \n\n    /// @notice Get the URI of the tokenid \n    /// @param tokenId The identifier of the PBM token type\n    /// @return uri The URI link , which will povide a response that follows the Opensea metadata standard\n    function uri(uint256 tokenId) external view returns(string memory);  \n\n    /// @notice Emitted when underlying ERC-20 tokens are transferred to a whitelisted merchant ( payment )\n    /// @param from The account from which the PBM ( NFT )(s) is moving from \n    /// @param to The account which is receiving the PBM ( NFT )(s)\n    /// @param tokenIds The identifiers of the different PBM token type\n    /// @param amounts The number of ( quantity ) the different PBM types that are to be created\n    /// @param ERC20Token The address of the underlying ERC-20 token \n    /// @param ERC20TokenValue The number of underlying ERC-20 tokens transferred\n    event MerchantPayment(address from , address to, uint256[] tokenIds, uint256[] amounts,address ERC20Token, uint256 ERC20TokenValue); \n\n    /// @notice Emitted when a PBM type creator withdraws the underlying ERC-20 tokens from all the remaining expired PBMs\n    /// @param beneficiary the address ( PBM type creator ) which receives the ERC20 Token\n    /// @param PBMTokenId The identifiers of the different PBM token type\n    /// @param ERC20Token The address of the underlying ERC-20 token \n    /// @param ERC20TokenValue The number of underlying ERC-20 tokens transferred \n    event PBMrevokeWithdraw(address beneficiary, uint256 PBMTokenId, address ERC20Token, uint256 ERC20TokenValue);\n}",
   "sourcePath": "/Users/mihir/Desktop/code/Orchid-PBM/contracts/IPBM.sol",
   "ast": {
     "absolutePath": "project:/contracts/IPBM.sol",
     "exportedSymbols": {
       "IPBM": [
-        2537
+        2554
       ]
     },
-    "id": 2538,
+    "id": 2555,
     "license": "GPL-2.0-or-later",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2403,
+        "id": 2420,
         "literals": [
           "solidity",
           "^",
@@ -348,15 +348,15 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 2404,
+          "id": 2421,
           "nodeType": "StructuredDocumentation",
           "src": "70:221:14",
           "text": "@title PBM interface \n @notice The PBM (purpose bound money) allows us to add logical requirements on the use of ERC-20 tokens. The PBM acts as wrapper around the ERC-20 tokens and implements the necessary logic. "
         },
         "fullyImplemented": false,
-        "id": 2537,
+        "id": 2554,
         "linearizedBaseContracts": [
-          2537
+          2554
         ],
         "name": "IPBM",
         "nameLocation": "301:4:14",
@@ -364,13 +364,13 @@
         "nodes": [
           {
             "documentation": {
-              "id": 2405,
+              "id": 2422,
               "nodeType": "StructuredDocumentation",
               "src": "317:308:14",
               "text": "@notice sets the address of the underlying ERC20 token, Contract Expiry, and the address of pbm address list\n @param _spotToken address of the underlying ERC20 token\n @param _expiry contract wide expiry ( in epoch )\n @param _pbmAddressList address of the PBMAddressList smartcontract"
             },
             "functionSelector": "07e82e0f",
-            "id": 2414,
+            "id": 2431,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -378,17 +378,17 @@
             "nameLocation": "639:10:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2412,
+              "id": 2429,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2407,
+                  "id": 2424,
                   "mutability": "mutable",
                   "name": "_spotToken",
                   "nameLocation": "658:10:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2414,
+                  "scope": 2431,
                   "src": "650:18:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -397,7 +397,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2406,
+                    "id": 2423,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "650:7:14",
@@ -411,12 +411,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2409,
+                  "id": 2426,
                   "mutability": "mutable",
                   "name": "_expiry",
                   "nameLocation": "678:7:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2414,
+                  "scope": 2431,
                   "src": "670:15:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -425,7 +425,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2408,
+                    "id": 2425,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "670:7:14",
@@ -438,12 +438,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2411,
+                  "id": 2428,
                   "mutability": "mutable",
                   "name": "_pbmAddressList",
                   "nameLocation": "695:15:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2414,
+                  "scope": 2431,
                   "src": "687:23:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -452,7 +452,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2410,
+                    "id": 2427,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "687:7:14",
@@ -468,12 +468,12 @@
               "src": "649:62:14"
             },
             "returnParameters": {
-              "id": 2413,
+              "id": 2430,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "720:0:14"
             },
-            "scope": 2537,
+            "scope": 2554,
             "src": "630:91:14",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -481,13 +481,13 @@
           },
           {
             "documentation": {
-              "id": 2415,
+              "id": 2432,
               "nodeType": "StructuredDocumentation",
               "src": "1151:439:14",
               "text": " example response of token URI, ref : https://docs.opensea.io/docs/metadata-standards\n {\n     \"name\": \"StraitsX-12\",\n     \"description\": \"12$ SGD test voucher\",\n     \"image\": \"https://gateway.pinata.cloud/ipfs/QmQ1x7NHakFYin9bHwN7zy4NdSYS84w6C33hzxpZwCAFPu\",\n     \"attributes\": [\n         {\n         \"trait_type\": \"Value\", \n         \"value\": \"12\"\n         }\n     ]\n }"
             },
             "functionSelector": "5ed7be9d",
-            "id": 2428,
+            "id": 2445,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -495,17 +495,17 @@
             "nameLocation": "1604:18:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2426,
+              "id": 2443,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2417,
+                  "id": 2434,
                   "mutability": "mutable",
                   "name": "companyName",
                   "nameLocation": "1637:11:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2428,
+                  "scope": 2445,
                   "src": "1623:25:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -514,7 +514,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 2416,
+                    "id": 2433,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1623:6:14",
@@ -527,12 +527,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2419,
+                  "id": 2436,
                   "mutability": "mutable",
                   "name": "spotAmount",
                   "nameLocation": "1658:10:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2428,
+                  "scope": 2445,
                   "src": "1650:18:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -541,7 +541,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2418,
+                    "id": 2435,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1650:7:14",
@@ -554,12 +554,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2421,
+                  "id": 2438,
                   "mutability": "mutable",
                   "name": "tokenExpiry",
                   "nameLocation": "1678:11:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2428,
+                  "scope": 2445,
                   "src": "1670:19:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -568,7 +568,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2420,
+                    "id": 2437,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1670:7:14",
@@ -581,12 +581,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2423,
+                  "id": 2440,
                   "mutability": "mutable",
                   "name": "creator",
                   "nameLocation": "1698:7:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2428,
+                  "scope": 2445,
                   "src": "1690:15:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -595,7 +595,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2422,
+                    "id": 2439,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1690:7:14",
@@ -609,12 +609,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2425,
+                  "id": 2442,
                   "mutability": "mutable",
                   "name": "tokenURI",
                   "nameLocation": "1721:8:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2428,
+                  "scope": 2445,
                   "src": "1707:22:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -623,7 +623,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 2424,
+                    "id": 2441,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1707:6:14",
@@ -638,12 +638,12 @@
               "src": "1622:108:14"
             },
             "returnParameters": {
-              "id": 2427,
+              "id": 2444,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1739:0:14"
             },
-            "scope": 2537,
+            "scope": 2554,
             "src": "1595:145:14",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -651,13 +651,13 @@
           },
           {
             "documentation": {
-              "id": 2429,
+              "id": 2446,
               "nodeType": "StructuredDocumentation",
               "src": "1748:387:14",
-              "text": "@notice Creates new PBM copies ( ERC2255 NFT ) of an existing PBM token type after ensuring it is backed by the necessary value of the underlying ERC-20 tokens \n @param tokenId The identifier of the PBM token type\n @param amount The number of the PBMs that are to be created\n @param receiver The wallet address to which the created PBMs need to be transferred to"
+              "text": "@notice Creates new PBM copies ( ERC1155 NFT ) of an existing PBM token type after ensuring it is backed by the necessary value of the underlying ERC-20 tokens \n @param tokenId The identifier of the PBM token type\n @param amount The number of the PBMs that are to be created\n @param receiver The wallet address to which the created PBMs need to be transferred to"
             },
             "functionSelector": "e7d3fe6b",
-            "id": 2438,
+            "id": 2455,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -665,17 +665,17 @@
             "nameLocation": "2149:4:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2436,
+              "id": 2453,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2431,
+                  "id": 2448,
                   "mutability": "mutable",
                   "name": "tokenId",
                   "nameLocation": "2162:7:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2438,
+                  "scope": 2455,
                   "src": "2154:15:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -684,7 +684,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2430,
+                    "id": 2447,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2154:7:14",
@@ -697,12 +697,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2433,
+                  "id": 2450,
                   "mutability": "mutable",
                   "name": "amount",
                   "nameLocation": "2179:6:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2438,
+                  "scope": 2455,
                   "src": "2171:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -711,7 +711,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2432,
+                    "id": 2449,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2171:7:14",
@@ -724,12 +724,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2435,
+                  "id": 2452,
                   "mutability": "mutable",
                   "name": "receiver",
                   "nameLocation": "2195:8:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2438,
+                  "scope": 2455,
                   "src": "2187:16:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -738,7 +738,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2434,
+                    "id": 2451,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2187:7:14",
@@ -754,12 +754,12 @@
               "src": "2153:51:14"
             },
             "returnParameters": {
-              "id": 2437,
+              "id": 2454,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2213:0:14"
             },
-            "scope": 2537,
+            "scope": 2554,
             "src": "2140:74:14",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -767,13 +767,13 @@
           },
           {
             "documentation": {
-              "id": 2439,
+              "id": 2456,
               "nodeType": "StructuredDocumentation",
               "src": "2221:417:14",
-              "text": "@notice Creates new PBM copies ( ERC2255 NFT ) of multiple existing PBM token types after ensuring they are backed by the necessary value of the underlying ERC-20 tokens \n @param tokenIds The identifiers of the PBM token type\n @param amounts The number of the PBMs that are to be created for each tokenId\n @param receiver The wallet address to which the created PBMs need to be transferred to"
+              "text": "@notice Creates new PBM copies ( ERC1155 NFT ) of multiple existing PBM token types after ensuring they are backed by the necessary value of the underlying ERC-20 tokens \n @param tokenIds The identifiers of the PBM token type\n @param amounts The number of the PBMs that are to be created for each tokenId\n @param receiver The wallet address to which the created PBMs need to be transferred to"
             },
             "functionSelector": "fb34b201",
-            "id": 2450,
+            "id": 2467,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -781,17 +781,17 @@
             "nameLocation": "2652:9:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2448,
+              "id": 2465,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2442,
+                  "id": 2459,
                   "mutability": "mutable",
                   "name": "tokenIds",
                   "nameLocation": "2679:8:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2450,
+                  "scope": 2467,
                   "src": "2662:25:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -801,7 +801,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2440,
+                      "id": 2457,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "2662:7:14",
@@ -810,7 +810,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2441,
+                    "id": 2458,
                     "nodeType": "ArrayTypeName",
                     "src": "2662:9:14",
                     "typeDescriptions": {
@@ -822,12 +822,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2445,
+                  "id": 2462,
                   "mutability": "mutable",
                   "name": "amounts",
                   "nameLocation": "2706:7:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2450,
+                  "scope": 2467,
                   "src": "2689:24:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -837,7 +837,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2443,
+                      "id": 2460,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "2689:7:14",
@@ -846,7 +846,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2444,
+                    "id": 2461,
                     "nodeType": "ArrayTypeName",
                     "src": "2689:9:14",
                     "typeDescriptions": {
@@ -858,12 +858,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2447,
+                  "id": 2464,
                   "mutability": "mutable",
                   "name": "receiver",
                   "nameLocation": "2723:8:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2450,
+                  "scope": 2467,
                   "src": "2715:16:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -872,7 +872,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2446,
+                    "id": 2463,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2715:7:14",
@@ -888,12 +888,12 @@
               "src": "2661:71:14"
             },
             "returnParameters": {
-              "id": 2449,
+              "id": 2466,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2741:0:14"
             },
-            "scope": 2537,
+            "scope": 2554,
             "src": "2643:99:14",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -901,13 +901,13 @@
           },
           {
             "documentation": {
-              "id": 2451,
+              "id": 2468,
               "nodeType": "StructuredDocumentation",
               "src": "2749:644:14",
               "text": "@notice Transfers the PBM(NFT) from one wallet to another. \n If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead.\n @param from The account from which the PBM ( NFT ) is moving from \n @param to The account which is receiving the PBM ( NFT )\n @param id The identifier of the PBM token type\n @param amount The number of (quantity) the PBM type that are to be transferred of the PBM type\n @param data To record any data associated with the transaction, can be left blank if none"
             },
             "functionSelector": "f242432a",
-            "id": 2464,
+            "id": 2481,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -915,17 +915,17 @@
             "nameLocation": "3407:16:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2462,
+              "id": 2479,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2453,
+                  "id": 2470,
                   "mutability": "mutable",
                   "name": "from",
                   "nameLocation": "3433:4:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2464,
+                  "scope": 2481,
                   "src": "3425:12:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -934,7 +934,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2452,
+                    "id": 2469,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "3425:7:14",
@@ -948,12 +948,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2455,
+                  "id": 2472,
                   "mutability": "mutable",
                   "name": "to",
                   "nameLocation": "3447:2:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2464,
+                  "scope": 2481,
                   "src": "3439:10:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -962,7 +962,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2454,
+                    "id": 2471,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "3439:7:14",
@@ -976,12 +976,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2457,
+                  "id": 2474,
                   "mutability": "mutable",
                   "name": "id",
                   "nameLocation": "3459:2:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2464,
+                  "scope": 2481,
                   "src": "3451:10:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -990,7 +990,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2456,
+                    "id": 2473,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "3451:7:14",
@@ -1003,12 +1003,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2459,
+                  "id": 2476,
                   "mutability": "mutable",
                   "name": "amount",
                   "nameLocation": "3471:6:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2464,
+                  "scope": 2481,
                   "src": "3463:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1017,7 +1017,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2458,
+                    "id": 2475,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "3463:7:14",
@@ -1030,12 +1030,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2461,
+                  "id": 2478,
                   "mutability": "mutable",
                   "name": "data",
                   "nameLocation": "3492:4:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2464,
+                  "scope": 2481,
                   "src": "3479:17:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1044,7 +1044,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 2460,
+                    "id": 2477,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "3479:5:14",
@@ -1059,12 +1059,12 @@
               "src": "3423:74:14"
             },
             "returnParameters": {
-              "id": 2463,
+              "id": 2480,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "3506:0:14"
             },
-            "scope": 2537,
+            "scope": 2554,
             "src": "3398:109:14",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -1072,13 +1072,13 @@
           },
           {
             "documentation": {
-              "id": 2465,
+              "id": 2482,
               "nodeType": "StructuredDocumentation",
               "src": "3514:664:14",
               "text": "@notice Transfers the PBM(NFT)(s) from one wallet to another. \n If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT)(s) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead.\n @param from The account from which the PBM ( NFT )(s) is moving from \n @param to The account which is receiving the PBM ( NFT )(s)\n @param ids The identifiers of the different PBM token type\n @param amounts The number of ( quantity ) the different PBM types that are to be created\n @param data To record any data associated with the transaction, can be left blank if none. "
             },
             "functionSelector": "2eb2c2d6",
-            "id": 2480,
+            "id": 2497,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -1086,17 +1086,17 @@
             "nameLocation": "4192:21:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2478,
+              "id": 2495,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2467,
+                  "id": 2484,
                   "mutability": "mutable",
                   "name": "from",
                   "nameLocation": "4222:4:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2480,
+                  "scope": 2497,
                   "src": "4214:12:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1105,7 +1105,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2466,
+                    "id": 2483,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "4214:7:14",
@@ -1119,12 +1119,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2469,
+                  "id": 2486,
                   "mutability": "mutable",
                   "name": "to",
                   "nameLocation": "4235:2:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2480,
+                  "scope": 2497,
                   "src": "4227:10:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1133,7 +1133,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2468,
+                    "id": 2485,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "4227:7:14",
@@ -1147,12 +1147,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2472,
+                  "id": 2489,
                   "mutability": "mutable",
                   "name": "ids",
                   "nameLocation": "4255:3:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2480,
+                  "scope": 2497,
                   "src": "4238:20:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1162,7 +1162,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2470,
+                      "id": 2487,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "4238:7:14",
@@ -1171,7 +1171,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2471,
+                    "id": 2488,
                     "nodeType": "ArrayTypeName",
                     "src": "4238:9:14",
                     "typeDescriptions": {
@@ -1183,12 +1183,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2475,
+                  "id": 2492,
                   "mutability": "mutable",
                   "name": "amounts",
                   "nameLocation": "4276:7:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2480,
+                  "scope": 2497,
                   "src": "4259:24:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1198,7 +1198,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2473,
+                      "id": 2490,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "4259:7:14",
@@ -1207,7 +1207,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2474,
+                    "id": 2491,
                     "nodeType": "ArrayTypeName",
                     "src": "4259:9:14",
                     "typeDescriptions": {
@@ -1219,12 +1219,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2477,
+                  "id": 2494,
                   "mutability": "mutable",
                   "name": "data",
                   "nameLocation": "4298:4:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2480,
+                  "scope": 2497,
                   "src": "4285:17:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1233,7 +1233,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 2476,
+                    "id": 2493,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "4285:5:14",
@@ -1248,12 +1248,12 @@
               "src": "4213:90:14"
             },
             "returnParameters": {
-              "id": 2479,
+              "id": 2496,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "4312:0:14"
             },
-            "scope": 2537,
+            "scope": 2554,
             "src": "4183:130:14",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -1261,13 +1261,13 @@
           },
           {
             "documentation": {
-              "id": 2481,
+              "id": 2498,
               "nodeType": "StructuredDocumentation",
               "src": "4320:196:14",
               "text": "@notice Allows the creator of the PBM type to retrive all the locked up ERC-20 once they have expired for that particular token type\n @param tokenId The identifier of the PBM token type"
             },
             "functionSelector": "73e17e76",
-            "id": 2486,
+            "id": 2503,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -1275,17 +1275,17 @@
             "nameLocation": "4530:9:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2484,
+              "id": 2501,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2483,
+                  "id": 2500,
                   "mutability": "mutable",
                   "name": "tokenId",
                   "nameLocation": "4548:7:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2486,
+                  "scope": 2503,
                   "src": "4540:15:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1294,7 +1294,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2482,
+                    "id": 2499,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "4540:7:14",
@@ -1309,12 +1309,12 @@
               "src": "4539:17:14"
             },
             "returnParameters": {
-              "id": 2485,
+              "id": 2502,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "4565:0:14"
             },
-            "scope": 2537,
+            "scope": 2554,
             "src": "4521:45:14",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -1322,13 +1322,13 @@
           },
           {
             "documentation": {
-              "id": 2487,
+              "id": 2504,
               "nodeType": "StructuredDocumentation",
               "src": "4572:400:14",
               "text": "@notice Get the details of the PBM Token type\n @param tokenId The identifier of the PBM token type\n @return name The name assigned to the token type \n @return amount Amount of the underlying ERC-20 tokens the PBM type wraps around\n @return expiry The expiry date (in epoch) for this particular PBM token type. \n @return creator The creator of the PBM token type"
             },
             "functionSelector": "c1e03728",
-            "id": 2500,
+            "id": 2517,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -1336,17 +1336,17 @@
             "nameLocation": "4986:15:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2490,
+              "id": 2507,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2489,
+                  "id": 2506,
                   "mutability": "mutable",
                   "name": "tokenId",
                   "nameLocation": "5010:7:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2500,
+                  "scope": 2517,
                   "src": "5002:15:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1355,7 +1355,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2488,
+                    "id": 2505,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "5002:7:14",
@@ -1370,17 +1370,17 @@
               "src": "5001:17:14"
             },
             "returnParameters": {
-              "id": 2499,
+              "id": 2516,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2492,
+                  "id": 2509,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2500,
+                  "scope": 2517,
                   "src": "5041:13:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1389,7 +1389,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 2491,
+                    "id": 2508,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "5041:6:14",
@@ -1402,12 +1402,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2494,
+                  "id": 2511,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2500,
+                  "scope": 2517,
                   "src": "5056:7:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1416,7 +1416,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2493,
+                    "id": 2510,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "5056:7:14",
@@ -1429,12 +1429,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2496,
+                  "id": 2513,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2500,
+                  "scope": 2517,
                   "src": "5065:7:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1443,7 +1443,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2495,
+                    "id": 2512,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "5065:7:14",
@@ -1456,12 +1456,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2498,
+                  "id": 2515,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2500,
+                  "scope": 2517,
                   "src": "5074:7:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1470,7 +1470,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2497,
+                    "id": 2514,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "5074:7:14",
@@ -1485,7 +1485,7 @@
               ],
               "src": "5040:42:14"
             },
-            "scope": 2537,
+            "scope": 2554,
             "src": "4977:106:14",
             "stateMutability": "view",
             "virtual": false,
@@ -1493,13 +1493,13 @@
           },
           {
             "documentation": {
-              "id": 2501,
+              "id": 2518,
               "nodeType": "StructuredDocumentation",
               "src": "5090:206:14",
               "text": "@notice Get the URI of the tokenid \n @param tokenId The identifier of the PBM token type\n @return uri The URI link , which will povide a response that follows the Opensea metadata standard"
             },
             "functionSelector": "0e89341c",
-            "id": 2508,
+            "id": 2525,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -1507,17 +1507,17 @@
             "nameLocation": "5310:3:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2504,
+              "id": 2521,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2503,
+                  "id": 2520,
                   "mutability": "mutable",
                   "name": "tokenId",
                   "nameLocation": "5322:7:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2508,
+                  "scope": 2525,
                   "src": "5314:15:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1526,7 +1526,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2502,
+                    "id": 2519,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "5314:7:14",
@@ -1541,17 +1541,17 @@
               "src": "5313:17:14"
             },
             "returnParameters": {
-              "id": 2507,
+              "id": 2524,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2506,
+                  "id": 2523,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2508,
+                  "scope": 2525,
                   "src": "5353:13:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1560,7 +1560,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 2505,
+                    "id": 2522,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "5353:6:14",
@@ -1574,7 +1574,7 @@
               ],
               "src": "5352:15:14"
             },
-            "scope": 2537,
+            "scope": 2554,
             "src": "5301:67:14",
             "stateMutability": "view",
             "virtual": false,
@@ -1583,28 +1583,28 @@
           {
             "anonymous": false,
             "documentation": {
-              "id": 2509,
+              "id": 2526,
               "nodeType": "StructuredDocumentation",
               "src": "5376:570:14",
               "text": "@notice Emitted when underlying ERC-20 tokens are transferred to a whitelisted merchant ( payment )\n @param from The account from which the PBM ( NFT )(s) is moving from \n @param to The account which is receiving the PBM ( NFT )(s)\n @param tokenIds The identifiers of the different PBM token type\n @param amounts The number of ( quantity ) the different PBM types that are to be created\n @param ERC20Token The address of the underlying ERC-20 token \n @param ERC20TokenValue The number of underlying ERC-20 tokens transferred"
             },
-            "id": 2525,
+            "id": 2542,
             "name": "MerchantPayment",
             "nameLocation": "5957:15:14",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 2524,
+              "id": 2541,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2511,
+                  "id": 2528,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "from",
                   "nameLocation": "5981:4:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2525,
+                  "scope": 2542,
                   "src": "5973:12:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1613,7 +1613,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2510,
+                    "id": 2527,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "5973:7:14",
@@ -1627,13 +1627,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2513,
+                  "id": 2530,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "to",
                   "nameLocation": "5996:2:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2525,
+                  "scope": 2542,
                   "src": "5988:10:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1642,7 +1642,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2512,
+                    "id": 2529,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "5988:7:14",
@@ -1656,13 +1656,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2516,
+                  "id": 2533,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "tokenIds",
                   "nameLocation": "6010:8:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2525,
+                  "scope": 2542,
                   "src": "6000:18:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1672,7 +1672,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2514,
+                      "id": 2531,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "6000:7:14",
@@ -1681,7 +1681,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2515,
+                    "id": 2532,
                     "nodeType": "ArrayTypeName",
                     "src": "6000:9:14",
                     "typeDescriptions": {
@@ -1693,13 +1693,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2519,
+                  "id": 2536,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "amounts",
                   "nameLocation": "6030:7:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2525,
+                  "scope": 2542,
                   "src": "6020:17:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1709,7 +1709,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2517,
+                      "id": 2534,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "6020:7:14",
@@ -1718,7 +1718,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2518,
+                    "id": 2535,
                     "nodeType": "ArrayTypeName",
                     "src": "6020:9:14",
                     "typeDescriptions": {
@@ -1730,13 +1730,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2521,
+                  "id": 2538,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "ERC20Token",
                   "nameLocation": "6046:10:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2525,
+                  "scope": 2542,
                   "src": "6038:18:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1745,7 +1745,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2520,
+                    "id": 2537,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "6038:7:14",
@@ -1759,13 +1759,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2523,
+                  "id": 2540,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "ERC20TokenValue",
                   "nameLocation": "6066:15:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2525,
+                  "scope": 2542,
                   "src": "6058:23:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1774,7 +1774,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2522,
+                    "id": 2539,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "6058:7:14",
@@ -1793,28 +1793,28 @@
           {
             "anonymous": false,
             "documentation": {
-              "id": 2526,
+              "id": 2543,
               "nodeType": "StructuredDocumentation",
               "src": "6090:436:14",
               "text": "@notice Emitted when a PBM type creator withdraws the underlying ERC-20 tokens from all the remaining expired PBMs\n @param beneficiary the address ( PBM type creator ) which receives the ERC20 Token\n @param PBMTokenId The identifiers of the different PBM token type\n @param ERC20Token The address of the underlying ERC-20 token \n @param ERC20TokenValue The number of underlying ERC-20 tokens transferred "
             },
-            "id": 2536,
+            "id": 2553,
             "name": "PBMrevokeWithdraw",
             "nameLocation": "6537:17:14",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 2535,
+              "id": 2552,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2528,
+                  "id": 2545,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "beneficiary",
                   "nameLocation": "6563:11:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2536,
+                  "scope": 2553,
                   "src": "6555:19:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1823,7 +1823,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2527,
+                    "id": 2544,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "6555:7:14",
@@ -1837,13 +1837,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2530,
+                  "id": 2547,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "PBMTokenId",
                   "nameLocation": "6584:10:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2536,
+                  "scope": 2553,
                   "src": "6576:18:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1852,7 +1852,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2529,
+                    "id": 2546,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "6576:7:14",
@@ -1865,13 +1865,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2532,
+                  "id": 2549,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "ERC20Token",
                   "nameLocation": "6604:10:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2536,
+                  "scope": 2553,
                   "src": "6596:18:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1880,7 +1880,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2531,
+                    "id": 2548,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "6596:7:14",
@@ -1894,13 +1894,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2534,
+                  "id": 2551,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "ERC20TokenValue",
                   "nameLocation": "6624:15:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2536,
+                  "scope": 2553,
                   "src": "6616:23:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1909,7 +1909,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2533,
+                    "id": 2550,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "6616:7:14",
@@ -1926,7 +1926,7 @@
             "src": "6531:110:14"
           }
         ],
-        "scope": 2538,
+        "scope": 2555,
         "src": "291:6352:14",
         "usedErrors": []
       }
@@ -1937,15 +1937,15 @@
     "absolutePath": "project:/contracts/IPBM.sol",
     "exportedSymbols": {
       "IPBM": [
-        2537
+        2554
       ]
     },
-    "id": 2538,
+    "id": 2555,
     "license": "GPL-2.0-or-later",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2403,
+        "id": 2420,
         "literals": [
           "solidity",
           "^",
@@ -1961,15 +1961,15 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 2404,
+          "id": 2421,
           "nodeType": "StructuredDocumentation",
           "src": "70:221:14",
           "text": "@title PBM interface \n @notice The PBM (purpose bound money) allows us to add logical requirements on the use of ERC-20 tokens. The PBM acts as wrapper around the ERC-20 tokens and implements the necessary logic. "
         },
         "fullyImplemented": false,
-        "id": 2537,
+        "id": 2554,
         "linearizedBaseContracts": [
-          2537
+          2554
         ],
         "name": "IPBM",
         "nameLocation": "301:4:14",
@@ -1977,13 +1977,13 @@
         "nodes": [
           {
             "documentation": {
-              "id": 2405,
+              "id": 2422,
               "nodeType": "StructuredDocumentation",
               "src": "317:308:14",
               "text": "@notice sets the address of the underlying ERC20 token, Contract Expiry, and the address of pbm address list\n @param _spotToken address of the underlying ERC20 token\n @param _expiry contract wide expiry ( in epoch )\n @param _pbmAddressList address of the PBMAddressList smartcontract"
             },
             "functionSelector": "07e82e0f",
-            "id": 2414,
+            "id": 2431,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -1991,17 +1991,17 @@
             "nameLocation": "639:10:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2412,
+              "id": 2429,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2407,
+                  "id": 2424,
                   "mutability": "mutable",
                   "name": "_spotToken",
                   "nameLocation": "658:10:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2414,
+                  "scope": 2431,
                   "src": "650:18:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2010,7 +2010,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2406,
+                    "id": 2423,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "650:7:14",
@@ -2024,12 +2024,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2409,
+                  "id": 2426,
                   "mutability": "mutable",
                   "name": "_expiry",
                   "nameLocation": "678:7:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2414,
+                  "scope": 2431,
                   "src": "670:15:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2038,7 +2038,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2408,
+                    "id": 2425,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "670:7:14",
@@ -2051,12 +2051,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2411,
+                  "id": 2428,
                   "mutability": "mutable",
                   "name": "_pbmAddressList",
                   "nameLocation": "695:15:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2414,
+                  "scope": 2431,
                   "src": "687:23:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2065,7 +2065,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2410,
+                    "id": 2427,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "687:7:14",
@@ -2081,12 +2081,12 @@
               "src": "649:62:14"
             },
             "returnParameters": {
-              "id": 2413,
+              "id": 2430,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "720:0:14"
             },
-            "scope": 2537,
+            "scope": 2554,
             "src": "630:91:14",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -2094,13 +2094,13 @@
           },
           {
             "documentation": {
-              "id": 2415,
+              "id": 2432,
               "nodeType": "StructuredDocumentation",
               "src": "1151:439:14",
               "text": " example response of token URI, ref : https://docs.opensea.io/docs/metadata-standards\n {\n     \"name\": \"StraitsX-12\",\n     \"description\": \"12$ SGD test voucher\",\n     \"image\": \"https://gateway.pinata.cloud/ipfs/QmQ1x7NHakFYin9bHwN7zy4NdSYS84w6C33hzxpZwCAFPu\",\n     \"attributes\": [\n         {\n         \"trait_type\": \"Value\", \n         \"value\": \"12\"\n         }\n     ]\n }"
             },
             "functionSelector": "5ed7be9d",
-            "id": 2428,
+            "id": 2445,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -2108,17 +2108,17 @@
             "nameLocation": "1604:18:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2426,
+              "id": 2443,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2417,
+                  "id": 2434,
                   "mutability": "mutable",
                   "name": "companyName",
                   "nameLocation": "1637:11:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2428,
+                  "scope": 2445,
                   "src": "1623:25:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2127,7 +2127,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 2416,
+                    "id": 2433,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1623:6:14",
@@ -2140,12 +2140,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2419,
+                  "id": 2436,
                   "mutability": "mutable",
                   "name": "spotAmount",
                   "nameLocation": "1658:10:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2428,
+                  "scope": 2445,
                   "src": "1650:18:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2154,7 +2154,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2418,
+                    "id": 2435,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1650:7:14",
@@ -2167,12 +2167,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2421,
+                  "id": 2438,
                   "mutability": "mutable",
                   "name": "tokenExpiry",
                   "nameLocation": "1678:11:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2428,
+                  "scope": 2445,
                   "src": "1670:19:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2181,7 +2181,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2420,
+                    "id": 2437,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1670:7:14",
@@ -2194,12 +2194,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2423,
+                  "id": 2440,
                   "mutability": "mutable",
                   "name": "creator",
                   "nameLocation": "1698:7:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2428,
+                  "scope": 2445,
                   "src": "1690:15:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2208,7 +2208,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2422,
+                    "id": 2439,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1690:7:14",
@@ -2222,12 +2222,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2425,
+                  "id": 2442,
                   "mutability": "mutable",
                   "name": "tokenURI",
                   "nameLocation": "1721:8:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2428,
+                  "scope": 2445,
                   "src": "1707:22:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2236,7 +2236,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 2424,
+                    "id": 2441,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1707:6:14",
@@ -2251,12 +2251,12 @@
               "src": "1622:108:14"
             },
             "returnParameters": {
-              "id": 2427,
+              "id": 2444,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1739:0:14"
             },
-            "scope": 2537,
+            "scope": 2554,
             "src": "1595:145:14",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -2264,13 +2264,13 @@
           },
           {
             "documentation": {
-              "id": 2429,
+              "id": 2446,
               "nodeType": "StructuredDocumentation",
               "src": "1748:387:14",
-              "text": "@notice Creates new PBM copies ( ERC2255 NFT ) of an existing PBM token type after ensuring it is backed by the necessary value of the underlying ERC-20 tokens \n @param tokenId The identifier of the PBM token type\n @param amount The number of the PBMs that are to be created\n @param receiver The wallet address to which the created PBMs need to be transferred to"
+              "text": "@notice Creates new PBM copies ( ERC1155 NFT ) of an existing PBM token type after ensuring it is backed by the necessary value of the underlying ERC-20 tokens \n @param tokenId The identifier of the PBM token type\n @param amount The number of the PBMs that are to be created\n @param receiver The wallet address to which the created PBMs need to be transferred to"
             },
             "functionSelector": "e7d3fe6b",
-            "id": 2438,
+            "id": 2455,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -2278,17 +2278,17 @@
             "nameLocation": "2149:4:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2436,
+              "id": 2453,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2431,
+                  "id": 2448,
                   "mutability": "mutable",
                   "name": "tokenId",
                   "nameLocation": "2162:7:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2438,
+                  "scope": 2455,
                   "src": "2154:15:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2297,7 +2297,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2430,
+                    "id": 2447,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2154:7:14",
@@ -2310,12 +2310,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2433,
+                  "id": 2450,
                   "mutability": "mutable",
                   "name": "amount",
                   "nameLocation": "2179:6:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2438,
+                  "scope": 2455,
                   "src": "2171:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2324,7 +2324,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2432,
+                    "id": 2449,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2171:7:14",
@@ -2337,12 +2337,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2435,
+                  "id": 2452,
                   "mutability": "mutable",
                   "name": "receiver",
                   "nameLocation": "2195:8:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2438,
+                  "scope": 2455,
                   "src": "2187:16:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2351,7 +2351,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2434,
+                    "id": 2451,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2187:7:14",
@@ -2367,12 +2367,12 @@
               "src": "2153:51:14"
             },
             "returnParameters": {
-              "id": 2437,
+              "id": 2454,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2213:0:14"
             },
-            "scope": 2537,
+            "scope": 2554,
             "src": "2140:74:14",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -2380,13 +2380,13 @@
           },
           {
             "documentation": {
-              "id": 2439,
+              "id": 2456,
               "nodeType": "StructuredDocumentation",
               "src": "2221:417:14",
-              "text": "@notice Creates new PBM copies ( ERC2255 NFT ) of multiple existing PBM token types after ensuring they are backed by the necessary value of the underlying ERC-20 tokens \n @param tokenIds The identifiers of the PBM token type\n @param amounts The number of the PBMs that are to be created for each tokenId\n @param receiver The wallet address to which the created PBMs need to be transferred to"
+              "text": "@notice Creates new PBM copies ( ERC1155 NFT ) of multiple existing PBM token types after ensuring they are backed by the necessary value of the underlying ERC-20 tokens \n @param tokenIds The identifiers of the PBM token type\n @param amounts The number of the PBMs that are to be created for each tokenId\n @param receiver The wallet address to which the created PBMs need to be transferred to"
             },
             "functionSelector": "fb34b201",
-            "id": 2450,
+            "id": 2467,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -2394,17 +2394,17 @@
             "nameLocation": "2652:9:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2448,
+              "id": 2465,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2442,
+                  "id": 2459,
                   "mutability": "mutable",
                   "name": "tokenIds",
                   "nameLocation": "2679:8:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2450,
+                  "scope": 2467,
                   "src": "2662:25:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2414,7 +2414,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2440,
+                      "id": 2457,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "2662:7:14",
@@ -2423,7 +2423,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2441,
+                    "id": 2458,
                     "nodeType": "ArrayTypeName",
                     "src": "2662:9:14",
                     "typeDescriptions": {
@@ -2435,12 +2435,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2445,
+                  "id": 2462,
                   "mutability": "mutable",
                   "name": "amounts",
                   "nameLocation": "2706:7:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2450,
+                  "scope": 2467,
                   "src": "2689:24:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2450,7 +2450,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2443,
+                      "id": 2460,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "2689:7:14",
@@ -2459,7 +2459,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2444,
+                    "id": 2461,
                     "nodeType": "ArrayTypeName",
                     "src": "2689:9:14",
                     "typeDescriptions": {
@@ -2471,12 +2471,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2447,
+                  "id": 2464,
                   "mutability": "mutable",
                   "name": "receiver",
                   "nameLocation": "2723:8:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2450,
+                  "scope": 2467,
                   "src": "2715:16:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2485,7 +2485,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2446,
+                    "id": 2463,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2715:7:14",
@@ -2501,12 +2501,12 @@
               "src": "2661:71:14"
             },
             "returnParameters": {
-              "id": 2449,
+              "id": 2466,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2741:0:14"
             },
-            "scope": 2537,
+            "scope": 2554,
             "src": "2643:99:14",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -2514,13 +2514,13 @@
           },
           {
             "documentation": {
-              "id": 2451,
+              "id": 2468,
               "nodeType": "StructuredDocumentation",
               "src": "2749:644:14",
               "text": "@notice Transfers the PBM(NFT) from one wallet to another. \n If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead.\n @param from The account from which the PBM ( NFT ) is moving from \n @param to The account which is receiving the PBM ( NFT )\n @param id The identifier of the PBM token type\n @param amount The number of (quantity) the PBM type that are to be transferred of the PBM type\n @param data To record any data associated with the transaction, can be left blank if none"
             },
             "functionSelector": "f242432a",
-            "id": 2464,
+            "id": 2481,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -2528,17 +2528,17 @@
             "nameLocation": "3407:16:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2462,
+              "id": 2479,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2453,
+                  "id": 2470,
                   "mutability": "mutable",
                   "name": "from",
                   "nameLocation": "3433:4:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2464,
+                  "scope": 2481,
                   "src": "3425:12:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2547,7 +2547,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2452,
+                    "id": 2469,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "3425:7:14",
@@ -2561,12 +2561,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2455,
+                  "id": 2472,
                   "mutability": "mutable",
                   "name": "to",
                   "nameLocation": "3447:2:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2464,
+                  "scope": 2481,
                   "src": "3439:10:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2575,7 +2575,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2454,
+                    "id": 2471,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "3439:7:14",
@@ -2589,12 +2589,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2457,
+                  "id": 2474,
                   "mutability": "mutable",
                   "name": "id",
                   "nameLocation": "3459:2:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2464,
+                  "scope": 2481,
                   "src": "3451:10:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2603,7 +2603,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2456,
+                    "id": 2473,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "3451:7:14",
@@ -2616,12 +2616,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2459,
+                  "id": 2476,
                   "mutability": "mutable",
                   "name": "amount",
                   "nameLocation": "3471:6:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2464,
+                  "scope": 2481,
                   "src": "3463:14:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2630,7 +2630,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2458,
+                    "id": 2475,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "3463:7:14",
@@ -2643,12 +2643,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2461,
+                  "id": 2478,
                   "mutability": "mutable",
                   "name": "data",
                   "nameLocation": "3492:4:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2464,
+                  "scope": 2481,
                   "src": "3479:17:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2657,7 +2657,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 2460,
+                    "id": 2477,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "3479:5:14",
@@ -2672,12 +2672,12 @@
               "src": "3423:74:14"
             },
             "returnParameters": {
-              "id": 2463,
+              "id": 2480,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "3506:0:14"
             },
-            "scope": 2537,
+            "scope": 2554,
             "src": "3398:109:14",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -2685,13 +2685,13 @@
           },
           {
             "documentation": {
-              "id": 2465,
+              "id": 2482,
               "nodeType": "StructuredDocumentation",
               "src": "3514:664:14",
               "text": "@notice Transfers the PBM(NFT)(s) from one wallet to another. \n If the receving wallet is a whitelisted merchant wallet address, the PBM(NFT)(s) will be burnt and the underlying ERC-20 tokens will be transferred to the merchant wallet instead.\n @param from The account from which the PBM ( NFT )(s) is moving from \n @param to The account which is receiving the PBM ( NFT )(s)\n @param ids The identifiers of the different PBM token type\n @param amounts The number of ( quantity ) the different PBM types that are to be created\n @param data To record any data associated with the transaction, can be left blank if none. "
             },
             "functionSelector": "2eb2c2d6",
-            "id": 2480,
+            "id": 2497,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -2699,17 +2699,17 @@
             "nameLocation": "4192:21:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2478,
+              "id": 2495,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2467,
+                  "id": 2484,
                   "mutability": "mutable",
                   "name": "from",
                   "nameLocation": "4222:4:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2480,
+                  "scope": 2497,
                   "src": "4214:12:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2718,7 +2718,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2466,
+                    "id": 2483,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "4214:7:14",
@@ -2732,12 +2732,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2469,
+                  "id": 2486,
                   "mutability": "mutable",
                   "name": "to",
                   "nameLocation": "4235:2:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2480,
+                  "scope": 2497,
                   "src": "4227:10:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2746,7 +2746,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2468,
+                    "id": 2485,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "4227:7:14",
@@ -2760,12 +2760,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2472,
+                  "id": 2489,
                   "mutability": "mutable",
                   "name": "ids",
                   "nameLocation": "4255:3:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2480,
+                  "scope": 2497,
                   "src": "4238:20:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2775,7 +2775,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2470,
+                      "id": 2487,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "4238:7:14",
@@ -2784,7 +2784,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2471,
+                    "id": 2488,
                     "nodeType": "ArrayTypeName",
                     "src": "4238:9:14",
                     "typeDescriptions": {
@@ -2796,12 +2796,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2475,
+                  "id": 2492,
                   "mutability": "mutable",
                   "name": "amounts",
                   "nameLocation": "4276:7:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2480,
+                  "scope": 2497,
                   "src": "4259:24:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2811,7 +2811,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2473,
+                      "id": 2490,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "4259:7:14",
@@ -2820,7 +2820,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2474,
+                    "id": 2491,
                     "nodeType": "ArrayTypeName",
                     "src": "4259:9:14",
                     "typeDescriptions": {
@@ -2832,12 +2832,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2477,
+                  "id": 2494,
                   "mutability": "mutable",
                   "name": "data",
                   "nameLocation": "4298:4:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2480,
+                  "scope": 2497,
                   "src": "4285:17:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2846,7 +2846,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 2476,
+                    "id": 2493,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "4285:5:14",
@@ -2861,12 +2861,12 @@
               "src": "4213:90:14"
             },
             "returnParameters": {
-              "id": 2479,
+              "id": 2496,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "4312:0:14"
             },
-            "scope": 2537,
+            "scope": 2554,
             "src": "4183:130:14",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -2874,13 +2874,13 @@
           },
           {
             "documentation": {
-              "id": 2481,
+              "id": 2498,
               "nodeType": "StructuredDocumentation",
               "src": "4320:196:14",
               "text": "@notice Allows the creator of the PBM type to retrive all the locked up ERC-20 once they have expired for that particular token type\n @param tokenId The identifier of the PBM token type"
             },
             "functionSelector": "73e17e76",
-            "id": 2486,
+            "id": 2503,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -2888,17 +2888,17 @@
             "nameLocation": "4530:9:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2484,
+              "id": 2501,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2483,
+                  "id": 2500,
                   "mutability": "mutable",
                   "name": "tokenId",
                   "nameLocation": "4548:7:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2486,
+                  "scope": 2503,
                   "src": "4540:15:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2907,7 +2907,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2482,
+                    "id": 2499,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "4540:7:14",
@@ -2922,12 +2922,12 @@
               "src": "4539:17:14"
             },
             "returnParameters": {
-              "id": 2485,
+              "id": 2502,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "4565:0:14"
             },
-            "scope": 2537,
+            "scope": 2554,
             "src": "4521:45:14",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -2935,13 +2935,13 @@
           },
           {
             "documentation": {
-              "id": 2487,
+              "id": 2504,
               "nodeType": "StructuredDocumentation",
               "src": "4572:400:14",
               "text": "@notice Get the details of the PBM Token type\n @param tokenId The identifier of the PBM token type\n @return name The name assigned to the token type \n @return amount Amount of the underlying ERC-20 tokens the PBM type wraps around\n @return expiry The expiry date (in epoch) for this particular PBM token type. \n @return creator The creator of the PBM token type"
             },
             "functionSelector": "c1e03728",
-            "id": 2500,
+            "id": 2517,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -2949,17 +2949,17 @@
             "nameLocation": "4986:15:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2490,
+              "id": 2507,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2489,
+                  "id": 2506,
                   "mutability": "mutable",
                   "name": "tokenId",
                   "nameLocation": "5010:7:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2500,
+                  "scope": 2517,
                   "src": "5002:15:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2968,7 +2968,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2488,
+                    "id": 2505,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "5002:7:14",
@@ -2983,17 +2983,17 @@
               "src": "5001:17:14"
             },
             "returnParameters": {
-              "id": 2499,
+              "id": 2516,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2492,
+                  "id": 2509,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2500,
+                  "scope": 2517,
                   "src": "5041:13:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -3002,7 +3002,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 2491,
+                    "id": 2508,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "5041:6:14",
@@ -3015,12 +3015,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2494,
+                  "id": 2511,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2500,
+                  "scope": 2517,
                   "src": "5056:7:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3029,7 +3029,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2493,
+                    "id": 2510,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "5056:7:14",
@@ -3042,12 +3042,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2496,
+                  "id": 2513,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2500,
+                  "scope": 2517,
                   "src": "5065:7:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3056,7 +3056,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2495,
+                    "id": 2512,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "5065:7:14",
@@ -3069,12 +3069,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2498,
+                  "id": 2515,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2500,
+                  "scope": 2517,
                   "src": "5074:7:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3083,7 +3083,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2497,
+                    "id": 2514,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "5074:7:14",
@@ -3098,7 +3098,7 @@
               ],
               "src": "5040:42:14"
             },
-            "scope": 2537,
+            "scope": 2554,
             "src": "4977:106:14",
             "stateMutability": "view",
             "virtual": false,
@@ -3106,13 +3106,13 @@
           },
           {
             "documentation": {
-              "id": 2501,
+              "id": 2518,
               "nodeType": "StructuredDocumentation",
               "src": "5090:206:14",
               "text": "@notice Get the URI of the tokenid \n @param tokenId The identifier of the PBM token type\n @return uri The URI link , which will povide a response that follows the Opensea metadata standard"
             },
             "functionSelector": "0e89341c",
-            "id": 2508,
+            "id": 2525,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -3120,17 +3120,17 @@
             "nameLocation": "5310:3:14",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2504,
+              "id": 2521,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2503,
+                  "id": 2520,
                   "mutability": "mutable",
                   "name": "tokenId",
                   "nameLocation": "5322:7:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2508,
+                  "scope": 2525,
                   "src": "5314:15:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3139,7 +3139,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2502,
+                    "id": 2519,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "5314:7:14",
@@ -3154,17 +3154,17 @@
               "src": "5313:17:14"
             },
             "returnParameters": {
-              "id": 2507,
+              "id": 2524,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2506,
+                  "id": 2523,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2508,
+                  "scope": 2525,
                   "src": "5353:13:14",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -3173,7 +3173,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 2505,
+                    "id": 2522,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "5353:6:14",
@@ -3187,7 +3187,7 @@
               ],
               "src": "5352:15:14"
             },
-            "scope": 2537,
+            "scope": 2554,
             "src": "5301:67:14",
             "stateMutability": "view",
             "virtual": false,
@@ -3196,28 +3196,28 @@
           {
             "anonymous": false,
             "documentation": {
-              "id": 2509,
+              "id": 2526,
               "nodeType": "StructuredDocumentation",
               "src": "5376:570:14",
               "text": "@notice Emitted when underlying ERC-20 tokens are transferred to a whitelisted merchant ( payment )\n @param from The account from which the PBM ( NFT )(s) is moving from \n @param to The account which is receiving the PBM ( NFT )(s)\n @param tokenIds The identifiers of the different PBM token type\n @param amounts The number of ( quantity ) the different PBM types that are to be created\n @param ERC20Token The address of the underlying ERC-20 token \n @param ERC20TokenValue The number of underlying ERC-20 tokens transferred"
             },
-            "id": 2525,
+            "id": 2542,
             "name": "MerchantPayment",
             "nameLocation": "5957:15:14",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 2524,
+              "id": 2541,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2511,
+                  "id": 2528,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "from",
                   "nameLocation": "5981:4:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2525,
+                  "scope": 2542,
                   "src": "5973:12:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3226,7 +3226,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2510,
+                    "id": 2527,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "5973:7:14",
@@ -3240,13 +3240,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2513,
+                  "id": 2530,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "to",
                   "nameLocation": "5996:2:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2525,
+                  "scope": 2542,
                   "src": "5988:10:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3255,7 +3255,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2512,
+                    "id": 2529,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "5988:7:14",
@@ -3269,13 +3269,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2516,
+                  "id": 2533,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "tokenIds",
                   "nameLocation": "6010:8:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2525,
+                  "scope": 2542,
                   "src": "6000:18:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3285,7 +3285,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2514,
+                      "id": 2531,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "6000:7:14",
@@ -3294,7 +3294,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2515,
+                    "id": 2532,
                     "nodeType": "ArrayTypeName",
                     "src": "6000:9:14",
                     "typeDescriptions": {
@@ -3306,13 +3306,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2519,
+                  "id": 2536,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "amounts",
                   "nameLocation": "6030:7:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2525,
+                  "scope": 2542,
                   "src": "6020:17:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3322,7 +3322,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 2517,
+                      "id": 2534,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
                       "src": "6020:7:14",
@@ -3331,7 +3331,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 2518,
+                    "id": 2535,
                     "nodeType": "ArrayTypeName",
                     "src": "6020:9:14",
                     "typeDescriptions": {
@@ -3343,13 +3343,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2521,
+                  "id": 2538,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "ERC20Token",
                   "nameLocation": "6046:10:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2525,
+                  "scope": 2542,
                   "src": "6038:18:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3358,7 +3358,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2520,
+                    "id": 2537,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "6038:7:14",
@@ -3372,13 +3372,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2523,
+                  "id": 2540,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "ERC20TokenValue",
                   "nameLocation": "6066:15:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2525,
+                  "scope": 2542,
                   "src": "6058:23:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3387,7 +3387,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2522,
+                    "id": 2539,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "6058:7:14",
@@ -3406,28 +3406,28 @@
           {
             "anonymous": false,
             "documentation": {
-              "id": 2526,
+              "id": 2543,
               "nodeType": "StructuredDocumentation",
               "src": "6090:436:14",
               "text": "@notice Emitted when a PBM type creator withdraws the underlying ERC-20 tokens from all the remaining expired PBMs\n @param beneficiary the address ( PBM type creator ) which receives the ERC20 Token\n @param PBMTokenId The identifiers of the different PBM token type\n @param ERC20Token The address of the underlying ERC-20 token \n @param ERC20TokenValue The number of underlying ERC-20 tokens transferred "
             },
-            "id": 2536,
+            "id": 2553,
             "name": "PBMrevokeWithdraw",
             "nameLocation": "6537:17:14",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 2535,
+              "id": 2552,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2528,
+                  "id": 2545,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "beneficiary",
                   "nameLocation": "6563:11:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2536,
+                  "scope": 2553,
                   "src": "6555:19:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3436,7 +3436,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2527,
+                    "id": 2544,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "6555:7:14",
@@ -3450,13 +3450,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2530,
+                  "id": 2547,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "PBMTokenId",
                   "nameLocation": "6584:10:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2536,
+                  "scope": 2553,
                   "src": "6576:18:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3465,7 +3465,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2529,
+                    "id": 2546,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "6576:7:14",
@@ -3478,13 +3478,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2532,
+                  "id": 2549,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "ERC20Token",
                   "nameLocation": "6604:10:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2536,
+                  "scope": 2553,
                   "src": "6596:18:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3493,7 +3493,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2531,
+                    "id": 2548,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "6596:7:14",
@@ -3507,13 +3507,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 2534,
+                  "id": 2551,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "ERC20TokenValue",
                   "nameLocation": "6624:15:14",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2536,
+                  "scope": 2553,
                   "src": "6616:23:14",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3522,7 +3522,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2533,
+                    "id": 2550,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "6616:7:14",
@@ -3539,7 +3539,7 @@
             "src": "6531:110:14"
           }
         ],
-        "scope": 2538,
+        "scope": 2555,
         "src": "291:6352:14",
         "usedErrors": []
       }
@@ -3552,7 +3552,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-10-11T06:48:31.172Z",
+  "updatedAt": "2022-10-27T06:31:25.040Z",
   "devdoc": {
     "events": {
       "MerchantPayment(address,address,uint256[],uint256[],address,uint256)": {
@@ -3655,7 +3655,7 @@
     "kind": "user",
     "methods": {
       "batchMint(uint256[],uint256[],address)": {
-        "notice": "Creates new PBM copies ( ERC2255 NFT ) of multiple existing PBM token types after ensuring they are backed by the necessary value of the underlying ERC-20 tokens "
+        "notice": "Creates new PBM copies ( ERC1155 NFT ) of multiple existing PBM token types after ensuring they are backed by the necessary value of the underlying ERC-20 tokens "
       },
       "createPBMTokenType(string,uint256,uint256,address,string)": {
         "notice": "example response of token URI, ref : https://docs.opensea.io/docs/metadata-standards {     \"name\": \"StraitsX-12\",     \"description\": \"12$ SGD test voucher\",     \"image\": \"https://gateway.pinata.cloud/ipfs/QmQ1x7NHakFYin9bHwN7zy4NdSYS84w6C33hzxpZwCAFPu\",     \"attributes\": [         {         \"trait_type\": \"Value\",          \"value\": \"12\"         }     ] }"
@@ -3667,7 +3667,7 @@
         "notice": "sets the address of the underlying ERC20 token, Contract Expiry, and the address of pbm address list"
       },
       "mint(uint256,uint256,address)": {
-        "notice": "Creates new PBM copies ( ERC2255 NFT ) of an existing PBM token type after ensuring it is backed by the necessary value of the underlying ERC-20 tokens "
+        "notice": "Creates new PBM copies ( ERC1155 NFT ) of an existing PBM token type after ensuring it is backed by the necessary value of the underlying ERC-20 tokens "
       },
       "revokePBM(uint256)": {
         "notice": "Allows the creator of the PBM type to retrive all the locked up ERC-20 once they have expired for that particular token type"

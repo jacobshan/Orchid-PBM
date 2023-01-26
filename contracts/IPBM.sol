@@ -32,13 +32,13 @@ interface IPBM {
      */
     function createPBMTokenType(string memory companyName, uint256 spotAmount, uint256 tokenExpiry,address creator, string memory tokenURI) external;  
 
-    /// @notice Creates new PBM copies ( ERC2255 NFT ) of an existing PBM token type after ensuring it is backed by the necessary value of the underlying ERC-20 tokens 
+    /// @notice Creates new PBM copies ( ERC1155 NFT ) of an existing PBM token type after ensuring it is backed by the necessary value of the underlying ERC-20 tokens 
     /// @param tokenId The identifier of the PBM token type
     /// @param amount The number of the PBMs that are to be created
     /// @param receiver The wallet address to which the created PBMs need to be transferred to
     function mint(uint256 tokenId, uint256 amount, address receiver) external; 
 
-    /// @notice Creates new PBM copies ( ERC2255 NFT ) of multiple existing PBM token types after ensuring they are backed by the necessary value of the underlying ERC-20 tokens 
+    /// @notice Creates new PBM copies ( ERC1155 NFT ) of multiple existing PBM token types after ensuring they are backed by the necessary value of the underlying ERC-20 tokens 
     /// @param tokenIds The identifiers of the PBM token type
     /// @param amounts The number of the PBMs that are to be created for each tokenId
     /// @param receiver The wallet address to which the created PBMs need to be transferred to

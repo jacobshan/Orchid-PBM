@@ -42,7 +42,7 @@ interface IPBMTokenManager {
     /// @return creator Creator for the PBM type
     function getTokenDetails(uint256 tokenId) external view returns (string memory name, uint256 spotAmount, uint256 expiry, address creator);
 
-    /// @notice Sets the allowance of a spender from the `msg.sender` to the value `amount`
+    /// @notice Creates a PBM token type, with all its necessary details
     /// @param companyName The name of the company/agency issuing this PBM type
     /// @param spotAmount The number of ERC-20 tokens that is used as the underlying currency for PBM
     /// @param tokenExpiry The expiry date (in epoch) of th PBM type

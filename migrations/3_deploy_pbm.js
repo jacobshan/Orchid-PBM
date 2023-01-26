@@ -2,22 +2,23 @@ const PBM = artifacts.require("PBM") ;
 const Spot = artifacts.require("Spot") ; 
 const PBMAddr = artifacts.require("PBMAddressList") ; 
 
-module.exports = async function (deployer) {
+module.exports = async function (deployer, network, accounts) {
 
     // deploying PBM addr
-    await deployer.deploy(PBMAddr) ; 
+    //await deployer.deploy(PBMAddr) ; 
     const pbmAddr = await PBMAddr.deployed(); 
+    await new Promise(r => setTimeout(r, 5000)); 
     console.log("Pbm address manager is : ", pbmAddr.address) ; 
 
 
-    const expiryDate = 1668070455; // Nov 11, 2022
+    const expiryDate = 1667663999; // Saturday, 5 November 2022 23:59:59 GMT+08:00
     // if you'd prefer to set an expiry a few days from now, UNCOMMENT the code below, and comment the above line.
     /*
     ** currentDate = new Date()
     ** currentEpoch = Math.floor(currentDate/1000) ; 
     ** const expiryDate = currentEpoch + 200000; 
     */
-    await deployer.deploy(PBM, "https://gateway.pinata.cloud/ipfs/QmNj4mt9uxv6bUbWWwpep4B1ir1TY7yvAAxp3U28jU4dHr") ; 
+    await deployer.deploy(PBM, "https://harlequin-eldest-leopard-210.mypinata.cloud/ipfs/QmRTr97TBWcp9MTeyNcDn7GseaxWDaKUBiokDyPePS4wnh/TC%202022_expiry.json") ; 
     pbm = await PBM.deployed(); 
     console.log("pbm addresss  : ", pbm.address)
 

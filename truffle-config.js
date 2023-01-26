@@ -85,10 +85,11 @@ module.exports = {
     matic: {
       provider: () => new HD_WALLET_PROVIDER(DEPLOYER_MNEMONIC, `wss://polygon-mainnet.g.alchemy.com/v2/${ACCESS_TOKEN}`),
       network_id: 137,
-      confirmations: 2,
+      confirmations: 1,
       timeoutBlocks: 200,
       gas: 9500000,
-      gasPrice: 45000000000,
+      //gasPrice: 86950564149,
+      gasPrice: 600*1000000000,
       skipDryRun: true
     },
   },
