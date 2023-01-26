@@ -3,3 +3,4 @@ node_modules
 track.txt
 build
 sample
+.vscode

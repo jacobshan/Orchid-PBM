@@ -33,7 +33,6 @@ The table below presents the mutable fields of the token contract and a descript
 
 | Name | Type | Description |
 |--|--|--|
-
 | `merchantList` | `mapping (address => bool)` | The list of whitelisted Merchants who (only) are able to recieve the wrapped up digital Tokens. |
 
 
