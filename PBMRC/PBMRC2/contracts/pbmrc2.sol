@@ -4,6 +4,13 @@ pragma solidity ^0.8.0;
 import "../contracts/PBM.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
+interface IPBMRC2 { 
+
+    // function load
+    // function loadAndSafeTransfer
+
+}
+
 contract PBMRC2 is PBM {
     // mapping(address => mapping(uint256 => uint256)) public userTokenBalances;
 
@@ -24,7 +31,6 @@ contract PBMRC2 is PBM {
            // it should also keep records of cashback details, and original user. 
     //     safeTransferFrom(from, to, tokenId, amount, "");
     //     
-     
     //     
     // }
 }
