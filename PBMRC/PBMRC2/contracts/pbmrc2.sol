@@ -11,7 +11,7 @@ interface IPBMRC2 {
 
 }
 
-contract PBMRC2 is PBM {
+contract PBMRC2 is PBM, IPBMRC2 {
     // mapping(address => mapping(uint256 => uint256)) public userTokenBalances;
 
     // function load(address user, uint256 tokenId, uint256 amount) external {
