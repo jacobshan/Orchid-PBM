@@ -10,7 +10,12 @@ created: <date created on, in ISO 8601 (yyyy-mm-dd) format>
 requires: <EIP number(s)> # Only required when you reference an EIP in the `Specification` section. Otherwise, remove this field.
 ---
 
-<!-- Taken from https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-2135.md  -->
+<!-- Taken from https://raw.githubusercontent.com/ethereum/EIPs/master/EIPS/eip-2135.md  
+
+TO incliude an image: 
+![](../assets/eip-4337/image1.png)
+
+-->
 
 <!--
   READ EIP-1 (https://eips.ethereum.org/EIPS/eip-1) BEFORE USING THIS TEMPLATE!

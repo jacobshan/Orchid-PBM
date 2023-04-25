@@ -1,12 +1,7 @@
-<!-- ---
-PBMRC: 1 
---- -->
-
 ---
-eip: 
-title: Base interface for a purpose bound money 
+title: Purpose bound money
 description: An interface extending EIP-1155 for <placeholder>, supporting use case such as <placeholder>
-author: 
+author: Victor Liew (@Alcedo)
 discussions-to: https://ethereum-magicians.org (Create a discourse here for early feedback)
 status:  DRAFT
 type: Standards Track
@@ -16,8 +11,10 @@ requires: 165, 1155
 ---
 
 ## Abstract
+This PBMRC outlines a smart contract interface that builts upon the [ERC-1155](./eip-1155.md) standard borrowing many of the ideas introduced by it including support for multiple tokens within the same contract and batch operations. 
 
 This EIP defines an interface to  <placeholder>
+
 ## Motivation
 
 
