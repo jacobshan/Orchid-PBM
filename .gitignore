@@ -4,3 +4,6 @@ track.txt
 build
 sample
 .vscode
+artifacts
+cache
+node_modules
