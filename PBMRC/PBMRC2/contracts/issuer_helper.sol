@@ -79,7 +79,7 @@ contract IssuerHelper is ERC2771Context, Ownable {
 
     modifier onlyWhitelister() {
         require(
-            allowedWhitelisters[msg.sender],
+            allowedWhitelisters[_msgSender()],
             "Caller is not an allowed whitelister"
         );
         _;
