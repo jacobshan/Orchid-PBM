@@ -48,17 +48,14 @@ contract IssuerHelper is ERC2771Context, Ownable {
         return super._msgData();
     }
 
-    // this function will call loadAndSafeTransfer on a target smart contract
-    // then call a ERC20 safeTransferFrom to transfer money
-    // from a master wallet address to this smart contract
     function processLoadAndSafeTransfer(
-        address _erc20Token,
-        address _wallet,
-        uint256 _amount
+        address erc20Token,
+        address wallet,
+        uint256 amount
     ) external {
-        require(whitelistedWallets[_wallet], "Wallet is not whitelisted");
-        IERC20(_erc20Token).safeTransferFrom(_wallet, address(this), _amount);
-        IPBMRC2(targetPBM).loadAndSafeTransfer(_wallet, _amount);
+        require(whitelistedWallets[wallet], "Wallet is not whitelisted");
+        IERC20(erc20Token).safeTransferFrom(wallet, address(this), amount);
+        IPBMRC2(targetPBM).loadAndSafeTransfer(wallet, amount);
     }
 
     function addWhitelistedWallet(address _wallet) external onlyWhitelister {
