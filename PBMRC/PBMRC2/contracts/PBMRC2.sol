@@ -7,19 +7,15 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "./PBM.sol";
 
 contract PBMRC2 is PBM("") {
-    mapping(uint256 => uint256) public PBMDiscounts;
 
     constructor() {}
 
-    function loadAndSafeTransfer(address _to, uint256 _amount) public {
-        // business logic here
+    function loadTo(uint256 tokenId, address to, uint256 amount) public {
+        // Wrap the spotAmount to the envelope
+        envelopes[msg.sender][to].push(Envelope(tokenId, amount));
+        // pull the ERC20 spot token to the PBM
+        ERC20Helper.safeTransfer(spotToken, address(this), amount);
     }
 
-    function mintPBMRC2(
-        uint256 tokenId,
-        uint256 amount,
-        address receiver
-    ) external {
-        _mint(receiver, tokenId, amount, "");
-    }
+
 }
