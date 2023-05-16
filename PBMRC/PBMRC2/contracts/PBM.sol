@@ -8,34 +8,25 @@ import "@openzeppelin/contracts/utils/Address.sol" ;
 
 import "./ERC20Helper.sol";  
 import "./PBMTokenManager.sol";
-import "./IPBM.sol";  
+import "./IPBM.sol";
 import "./IPBMAddressList.sol";
 
-contract PBM is ERC1155, Ownable, Pausable, IPBM {  
+contract PBM is ERC1155, Ownable, Pausable, IPBM {
     
     // undelrying ERC-20 tokens
     address public spotToken = address(0); 
     // address of the token manager
     address public pbmTokenManager = address(0); 
     // address of the PBM-Addresslist
-    address public pbmAddressList = address(0);
+    address public pbmAddressList = address(0); 
 
     // tracks contract initialisation
     bool internal initialised = false;
     // time of expiry ( epoch )
     uint256 public contractExpiry ;
 
-    struct Envelope {
-        uint256 tokenId;
-        uint256 spotAmount;
-    }
-
-
-    mapping (address => mapping(address => Envelope[])) public envelopes;
-
-
-    constructor(string memory _uriPostExpiry, address _pbmrc2Addr) ERC1155("") {
-        pbmTokenManager = address(new PBMTokenManager(_uriPostExpiry)) ;
+    constructor(string memory _uriPostExpiry) ERC1155("") {
+        pbmTokenManager = address(new PBMTokenManager(_uriPostExpiry)) ; 
     }
 
     function initialise(address _spotToken, uint256 _expiry, address _pbmAddressList)
@@ -45,10 +36,10 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     {
         require(!initialised, "PBM: Already initialised"); 
         require(Address.isContract(_spotToken), "Invalid spot token"); 
-        require(Address.isContract(_pbmAddressList), "Invalid spot token");
+        require(Address.isContract(_pbmAddressList), "Invalid spot token"); 
         spotToken = _spotToken;
         contractExpiry = _expiry; 
-        pbmAddressList = _pbmAddressList;
+        pbmAddressList = _pbmAddressList; 
 
         initialised = true ; 
     }
@@ -95,7 +86,12 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     whenNotPaused
     {
         require(!IPBMAddressList(pbmAddressList).isBlacklisted(receiver), "PBM: 'to' address blacklisted");
+        uint256 valueOfNewTokens = amount*(PBMTokenManager(pbmTokenManager).getTokenValue(tokenId)); 
 
+        //Transfer the spot token from the user to the contract to wrap it
+        ERC20Helper.safeTransferFrom(spotToken, msg.sender, address(this), valueOfNewTokens);
+
+        // mint the token if the contract - wrapping the xsgd
         PBMTokenManager(pbmTokenManager).increaseBalanceSupply(serialise(tokenId), serialise(amount)) ; 
         _mint(receiver, tokenId, amount, ''); 
     }
@@ -125,8 +121,17 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     whenNotPaused
     {   
         require(!IPBMAddressList(pbmAddressList).isBlacklisted(receiver), "PBM: 'to' address blacklisted");
-        require(tokenIds.length == amounts.length, "Unequal ids and amounts supplied");
+        require(tokenIds.length == amounts.length, "Unequal ids and amounts supplied"); 
 
+        // calculate the value of the new tokens
+        uint256 valueOfNewTokens = 0 ; 
+
+        for (uint256 i = 0; i < tokenIds.length; i++) {
+            valueOfNewTokens += (amounts[i]*(PBMTokenManager(pbmTokenManager).getTokenValue(tokenIds[i])));  
+        } 
+
+        // Transfer spot tokenf from user to contract to wrap it
+        ERC20Helper.safeTransferFrom(spotToken, msg.sender, address(this), valueOfNewTokens);
         PBMTokenManager(pbmTokenManager).increaseBalanceSupply(tokenIds, amounts);
         _mintBatch(receiver, tokenIds, amounts, '');
     }
@@ -144,7 +149,8 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
      *          caller should have the approval to spend the PBMs on behalf of the owner (`from` addresss)
      */
     function safeTransferFrom( address from, address to, uint256 id, uint256 amount, bytes memory data) 
-    public   
+    public
+    virtual   
     override(ERC1155, IPBM)
     whenNotPaused  
     {
@@ -155,13 +161,13 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
         require(!IPBMAddressList(pbmAddressList).isBlacklisted(to), "PBM: 'to' address blacklisted");
 
         if (IPBMAddressList(pbmAddressList).isMerchant(to)){
-            // check if the envelope exists
-            require(envelopes[_msgSender()][to][0].spotAmount > 0, "PBM: envelope does not exist");
-            spotAmount = envelopes[_msgSender()][to][0].spotAmount;
+            uint256 valueOfTokens = amount*(PBMTokenManager(pbmTokenManager).getTokenValue(id)); 
 
-            ERC20Helper.safeTransfer(spotToken, to, spotAmount);
-            _safeTransferFrom(from, to, id, amount, data);
-            emit MerchantPayment(from, to, serialise(id), serialise(amount), spotToken, spotAmount);
+            // burn and transfer underlying ERC-20
+            _burn(from, id, amount);
+            PBMTokenManager(pbmTokenManager).decreaseBalanceSupply(serialise(id), serialise(amount)) ; 
+            ERC20Helper.safeTransfer(spotToken, to, valueOfTokens);
+            emit MerchantPayment(from, to, serialise(id), serialise(amount), spotToken, valueOfTokens);
 
         } else {
             _safeTransferFrom(from, to, id, amount, data);
@@ -183,7 +189,8 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
      *          caller should have the approval to spend the PBMs on behalf of the owner (`from` addresss)
      */ 
     function safeBatchTransferFrom(address from,address to,uint256[] memory ids,uint256[] memory amounts, bytes memory data) 
-    public  
+    public
+    virtual  
     override(ERC1155, IPBM)
     whenNotPaused 
     {
@@ -198,9 +205,12 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
             uint256 valueOfTokens = 0 ; 
             for (uint256 i = 0; i < ids.length; i++) {
                 valueOfTokens += (amounts[i]*(PBMTokenManager(pbmTokenManager).getTokenValue(ids[i]))) ; 
-            }
+            } 
+
+            _burnBatch(from, ids, amounts);
+            PBMTokenManager(pbmTokenManager).decreaseBalanceSupply(ids, amounts);
             ERC20Helper.safeTransfer(spotToken, to, valueOfTokens);
-            _safeBatchTransferFrom(from, to, ids, amounts, data);
+
             emit MerchantPayment(from, to, ids, amounts, spotToken, valueOfTokens);
 
         } else {
@@ -250,7 +260,8 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
      *
      */ 
     function uri(uint256 tokenId)
-    public  
+    public
+    virtual  
     view
     override(ERC1155, IPBM)
     returns (string memory)

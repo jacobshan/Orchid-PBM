@@ -10,7 +10,7 @@ pragma solidity ^0.8.0;
  */
 import "./IPBM.sol";
 
-interface IPMBRC2 is IPBM {
+interface IPBMRC2 is IPBM {
 
   /// @notice This function extends IPBMRC1 to mint PBM tokens as empty containers without underlying tokens of value.
   /// @dev The loading of the underlying token of value can be done by calling the `load` function. The function parameters should be identical to IPBMRC1
