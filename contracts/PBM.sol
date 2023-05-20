@@ -36,7 +36,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     {
         require(!initialised, "PBM: Already initialised"); 
         require(Address.isContract(_spotToken), "Invalid spot token"); 
-        require(Address.isContract(_pbmAddressList), "Invalid spot token"); 
+        require(Address.isContract(_pbmAddressList), "Invalid address list");
         spotToken = _spotToken;
         contractExpiry = _expiry; 
         pbmAddressList = _pbmAddressList; 
@@ -85,15 +85,10 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     override
     whenNotPaused
     {
-        require(!IPBMAddressList(pbmAddressList).isBlacklisted(receiver), "PBM: 'to' address blacklisted");
-        uint256 valueOfNewTokens = amount*(PBMTokenManager(pbmTokenManager).getTokenValue(tokenId)); 
-
+        uint256 valueOfNewTokens = PBMTokenManager(pbmTokenManager).mintHelper(pbmAddressList, tokenId, amount, receiver);
         //Transfer the spot token from the user to the contract to wrap it
         ERC20Helper.safeTransferFrom(spotToken, msg.sender, address(this), valueOfNewTokens);
-
-        // mint the token if the contract - wrapping the xsgd
-        PBMTokenManager(pbmTokenManager).increaseBalanceSupply(serialise(tokenId), serialise(amount)) ; 
-        _mint(receiver, tokenId, amount, ''); 
+        _mint(receiver, tokenId, amount, '');
     }
 
     /**
@@ -119,20 +114,12 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     external 
     override
     whenNotPaused
-    {   
-        require(!IPBMAddressList(pbmAddressList).isBlacklisted(receiver), "PBM: 'to' address blacklisted");
-        require(tokenIds.length == amounts.length, "Unequal ids and amounts supplied"); 
-
+    {
         // calculate the value of the new tokens
-        uint256 valueOfNewTokens = 0 ; 
-
-        for (uint256 i = 0; i < tokenIds.length; i++) {
-            valueOfNewTokens += (amounts[i]*(PBMTokenManager(pbmTokenManager).getTokenValue(tokenIds[i])));  
-        } 
+        uint256 valueOfNewTokens = PBMTokenManager(pbmTokenManager).batchMintHelper(pbmAddressList, tokenIds, amounts, receiver);
 
         // Transfer spot tokenf from user to contract to wrap it
         ERC20Helper.safeTransferFrom(spotToken, msg.sender, address(this), valueOfNewTokens);
-        PBMTokenManager(pbmTokenManager).increaseBalanceSupply(tokenIds, amounts);
         _mintBatch(receiver, tokenIds, amounts, '');
     }
 
@@ -254,6 +241,19 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     }
 
     /**
+     * @dev See {IPBM-getTokenDetailsByIds}.
+     *
+     */
+    function getTokenDetailsByIds(uint256[] memory tokenIds)
+    external
+    override
+    view
+    returns (uint256[] memory, string[] memory, uint256[] memory, uint256[] memory, address[] memory)
+    {
+        return PBMTokenManager(pbmTokenManager).getTokenDetailsByIds(tokenIds);
+    }
+
+    /**
      * @dev See {IPBM-uri}.
      *
      */ 
@@ -293,11 +293,9 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     }
 
     function serialise(uint256 num)
-    internal 
-    pure
+    internal
+    view
     returns (uint256[] memory) {
-        uint256[] memory array  = new uint256[](1) ; 
-        array[0] = num ; 
-        return array ;
+        return PBMTokenManager(pbmTokenManager).serialise(num);
     }
 }

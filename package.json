@@ -21,6 +21,6 @@
     "@truffle/hdwallet-provider": "^2.0.12",
     "dotenv": "^16.0.2",
     "truffle-contract-size": "^2.0.1",
-    "truffle-plugin-verify": "^0.5.28"
+    "truffle-plugin-verify": "^0.5.33"
   }
 }

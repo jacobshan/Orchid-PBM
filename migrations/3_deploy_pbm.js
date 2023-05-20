@@ -5,7 +5,7 @@ const PBMAddr = artifacts.require("PBMAddressList") ;
 module.exports = async function (deployer, network, accounts) {
 
     // deploying PBM addr
-    //await deployer.deploy(PBMAddr) ; 
+    await deployer.deploy(PBMAddr) ;
     const pbmAddr = await PBMAddr.deployed(); 
     await new Promise(r => setTimeout(r, 5000)); 
     console.log("Pbm address manager is : ", pbmAddr.address) ; 

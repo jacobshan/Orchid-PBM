@@ -6,6 +6,10 @@ import "./NoDelegateCall.sol";
 
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
+
+import "./ERC20Helper.sol";
+import "./IPBMAddressList.sol";
 
 contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
     using Strings for uint256;
@@ -66,6 +70,70 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
     }
 
     /**
+ * @dev See {IPBM-mint}.
+     *
+     * IMPT: Before minting, the caller should approve the contract address to spend ERC-20 tokens on behalf of the caller.
+     *       This can be done by calling the `approve` or `increaseMinterAllowance` functions of the ERC-20 contract and specifying `_spender` to be the PBM contract address.
+             Ref : https://eips.ethereum.org/EIPS/eip-20
+
+       WARNING: Any contracts that externally call these mint() and batchMint() functions should implement some sort of reentrancy guard procedure (such as OpenZeppelin's ReentrancyGuard).
+     *
+     * Requirements:
+     *
+     * - contract must not be paused
+     * - tokens must not be expired
+     * - `tokenId` should be a valid id that has already been created
+     * - caller should have the necessary amount of the ERC-20 tokens required to mint
+     * - caller should have approved the PBM contract to spend the ERC-20 tokens
+     * - receiver should not be blacklisted
+     */
+    function mintHelper(address pbmAddressList, uint256 tokenId, uint256 amount, address receiver)
+    external returns (uint256)
+    {
+        require(!IPBMAddressList(pbmAddressList).isBlacklisted(receiver), "PBM: 'to' address blacklisted");
+        uint256 valueOfNewTokens = amount*getTokenValue(tokenId);
+        increaseBalanceSupply(serialise(tokenId), serialise(amount));
+        return valueOfNewTokens;
+    }
+
+    /**
+ * @dev See {IPBM-batchMint}.
+     *
+     * IMPT: Before minting, the caller should approve the contract address to spend ERC-20 tokens on behalf of the caller.
+     *       This can be done by calling the `approve` or `increaseMinterAllowance` functions of the ERC-20 contract and specifying `_spender` to be the PBM contract address.
+             Ref : https://eips.ethereum.org/EIPS/eip-20
+
+       WARNING: Any contracts that externally call these mint() and batchMint() functions should implement some sort of reentrancy guard procedure (such as OpenZeppelin's ReentrancyGuard).
+     *
+     * Requirements:
+     *
+     * - contract must not be paused
+     * - tokens must not be expired
+     * - `tokenIds` should all be valid ids that have already been created
+     * - `tokenIds` and `amounts` list need to have the same number of values
+     * - caller should have the necessary amount of the ERC-20 tokens required to mint
+     * - caller should have approved the PBM contract to spend the ERC-20 tokens
+     * - receiver should not be blacklisted
+     */
+    function batchMintHelper(address pbmAddressList, uint256[] memory tokenIds, uint256[] memory amounts, address receiver)
+    external returns (uint256)
+    {
+        require(!IPBMAddressList(pbmAddressList).isBlacklisted(receiver), "PBM: 'to' address blacklisted");
+        require(tokenIds.length == amounts.length, "Unequal ids and amounts supplied");
+
+        // calculate the value of the new tokens
+        uint256 valueOfNewTokens = 0 ;
+
+        for (uint256 i = 0; i < tokenIds.length; i++) {
+            valueOfNewTokens += (amounts[i]*getTokenValue(tokenIds[i]));
+        }
+
+        // Transfer spot tokenf from user to contract to wrap it
+        increaseBalanceSupply(tokenIds, amounts);
+        return valueOfNewTokens;
+    }
+
+    /**
      * @dev See {IPBMTokenManager-revokePBM}.
      *
      * Requirements:
@@ -95,7 +163,7 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
      * - `sender` must be the token type creator
      */ 
     function increaseBalanceSupply(uint256[] memory tokenIds, uint256[] memory amounts)
-    external
+    public
     override
     onlyOwner
     {  
@@ -176,6 +244,32 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
     }
 
     /**
+ * @dev See {IPBMTokenManager-getTokenDetailsByIds}.
+     *
+     * Requirements:
+     *
+     * - `tokenIds` should be valid ids that have already been created
+     */
+    function getTokenDetailsByIds(uint256[] memory tokenIds)
+    external
+    override
+    view
+    returns (uint256[] memory ids, string[] memory names, uint256[] memory spotAmounts, uint256[] memory expiry, address[] memory creators )
+    {
+
+        for (uint256 i = 0; i < tokenIds.length; i++) {
+            require(tokenTypes[tokenIds[i]].amount!=0, "PBM: Invalid Token Id(s)");
+            ids[i] = tokenIds[i];
+            names[i] = tokenTypes[tokenIds[i]].name;
+            spotAmounts[i] = tokenTypes[tokenIds[i]].amount;
+            expiry[i] = tokenTypes[tokenIds[i]].expiry;
+            creators[i] = tokenTypes[tokenIds[i]].creator;
+        }
+
+        return (ids, names, spotAmounts, expiry, creators);
+    }
+
+    /**
      * @dev See {IPBMTokenManager-getPBMRevokeValue}.
      *
      * Requirements:
@@ -200,7 +294,7 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
      * - `tokenId` should be a valid id that has already been created
      */ 
     function getTokenValue(uint256 tokenId)
-    external 
+    public
     override
     view 
     returns (uint256) {
@@ -238,5 +332,14 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
     returns (address) {
         require(tokenTypes[tokenId].amount!=0 && block.timestamp < tokenTypes[tokenId].expiry, "PBM: Invalid Token Id(s)"); 
         return tokenTypes[tokenId].creator ; 
+    }
+
+    function serialise(uint256 num)
+    public
+    pure
+    returns (uint256[] memory) {
+        uint256[] memory array  = new uint256[](1) ;
+        array[0] = num ;
+        return array ;
     }
 }

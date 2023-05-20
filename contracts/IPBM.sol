@@ -72,7 +72,16 @@ interface IPBM {
     /// @return amount Amount of the underlying ERC-20 tokens the PBM type wraps around
     /// @return expiry The expiry date (in epoch) for this particular PBM token type. 
     /// @return creator The creator of the PBM token type
-    function getTokenDetails(uint256 tokenId) external view returns(string memory, uint256, uint256, address); 
+    function getTokenDetails(uint256 tokenId) external view returns(string memory, uint256, uint256, address);
+
+    /// @notice Retrieve the details for a list of PBM tokens
+    /// @param tokenIds The ids for the PBMs in query
+    /// @return tokenIds array an array of the token ids of the PBM tokens
+    /// @return names array an array of the names of the PBM tokens
+    /// @return spotAmounts array an array of amount of underlying ERC20 held by the each of the PBM token
+    /// @return expiry array an array of expiry time (in epoch) for the PBM type
+    /// @return creators array an array of creator for the PBM type
+    function getTokenDetailsByIds(uint256[] memory tokenIds) external view returns (uint256[] memory, string[] memory, uint256[] memory, uint256[] memory, address[] memory);
 
     /// @notice Get the URI of the tokenid 
     /// @param tokenId The identifier of the PBM token type

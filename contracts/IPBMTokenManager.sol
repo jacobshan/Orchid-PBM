@@ -34,13 +34,22 @@ interface IPBMTokenManager {
     /// @return Returns the address of the creator
     function getTokenCreator(uint256 tokenId) external view returns (address); 
     
-    /// @notice Retreive the details for a PBM
+    /// @notice Retrieve the details for a PBM
     /// @param tokenId The id for the PBM in query
     /// @return name The name of the PBM type
     /// @return spotAmount Amount of underlying ERC20 held by the each of the PBM token
     /// @return expiry  Expiry time (in epoch) for the PBM type
     /// @return creator Creator for the PBM type
     function getTokenDetails(uint256 tokenId) external view returns (string memory name, uint256 spotAmount, uint256 expiry, address creator);
+
+    /// @notice Retrieve the details for a list of PBM tokens
+    /// @param tokenIds The ids for the PBMs in query
+    /// @return ids array an array of the token ids of the PBM tokens
+    /// @return names array an array of the names of the PBM tokens
+    /// @return spotAmounts array an array of amount of underlying ERC20 held by the each of the PBM token
+    /// @return expiry array an array of expiry time (in epoch) for the PBM type
+    /// @return creators array an array of creator for the PBM type
+    function getTokenDetailsByIds(uint256[] memory tokenIds) external view returns (uint256[] memory ids, string[] memory names, uint256[] memory spotAmounts, uint256[] memory expiry, address[] memory creators );
 
     /// @notice Creates a PBM token type, with all its necessary details
     /// @param companyName The name of the company/agency issuing this PBM type
