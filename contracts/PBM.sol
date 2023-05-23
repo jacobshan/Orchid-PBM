@@ -25,8 +25,8 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
     // time of expiry ( epoch )
     uint256 public contractExpiry ; 
 
-    constructor(string memory _uriPostExpiry) ERC1155("") {
-        pbmTokenManager = address(new PBMTokenManager(_uriPostExpiry)) ; 
+    constructor() ERC1155("") {
+        pbmTokenManager = address(new PBMTokenManager()) ;
     }
 
     function initialise(address _spotToken, uint256 _expiry, address _pbmAddressList)
@@ -54,12 +54,12 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
      * - `tokenExpiry` must be less than contract expiry
      * - `amount` should not be 0
      */
-    function createPBMTokenType(string memory companyName, uint256 spotAmount, uint256 tokenExpiry,address creator, string memory tokenURI) 
+    function createPBMTokenType(string memory companyName, uint256 spotAmount, uint256 tokenExpiry,address creator, string memory tokenURI, string memory postExpiryURI)
     external 
     override
     onlyOwner 
     {        
-        PBMTokenManager(pbmTokenManager).createTokenType(companyName, spotAmount, tokenExpiry, creator,  tokenURI, contractExpiry);
+        PBMTokenManager(pbmTokenManager).createTokenType(companyName, spotAmount, tokenExpiry, creator,  tokenURI, postExpiryURI, contractExpiry);
     }
 
     /**

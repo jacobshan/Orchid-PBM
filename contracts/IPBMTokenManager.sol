@@ -48,13 +48,15 @@ interface IPBMTokenManager {
     /// @param tokenExpiry The expiry date (in epoch) of th PBM type
     /// @param creator The address of the account that creates the PBM type
     /// @param tokenURI the URI containting the metadata (opensea standard for ERC1155) for the  PBM type
+    /// @param postExpiryURI the URI containting the metadata (opensea standard for ERC1155) for the expired PBM type
     /// @param contractExpiry the expiry time (in epoch) for the overall PBM contract
     function createTokenType(
         string memory companyName, 
         uint256 spotAmount, 
         uint256 tokenExpiry, 
         address creator,
-        string memory tokenURI, 
+        string memory tokenURI,
+        string memory postExpiryURI,
         uint256 contractExpiry
     ) external ; 
 

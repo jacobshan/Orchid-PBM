@@ -16,6 +16,7 @@ interface IPBM {
     /// @param spotAmount Amount of the underlying ERC-20 tokens the PBM type wraps around
     /// @param tokenExpiry The expiry date (in epoch) for this particular PBM token type 
     /// @param tokenURI the URI (returns json) of PBM type that will follows the Opensea NFT metadata standard
+    /// @param postExpiryURI the URI (returns json) of expired PBM type that will follows the Opensea NFT metadata standard
     /**
     * example response of token URI, ref : https://docs.opensea.io/docs/metadata-standards
     * {
@@ -30,7 +31,7 @@ interface IPBM {
     *     ]
     * }
      */
-    function createPBMTokenType(string memory companyName, uint256 spotAmount, uint256 tokenExpiry,address creator, string memory tokenURI) external;  
+    function createPBMTokenType(string memory companyName, uint256 spotAmount, uint256 tokenExpiry,address creator, string memory tokenURI, string memory postExpiryURI) external;
 
     /// @notice Creates new PBM copies ( ERC1155 NFT ) of an existing PBM token type after ensuring it is backed by the necessary value of the underlying ERC-20 tokens 
     /// @param tokenId The identifier of the PBM token type

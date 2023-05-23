@@ -20,18 +20,14 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
         uint256 expiry ; 
         address creator ; 
         uint256 balanceSupply ; 
-        string uri ; 
+        string uri ;
+        string postExpiryURI;
     }
-
-    // URI for tokens after expiry
-    string  internal  URIPostExpiry ; 
 
     // mapping of token ids to token details
     mapping (uint256 => TokenConfig) internal tokenTypes ; 
 
-    constructor(string memory _uriPostExpiry){
-        URIPostExpiry = _uriPostExpiry ; 
-    }
+    constructor(){}
 
     /**
      * @dev See {IPBMTokenManager-createPBMTokenType}.
@@ -43,7 +39,7 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
      * - token expiry must be less than contract expiry
      * - `amount` should not be 0
      */ 
-    function createTokenType(string memory companyName, uint256 spotAmount, uint256 tokenExpiry, address creator, string memory tokenURI, uint256 contractExpiry) 
+    function createTokenType(string memory companyName, uint256 spotAmount, uint256 tokenExpiry, address creator, string memory tokenURI, string memory postExpiryURI,uint256 contractExpiry)
     external 
     override 
     onlyOwner
@@ -59,7 +55,8 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
         tokenTypes[tokenTypeCount].expiry = tokenExpiry ; 
         tokenTypes[tokenTypeCount].creator = creator ; 
         tokenTypes[tokenTypeCount].balanceSupply = 0 ; 
-        tokenTypes[tokenTypeCount].uri = tokenURI ; 
+        tokenTypes[tokenTypeCount].uri = tokenURI ;
+        tokenTypes[tokenTypeCount].postExpiryURI = postExpiryURI ;
 
         emit NewPBMTypeCreated(tokenTypeCount, tokenName, spotAmount, tokenExpiry, creator);
         tokenTypeCount += 1 ;
@@ -136,7 +133,7 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
     returns (string memory)
     {
         if (block.timestamp >= tokenTypes[tokenId].expiry){
-            return URIPostExpiry ; 
+            return tokenTypes[tokenId].postExpiryURI ;
         }
         return tokenTypes[tokenId].uri ; 
     }
