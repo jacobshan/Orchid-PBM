@@ -25,23 +25,11 @@ contract IssuerHelper is ERC2771Context, Ownable {
         targetPBM = _targetPBM;
     }
 
-    function _msgSender()
-        internal
-        view
-        virtual
-        override(Context, ERC2771Context)
-        returns (address)
-    {
+    function _msgSender() internal view virtual override(Context, ERC2771Context) returns (address) {
         return super._msgSender();
     }
 
-    function _msgData()
-        internal
-        view
-        virtual
-        override(Context, ERC2771Context)
-        returns (bytes calldata)
-    {
+    function _msgData() internal view virtual override(Context, ERC2771Context) returns (bytes calldata) {
         return super._msgData();
     }
 
@@ -80,10 +68,7 @@ contract IssuerHelper is ERC2771Context, Ownable {
     }
 
     modifier onlyWhitelister() {
-        require(
-            allowedWhitelisters[_msgSender()],
-            "Caller is not an allowed whitelister"
-        );
+        require(allowedWhitelisters[_msgSender()], "Caller is not an allowed whitelister");
         _;
     }
 }

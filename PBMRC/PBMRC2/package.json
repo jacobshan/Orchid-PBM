@@ -1,9 +1,16 @@
 {
   "name": "hardhat-project",
+  "scripts": {
+    "sizereport": "hardhat size-contracts",
+    "lint": "prettier --list-different contracts",
+    "pretty": "prettier --write contracts"
+  },
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "@nomicfoundation/hardhat-toolbox": "^1.0.2",
     "hardhat": "^2.14.0",
-    "hardhat-contract-sizer": "^2.8.0"
+    "hardhat-contract-sizer": "^2.8.0",
+    "prettier": "^2.8.8",
+    "prettier-plugin-solidity": "^1.1.3"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.8.3",
