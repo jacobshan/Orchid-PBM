@@ -86,7 +86,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
      * - caller should have approved the PBM contract to spend the ERC-20 tokens
      * - receiver should not be blacklisted
      */
-    function mint(uint256 tokenId, uint256 amount, address receiver) external override whenNotPaused {
+    function mint(uint256 tokenId, uint256 amount, address receiver) external virtual override whenNotPaused {
         require(!IPBMAddressList(pbmAddressList).isBlacklisted(receiver), "PBM: 'to' address blacklisted");
         uint256 valueOfNewTokens = amount * (PBMTokenManager(pbmTokenManager).getTokenValue(tokenId));
 
@@ -121,7 +121,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
         uint256[] memory tokenIds,
         uint256[] memory amounts,
         address receiver
-    ) external override whenNotPaused {
+    ) external virtual override whenNotPaused {
         require(!IPBMAddressList(pbmAddressList).isBlacklisted(receiver), "PBM: 'to' address blacklisted");
         require(tokenIds.length == amounts.length, "Unequal ids and amounts supplied");
 
@@ -156,7 +156,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
         uint256 id,
         uint256 amount,
         bytes memory data
-    ) public override(ERC1155, IPBM) whenNotPaused {
+    ) public virtual override(ERC1155, IPBM) whenNotPaused {
         require(
             from == _msgSender() || isApprovedForAll(from, _msgSender()),
             "ERC1155: caller is not token owner nor approved"
@@ -195,7 +195,7 @@ contract PBM is ERC1155, Ownable, Pausable, IPBM {
         uint256[] memory ids,
         uint256[] memory amounts,
         bytes memory data
-    ) public override(ERC1155, IPBM) whenNotPaused {
+    ) public virtual override(ERC1155, IPBM) whenNotPaused {
         require(
             from == _msgSender() || isApprovedForAll(from, _msgSender()),
             "ERC1155: caller is not token owner nor approved"

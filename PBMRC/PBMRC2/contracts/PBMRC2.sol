@@ -7,59 +7,48 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "./PBM.sol";
 
 contract PBMRC2 is PBM {
-    constructor(string memory _uriPostExpiry) PBM(_uriPostExpiry) {}
+    constructor() PBM() {}
+    event TokenLoad(address caller, address to, uint256 tokenId, uint256 amount, address ERC20Token, uint256 ERC20TokenValue);
 
-    struct Envelope {
-        address to;
-        uint256 tokenId;
-        uint256 spotAmount;
+    function load(uint256 tokenId, uint256 amount, address caller) public returns (uint256) {
+        ERC20Helper.safeTransfer(spotToken, address(this), amount);
+        // load function doesn't specify the underlying token recipient use 0 address as a place holder
+        uint256 envelopeId = PBMTokenManager(pbmTokenManager).loadHelper(tokenId, amount, address(0));
+        emit TokenLoad(caller, address(0), tokenId, amount, spotToken, amount);
+        return envelopeId;
     }
-    // mapping to store the underlying spot token amounts
-    // user address => tokenId => Envelope[]
-    mapping(address => mapping(uint256 => Envelope[])) public envelopes;
 
-    function loadTo(uint256 tokenId, uint256 amount, address recipient) public {
-        // check whether user holds the PBM envelope
-        require(balanceOf(_msgSender(), tokenId) > 0, "PBM: Don't have any PBM to load to.");
-        // Write the spotAmount to the envelope
-        envelopes[msg.sender][tokenId].push(Envelope(recipient, tokenId, amount));
+    function loadTo(uint256 tokenId, uint256 amount, address recipient, address caller) public returns (uint256){
+        require(balanceOf(caller, tokenId) > 0, "PBM: Doesn't have enough PBM.");
         // pull the ERC20 spot token to the PBM
         ERC20Helper.safeTransfer(spotToken, address(this), amount);
+        uint256 envelopeId = PBMTokenManager(pbmTokenManager).loadHelper(tokenId, amount, recipient);
+        emit TokenLoad(caller, recipient, tokenId, amount, spotToken, amount);
+        return envelopeId;
     }
 
-    function safeMint(address receiver, uint256 tokenId, uint256 amount, bytes calldata data) public whenNotPaused {
-        require(!IPBMAddressList(pbmAddressList).isBlacklisted(receiver), "PBM: 'to' address blacklisted");
-        PBMTokenManager(pbmTokenManager).increaseBalanceSupply(serialise(tokenId), serialise(amount));
-        _mint(receiver, tokenId, amount, data);
+    function mint(uint256 tokenId, uint256 amount, address receiver) public override whenNotPaused {
+        PBMTokenManager(pbmTokenManager).mintHelper(tokenId, amount, receiver, pbmAddressList);
+        _mint(receiver, tokenId, amount, "");
     }
 
-    function safeMintBatch(
-        address receiver,
+    function batchMint(
         uint256[] calldata tokenIds,
         uint256[] calldata amounts,
-        bytes calldata data
-    ) public whenNotPaused {
-        require(!IPBMAddressList(pbmAddressList).isBlacklisted(receiver), "PBM: 'to' address blacklisted");
-        require(tokenIds.length == amounts.length, "Unequal ids and amounts supplied");
-
-        PBMTokenManager(pbmTokenManager).increaseBalanceSupply(tokenIds, amounts);
-        _mintBatch(receiver, tokenIds, amounts, data);
+        address receiver
+    ) public override whenNotPaused {
+        PBMTokenManager(pbmTokenManager).batchMintHelper(tokenIds, amounts, receiver, pbmAddressList);
+        _mintBatch(receiver, tokenIds, amounts, "");
     }
 
-    function underlyingBalanceOf(uint256 tokenId, address user) public view returns (uint256) {
-        uint totalSpotAmount = 0;
-
-        for (uint i = 0; i < envelopes[user][tokenId].length; i++) {
-            totalSpotAmount += envelopes[user][tokenId][i].spotAmount;
-        }
-
-        return totalSpotAmount;
+    function underlyingBalanceOf(uint256 tokenId, uint256 envelopId, address user) public view returns (uint256) {
+        return PBMTokenManager(pbmTokenManager).underlyingBalanceOf(tokenId, envelopId, user);
     }
 
     function safeTransferFrom(
         address from,
         address to,
-        uint256 id,
+        uint256 tokenId,
         uint256 amount,
         bytes memory data
     ) public override(PBM) whenNotPaused {
@@ -70,31 +59,12 @@ contract PBMRC2 is PBM {
         require(!IPBMAddressList(pbmAddressList).isBlacklisted(to), "PBM: 'to' address blacklisted");
 
         if (IPBMAddressList(pbmAddressList).isMerchant(to)) {
-            // find the envelope with the same spotAmount
-            uint256 spotAmount = abi.decode(data, (uint256));
-            uint envelopeIndex;
-            Envelope[] storage userEnvelopes = envelopes[from][id];
-            for (uint i = 0; i < userEnvelopes.length; i++) {
-                if (userEnvelopes[i].spotAmount == spotAmount) {
-                    envelopeIndex = i;
-                    break;
-                }
-            }
-
+            uint256 envelopeId = abi.decode(data, (uint256));
+            uint256 spotAmount = PBMTokenManager(pbmTokenManager).getLoadedAmountAndRedeem(from, tokenId, envelopeId);
             ERC20Helper.safeTransfer(spotToken, to, spotAmount);
-            _safeTransferFrom(from, to, id, amount, data);
-
-            uint256 lastIndex = userEnvelopes.length - 1;
-            // Move the last envelope to the position of the deleted envelope
-            userEnvelopes[envelopeIndex] = userEnvelopes[lastIndex];
-            // Remove the last envelope
-            userEnvelopes.pop();
-
-            delete envelopes[from][id][envelopeIndex];
-            emit MerchantPayment(from, to, serialise(id), serialise(amount), spotToken, spotAmount);
-        } else {
-            _safeTransferFrom(from, to, id, amount, data);
+            emit MerchantPayment(from, to, serialise(tokenId), serialise(amount), spotToken, spotAmount);
         }
+        _safeTransferFrom(from, to, tokenId, amount, data);
     }
 
     function safeBatchTransferFrom(
@@ -112,19 +82,11 @@ contract PBMRC2 is PBM {
         require(ids.length == amounts.length, "Unequal ids and amounts supplied");
 
         if (IPBMAddressList(pbmAddressList).isMerchant(to)) {
-            uint256 valueOfTokens = 0;
-            for (uint256 i = 0; i < ids.length; i++) {
-                valueOfTokens += underlyingBalanceOf(ids[i], from);
-            }
-            ERC20Helper.safeTransfer(spotToken, to, valueOfTokens);
-            _safeBatchTransferFrom(from, to, ids, amounts, data);
-            emit MerchantPayment(from, to, ids, amounts, spotToken, valueOfTokens);
-        } else {
-            _safeBatchTransferFrom(from, to, ids, amounts, data);
+            uint256[] memory envelopesIds = abi.decode(data, (uint256[]));
+            uint256 spotAmounts = PBMTokenManager(pbmTokenManager).getLoadedAmountsAndRedeem(from, ids, envelopesIds);
+            ERC20Helper.safeTransfer(spotToken, to, spotAmounts);
+            emit MerchantPayment(from, to, ids, amounts, spotToken, spotAmounts);
         }
-    }
-
-    function uri(uint256 tokenId) public view override(PBM) returns (string memory) {
-        return PBMTokenManager(pbmTokenManager).uri(tokenId);
+        _safeBatchTransferFrom(from, to, ids, amounts, data);
     }
 }

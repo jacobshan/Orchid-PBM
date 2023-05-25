@@ -3,6 +3,7 @@ pragma solidity ^0.8.0;
 
 import "./IPBMTokenManager.sol";
 import "./NoDelegateCall.sol";
+import "./IPBMAddressList.sol";
 
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -26,6 +27,25 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
 
     // mapping of token ids to token details
     mapping(uint256 => TokenConfig) internal tokenTypes;
+
+    enum EnvelopeStatus {
+        NONE,
+        LOADED,
+        REDEEMED
+    }
+
+    uint256 internal envelopeCount = 0;
+
+    struct Envelope {
+        address to;
+        uint256 spotAmount;
+        EnvelopeStatus status;
+    }
+    // user address => tokenId => envelopeId => Envelope
+    mapping(address => mapping(uint256 => mapping(uint256 => Envelope))) public envelopes;
+
+    // user address => envelopeIds
+    mapping(address => uint256[]) public envelopeIds;
 
     constructor() {}
 
@@ -92,7 +112,7 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
      * - `tokenId` should be a valid id that has already been created
      * - `sender` must be the token type creator
      */
-    function increaseBalanceSupply(uint256[] memory tokenIds, uint256[] memory amounts) external override onlyOwner {
+    function increaseBalanceSupply(uint256[] memory tokenIds, uint256[] memory amounts) public override onlyOwner {
         for (uint256 i = 0; i < tokenIds.length; i++) {
             require(
                 tokenTypes[tokenIds[i]].amount != 0 && block.timestamp < tokenTypes[tokenIds[i]].expiry,
@@ -111,7 +131,7 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
      * - `tokenId` should be a valid id that has already been created
      * - `sender` must be the token type creator
      */
-    function decreaseBalanceSupply(uint256[] memory tokenIds, uint256[] memory amounts) external override onlyOwner {
+    function decreaseBalanceSupply(uint256[] memory tokenIds, uint256[] memory amounts) public override onlyOwner {
         for (uint256 i = 0; i < tokenIds.length; i++) {
             require(
                 tokenTypes[tokenIds[i]].amount != 0 && block.timestamp < tokenTypes[tokenIds[i]].expiry,
@@ -219,5 +239,65 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
             "PBM: Invalid Token Id(s)"
         );
         return tokenTypes[tokenId].creator;
+    }
+
+    function mintHelper(
+        uint256 tokenId,
+        uint256 amount,
+        address receiver,
+        address pbmAddressList
+    ) public {
+        require(!IPBMAddressList(pbmAddressList).isBlacklisted(receiver), "PBM: 'to' address blacklisted");
+        increaseBalanceSupply(serialise(tokenId), serialise(amount));
+    }
+
+    function batchMintHelper(
+        uint256[] memory tokenIds,
+        uint256[] memory amounts,
+        address receiver,
+        address pbmAddressList
+    ) public {
+        require(!IPBMAddressList(pbmAddressList).isBlacklisted(receiver), "PBM: 'to' address blacklisted");
+        require(tokenIds.length == amounts.length, "Unequal ids and amounts supplied");
+        increaseBalanceSupply(tokenIds, amounts);
+    }
+
+
+    function loadHelper(uint256 tokenId, uint256 amount, address recipient) public returns (uint256){
+        // Write the spotAmount to the envelope
+        envelopes[msg.sender][tokenId][envelopeCount] = Envelope(recipient, amount, EnvelopeStatus.LOADED);
+        uint256 envelopeId = envelopeCount;
+        // Write the envelopeId to the user address to envelopeIds map
+        envelopeIds[msg.sender].push(envelopeCount);
+        envelopeCount += 1;
+        return envelopeId;
+    }
+
+    function underlyingBalanceOf(uint256 tokenId, uint256 envelopId, address user) public view returns (uint256) {
+        return envelopes[user][tokenId][envelopId].spotAmount;
+    }
+
+    function getLoadedAmountAndRedeem(address from, uint256 tokenId, uint256 envelopeId) public returns(uint256) {
+        require(envelopes[from][tokenId][envelopeId].status == EnvelopeStatus.LOADED, "PBM: Envelope not loaded");
+        uint256 spotAmount = envelopes[from][tokenId][envelopeId].spotAmount;
+        envelopes[from][tokenId][envelopeId].status = EnvelopeStatus.REDEEMED;
+        return spotAmount;
+    }
+
+    function getLoadedAmountsAndRedeem(address from, uint256[] memory tokenIds, uint256[] memory envelopesIds) public returns(uint256) {
+        require(tokenIds.length == envelopesIds.length, "Unequal tokenIds and envelopIds supplied");
+        uint256 spotAmounts = 0;
+        for (uint256 i = 0; i < tokenIds.length; i++) {
+            require(envelopes[from][tokenIds[i]][envelopesIds[i]].status == EnvelopeStatus.LOADED, "PBM: Envelope not loaded");
+            spotAmounts += envelopes[from][tokenIds[i]][envelopesIds[i]].spotAmount;
+            envelopes[from][tokenIds[i]][envelopesIds[i]].status = EnvelopeStatus.REDEEMED;
+        }
+        return spotAmounts;
+    }
+
+    function serialise(uint256 num) internal pure returns (uint256[] memory) {
+        uint256[] memory array = new uint256[](1);
+        array[0] = num;
+        return array;
     }
 }

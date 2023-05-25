@@ -44,11 +44,11 @@ contract IssuerHelper is ERC2771Context, Ownable {
         // transfer the ERC20 token from user to helper
         IERC20(erc20Token).safeTransferFrom(wallet, address(this), amount);
 
-        IPBMRC2(targetPBM).loadTo(tokenId, amount, wallet);
+        uint256 envelopeId = IPBMRC2(targetPBM).loadTo(tokenId, amount, recipient, msg.sender);
 
-        bytes memory data = abi.encode(amount);
+        bytes memory data = abi.encode(envelopeId);
 
-        IPBMRC2(targetPBM).safeTransferFrom(address(this), recipient, tokenId, amount, data);
+        IPBMRC2(targetPBM).safeTransferFrom(wallet, recipient, tokenId, amount, data);
     }
 
     function addWhitelistedWallet(address _wallet) external onlyWhitelister {
