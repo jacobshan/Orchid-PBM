@@ -46,5 +46,7 @@ module.exports = async function (deployer,network, accounts) {
     await pbm.batchMint([0,1,2], [10,10,10], "0x8CC4D23D8556Fdb5875F17b6d6D7149380F24D93") ;
     // airdrop to circle test wallet
     await pbm.batchMint([0,1,2], [10,10,10], "0x281F397c5a5a6E9BE42255b01EfDf8b42F0Cd179") ;
+    // airdrop to grab wallet
+    await pbm.batchMint([0,1,2], [10,10,5], "0xd0b72a553d2c57f7997ba420a758c7a0fad92eef") ;
     console.log("PBM created and minted") ; 
 }
