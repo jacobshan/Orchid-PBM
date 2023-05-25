@@ -31,7 +31,8 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
     enum EnvelopeStatus {
         NONE,
         LOADED,
-        REDEEMED
+        REDEEMED,
+        UNLOADED
     }
 
     uint256 internal envelopeCount = 0;
@@ -44,8 +45,8 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
     // user address => tokenId => envelopeId => Envelope
     mapping(address => mapping(uint256 => mapping(uint256 => Envelope))) public envelopes;
 
-    // user address => envelopeIds
-    mapping(address => uint256[]) public envelopeIds;
+    // user address => tokenId => envelopeIds
+    mapping(address => mapping(uint256 => uint256[])) public envelopeIds;
 
     constructor() {}
 
@@ -263,14 +264,27 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
     }
 
 
-    function loadHelper(uint256 tokenId, uint256 amount, address recipient) public returns (uint256){
+    function loadHelper(address caller, uint256 tokenId, uint256 amount, address recipient) public returns (uint256){
         // Write the spotAmount to the envelope
-        envelopes[msg.sender][tokenId][envelopeCount] = Envelope(recipient, amount, EnvelopeStatus.LOADED);
+        envelopes[caller][tokenId][envelopeCount] = Envelope(recipient, amount, EnvelopeStatus.LOADED);
         uint256 envelopeId = envelopeCount;
         // Write the envelopeId to the user address to envelopeIds map
-        envelopeIds[msg.sender].push(envelopeCount);
+        envelopeIds[caller][tokenId].push(envelopeId);
         envelopeCount += 1;
         return envelopeId;
+    }
+
+    function unloadHelper(address caller, uint256 tokenId, uint256 amount) public {
+        uint256[] memory ownedEnvelopeIds = envelopeIds[caller][tokenId];
+        uint256 unloadId;
+        for (uint256 i = 0; i < ownedEnvelopeIds.length; i++) {
+            if (envelopes[caller][tokenId][ownedEnvelopeIds[i]].spotAmount == amount) {
+                envelopes[caller][tokenId][ownedEnvelopeIds[i]].status = EnvelopeStatus.UNLOADED;
+                unloadId = ownedEnvelopeIds[i];
+                break;
+            }
+        }
+        require(unloadId != 0, "PBM: No envelope with the given amount found");
     }
 
     function underlyingBalanceOf(uint256 tokenId, uint256 envelopId, address user) public view returns (uint256) {

@@ -9,11 +9,12 @@ import "./PBM.sol";
 contract PBMRC2 is PBM {
     constructor() PBM() {}
     event TokenLoad(address caller, address to, uint256 tokenId, uint256 amount, address ERC20Token, uint256 ERC20TokenValue);
+    event TokenUnload(address caller, address from, uint256 tokenId, uint256 amount, address ERC20Token, uint256 ERC20TokenValue);
 
     function load(uint256 tokenId, uint256 amount, address caller) public returns (uint256) {
-        ERC20Helper.safeTransfer(spotToken, address(this), amount);
+        ERC20Helper.safeTransferFrom(spotToken, msg.sender, address(this), amount);
         // load function doesn't specify the underlying token recipient use 0 address as a place holder
-        uint256 envelopeId = PBMTokenManager(pbmTokenManager).loadHelper(tokenId, amount, address(0));
+        uint256 envelopeId = PBMTokenManager(pbmTokenManager).loadHelper(caller, tokenId, amount, address(0));
         emit TokenLoad(caller, address(0), tokenId, amount, spotToken, amount);
         return envelopeId;
     }
@@ -21,10 +22,17 @@ contract PBMRC2 is PBM {
     function loadTo(uint256 tokenId, uint256 amount, address recipient, address caller) public returns (uint256){
         require(balanceOf(caller, tokenId) > 0, "PBM: Doesn't have enough PBM.");
         // pull the ERC20 spot token to the PBM
-        ERC20Helper.safeTransfer(spotToken, address(this), amount);
-        uint256 envelopeId = PBMTokenManager(pbmTokenManager).loadHelper(tokenId, amount, recipient);
-        emit TokenLoad(caller, recipient, tokenId, amount, spotToken, amount);
+        ERC20Helper.safeTransferFrom(spotToken, msg.sender, address(this), amount);
+        uint256 envelopeId = PBMTokenManager(pbmTokenManager).loadHelper(caller, tokenId, amount, recipient);
+        emit TokenLoad(caller, recipient, tokenId, 1, spotToken, amount);
         return envelopeId;
+    }
+
+    function unload(uint256 tokenId, uint256 amount, address caller) public {
+        require(balanceOf(caller, tokenId) >= 0, "PBM: Doesn't have enough PBM.");
+        PBMTokenManager(pbmTokenManager).unloadHelper(caller, tokenId, amount);
+        ERC20Helper.safeTransferFrom(spotToken, address(this), msg.sender, amount);
+        emit TokenUnload(caller, address(this), tokenId, 1, spotToken, amount);
     }
 
     function mint(uint256 tokenId, uint256 amount, address receiver) public override whenNotPaused {

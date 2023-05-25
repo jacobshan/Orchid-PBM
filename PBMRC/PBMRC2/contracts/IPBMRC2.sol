@@ -46,7 +46,7 @@ interface IPBMRC2 is IPBM {
     /// @dev The underlying token will be removed and transferred to the address of the caller (msg.sender).
     /// @param tokenId Identifier of the PBM token type to be unloaded.
     /// @param amount The quantity of the corresponding tokens to be unloaded.
-    function unload(uint256 tokenId, uint256 amount) external;
+    function unload(uint256 tokenId, uint256 amount, address caller) external;
 
     /// Emitted when an underlying token is loaded into a PBM
     /// @param caller Address by which ERC20token is taken from.
