@@ -8,8 +8,23 @@ import "./PBM.sol";
 
 contract PBMRC2 is PBM {
     constructor() PBM() {}
-    event TokenLoad(address caller, address to, uint256 tokenId, uint256 amount, address ERC20Token, uint256 ERC20TokenValue);
-    event TokenUnload(address caller, address from, uint256 tokenId, uint256 amount, address ERC20Token, uint256 ERC20TokenValue);
+
+    event TokenLoad(
+        address caller,
+        address to,
+        uint256 tokenId,
+        uint256 amount,
+        address ERC20Token,
+        uint256 ERC20TokenValue
+    );
+    event TokenUnload(
+        address caller,
+        address from,
+        uint256 tokenId,
+        uint256 amount,
+        address ERC20Token,
+        uint256 ERC20TokenValue
+    );
 
     function load(uint256 tokenId, uint256 amount, address caller) public returns (uint256) {
         ERC20Helper.safeTransferFrom(spotToken, msg.sender, address(this), amount);
@@ -19,7 +34,7 @@ contract PBMRC2 is PBM {
         return envelopeId;
     }
 
-    function loadTo(uint256 tokenId, uint256 amount, address recipient, address caller) public returns (uint256){
+    function loadTo(uint256 tokenId, uint256 amount, address recipient, address caller) public returns (uint256) {
         require(balanceOf(caller, tokenId) > 0, "PBM: Doesn't have enough PBM.");
         // pull the ERC20 spot token to the PBM
         ERC20Helper.safeTransferFrom(spotToken, msg.sender, address(this), amount);

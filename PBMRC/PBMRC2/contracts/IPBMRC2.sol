@@ -9,8 +9,8 @@ pragma solidity ^0.8.0;
  *  allowing the loading of the underlying token to happen at a later stage.
  */
 import "./IPBM.sol";
-interface IPBMRC2 is IPBM {
 
+interface IPBMRC2 is IPBM {
     /// @notice This function extends IPBMRC1 to mint PBM tokens as empty containers without underlying tokens of value.
     /// @dev The loading of the underlying token of value can be done by calling the `load` function. The function parameters should be identical to IPBMRC1
     function mint(address receiver, uint256 tokenId, uint256 amount, bytes calldata data) external;
@@ -55,7 +55,14 @@ interface IPBMRC2 is IPBM {
     /// @param amount The quantity of tokens to be loaded
     /// @param ERC20Token The address of the underlying ERC-20 token.
     /// @param ERC20TokenValue The amount of underlying ERC-20 tokens loaded
-    event TokenLoad(address caller, address to, uint256 tokenId, uint256 amount, address ERC20Token, uint256 ERC20TokenValue);
+    event TokenLoad(
+        address caller,
+        address to,
+        uint256 tokenId,
+        uint256 amount,
+        address ERC20Token,
+        uint256 ERC20TokenValue
+    );
 
     /// @notice Emitted when an underlying token is unloaded from a PBM.
     /// This event indicates the process of releasing the underlying token from the PBM smart contract.
@@ -65,5 +72,12 @@ interface IPBMRC2 is IPBM {
     /// @param amount The quantity of the corresponding unloaded tokens.
     /// @param ERC20Token The address of the underlying ERC-20 token.
     /// @param ERC20TokenValue The amount of unloaded underlying ERC-20 tokens transferred.
-    event TokenUnload(address caller, address from, uint256 tokenId, uint256 amount, address ERC20Token, uint256 ERC20TokenValue);
+    event TokenUnload(
+        address caller,
+        address from,
+        uint256 tokenId,
+        uint256 amount,
+        address ERC20Token,
+        uint256 ERC20TokenValue
+    );
 }

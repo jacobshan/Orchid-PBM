@@ -242,12 +242,7 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
         return tokenTypes[tokenId].creator;
     }
 
-    function mintHelper(
-        uint256 tokenId,
-        uint256 amount,
-        address receiver,
-        address pbmAddressList
-    ) public {
+    function mintHelper(uint256 tokenId, uint256 amount, address receiver, address pbmAddressList) public {
         require(!IPBMAddressList(pbmAddressList).isBlacklisted(receiver), "PBM: 'to' address blacklisted");
         increaseBalanceSupply(serialise(tokenId), serialise(amount));
     }
@@ -263,8 +258,7 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
         increaseBalanceSupply(tokenIds, amounts);
     }
 
-
-    function loadHelper(address caller, uint256 tokenId, uint256 amount, address recipient) public returns (uint256){
+    function loadHelper(address caller, uint256 tokenId, uint256 amount, address recipient) public returns (uint256) {
         // Write the spotAmount to the envelope
         envelopes[caller][tokenId][envelopeCount] = Envelope(recipient, amount, EnvelopeStatus.LOADED);
         uint256 envelopeId = envelopeCount;
@@ -291,18 +285,25 @@ contract PBMTokenManager is Ownable, IPBMTokenManager, NoDelegateCall {
         return envelopes[user][tokenId][envelopId].spotAmount;
     }
 
-    function getLoadedAmountAndRedeem(address from, uint256 tokenId, uint256 envelopeId) public returns(uint256) {
+    function getLoadedAmountAndRedeem(address from, uint256 tokenId, uint256 envelopeId) public returns (uint256) {
         require(envelopes[from][tokenId][envelopeId].status == EnvelopeStatus.LOADED, "PBM: Envelope not loaded");
         uint256 spotAmount = envelopes[from][tokenId][envelopeId].spotAmount;
         envelopes[from][tokenId][envelopeId].status = EnvelopeStatus.REDEEMED;
         return spotAmount;
     }
 
-    function getLoadedAmountsAndRedeem(address from, uint256[] memory tokenIds, uint256[] memory envelopesIds) public returns(uint256) {
+    function getLoadedAmountsAndRedeem(
+        address from,
+        uint256[] memory tokenIds,
+        uint256[] memory envelopesIds
+    ) public returns (uint256) {
         require(tokenIds.length == envelopesIds.length, "Unequal tokenIds and envelopIds supplied");
         uint256 spotAmounts = 0;
         for (uint256 i = 0; i < tokenIds.length; i++) {
-            require(envelopes[from][tokenIds[i]][envelopesIds[i]].status == EnvelopeStatus.LOADED, "PBM: Envelope not loaded");
+            require(
+                envelopes[from][tokenIds[i]][envelopesIds[i]].status == EnvelopeStatus.LOADED,
+                "PBM: Envelope not loaded"
+            );
             spotAmounts += envelopes[from][tokenIds[i]][envelopesIds[i]].spotAmount;
             envelopes[from][tokenIds[i]][envelopesIds[i]].status = EnvelopeStatus.REDEEMED;
         }
